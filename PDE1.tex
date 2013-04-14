@@ -1,0 +1,447 @@
+%% LyX 2.0.5.1 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[11pt,english,ngerman]{scrreprt}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper]{geometry}
+\geometry{verbose,tmargin=2.6cm,bmargin=3.5cm,lmargin=2.6cm,rmargin=2.6cm}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+\usepackage{babel}
+\usepackage{textcomp}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[unicode=true,
+ bookmarks=true,bookmarksnumbered=true,bookmarksopen=false,
+ breaklinks=true,pdfborder={0 0 0},backref=page,colorlinks=false]
+ {hyperref}
+\hypersetup{pdftitle={Partielle Differentialgleichungen I},
+ pdfauthor={Andreas Völklein},
+ pdfkeywords={Partielle Differentialgleichungen, Mathematik}}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\providecommand{\LyX}{\texorpdfstring%
+  {L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
+  {LyX}}
+\newcommand{\noun}[1]{\textsc{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\usepackage{enumitem}		% customizable list environments
+\newlength{\lyxlabelwidth}      % auxiliary length 
+
+\@ifundefined{date}{}{\date{}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{tikz,pgfplots}
+%\usepackage{tikz-3dplot,cancel,polynom}
+\usetikzlibrary{matrix,arrows,calc,decorations.pathmorphing,intersections,shapes}
+\usetikzlibrary{external}
+\tikzexternalize
+\usepackage{latexsym,stmaryrd,stackrel,braket,bbm,subfig,framed,esvect,scrhack,calc}
+\usepackage [OMLmathrm,OMLmathbf,sfdefault=fav]{isomath}
+\usepackage[explicit]{titlesec}
+\usepackage[activate]{pdfcprot}
+
+\pgfkeys{/pgf/number format/dec sep={\text{,}}}
+\pgfplotsset{compat=newest}
+
+% Inhaltsverzeichnis
+\usepackage[subfigure]{tocloft}
+
+\tocloftpagestyle{fancy}
+
+\renewcommand{\cftchapindent}{1 em}
+\renewcommand{\cftchapnumwidth}{1.5 em}
+
+\renewcommand{\cftsecindent}{2.7 em}
+\renewcommand{\cftsecnumwidth}{2.5em}
+
+\renewcommand{\cftsubsecindent}{5.2 em}
+\renewcommand{\cftsubsecnumwidth}{3.8 em}
+
+\renewcommand{\cftsubsubsecindent}{9 em}
+\renewcommand{\cftsubsubsecnumwidth}{4.5 em}
+
+% Mathe-Operatoren
+\DeclareMathOperator*{\exsop}{\exists}
+\DeclareMathOperator*{\exsgop}{\exists!}
+\DeclareMathOperator*{\fallop}{\forall}
+\DeclareMathOperator*{\bcupdop}{\dot{\bigcup}}
+\DeclareMathOperator*{\bcapdop}{\dot{\bigcap}}
+
+%Operatornorm
+\newcommand{\opnor}[1]{\abs{\hspace*{-1.1pt}\norm{#1}\hspace*{-1.1pt}}}
+
+% nicht-totales Differential
+\newcommand{\dBar}{\mathchar'26\mkern-12mu \textnormal{d}}
+
+% Angström
+\newcommand{\ang}{\textup{\AA}}
+
+% schöne Vektorpfeile
+\renewcommand{\vec}[1]{\vv{#1}}
+
+% Rotieren
+\newcommand{\Rotate}[1]{
+\tikzset{external/export next=false}
+\begin{tikzpicture}
+\node[rotate=90] {\ensuremath{#1}};
+\end{tikzpicture}
+}
+
+%QED-Zeichen (Box)
+\newcommand{\qed}{\ensuremath{\Box}}
+\newcommand{\qqed}[1][\arabic{chapter}.\arabic{section}\ifnum\arabic{subsection}>0{.\arabic{subsection}}\fi]{\hspace*{1mm}\hfill\qed\ensuremath{_{\text{#1}}}}
+
+% Mengen Modulo
+\newcommand{\moduloT}[2]{
+\mbox{\raisebox{0.6ex}{\ensuremath{\displaystyle #1}}
+{\hspace*{-1.5mm}\Large /}
+\raisebox{-0.6ex}{\hspace*{-1.5mm}\ensuremath{\displaystyle #2}}
+}}
+
+% Links Modulo
+\newcommand{\lmoduloT}[2]{
+\mbox{\raisebox{-0.6ex}{\ensuremath{\displaystyle #1}}
+{\hspace*{-1.5mm}\Large \ensuremath{\backslash}}
+\raisebox{0.6ex}{\hspace*{-1.5mm}\ensuremath{\displaystyle #2}}
+}}
+
+% Für Z/2Z, um nicht soviel schreiben zu müssen
+\newcommand{\modloT}[2]{\moduloT{ \mathbb{#1}}{#2\mathbb{#1}}}
+
+%Laplace-Beltrami-Operator
+\newcommand{\LBO}{
+\begin{minipage}{6mm}
+ \tikzset{external/export next=false}
+ \begin{tikzpicture}
+   \node at (0,0){$\Delta$};
+   \draw[line width=0.75] (0.25,-0.13) -- (0.1,0.15);
+ \end{tikzpicture}
+\end{minipage}
+}
+
+%Die Modulo-Kommandos in klein, für die Darstellungen unter Quantoren.
+\newcommand{\moduloScriptT}[2]{
+\mbox{\raisebox{0.4ex}{\scriptsize\ensuremath{\displaystyle #1}}
+{\hspace*{-1.5mm}\footnotesize /}
+\raisebox{-0.4ex}{\hspace*{-1.5mm}\scriptsize\ensuremath{\displaystyle #2}}
+}}
+
+\newcommand{\lmoduloScriptT}[2]{
+\mbox{\raisebox{-0.4ex}{\scriptsize\ensuremath{\displaystyle #1}}
+{\hspace*{-1.5mm}\footnotesize \ensuremath{\backslash}}
+\raisebox{0.4ex}{\hspace*{-1.5mm}\scriptsize\ensuremath{\displaystyle #2}}
+}}
+
+\newcommand{\modloScriptT}[2]{\moduloScriptT{ \mathbb{#1}}{#2\mathbb{#1}}}
+
+% stehendes Winkelzeichen
+\newcommand{\winkel}{
+\tikzset{external/export next=false}
+\begin{tikzpicture}[scale=0.25]
+\draw ({-2+3^(1/2)},0) -- (0,1) -- ({2-3^(1/2)},0);
+\draw ($(0,1) + ({cos(235)*0.7},{sin(315)*0.7})$) arc (235:315:0.7);
+\end{tikzpicture}}
+
+% Wurzel mit Häkchen
+\newcommand{\hsqrt}[2][{}]{\setbox0=\hbox{$\sqrt[#1]{\phantom{|}\!\! #2\hspace*{1pt}}$}\dimen0=\ht0
+  \advance\dimen0-0.2\ht0
+  \setbox2=\hbox{\vrule height\ht0 depth -\dimen0}
+  {\box0\lower0.4pt\box2}}
+
+% Damit nicht immer "Kapitel 1" etc. über der Kapitelüberschrift steht
+\titleformat{\chapter}
+  {\huge\bfseries}
+  {\textrm{\thechapter} }{0pt}
+  {\textrm{#1} \thispagestyle{fancy}
+  }
+
+% Neudefinition der Abschnittsmarker für die Kopfzeile
+\renewcommand\partmark[1]{\markboth{#1}{}}
+\renewcommand\chaptermark[1]{\markright{\arabic{chapter} #1}}
+\renewcommand\sectionmark[1]{}
+\renewcommand\subsectionmark[1]{}
+
+% Schriften auf Serif umstellen
+\addtokomafont{descriptionlabel}{\rmfamily}
+\addtokomafont{disposition}{\rmfamily}
+
+% Zeilenumbrüche in Gleichungen
+ \allowdisplaybreaks
+
+% Kopf- und Fußzeile
+% Höhe der Kopfzeile
+\setlength{\headheight}{14pt}
+% obere Trennlinie
+%\renewcommand{\headrulewidth}{0.4pt}
+\fancyhf{} %alle Kopf- und Fußzeilenfelder bereinigen
+\fancyhead[L]{\textbf{Partielle Differentialgleichungen I}} %Kopfzeile links
+%\fancyhead[C]{\leftmark} %zentrierte Kopfzeile
+\fancyhead[R]{\rightmark} %Kopfzeile rechts
+\fancyfoot[C]{\thepage\quad\!\!\!\slash\quad\!\!\!\pageref{END-front}} %Seitenzahl der Front-Matter
+
+\AtBeginDocument{
+  \def\labelitemi{\normalfont\bfseries{--}}
+  \def\labelitemii{\(\circ\)}
+  \def\labelitemiii{\(\triangleright\)}
+}
+
+\makeatother
+
+\begin{document}
+
+
+
+
+
+
+\global\long\def\norm#1{\left\lVert #1\right\rVert }
+
+
+\global\long\def\abs#1{\left\lvert #1\right\rvert }
+
+
+\global\long\def\opnorm#1{\opnor{#1}}
+
+
+\global\long\def\BRA#1{\Bra{#1}}
+
+
+\global\long\def\KET#1{\Ket{#1}}
+
+
+\global\long\def\BraKet#1{\Braket{#1}}
+
+
+\global\long\def\mins{\textnormal{-}}
+
+
+\global\long\def\LB{\LBO}
+
+
+\global\long\def\exs{\exsop}
+
+
+\global\long\def\exsg{\exsgop}
+
+
+\global\long\def\fall{\fallop}
+
+
+\global\long\def\bcupd{\bcupdop}
+
+
+\global\long\def\bcapd{\bcapdop}
+
+
+\global\long\def\sr#1#2#3{\underset{#3}{\overset{#2}{#1}}}
+
+
+\global\long\def\dd{\textnormal{d}}
+
+
+\global\long\def\DD{\textnormal{D}}
+
+
+\global\long\def\dbar{\dBar}
+
+
+\global\long\def\angs{\ang}
+
+
+\global\long\def\TT{\textnormal{T}}
+
+
+\global\long\def\ii{\textbf{i}}
+
+
+\global\long\def\modulo#1#2{\moduloT{#1}{#2}}
+
+
+\global\long\def\lmodulo#1#2{\lmoduloT{#1}{#2}}
+
+
+\global\long\def\modlo#1#2{\modloT{#1}{#2}}
+
+
+\global\long\def\moduloScript#1#2{\moduloScriptT{#1}{#2}}
+
+
+\global\long\def\lmoduloScript#1#2{\lmoduloScriptT{#1}{#2}}
+
+
+\global\long\def\modloScript#1#2{\modloScriptT{#1}{#2}}
+
+
+\global\long\def\vek#1{\vectorsym{#1}}
+
+
+\global\long\def\mat#1{\matrixsym{#1}}
+
+
+\global\long\def\ten#1{\tensorsym{#1}}
+
+
+\global\long\def\msd#1{\mathstrut_{#1}}
+
+
+\global\long\def\msu#1{\mathstrut^{#1}}
+
+
+\pagenumbering{roman}
+
+
+\title{\hspace*{1mm}\vspace*{-15mm}\\
+{\Huge Partielle Differentialgleichungen I}}
+
+
+\author{\vspace*{-5mm}\\
+\textit{\small Vorlesung von}\\
+\textit{\noun{\small Prof. Dr. Felix Finster}}\\
+\textit{\small im Sommersemester 2013}\\
+\textit{\small Überarbeitung und Textsatz in \LyX{} von}\\
+\textit{\noun{\small Andreas Völklein}}\\
+\vspace*{5mm}\\
+\includegraphics[clip,width=15cm]{unir}\\
+\vspace*{3mm}\\
+{\normalsize Stand: \today}\\
+\vspace*{-30mm}}
+
+\maketitle
+\fancyhead[R]{Lizenz}
+
+
+\subsubsection*{ACHTUNG}
+
+Diese Mitschrift ersetzt \emph{nicht} die Vorlesung.
+
+Es wird daher \emph{dringend} empfohlen, die Vorlesung zu besuchen.
+
+\vfill{}
+
+
+\selectlanguage{english}%
+
+\subsubsection*{Copyright Notice}
+
+Copyright © 2013 \noun{Andreas Völklein}
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3
+or any later version published by the Free Software Foundation;
+
+with no Invariant Sections, no Front-Cover Texts, and no Back-Cover
+Texts.
+
+A copy of the license is included in the document entitled “GFDL”.
+
+
+\subsubsection*{Disclaimer of Warranty}
+
+\noun{Unless otherwise mutually agreed to by the parties in writing
+and to the extent not prohibited by applicable law, }\textbf{\noun{the
+Copyright Holders and any other party, who may distribute the Document
+as permitted above,   provide the Document “as is}}\textbf{”,}\textbf{\noun{
+without warranty of any kind}}\noun{, expressed, implied, statutory
+or otherwise, including, but not limited to, the implied warranties
+of merchantability, fitness for a particular purpose, non-infringement,
+the absence of latent or other defects, accuracy, or the absence of
+errors, whether or not discoverable.}
+
+
+\subsubsection*{Limitation of Liability}
+
+\textbf{\noun{In no event}}\noun{ unless required by applicable law
+or agreed to in writing }\textbf{\noun{will the Copyright Holders,
+or any other party, who may distribute the Document as permitted above,
+be liable to you for any damages}}\noun{, including, but not limited
+to, any general, special, incidental, consequential, punitive or exemplary
+damages, however caused, regardless of the theory of liability, arising
+out of or related to this license or any use of or inability to use
+the Document, even if they have been advised of the possibility of
+such damages.}
+
+\textbf{\noun{In no event will the Copyright Holders'/Distributor's
+liability to you}}\noun{, whether in contract, tort (including negligence),
+or otherwise, }\textbf{\noun{exceed the amount you paid the Copyright
+Holders/Distributor}}\noun{ for the document under this agreement.}
+
+\selectlanguage{ngerman}%
+
+\subsubsection*{Links}
+
+Der Text der „\foreignlanguage{english}{GNU Free Documentation License}“
+kann auch auf der Seite
+\begin{quote}
+\url{https://www.gnu.org/licenses/fdl-1.3.de.html}
+\end{quote}
+nachgelesen werden.
+
+Eine transparente Kopie der aktuellen Version dieses Dokuments kann
+von
+\begin{quote}
+\url{https://github.com/andiv/pde1}
+\end{quote}
+heruntergeladen werden.
+
+\newpage{}
+
+\fancyhead[R]{Literatur}
+
+
+\subsection*{Literatur}
+\begin{itemize}
+\item \noun{Name des Autors: }\emph{Titel des Buches}; Verlag, <Erscheinungsjahr>\\
+ISBN: 978-1-2345-6789-0
+\end{itemize}
+{\small \newpage{}}\fancyhead[R]{Inhaltsverzeichnis}
+\fancyhead[C]{}
+
+\tableofcontents{}\label{END-front}\newpage{}\pagenumbering{arabic}
+\fancyfoot[C]{\thepage\quad\!\!\!\slash\quad\!\!\!\pageref{END}} % Seitenzahl des Hauptteils
+\fancyhead[R]{\rightmark}
+%\fancyhead[C]{\leftmark}%DATE: Mi 17.04.2013
+
+
+\chapter{erstes Kapitel}
+
+
+\section{erster Abschnitt}
+
+
+\subsection{erster Unterabschnitt}
+
+
+\part*{Anhang\thispagestyle{empty}}
+
+\addcontentsline{toc}{part}{Anhang}
+
+\fancyhead[R]{Index}
+\fancyhead[C]{Anhang}
+
+
+\chapter*{Danksagungen}
+
+\addcontentsline{toc}{section}{\hspace*{2.7em}Danksagungen}
+
+\fancyhead[R]{Danksagungen}
+
+Mein besonderer Dank geht an Professor Finster, der diese Vorlesung
+hielt und es mir gestattete, diese Vorlesungsmitschrift zu veröffentlichen.
+
+Außerdem möchte ich mich ganz herzlich bei allen bedanken, die durch
+aufmerksames Lesen Fehler gefunden und mir diese mitgeteilt haben.
+
+\vspace{1cm}
+
+
+\hfill{}Andreas Völklein
+
+\label{END}
+\end{document}
