@@ -1,4 +1,4 @@
-Partielle Differentialgleichungen I
+Partial Differential Equations I
 
 Eine GFDL lizensierte Vorlesungs-Mitschrift von Andreas Völklein.
 
