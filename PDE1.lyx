@@ -6,10 +6,10 @@
 \begin_preamble
 \usepackage{tikz,pgfplots}
 %\usepackage{tikz-3dplot,cancel,polynom}
-\usetikzlibrary{matrix,arrows,calc,decorations.pathmorphing,intersections,shapes}
+\usetikzlibrary{matrix,arrows,calc,decorations,decorations.markings,intersections,shapes}
 \usetikzlibrary{external}
 \tikzexternalize
-\usepackage{latexsym,stmaryrd,stackrel,braket,bbm,subfig,framed,esvect,scrhack,calc}
+\usepackage{latexsym,stmaryrd,stackrel,braket,bbm,subfig,framed,esvect,scrhack,calc,upgreek}
 \usepackage [OMLmathrm,OMLmathbf,sfdefault=fav]{isomath}
 \usepackage[explicit]{titlesec}
 \usepackage[activate]{pdfcprot}
@@ -87,7 +87,7 @@
 \begin{minipage}{6mm}
  \tikzset{external/export next=false}
  \begin{tikzpicture}
-   \node at (0,0){$\Delta$};
+   \node at (0,0){$\upDelta$};
    \draw[line width=0.75] (0.25,-0.13) -- (0.1,0.15);
  \end{tikzpicture}
 \end{minipage}
@@ -148,7 +148,7 @@
 % obere Trennlinie
 %\renewcommand{\headrulewidth}{0.4pt}
 \fancyhf{} %alle Kopf- und Fußzeilenfelder bereinigen
-\fancyhead[L]{\textbf{Partielle Differentialgleichungen I}} %Kopfzeile links
+\fancyhead[L]{\textbf{Partial Differential Equations I}} %Kopfzeile links
 %\fancyhead[C]{\leftmark} %zentrierte Kopfzeile
 \fancyhead[R]{\rightmark} %Kopfzeile rechts
 \fancyfoot[C]{\thepage\quad\!\!\!\slash\quad\!\!\!\pageref{END-front}} %Seitenzahl der Front-Matter
@@ -158,7 +158,7 @@
 enumitem
 \end_modules
 \maintain_unincluded_children false
-\language ngerman
+\language english
 \language_package default
 \inputencoding utf8
 \fontencoding global
@@ -180,9 +180,9 @@ enumitem
 \paperfontsize 11
 \spacing single
 \use_hyperref true
-\pdf_title "Partielle Differentialgleichungen I"
+\pdf_title "Partial Differential Equations 1"
 \pdf_author "Andreas Völklein"
-\pdf_keywords "Partielle Differentialgleichungen, Mathematik"
+\pdf_keywords "Partial Differential Equations, Mathematics"
 \pdf_bookmarks true
 \pdf_bookmarksnumbered true
 \pdf_bookmarksopen false
@@ -216,7 +216,7 @@ enumitem
 \tocdepth 2
 \paragraph_separation skip
 \defskip smallskip
-\quotes_language german
+\quotes_language english
 \papercolumns 1
 \papersides 1
 \paperpagestyle fancy
@@ -554,10 +554,6 @@ end{tikzpicture}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 Vorlage: Krumme geschlossene Kurve
 \end_layout
 
@@ -686,14 +682,20 @@ iiilist-2
 \end_layout
 
 \begin_layout Standard
+
+\lang ngerman
 \begin_inset Note Note
 status collapsed
 
 \begin_layout Plain Layout
+
+\lang ngerman
 Flussdiagramm:
 \end_layout
 
 \begin_layout Plain Layout
+
+\lang ngerman
 \begin_inset ERT
 status open
 
@@ -1180,15 +1182,6 @@ end{tikzpicture}
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\angs}{\ang}
-{\AA}
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset FormulaMacro
 \newcommand{\TT}{\textnormal{T}}
 \end_inset
 
@@ -1340,7 +1333,7 @@ vspace*{-15mm}
 
 \series bold
 \size giant
-Partielle Differentialgleichungen I
+Partial Differential Equations I
 \end_layout
 
 \begin_layout Author
@@ -1363,7 +1356,7 @@ vspace*{-5mm}
 
 \shape italic
 \size small
-Vorlesung von
+lecture by
 \begin_inset Newline newline
 \end_inset
 
@@ -1382,11 +1375,11 @@ Prof.
 
 \shape italic
 \size small
-im Sommersemester 2013
+during the summer semester 2013
 \begin_inset Newline newline
 \end_inset
 
-Überarbeitung und Textsatz in LyX von
+revision and layout in LyX by
 \begin_inset Newline newline
 \end_inset
 
@@ -1449,7 +1442,7 @@ vspace*{3mm}
 
 
 \size normal
-Stand: 
+Last changed: 
 \begin_inset ERT
 status open
 
@@ -1492,7 +1485,7 @@ status open
 
 
 \backslash
-fancyhead[R]{Lizenz}
+fancyhead[R]{License}
 \end_layout
 
 \end_inset
@@ -1501,23 +1494,23 @@ fancyhead[R]{Lizenz}
 \end_layout
 
 \begin_layout Subsubsection*
-ACHTUNG
+ATTENTION
 \end_layout
 
 \begin_layout Standard
-Diese Mitschrift ersetzt 
+This script does 
 \emph on
-nicht
+not
 \emph default
- die Vorlesung.
+ replace the lecture.
 \end_layout
 
 \begin_layout Standard
-Es wird daher 
+Therefore it is recommended 
 \emph on
-dringend
+strongly
 \emph default
- empfohlen, die Vorlesung zu besuchen.
+ to attend the lecture.
 \end_layout
 
 \begin_layout Standard
@@ -1528,49 +1521,36 @@ dringend
 \end_layout
 
 \begin_layout Subsubsection*
-
-\lang english
 Copyright Notice
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 Copyright © 2013 
 \noun on
 Andreas Völklein
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 Permission is granted to copy, distribute and/or modify this document under
  the terms of the GNU Free Documentation License, Version 1.3 or any later
  version published by the Free Software Foundation;
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
 \end_layout
 
 \begin_layout Standard
-
-\lang english
 A copy of the license is included in the document entitled “GFDL”.
 \end_layout
 
 \begin_layout Subsubsection*
-
-\lang english
 Disclaimer of Warranty
 \end_layout
 
 \begin_layout Standard
 
 \noun on
-\lang english
 Unless otherwise mutually agreed to by the parties in writing and to the
  extent not prohibited by applicable law, 
 \series bold
@@ -1588,8 +1568,6 @@ the Copyright Holders and any other party, who may distribute the Document
 \end_layout
 
 \begin_layout Subsubsection*
-
-\lang english
 Limitation of Liability
 \end_layout
 
@@ -1597,7 +1575,6 @@ Limitation of Liability
 
 \series bold
 \noun on
-\lang english
 In no event
 \series default
  unless required by applicable law or agreed to in writing 
@@ -1616,7 +1593,6 @@ y of such damages.
 
 \series bold
 \noun on
-\lang english
 In no event will the Copyright Holders'/Distributor's liability to you
 \series default
 , whether in contract, tort (including negligence), or otherwise, 
@@ -1631,11 +1607,8 @@ Links
 \end_layout
 
 \begin_layout Standard
-Der Text der „
-\lang english
-GNU Free Documentation License
-\lang ngerman
-“ kann auch auf der Seite
+The text of the “GNU Free Documentation License” can also be read on the
+ following site:
 \end_layout
 
 \begin_layout Quote
@@ -1644,7 +1617,7 @@ status open
 
 \begin_layout Plain Layout
 
-https://www.gnu.org/licenses/fdl-1.3.de.html
+https://www.gnu.org/licenses/fdl-1.3.en.html
 \end_layout
 
 \end_inset
@@ -1653,11 +1626,8 @@ https://www.gnu.org/licenses/fdl-1.3.de.html
 \end_layout
 
 \begin_layout Standard
-nachgelesen werden.
-\end_layout
-
-\begin_layout Standard
-Eine transparente Kopie der aktuellen Version dieses Dokuments kann von
+A transparent copy of the recent version of this document can be downloaded
+ from:
 \end_layout
 
 \begin_layout Quote
@@ -1666,16 +1636,12 @@ status open
 
 \begin_layout Plain Layout
 
-https://github.com/andiv/pde1
+https://github.com/andiv/PDE1
 \end_layout
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-heruntergeladen werden.
 \end_layout
 
 \begin_layout Standard
@@ -1693,7 +1659,7 @@ status open
 
 
 \backslash
-fancyhead[R]{Literatur}
+fancyhead[R]{Literature}
 \end_layout
 
 \end_inset
@@ -1702,22 +1668,190 @@ fancyhead[R]{Literatur}
 \end_layout
 
 \begin_layout Subsection*
-Literatur
+Literature
+\end_layout
+
+\begin_layout Standard
+Elliptic and parabolic partial differential equations:
 \end_layout
 
 \begin_layout Itemize
 
 \noun on
-Name des Autors: 
-\emph on
+Jürgen Jost
 \noun default
-Titel des Buches
+: 
+\emph on
+Partial Differential Equations
 \emph default
-; Verlag, <Erscheinungsjahr>
+; Springer, 2007
 \begin_inset Newline newline
 \end_inset
 
-ISBN: 978-1-2345-6789-0
+ISBN: 978-0-387-49318-3; 
+\begin_inset CommandInset href
+LatexCommand href
+name "doi: 10.1007/978-0-387-49319-0"
+target "http://dx.doi.org/10.1007/978-0-387-49319-0"
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+(good book, but not all details, small errors)
+\end_layout
+
+\begin_layout Itemize
+
+\noun on
+Lawrence C.
+ Evans
+\noun default
+: 
+\emph on
+Partial Differential Equations
+\emph default
+; American Mathematical Society, 2010
+\begin_inset Newline newline
+\end_inset
+
+ISBN: 978-0-8218-4974-3
+\begin_inset Newline newline
+\end_inset
+
+(part of the lecture follows this book, lots of details)
+\end_layout
+
+\begin_layout Itemize
+
+\noun on
+David Gilborg, Neil S.
+ Trudinger
+\noun default
+: 
+\emph on
+Elliptic Partial Differential Equations of second order
+\emph default
+; Springer, 2001
+\begin_inset Newline newline
+\end_inset
+
+ISBN: 3-540-41160-7
+\begin_inset Newline newline
+\end_inset
+
+(classic textbook, complete treatment)
+\end_layout
+
+\begin_layout Standard
+Hyperbolic partial differential equations (for the lecture 
+\begin_inset Quotes eld
+\end_inset
+
+Partial Differential Equations II
+\begin_inset Quotes erd
+\end_inset
+
+):
+\end_layout
+
+\begin_layout Itemize
+
+\noun on
+Fritz John
+\noun default
+: 
+\emph on
+Partial Differential Equations
+\emph default
+; Springer, 1999
+\begin_inset Newline newline
+\end_inset
+
+ISBN: 0-387-90609-6
+\end_layout
+
+\begin_layout Itemize
+
+\noun on
+Michael E.
+ Taylor
+\noun default
+: 
+\emph on
+Partial Differential Equations I - III
+\emph default
+; Springer, 1997
+\begin_inset Newline newline
+\end_inset
+
+ISBN: 0-387-94653-5, 0-387-94651-9, 0-387-94652-7
+\begin_inset Newline newline
+\end_inset
+
+(nice detailed text books)
+\end_layout
+
+\begin_layout Itemize
+
+\noun on
+Joel Smoller
+\noun default
+: 
+\emph on
+Shock waves and reaction-diffusion equations
+\emph default
+; Springer, 1994
+\begin_inset Newline newline
+\end_inset
+
+ISBN: 3-540-94259-9
+\begin_inset Newline newline
+\end_inset
+
+(nicely presented, good motivations, covers most of the material)
+\end_layout
+
+\begin_layout Itemize
+
+\noun on
+Friedrich Sauvigny
+\noun default
+: Partial Differential Equations I-II; Springer, 2012
+\begin_inset Newline newline
+\end_inset
+
+ISBN: 978-1-4471-2981-3, 978-1-4471-2984-4;
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset CommandInset href
+LatexCommand href
+name "doi: 10.1007/978-1-4471-2981-3"
+target "http://dx.doi.org/10.1007/978-1-4471-2981-3"
+
+\end_inset
+
+, 
+\begin_inset CommandInset href
+LatexCommand href
+name "10.1007/3-540-27540-1"
+target "http://dx.doi.org/10.1007/3-540-27540-1"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+and many more 
+\begin_inset Formula $\ldots$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1736,7 +1870,7 @@ status open
 
 
 \backslash
-fancyhead[R]{Inhaltsverzeichnis}
+fancyhead[R]{Table of Contents}
 \end_layout
 
 \begin_layout Plain Layout
@@ -1849,19 +1983,2155 @@ status open
 \end_layout
 
 \begin_layout Chapter
-erstes Kapitel
+A brief introduction
+\end_layout
+
+\begin_layout Standard
+An ordinary differential equation (ODE) can be written as:
+\begin_inset Formula 
+\begin{align*}
+\frac{\dd}{\dd t}u\left(t\right)=\dot{u}\left(t\right) & =v\left(t,u\right)\\
+u:I\subseteq\mathbb{R} & \to\mathbb{R}^{N}
+\end{align*}
+
+\end_inset
+
+This equation involves only derivatives with respect to 
+\emph on
+one
+\emph default
+ variable 
+\begin_inset Formula $t$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial}{\partial x}f\left(x,y\right)+\frac{\partial}{\partial y}f\left(x,y\right) & =0
+\end{align*}
+
+\end_inset
+
+This is an example for a partial differential equation.
 \end_layout
 
 \begin_layout Section
-erster Abschnitt
+Definition 
+\series medium
+(Partial Differential Equation)
+\end_layout
+
+\begin_layout Standard
+A 
+\emph on
+partial differential equation
+\emph default
+ (PDE) is a (scalar) equation, which involves partial derivatives of an
+ unknown function 
+\begin_inset Formula $u:\Omega\subseteq\mathbb{R}^{n}\to\mathbb{R}$
+\end_inset
+
+.
+ We always assume that 
+\begin_inset Formula $\Omega\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ is open.
+\begin_inset Newline newline
+\end_inset
+
+More generally, a 
+\emph on
+system of partial differential equations
+\emph default
+ is a system of equations involving partial derivatives of a function 
+\begin_inset Formula $u:\Omega\subseteq\mathbb{R}^{n}\to\mathbb{R}^{N}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Similarly one can define partial differential equations on manifolds.
+\end_layout
+
+\begin_layout Standard
+For ordinary differential equations we considered the initial-value problem:
+\begin_inset Formula 
+\begin{align*}
+\dot{u}\left(t\right) & =v\left(t,u\right) & u\left(t_{0}\right) & =u_{0}
+\end{align*}
+
+\end_inset
+
+For partial differential equations one considers
+\end_layout
+
+\begin_layout Itemize
+the initial-value problem and
+\end_layout
+
+\begin_layout Itemize
+the boundary-value problem.
+\end_layout
+
+\begin_layout Section
+Examples
+\end_layout
+
+\begin_layout Enumerate
+Cauchy-Riemann equations: Let
+\begin_inset Formula 
+\begin{align*}
+f:\Omega\stackrel{\text{open}}{\subseteq}\mathbb{C} & \to\mathbb{C}
+\end{align*}
+
+\end_inset
+
+be holomorphic.
+\begin_inset Formula 
+\begin{align*}
+f & =a+\ii b & a & :=\text{Re}\left(f\right) & b & :=\text{Im}\left(f\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial a}{\partial x} & =\frac{\partial b}{\partial y} & \frac{\partial b}{\partial x} & =-\frac{\partial a}{\partial y}
+\end{align*}
+
+\end_inset
+
+This is a system of two partial differential equations.
+\begin_inset Formula 
+\begin{align*}
+u & :=\left(\begin{array}{c}
+a\\
+b
+\end{array}\right) & u:\Omega\subseteq\mathbb{C}=\mathbb{R}^{2} & \to\mathbb{R}^{2}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial^{2}a}{\partial x^{2}}+\frac{\partial^{2}a}{\partial y^{2}} & =\frac{\partial b}{\partial x\partial y}-\frac{\partial b}{\partial y\partial x}=0
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\Rightarrow\qquad\underbrace{\left(\frac{\partial^{2}}{\partial x^{2}}+\frac{\partial^{2}}{\partial y^{2}}\right)}_{=:\upDelta}a & =0 & \upDelta b & =0
+\end{align*}
+
+\end_inset
+
+This is the 
+\emph on
+Laplace equation
+\emph default
+ with the 
+\emph on
+Laplace operator
+\emph default
+ 
+\begin_inset Formula $\upDelta$
+\end_inset
+
+.
+ Solutions of the Laplace equation are called 
+\emph on
+harmonic functions
+\emph default
+.
+\end_layout
+
+\begin_layout Enumerate
+Let 
+\begin_inset Formula $\left(M,g\right)$
+\end_inset
+
+ be a Riemannian manifold.
+ Here exists the Laplace-Beltrami operator 
+\begin_inset Formula $\LBO$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+In the special case 
+\begin_inset Formula $M=\mathbb{R}^{n}$
+\end_inset
+
+ we have:
+\begin_inset Formula 
+\begin{align*}
+\upDelta & =\frac{\partial^{2}}{\partial x_{1}^{2}}+\ldots+\frac{\partial^{2}}{\partial x_{n}^{2}}\\
+\upDelta\varphi & =0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+With the Riemannian metric 
+\begin_inset Formula $g_{ij}$
+\end_inset
+
+ we can define:
+\begin_inset Formula 
+\begin{align*}
+\LBO\varphi & =g^{ij}\nabla_{i}\nabla_{j}\varphi=\text{div}\left(\text{grad}\left(\varphi\right)\right)=\frac{1}{\sqrt{\det\left(g\right)}}\partial_{j}\left(\sqrt{\det\left(g\right)}g^{jk}\partial_{k}\varphi\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This gives an elliptic equation.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Newton's gravitational law: Let 
+\begin_inset Formula $\varrho\left(x\right)$
+\end_inset
+
+ be the mass density and 
+\begin_inset Formula $\varphi\left(x\right)$
+\end_inset
+
+ the Newtonian potential.
+\begin_inset Formula 
+\begin{align*}
+\upDelta\varphi & =\underbrace{-4\pi\varrho}_{\text{inhomogeneity}}
+\end{align*}
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Such an inhomogeneous Laplace equation is usually referred to as Poisson
+ equation and it is elliptic.
+\end_layout
+
+\begin_layout Enumerate
+Heat flow equation (
+\lang ngerman
+Wärmeleitungsgleichung
+\lang english
+): Let 
+\begin_inset Formula $\varphi\left(t,x\right)$
+\end_inset
+
+ be the temperature at time 
+\begin_inset Formula $t\in\mathbb{R}$
+\end_inset
+
+ and position 
+\begin_inset Formula $x\in\mathbb{R}^{n}$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+\partial_{t}\varphi\left(t,x\right) & =\upDelta\varphi\left(t,x\right)
+\end{align*}
+
+\end_inset
+
+This is a parabolic equation.
+\end_layout
+
+\begin_layout Enumerate
+The Schrödinger equation is a parabolic equation:
+\begin_inset Formula 
+\begin{align*}
+\ii\hbar\partial_{t}\psi\left(t,x\right) & =\left(-\frac{\hbar^{2}}{2m}\upDelta+V\right)\psi\left(t,x\right)
+\end{align*}
+
+\end_inset
+
+Additionally to the the heat flow equation there is the potential 
+\begin_inset Formula $V$
+\end_inset
+
+, but more important there is a factor of 
+\begin_inset Formula $\ii$
+\end_inset
+
+ in front of the partial derivative.
+ The time-independent Schrödinger equation is:
+\begin_inset Formula 
+\begin{align*}
+E\psi\left(x\right) & =\left(-\frac{\hbar^{2}}{2m}\upDelta+V\right)\psi\left(x\right)
+\end{align*}
+
+\end_inset
+
+This is similar to the Poisson equation and also elliptic.
+\end_layout
+
+\begin_layout Enumerate
+The wave equation
+\begin_inset Formula 
+\begin{align*}
+\left(\partial_{t}^{2}-\upDelta_{x}\right)\psi\left(t,x\right) & =0
+\end{align*}
+
+\end_inset
+
+is hyperbolic.
+ We will consider it in the lecture 
+\begin_inset Quotes eld
+\end_inset
+
+Partial Differential Equations II
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Maxwell's equations: 
+\begin_inset Formula $E\left(t,x\right)$
+\end_inset
+
+ is the electric field and 
+\begin_inset Formula $B\left(t,x\right)$
+\end_inset
+
+ the magnetic field.
+\begin_inset Formula 
+\begin{align*}
+\text{div}\left(E\right) & =4\pi\varrho &  & \text{Gauss law}\\
+\text{rot}\left(E\right) & =-\partial_{t}B &  & \text{Maxwell}\\
+\text{div}\left(B\right) & =0\\
+\text{rot}\left(B\right) & =4\pi j-\partial_{t}E &  & \text{Faraday}
+\end{align*}
+
+\end_inset
+
+This is a system of 8 partial differential equation.
+\end_layout
+
+\begin_layout Enumerate
+Einstein's field equation:
+\begin_inset Formula 
+\begin{align*}
+R_{ij}-\frac{1}{2}Rg_{ij} & =4\pi\kappa T_{ij}
+\end{align*}
+
+\end_inset
+
+This is a geometric partial differential equation.
+ 
+\begin_inset Formula $R_{ij}$
+\end_inset
+
+ is the Ricci curvature, 
+\begin_inset Formula $R$
+\end_inset
+
+ the scalar curvature and 
+\begin_inset Formula $T_{ij}$
+\end_inset
+
+ the energy-momentum tensor.
+ It is a system of 10 partial differential equations.
+\end_layout
+
+\begin_layout Enumerate
+Equations of relativistic quantum mechanics:
+\begin_inset Formula 
+\begin{align*}
+\left(-\partial_{t}^{2}+\upDelta\right)\psi & =m^{2}\psi
+\end{align*}
+
+\end_inset
+
+This is the Klein-Gordon equation with the mass 
+\begin_inset Formula $m$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+\ii\gamma^{j}\partial_{j}\psi & =m\psi
+\end{align*}
+
+\end_inset
+
+This is the Dirac equation, a system of 4 complex-valued or 8 real-valued
+ partial differential equations for a particle with spin 
+\begin_inset Formula $\frac{1}{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Water waves can be described by the Korteweg-de Vries equation:
+\begin_inset Formula 
+\begin{align*}
+\partial_{t}u+u\partial_{x}u+\partial_{x}^{3}u & =0
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (-4,1) -- (4,1) (-4,-1) -- (4,-1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[dashed] (-1,0.7) -- (-1,-0.7) (2,0.7) -- (2,-0.7);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[thick] plot[smooth,tension=.7] coordinates{(-2,-0.4) (-1.6,-0.25) (-1,0.4)
+ (-0.4,-0.25) (0,-0.4)};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[thick,xshift=3cm] plot[smooth,tension=.7] coordinates{(-2,-0.4) (-1.6,-0.25)
+ (-1,0.4) (-0.4,-0.25) (0,-0.4)};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[thick,decoration={markings,mark=at position 1 with {
+\backslash
+arrow[scale=1.3]{>}};},postaction={decorate}] (0,0.1) -- (1,0.1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw plot[smooth cycle,tension=.3] coordinates{(-3.5,-0.3) (-2.75,-0.27) (-2.5,-0.2)
+ (-2.25,0) (-2.5,0.2) (-2.75,0.27) (-3.5,0.3)};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Solitons (discovered by John Russel in 1834): When the ship suddenly stops,
+ the water flows on along the channel.
+ This wave moves with a constant speed and its shape stays the same.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Shock waves: Burger's equation
+\begin_inset Formula 
+\begin{align*}
+\partial_{t}u+u\partial_{x}u & =0
+\end{align*}
+
+\end_inset
+
+is hyperbolic.
+\end_layout
+
+\begin_layout Enumerate
+Turbulence can be described by the incompressible Navier-Stokes equations
+ for the velocity 
+\begin_inset Formula $v:\Omega\subseteq\mathbb{R}^{3}\to\mathbb{R}^{3}$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+\text{div}\left(v\right) & =0\\
+\rho\partial_{t}v^{j}+\rho v^{i}\partial_{i}v^{j}-\eta\upDelta v^{j} & =-\partial_{j}P
+\end{align*}
+
+\end_inset
+
+Here 
+\begin_inset Formula $\varrho$
+\end_inset
+
+ is the gas density, 
+\begin_inset Formula $P$
+\end_inset
+
+ the pressure and 
+\begin_inset Formula $\eta$
+\end_inset
+
+ the viscosity.
+\end_layout
+
+\begin_layout Section
+Classification
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+Roman*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+The 
+\emph on
+order
+\emph default
+ of a partial differential equation is the highest order of the derivatives
+ in it.
+\begin_inset Formula 
+\begin{align*}
+\upDelta u & =f &  & \text{second order}\\
+\partial_{t}\varphi & =\upDelta\varphi &  & \text{second order}\\
+\partial_{t}u+u\partial_{x}u+\partial_{x}^{3}u & =0 &  & \text{third order}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Algebraic classification:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\emph on
+Linear
+\emph default
+ equations: The unknown function 
+\begin_inset Formula $u$
+\end_inset
+
+ and its derivatives appear only linearly.
+\begin_inset Formula 
+\begin{align*}
+\partial_{t}u & =u &  & \text{linear}\\
+\partial_{t}u+u\partial_{x}u & =0 &  & \text{non-linear}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Linear 
+\emph on
+homogeneous
+\emph default
+ equations: If 
+\begin_inset Formula $u$
+\end_inset
+
+ is a solution, then 
+\begin_inset Formula $\lambda u$
+\end_inset
+
+ for 
+\begin_inset Formula $\lambda\in\mathbb{R}$
+\end_inset
+
+ is also a solution.
+\begin_inset Formula 
+\begin{align*}
+\upDelta u & =0 &  & \text{linear homogeneous}\\
+\upDelta u & =\varrho &  & \text{linear inhomogeneous}\\
+\LBO u & =0 &  & \text{linear homogeneous}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Linear with 
+\emph on
+constant coefficients
+\emph default
+:
+\begin_inset Formula 
+\begin{align*}
+\upDelta u & =\rho &  & \text{linear with constant coefficients}\\
+\LBO u & =\varrho &  & \text{in general non-constant coefficients}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Classification by type: elliptic, parabolic, hyperbolic
+\begin_inset Newline newline
+\end_inset
+
+Here we only consider scalar second order equations with 
+\begin_inset Formula $x\in\Omega\subseteq\mathbb{R}^{n}$
+\end_inset
+
+.
+ 
+\begin_inset Formula 
+\begin{align*}
+F\left(x,u,\DD u,\DD^{2}u\right) & =0\\
+F:\Omega\times\mathbb{R}\times\mathbb{R}^{n}\times\mathbb{R}^{n\times n} & \to\mathbb{R}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+A_{ij} & :=\frac{\partial F\left(x,u,p_{i},p_{ij}\right)}{\partial p_{ij}}
+\end{align*}
+
+\end_inset
+
+is a symmetric 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ matrix.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+If 
+\begin_inset Formula $A$
+\end_inset
+
+ is positive definite, the equation is called 
+\emph on
+elliptic
+\emph default
+.
+\end_layout
+
+\begin_layout Itemize
+If 
+\begin_inset Formula $A$
+\end_inset
+
+ has 
+\begin_inset Formula $n-1$
+\end_inset
+
+ positive and one negative eigenvalue, the equation is called 
+\emph on
+hyperbolic
+\emph default
+.
+\end_layout
+
+\begin_layout Itemize
+If 
+\begin_inset Formula $A$
+\end_inset
+
+ has 
+\begin_inset Formula $n-1$
+\end_inset
+
+ positive eigenvalues and a non-trivial kernel, the equation is called 
+\emph on
+parabolic
+\emph default
+.
+\end_layout
+
+\begin_layout Itemize
+If all eigenvalues are negative or 
+\begin_inset Formula $n-1$
+\end_inset
+
+ are negative, then we replace 
+\begin_inset Formula $F$
+\end_inset
+
+ by 
+\begin_inset Formula $-F$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+All other case of 
+\emph on
+mixed type
+\emph default
+ are difficult and we do not consider them in this lecture.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Examples
+\end_layout
+
+\begin_layout Standard
+Consider the Poisson equation:
+\begin_inset Formula 
+\begin{align*}
+\upDelta u & =\varrho\\
+F\left(x,u,\DD u,\DD^{2}u\right) & =-\varrho\left(x\right)+\delta^{ij}\partial_{ij}u\\
+F\left(x,u,p_{i},p_{ij}\right) & =-\varrho\left(x\right)+\delta^{ij}p_{ij}\\
+A_{ij}=\frac{\partial F\left(x,u,p_{i},p_{ij}\right)}{\partial p_{ij}} & =\delta_{ij}
+\end{align*}
+
+\end_inset
+
+So we have 
+\begin_inset Formula $A=\mathbbm{1}$
+\end_inset
+
+ and thus the equation is elliptic.
+\begin_inset Newline newline
+\end_inset
+
+Now consider the inhomogeneous wave equation:
+\begin_inset Formula 
+\begin{align*}
+\left(\partial_{t}^{2}-\upDelta\right)\phi\left(t,x_{1},x_{2},x_{3}\right) & =\varrho
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+F\left(x,u,p_{i},p_{ij}\right) & =\varrho\left(x\right)+\eta^{ij}p_{ij} & \eta & =\text{diag}\left(-1,1,1,1\right)
+\end{align*}
+
+\end_inset
+
+So 
+\begin_inset Formula $A=\eta$
+\end_inset
+
+ has one negative and three positive eigenvalues which means that the equation
+ is hyperbolic.
+\begin_inset Formula 
+\begin{align*}
+\partial_{t}\phi & =\upDelta\phi
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+F\left(x,u,\DD\phi,\DD^{2}\phi\right) & =-\partial_{0}\phi+\sum_{i,j=1}^{3}\delta^{ij}\partial_{ij}\phi\\
+A_{ij} & =\left(\begin{array}{cccc}
+0 & 0 & 0 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1
+\end{array}\right)
+\end{align*}
+
+\end_inset
+
+Therefore the equation is parabolic.
+\end_layout
+
+\begin_layout Chapter
+Distributions and Fourier transform
+\end_layout
+
+\begin_layout Subsubsection*
+Motivation
+\end_layout
+
+\begin_layout Standard
+We want to solve partial differential equations with constant coefficients
+ in 
+\begin_inset Formula $\Omega=\mathbb{R}^{n}$
+\end_inset
+
+, for example:
+\begin_inset Formula 
+\begin{align*}
+\left(-\partial_{t}^{2}+\upDelta\right)\phi & =0
+\end{align*}
+
+\end_inset
+
+Now we make a 
+\begin_inset Quotes eld
+\end_inset
+
+plane wave ansatz
+\begin_inset Quotes erd
+\end_inset
+
+ with 
+\begin_inset Formula $t,\omega\in\mathbb{R}$
+\end_inset
+
+ and 
+\begin_inset Formula $k,x\in\mathbb{R}^{n-1}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\phi\left(t,x\right) & =e^{-\ii\omega t+\ii\left\langle k,x\right\rangle }\\
+\partial_{t}\phi\left(t,x\right) & =-\ii\omega\phi\left(t,x\right)\\
+\partial_{j}\phi\left(t,x\right) & =\ii k_{j}\phi\left(t,x\right)
+\end{align*}
+
+\end_inset
+
+This gives an algebraic equation:
+\begin_inset Formula 
+\begin{align*}
+\left(-\left(-\ii\omega\right)^{2}+\left(\ii k\right)^{2}\right)\phi & =0\\
+\Leftrightarrow\qquad\omega^{2} & =k^{2}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%DATE: Fr 19.4.13
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+We also want to differentiate non-smooth functions, e.g.:
+\begin_inset Formula 
+\begin{align*}
+\upDelta_{\mathbb{R}^{3}}\frac{1}{\abs x} & =-4\pi\delta\left(x\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $\delta\left(x\right)$
+\end_inset
+
+ is called Dirac 
+\begin_inset Formula $\delta$
+\end_inset
+
+-distribution.
+\end_layout
+
+\begin_layout Section
+The Schwartz space and distributions
+\end_layout
+
+\begin_layout Standard
+Laurent Schwartz was the first to investigate distributions systematically.
+ He was awarded the fields medal for this.
 \end_layout
 
 \begin_layout Subsection
-erster Unterabschnitt
+Definition 
+\series medium
+(Multi-index)
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+ we denote indices by 
+\begin_inset Formula $i,j,k\in\left\{ 1,\ldots,n\right\} $
+\end_inset
+
+.
+ We call 
+\begin_inset Formula $\alpha=\left(i_{1},\ldots,i_{k}\right)$
+\end_inset
+
+ with 
+\begin_inset Formula $i_{l}\in\left\{ 1,\ldots,n\right\} $
+\end_inset
+
+ a 
+\emph on
+multi-index
+\emph default
+.
+ 
+\begin_inset Formula $\abs{\alpha}:=k$
+\end_inset
+
+ is called the 
+\emph on
+order
+\emph default
+ or 
+\emph on
+absolute value
+\emph default
+ of the multi-index.
+\end_layout
+
+\begin_layout Standard
+With this we can write differentials of order 
+\begin_inset Formula $k$
+\end_inset
+
+ as
+\begin_inset Formula 
+\begin{align}
+\DD^{\alpha} & :=\frac{\partial}{\partial x^{i_{1}}}\cdots\frac{\partial}{\partial x^{i_{k}}}
+\end{align}
+
+\end_inset
+
+and homogeneous polynomials of degree 
+\begin_inset Formula $k$
+\end_inset
+
+ in the components of a vector 
+\begin_inset Formula $x=\left(x^{1},\ldots,x^{n}\right)$
+\end_inset
+
+ as:
+\begin_inset Formula 
+\begin{align}
+x^{\alpha} & :=x^{i_{1}}\cdots x^{i_{k}}
+\end{align}
+
+\end_inset
+
+For 
+\begin_inset Formula $f\in C^{\infty}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $r,s\in\mathbb{N}$
+\end_inset
+
+ we define the Schwartz norm:
+\begin_inset Formula 
+\begin{align}
+\norm f_{r,s} & :=\sum_{\alpha,\abs{\alpha}\le r}\sum_{\beta,\abs{\beta}\le s}\sup_{x\in\mathbb{R}^{n}}\abs{x^{\alpha}\DD^{\beta}f\left(x\right)}\\
+\norm f_{0,0} & =\sup_{x\in\mathbb{R}^{n}}\abs{f\left(x\right)}=\norm f_{C^{0}}\nonumber 
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Definition 
+\series medium
+(Schwartz space)
+\end_layout
+
+\begin_layout Standard
+The 
+\emph on
+Schwartz space
+\emph default
+ 
+\begin_inset Formula $\mathcal{S}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ is the vector space of all 
+\begin_inset Formula $f\in C^{\infty}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ for which all Schwartz norms are finite, i.e.
+ for all 
+\begin_inset Formula $r,s\in\mathbb{N}$
+\end_inset
+
+ holds:
+\begin_inset Formula 
+\begin{align*}
+\norm f_{r,s} & <\infty
+\end{align*}
+
+\end_inset
+
+This space is an infinite-dimensional vector space.
+\begin_inset Newline newline
+\end_inset
+
+On a normed space 
+\begin_inset Formula $\left(E,\norm .\right)$
+\end_inset
+
+, the topology is given by the open sets.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Omega\subseteq E$
+\end_inset
+
+ is defined as 
+\emph on
+open
+\emph default
+ if holds:
+\begin_inset Formula 
+\begin{align*}
+\fall_{x\in\Omega}\ \exs_{\varepsilon>0}\ :\ B_{\varepsilon}\left(x\right) & \subseteq\Omega
+\end{align*}
+
+\end_inset
+
+A subset 
+\begin_inset Formula $\Omega\subseteq\mathcal{S}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ is called 
+\emph on
+open
+\emph default
+ if for every 
+\begin_inset Formula $f\in\Omega$
+\end_inset
+
+ there is a 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ and 
+\begin_inset Formula $r,s\in\mathbb{N}$
+\end_inset
+
+ such that holds:
+\begin_inset Formula 
+\begin{align}
+\left\{ g\in\mathcal{S}\big|\norm{g-f}_{r,s}<\varepsilon\right\}  & \subseteq\Omega
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Note: This topology is fine, because it involves many open sets, since the
+ condition for open only involves the statement 
+\begin_inset Quotes eld
+\end_inset
+
+there are 
+\begin_inset Formula $r,s\in\mathbb{N}$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Convergence 
+\begin_inset Formula $f_{n}\to f$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathcal{S}$
+\end_inset
+
+ means that 
+\emph on
+every
+\emph default
+ open neighborhood 
+\begin_inset Formula $U$
+\end_inset
+
+ of 
+\begin_inset Formula $f$
+\end_inset
+
+ contains almost all 
+\begin_inset Formula $f_{n}$
+\end_inset
+
+.
+ For a finer topology, the condition for a sequence to converge is stronger.
+\end_layout
+
+\begin_layout Subsection
+Theorem
+\end_layout
+
+\begin_layout Standard
+Convergence 
+\begin_inset Formula $f_{n}\to f$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathcal{S}$
+\end_inset
+
+ is equivalent to the convergence 
+\begin_inset Formula $\norm{f_{n}-f}_{r,s}\to0$
+\end_inset
+
+ for all 
+\begin_inset Formula $r,s\in\mathbb{N}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+: Suppose that 
+\begin_inset Formula $f_{n}\to f$
+\end_inset
+
+ converges.
+ By definition of the convergence, every open neighborhood of 
+\begin_inset Formula $f$
+\end_inset
+
+ contains almost all 
+\begin_inset Formula $f_{n}$
+\end_inset
+
+.
+ For all 
+\begin_inset Formula $r,s\in\mathbb{N}$
+\end_inset
+
+ the sets 
+\begin_inset Formula $U_{\varepsilon}^{r,s}:=\big\{ g\big|\norm{g-f}_{r,s}<\varepsilon\big\}$
+\end_inset
+
+ are open by definition.
+ So the inequality
+\begin_inset Formula 
+\begin{align*}
+\norm{f_{n}-f}_{r,s} & <\varepsilon
+\end{align*}
+
+\end_inset
+
+holds for almost all 
+\begin_inset Formula $f_{n}$
+\end_inset
+
+ and thus converges 
+\begin_inset Formula $\norm{f_{n}-f}_{r,s}\to0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+: Assume that 
+\begin_inset Formula $\norm{f_{n}-f}_{r,s}\to0$
+\end_inset
+
+ converges for all 
+\begin_inset Formula $r,s\in\mathbb{N}$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be an open neighborhood of 
+\begin_inset Formula $f$
+\end_inset
+
+.
+ This means by definition that there exist 
+\begin_inset Formula $r,s\in\mathbb{N}$
+\end_inset
+
+ and 
+\begin_inset Formula $\varepsilon\in\mathbb{R}_{>0}$
+\end_inset
+
+ with 
+\begin_inset Formula $U_{\varepsilon}^{r,s}\subseteq A$
+\end_inset
+
+.
+ For this 
+\begin_inset Formula $\left(r,s\right)$
+\end_inset
+
+ we know that 
+\begin_inset Formula $\norm{f_{n}-f}_{r,s}\to0$
+\end_inset
+
+ converges.
+ Hence there exists a 
+\begin_inset Formula $N\in\mathbb{N}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\norm{f_{n}-f}_{r,s}<\varepsilon$
+\end_inset
+
+ holds for all 
+\begin_inset Formula $n\in\mathbb{N}_{>N}$
+\end_inset
+
+, in other words 
+\begin_inset Formula $f_{n}\in U_{\varepsilon}^{r,s}\subseteq A$
+\end_inset
+
+.
+ So 
+\begin_inset Formula $f_{n}\to f$
+\end_inset
+
+ converges in 
+\begin_inset Formula $\mathcal{S}$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A vector space with a topology generated by a family of norms or semi-norms
+ is a 
+\emph on
+uniform space
+\emph default
+ and is called 
+\emph on
+topological vector space
+\emph default
+.
+\end_layout
+
+\begin_layout Subsection
+Definition 
+\series medium
+(tempered distribution)
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ be the dual space of 
+\begin_inset Formula $\mathcal{S}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+.
+ It is called the space of 
+\emph on
+tempered distributions
+\emph default
+ (
+\lang ngerman
+temperierte Distributionen
+\lang english
+).
+\end_layout
+
+\begin_layout Standard
+In linear algebra for a finite-dimensional vector space 
+\begin_inset Formula $V$
+\end_inset
+
+, the dual space 
+\begin_inset Formula $V^{*}=L\left(V,\mathbb{R}\right)$
+\end_inset
+
+ is the space of linear functionals.
+ 
+\begin_inset Formula $V^{*}$
+\end_inset
+
+ is again a vector space with 
+\begin_inset Formula $\dim\left(V^{*}\right)=\dim\left(V\right)$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Here 
+\begin_inset Formula $\mathcal{S}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ is an infinite-dimensional vector space with a topology.
+ 
+\begin_inset Formula $\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ is the space of all 
+\emph on
+continuous
+\emph default
+ linear functionals.
+\end_layout
+
+\begin_layout Standard
+In a Banach space 
+\begin_inset Formula $\left(E,\norm .\right)$
+\end_inset
+
+ holds: A linear functional 
+\begin_inset Formula $A:E\to\mathbb{R}$
+\end_inset
+
+ is continuous if and only if 
+\begin_inset Formula $A$
+\end_inset
+
+ is bounded, i.e.
+ 
+\begin_inset Formula $\abs{Au}\le c\norm U$
+\end_inset
+
+ for all 
+\begin_inset Formula $u\in E$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Lemma
+\end_layout
+
+\begin_layout Standard
+A linear functional 
+\begin_inset Formula $T:\mathcal{S}\left(\mathbb{R}^{n}\right)\to\mathbb{R}$
+\end_inset
+
+ is continuous if and only if there are 
+\begin_inset Formula $r,s\in\mathbb{N}$
+\end_inset
+
+ and a 
+\begin_inset Formula $c\in\mathbb{R}_{>0}$
+\end_inset
+
+ such that holds:
+\begin_inset Formula 
+\begin{align}
+\abs{Tf} & \le c\norm f_{r,s}\label{eq:T_bounded}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+: Assume that 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:T_bounded"
+
+\end_inset
+
+ holds for some 
+\begin_inset Formula $r,s\in\mathbb{N}$
+\end_inset
+
+.
+ We want to show that 
+\begin_inset Formula $T$
+\end_inset
+
+ is continuous.
+ To this end, let 
+\begin_inset Formula $f_{n}\to f$
+\end_inset
+
+ be a convergent series in 
+\begin_inset Formula $\mathcal{S}$
+\end_inset
+
+.
+ Our task is to show that 
+\begin_inset Formula $Tf_{n}\to Tf$
+\end_inset
+
+ converges.
+\begin_inset Newline newline
+\end_inset
+
+The convergence 
+\begin_inset Formula $f_{n}\to f$
+\end_inset
+
+ implies 
+\begin_inset Formula $\norm{f_{n}-f}_{r',s'}\to0$
+\end_inset
+
+ for all 
+\begin_inset Formula $r',s'\in\mathbb{N}$
+\end_inset
+
+ and thus in particular for 
+\begin_inset Formula $r,s$
+\end_inset
+
+ satisfying the inequality 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:T_bounded"
+
+\end_inset
+
+.
+ By linearity follows:
+\begin_inset Formula 
+\begin{align*}
+\abs{Tf_{n}-Tf} & =\abs{T\left(f_{n}-f\right)}\le c\norm{f_{n}-f}_{r,s}\xrightarrow{n\to\infty}0
+\end{align*}
+
+\end_inset
+
+So 
+\begin_inset Formula $T$
+\end_inset
+
+ maps convergent sequences to convergent sequences and is thus continuous.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+: Assume that 
+\begin_inset Formula $T$
+\end_inset
+
+ is continuous.
+ Then the preimage of open sets is open, in particular 
+\begin_inset Formula $T^{-1}\left(B_{1}\left(0\right)\right)\subseteq\mathcal{S}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ is open.
+ So there exist 
+\begin_inset Formula $r,s\in\mathbb{N}$
+\end_inset
+
+ and a 
+\begin_inset Formula $\varepsilon\in\mathbb{R}_{>0}$
+\end_inset
+
+ such that holds:
+\begin_inset Formula 
+\begin{align*}
+T^{-1}\left(B_{1}\left(0\right)\right) & \supseteq U_{\varepsilon}^{r,s}:=\big\{ g\big|\norm g_{r,s}<\varepsilon\big\}
+\end{align*}
+
+\end_inset
+
+This implies:
+\begin_inset Formula 
+\begin{align*}
+\norm g_{r,s}<\varepsilon & \quad\Rightarrow\quad g\in T^{-1}\left(B_{1}\left(0\right)\right)
+\end{align*}
+
+\end_inset
+
+Now 
+\begin_inset Formula $g\in T^{-1}\left(B_{1}\left(0\right)\right)$
+\end_inset
+
+ means 
+\begin_inset Formula $\abs{Tg}<1$
+\end_inset
+
+.
+ For any 
+\begin_inset Formula $f\in\mathcal{S}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ apply this to 
+\begin_inset Formula $g=\frac{f}{\lambda}$
+\end_inset
+
+ with 
+\begin_inset Formula $\lambda\in\mathbb{R}_{>0}$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+\frac{1}{\lambda}\norm f_{r,s}<\varepsilon & \quad\Rightarrow\quad\frac{1}{\lambda}\abs{Tf}<1\qquad/\cdot\lambda\\
+\norm f_{r,s}<\lambda\varepsilon & \quad\Rightarrow\quad\abs{Tf}<\lambda
+\end{align*}
+
+\end_inset
+
+Now choose 
+\begin_inset Formula $\lambda=\frac{2}{\varepsilon}\norm f_{r,s}$
+\end_inset
+
+, so the left side holds, which implies:
+\begin_inset Formula 
+\begin{align*}
+\abs{Tf} & <\frac{2}{\varepsilon}\norm f_{r,s}\qquad\fall_{f\in\mathcal{S}\left(\mathbb{R}^{n}\right)}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Example 
+\series medium
+(
+\begin_inset Formula $\delta$
+\end_inset
+
+-distribution)
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Consider the following functional:
+\begin_inset Formula 
+\begin{align*}
+\delta:\mathcal{S}\left(\mathbb{R}\right) & \to\mathbb{R}\\
+f & \mapsto f\left(0\right)
+\end{align*}
+
+\end_inset
+
+This is obviously linear.
+\begin_inset Formula 
+\begin{align*}
+\abs{\delta\left(f\right)} & =\abs{f\left(0\right)}\le\sup_{\mathbb{R}}\abs f=\norm f_{0,0}
+\end{align*}
+
+\end_inset
+
+Hence 
+\begin_inset Formula $\delta$
+\end_inset
+
+ is continuous, which means that 
+\begin_inset Formula $\delta\in\mathcal{S}^{*}\left(\mathbb{R}\right)$
+\end_inset
+
+ is a tempered distribution.
+\begin_inset Newline newline
+\end_inset
+
+A convenient 
+\emph on
+notation
+\emph default
+ with 
+\begin_inset Formula $f\in\mathcal{S}\left(\mathbb{R}\right)$
+\end_inset
+
+ is:
+\begin_inset Formula 
+\begin{align*}
+\delta\left(f\right) & =\int_{\mathbb{R}}f\left(x\right)\delta\left(x\right)\dd x
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+In higher dimension 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ we define:
+\begin_inset Formula 
+\begin{align*}
+\delta:\mathcal{S}\left(\mathbb{R}^{n}\right) & \to\mathbb{R}\\
+f & \mapsto f\left(0\right)
+\end{align*}
+
+\end_inset
+
+Again holds 
+\begin_inset Formula $\abs{\delta\left(f\right)}\le\norm f_{0,0}$
+\end_inset
+
+.
+ The physicists' notation for this is:
+\begin_inset Formula 
+\begin{align*}
+\delta\left(f\right) & =\int_{\mathbb{R}^{n}}f\left(x\right)\delta^{\left(n\right)}\left(x\right)\dd^{n}x\\
+\delta^{\left(n\right)}\left(x\right) & =\delta\left(x^{1}\right)\cdots\delta\left(x^{n}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Remark
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\delta$
+\end_inset
+
+ can also be introduced as a 
+\emph on
+measure
+\emph default
+ on 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+, the 
+\emph on
+Dirac measure
+\emph default
+.
+ For 
+\begin_inset Formula $A\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ define:
+\begin_inset Formula 
+\begin{align*}
+\delta\left(x\right) & =\begin{cases}
+1 & \text{if }0\in A\\
+0 & \text{otherwise}
+\end{cases}
+\end{align*}
+
+\end_inset
+
+Then for 
+\begin_inset Formula $f\in C^{0}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ the expression 
+\begin_inset Formula 
+\begin{align*}
+\int_{\mathbb{R}^{n}}f\left(x\right)\dd\delta\left(x\right) & =f\left(0\right)
+\end{align*}
+
+\end_inset
+
+makes mathematical sense as an integral.
+\end_layout
+
+\begin_layout Standard
+This is useful because convergence theorems and so on from measure theory
+ are available.
+ The problem is, that this does not work for every distribution and thus
+ is not general enough for most purposes, e.g.
+ the derivative 
+\begin_inset Formula $\delta'\left(x\right)$
+\end_inset
+
+ is a distribution, but cannot be written as a measure.
+\end_layout
+
+\begin_layout Subsection
+Example 
+\series medium
+(integral operator)
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Consider 
+\begin_inset Formula $g\in C^{\infty}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ with at most polynomial growth, i.e.
+ there are 
+\begin_inset Formula $c\in\mathbb{R}_{>0}$
+\end_inset
+
+ and 
+\begin_inset Formula $r\in\mathbb{N}$
+\end_inset
+
+ such that holds:
+\begin_inset Formula 
+\begin{align*}
+\abs{g\left(x\right)} & \le c\left(1+\abs x^{r}\right)
+\end{align*}
+
+\end_inset
+
+Now define:
+\begin_inset Formula 
+\begin{align*}
+T_{g}:\mathcal{S}\left(\mathbb{R}^{n}\right) & \to\mathbb{R}\\
+f & \mapsto\int_{\mathbb{R}^{n}}g\left(x\right)f\left(x\right)\dd^{n}x
+\end{align*}
+
+\end_inset
+
+The integral here is just the Lebesgue integral and it exists:
+\begin_inset Newline newline
+\end_inset
+
+For 
+\begin_inset Formula $f\in\mathcal{S}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ holds 
+\begin_inset Formula $\norm f_{r,s}<\infty$
+\end_inset
+
+ for all 
+\begin_inset Formula $r,s\in\mathbb{N}$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+\sup_{\mathbb{R}}\abs f+\sup_{x\in\mathbb{R}}\left(\abs x^{s}\cdot\abs{f\left(x\right)}\right) & \le\norm f_{0,s}<\infty\\
+\Rightarrow\qquad\sup_{x\in\mathbb{R}}\left(\left(1+\abs x^{s}\right)\abs{f\left(x\right)}\right) & \le\norm f_{0,s}\\
+\Rightarrow\qquad\abs{f\left(x\right)} & \le\frac{\norm f_{0,s}}{1+\abs x^{s}}\qquad\fall_{s\in\mathbb{N}}
+\end{align*}
+
+\end_inset
+
+So we get:
+\begin_inset Formula 
+\begin{align*}
+T_{g}f & =\int g\left(x\right)f\left(x\right)\dd^{n}x\le\int c\left(1+\abs x^{r}\right)\frac{\norm f_{0,s}}{\left(1+\abs x^{s}\right)}\dd^{n}x=\\
+ & \sr ={\text{polar coordinates}}{\rho:=\abs x}c\norm f_{0,s}\underbrace{\mu\left(S^{n-1}\right)}_{\text{volume of unit sphere}}\int_{0}^{\infty}\rho^{n-1}\frac{1+\rho^{r}}{1+\rho^{s}}\dd\rho\stackrel{s>r+n}{<}\infty
+\end{align*}
+
+\end_inset
+
+This is finite if and only if the integrand decays faster than 
+\begin_inset Formula $\rho^{-1}$
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $n-1+r-s<-1$
+\end_inset
+
+ and thus 
+\begin_inset Formula $s>n+r$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $s\in\mathbb{N}$
+\end_inset
+
+ is arbitrary, the integral exists.
+\begin_inset Newline newline
+\end_inset
+
+Continuity: The previous estimate implies with 
+\begin_inset Formula $s=n+r+1$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\abs{T_{g}f} & \le C\left(g,n\right)\norm f_{0,s}
+\end{align*}
+
+\end_inset
+
+Thus 
+\begin_inset Formula $T_{g}\in\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ is a tempered distribution.
+\end_layout
+
+\begin_layout Enumerate
+Chose 
+\begin_inset Formula $g\left(x\right)=e^{x}$
+\end_inset
+
+ and define:
+\begin_inset Formula 
+\begin{align*}
+T_{g}f & :=\int_{-\infty}^{\infty}f\left(x\right)e^{x}\dd x
+\end{align*}
+
+\end_inset
+
+This is 
+\emph on
+not
+\emph default
+ a well-defined tempered distribution.
+ Namely, choose:
+\begin_inset Formula 
+\begin{align*}
+f\left(x\right) & =\frac{1}{\cosh\left(\frac{x}{2}\right)}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+begin{axis}[width=16cm, axis equal image, axis x line=middle, axis y line=middle
+, xlabel=$x$, domain=-4:4, ymin=0, ymax=1.2, samples=300]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+addplot[mark=none] {1/cosh(x/2)};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+addlegendentry{$f(x)$}
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+end{axis}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ decays rapidly.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ and all its derivatives decay rapidly (exponentially fast 
+\begin_inset Formula $\sim e^{-\frac{x}{2}}$
+\end_inset
+
+) at 
+\begin_inset Formula $\pm\infty$
+\end_inset
+
+, so 
+\begin_inset Formula $f\in\mathcal{S}$
+\end_inset
+
+ is a Schwartz function.
+ But 
+\begin_inset Formula $T_{g}f$
+\end_inset
+
+ diverges:
+\begin_inset Formula 
+\begin{align*}
+T_{g}f & =\int_{-\infty}^{\infty}\frac{e^{x}}{\cosh\left(\frac{x}{2}\right)}\dd x=+\infty
+\end{align*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Part*
-Anhang
+Appendix
 \begin_inset ERT
 status open
 
@@ -1885,7 +4155,7 @@ status open
 
 
 \backslash
-addcontentsline{toc}{part}{Anhang}
+addcontentsline{toc}{part}{Appendix}
 \end_layout
 
 \end_inset
@@ -1901,14 +4171,14 @@ status open
 
 
 \backslash
-fancyhead[R]{Index}
+fancyhead[R]{}
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-fancyhead[C]{Anhang}
+fancyhead[C]{Appendix}
 \end_layout
 
 \end_inset
@@ -1917,7 +4187,7 @@ fancyhead[C]{Anhang}
 \end_layout
 
 \begin_layout Chapter*
-Danksagungen
+Acknowledgements
 \end_layout
 
 \begin_layout Standard
@@ -1930,7 +4200,7 @@ status open
 \backslash
 addcontentsline{toc}{section}{
 \backslash
-hspace*{2.7em}Danksagungen}
+hspace*{2.7em}Acknowledgements}
 \end_layout
 
 \end_inset
@@ -1946,7 +4216,7 @@ status open
 
 
 \backslash
-fancyhead[R]{Danksagungen}
+fancyhead[R]{Acknowledgements}
 \end_layout
 
 \end_inset
@@ -1955,13 +4225,13 @@ fancyhead[R]{Danksagungen}
 \end_layout
 
 \begin_layout Standard
-Mein besonderer Dank geht an Professor Finster, der diese Vorlesung hielt
- und es mir gestattete, diese Vorlesungsmitschrift zu veröffentlichen.
+My special thanks goes to Professor Finster, who gave this lecture and allowed
+ me to publish this script of the lecture.
 \end_layout
 
 \begin_layout Standard
-Außerdem möchte ich mich ganz herzlich bei allen bedanken, die durch aufmerksame
-s Lesen Fehler gefunden und mir diese mitgeteilt haben.
+I would also like to thank all those, who found errors by careful reading
+ and told me of them.
 \end_layout
 
 \begin_layout Standard

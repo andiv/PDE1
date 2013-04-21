@@ -1,6 +1,6 @@
 %% LyX 2.0.5.1 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
-\documentclass[11pt,english,ngerman]{scrreprt}
+\documentclass[11pt,ngerman,english]{scrreprt}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[a4paper]{geometry}
@@ -10,18 +10,20 @@
 \setlength{\parskip}{\smallskipamount}
 \setlength{\parindent}{0pt}
 \usepackage{babel}
+\usepackage{float}
 \usepackage{textcomp}
 \usepackage{url}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage{esint}
 \usepackage[unicode=true,
  bookmarks=true,bookmarksnumbered=true,bookmarksopen=false,
  breaklinks=true,pdfborder={0 0 0},backref=page,colorlinks=false]
  {hyperref}
-\hypersetup{pdftitle={Partielle Differentialgleichungen I},
+\hypersetup{pdftitle={Partial Differential Equations 1},
  pdfauthor={Andreas Völklein},
- pdfkeywords={Partielle Differentialgleichungen, Mathematik}}
+ pdfkeywords={Partial Differential Equations, Mathematics}}
 
 \makeatletter
 
@@ -39,10 +41,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
 \usepackage{tikz,pgfplots}
 %\usepackage{tikz-3dplot,cancel,polynom}
-\usetikzlibrary{matrix,arrows,calc,decorations.pathmorphing,intersections,shapes}
+\usetikzlibrary{matrix,arrows,calc,decorations,decorations.markings,intersections,shapes}
 \usetikzlibrary{external}
 \tikzexternalize
-\usepackage{latexsym,stmaryrd,stackrel,braket,bbm,subfig,framed,esvect,scrhack,calc}
+\usepackage{latexsym,stmaryrd,stackrel,braket,bbm,subfig,framed,esvect,scrhack,calc,upgreek}
 \usepackage [OMLmathrm,OMLmathbf,sfdefault=fav]{isomath}
 \usepackage[explicit]{titlesec}
 \usepackage[activate]{pdfcprot}
@@ -120,7 +122,7 @@
 \begin{minipage}{6mm}
  \tikzset{external/export next=false}
  \begin{tikzpicture}
-   \node at (0,0){$\Delta$};
+   \node at (0,0){$\upDelta$};
    \draw[line width=0.75] (0.25,-0.13) -- (0.1,0.15);
  \end{tikzpicture}
 \end{minipage}
@@ -181,7 +183,7 @@
 % obere Trennlinie
 %\renewcommand{\headrulewidth}{0.4pt}
 \fancyhf{} %alle Kopf- und Fußzeilenfelder bereinigen
-\fancyhead[L]{\textbf{Partielle Differentialgleichungen I}} %Kopfzeile links
+\fancyhead[L]{\textbf{Partial Differential Equations I}} %Kopfzeile links
 %\fancyhead[C]{\leftmark} %zentrierte Kopfzeile
 \fancyhead[R]{\rightmark} %Kopfzeile rechts
 \fancyfoot[C]{\thepage\quad\!\!\!\slash\quad\!\!\!\pageref{END-front}} %Seitenzahl der Front-Matter
@@ -199,8 +201,10 @@
 
 
 
+\selectlanguage{ngerman}%
 
 
+\selectlanguage{english}%
 \global\long\def\norm#1{\left\lVert #1\right\rVert }
 
 
@@ -252,9 +256,6 @@
 \global\long\def\dbar{\dBar}
 
 
-\global\long\def\angs{\ang}
-
-
 \global\long\def\TT{\textnormal{T}}
 
 
@@ -298,35 +299,34 @@
 
 
 \title{\hspace*{1mm}\vspace*{-15mm}\\
-{\Huge Partielle Differentialgleichungen I}}
+{\Huge Partial Differential Equations I}}
 
 
 \author{\vspace*{-5mm}\\
-\textit{\small Vorlesung von}\\
+\textit{\small lecture by}\\
 \textit{\noun{\small Prof. Dr. Felix Finster}}\\
-\textit{\small im Sommersemester 2013}\\
-\textit{\small Überarbeitung und Textsatz in \LyX{} von}\\
+\textit{\small during the summer semester 2013}\\
+\textit{\small revision and layout in \LyX{} by}\\
 \textit{\noun{\small Andreas Völklein}}\\
 \vspace*{5mm}\\
 \includegraphics[clip,width=15cm]{unir}\\
 \vspace*{3mm}\\
-{\normalsize Stand: \today}\\
+{\normalsize Last changed: \today}\\
 \vspace*{-30mm}}
 
 \maketitle
-\fancyhead[R]{Lizenz}
+\fancyhead[R]{License}
 
 
-\subsubsection*{ACHTUNG}
+\subsubsection*{ATTENTION}
 
-Diese Mitschrift ersetzt \emph{nicht} die Vorlesung.
+This script does \emph{not} replace the lecture.
 
-Es wird daher \emph{dringend} empfohlen, die Vorlesung zu besuchen.
+Therefore it is recommended \emph{strongly} to attend the lecture.
 
 \vfill{}
 
 
-\selectlanguage{english}%
 
 \subsubsection*{Copyright Notice}
 
@@ -372,35 +372,63 @@ liability to you}}\noun{, whether in contract, tort (including negligence),
 or otherwise, }\textbf{\noun{exceed the amount you paid the Copyright
 Holders/Distributor}}\noun{ for the document under this agreement.}
 
-\selectlanguage{ngerman}%
 
 \subsubsection*{Links}
 
-Der Text der „\foreignlanguage{english}{GNU Free Documentation License}“
-kann auch auf der Seite
+The text of the “GNU Free Documentation License” can also be read
+on the following site:
 \begin{quote}
-\url{https://www.gnu.org/licenses/fdl-1.3.de.html}
+\url{https://www.gnu.org/licenses/fdl-1.3.en.html}
 \end{quote}
-nachgelesen werden.
-
-Eine transparente Kopie der aktuellen Version dieses Dokuments kann
-von
+A transparent copy of the recent version of this document can be downloaded
+from:
 \begin{quote}
-\url{https://github.com/andiv/pde1}
+\url{https://github.com/andiv/PDE1}
 \end{quote}
-heruntergeladen werden.
-
 \newpage{}
 
-\fancyhead[R]{Literatur}
+\fancyhead[R]{Literature}
 
 
-\subsection*{Literatur}
+\subsection*{Literature}
+
+Elliptic and parabolic partial differential equations:
 \begin{itemize}
-\item \noun{Name des Autors: }\emph{Titel des Buches}; Verlag, <Erscheinungsjahr>\\
-ISBN: 978-1-2345-6789-0
+\item \noun{Jürgen Jost}: \emph{Partial Differential Equations}; Springer,
+2007\\
+ISBN: 978-0-387-49318-3; \href{http://dx.doi.org/10.1007/978-0-387-49319-0}{doi: 10.1007/978-0-387-49319-0}\\
+(good book, but not all details, small errors)
+\item \noun{Lawrence C. Evans}: \emph{Partial Differential Equations}; American
+Mathematical Society, 2010\\
+ISBN: 978-0-8218-4974-3\\
+(part of the lecture follows this book, lots of details)
+\item \noun{David Gilborg, Neil S. Trudinger}: \emph{Elliptic Partial Differential
+Equations of second order}; Springer, 2001\\
+ISBN: 3-540-41160-7\\
+(classic textbook, complete treatment)
 \end{itemize}
-{\small \newpage{}}\fancyhead[R]{Inhaltsverzeichnis}
+Hyperbolic partial differential equations (for the lecture ``Partial
+Differential Equations II''):
+\begin{itemize}
+\item \noun{Fritz John}: \emph{Partial Differential Equations}; Springer,
+1999\\
+ISBN: 0-387-90609-6
+\item \noun{Michael E. Taylor}: \emph{Partial Differential Equations I -
+III}; Springer, 1997\\
+ISBN: 0-387-94653-5, 0-387-94651-9, 0-387-94652-7\\
+(nice detailed text books)
+\item \noun{Joel Smoller}: \emph{Shock waves and reaction-diffusion equations};
+Springer, 1994\\
+ISBN: 3-540-94259-9\\
+(nicely presented, good motivations, covers most of the material)
+\item \noun{Friedrich Sauvigny}: Partial Differential Equations I-II; Springer,
+2012\\
+ISBN: 978-1-4471-2981-3, 978-1-4471-2984-4;\\
+\href{http://dx.doi.org/10.1007/978-1-4471-2981-3}{doi: 10.1007/978-1-4471-2981-3},
+\href{http://dx.doi.org/10.1007/3-540-27540-1}{10.1007/3-540-27540-1}
+\item and many more $\ldots$
+\end{itemize}
+{\small \newpage{}}\fancyhead[R]{Table of Contents}
 \fancyhead[C]{}
 
 \tableofcontents{}\label{END-front}\newpage{}\pagenumbering{arabic}
@@ -409,34 +437,612 @@ ISBN: 978-1-2345-6789-0
 %\fancyhead[C]{\leftmark}%DATE: Mi 17.04.2013
 
 
-\chapter{erstes Kapitel}
+\chapter{A brief introduction}
+
+An ordinary differential equation (ODE) can be written as:
+\begin{align*}
+\frac{\dd}{\dd t}u\left(t\right)=\dot{u}\left(t\right) & =v\left(t,u\right)\\
+u:I\subseteq\mathbb{R} & \to\mathbb{R}^{N}
+\end{align*}
+This equation involves only derivatives with respect to \emph{one}
+variable $t$.
+\begin{align*}
+\frac{\partial}{\partial x}f\left(x,y\right)+\frac{\partial}{\partial y}f\left(x,y\right) & =0
+\end{align*}
+This is an example for a partial differential equation.
 
 
-\section{erster Abschnitt}
+\section{Definition \textmd{(Partial Differential Equation)}}
+
+A \emph{partial differential equation} (PDE) is a (scalar) equation,
+which involves partial derivatives of an unknown function $u:\Omega\subseteq\mathbb{R}^{n}\to\mathbb{R}$.
+We always assume that $\Omega\subseteq\mathbb{R}^{n}$ is open.\\
+More generally, a \emph{system of partial differential equations}
+is a system of equations involving partial derivatives of a function
+$u:\Omega\subseteq\mathbb{R}^{n}\to\mathbb{R}^{N}$.\\
+Similarly one can define partial differential equations on manifolds.
+
+For ordinary differential equations we considered the initial-value
+problem:
+\begin{align*}
+\dot{u}\left(t\right) & =v\left(t,u\right) & u\left(t_{0}\right) & =u_{0}
+\end{align*}
+For partial differential equations one considers
+\begin{itemize}
+\item the initial-value problem and
+\item the boundary-value problem.
+\end{itemize}
+
+\section{Examples}
+\begin{enumerate}
+\item Cauchy-Riemann equations: Let
+\begin{align*}
+f:\Omega\stackrel{\text{open}}{\subseteq}\mathbb{C} & \to\mathbb{C}
+\end{align*}
+be holomorphic.
+\begin{align*}
+f & =a+\ii b & a & :=\text{Re}\left(f\right) & b & :=\text{Im}\left(f\right)
+\end{align*}
+\begin{align*}
+\frac{\partial a}{\partial x} & =\frac{\partial b}{\partial y} & \frac{\partial b}{\partial x} & =-\frac{\partial a}{\partial y}
+\end{align*}
+This is a system of two partial differential equations.
+\begin{align*}
+u & :=\left(\begin{array}{c}
+a\\
+b
+\end{array}\right) & u:\Omega\subseteq\mathbb{C}=\mathbb{R}^{2} & \to\mathbb{R}^{2}
+\end{align*}
+\begin{align*}
+\frac{\partial^{2}a}{\partial x^{2}}+\frac{\partial^{2}a}{\partial y^{2}} & =\frac{\partial b}{\partial x\partial y}-\frac{\partial b}{\partial y\partial x}=0
+\end{align*}
+\begin{align*}
+\Rightarrow\qquad\underbrace{\left(\frac{\partial^{2}}{\partial x^{2}}+\frac{\partial^{2}}{\partial y^{2}}\right)}_{=:\upDelta}a & =0 & \upDelta b & =0
+\end{align*}
+This is the \emph{Laplace equation} with the \emph{Laplace operator}
+$\upDelta$. Solutions of the Laplace equation are called \emph{harmonic
+functions}.
+\item Let $\left(M,g\right)$ be a Riemannian manifold. Here exists the
+Laplace-Beltrami operator $\LBO$.
+
+\begin{itemize}
+\item In the special case $M=\mathbb{R}^{n}$ we have:
+\begin{align*}
+\upDelta & =\frac{\partial^{2}}{\partial x_{1}^{2}}+\ldots+\frac{\partial^{2}}{\partial x_{n}^{2}}\\
+\upDelta\varphi & =0
+\end{align*}
+
+\item With the Riemannian metric $g_{ij}$ we can define:
+\begin{align*}
+\LBO\varphi & =g^{ij}\nabla_{i}\nabla_{j}\varphi=\text{div}\left(\text{grad}\left(\varphi\right)\right)=\frac{1}{\sqrt{\det\left(g\right)}}\partial_{j}\left(\sqrt{\det\left(g\right)}g^{jk}\partial_{k}\varphi\right)
+\end{align*}
+
+\end{itemize}
+
+This gives an elliptic equation.
+
+\item Newton's gravitational law: Let $\varrho\left(x\right)$ be the mass
+density and $\varphi\left(x\right)$ the Newtonian potential.
+\begin{align*}
+\upDelta\varphi & =\underbrace{-4\pi\varrho}_{\text{inhomogeneity}}
+\end{align*}
+Such an inhomogeneous Laplace equation is usually referred to as Poisson
+equation and it is elliptic.
+\item Heat flow equation (\foreignlanguage{ngerman}{Wärmeleitungsgleichung}):
+Let $\varphi\left(t,x\right)$ be the temperature at time $t\in\mathbb{R}$
+and position $x\in\mathbb{R}^{n}$.
+\begin{align*}
+\partial_{t}\varphi\left(t,x\right) & =\upDelta\varphi\left(t,x\right)
+\end{align*}
+This is a parabolic equation.
+\item The Schrödinger equation is a parabolic equation:
+\begin{align*}
+\ii\hbar\partial_{t}\psi\left(t,x\right) & =\left(-\frac{\hbar^{2}}{2m}\upDelta+V\right)\psi\left(t,x\right)
+\end{align*}
+Additionally to the the heat flow equation there is the potential
+$V$, but more important there is a factor of $\ii$ in front of the
+partial derivative. The time-independent Schrödinger equation is:
+\begin{align*}
+E\psi\left(x\right) & =\left(-\frac{\hbar^{2}}{2m}\upDelta+V\right)\psi\left(x\right)
+\end{align*}
+This is similar to the Poisson equation and also elliptic.
+\item The wave equation
+\begin{align*}
+\left(\partial_{t}^{2}-\upDelta_{x}\right)\psi\left(t,x\right) & =0
+\end{align*}
+is hyperbolic. We will consider it in the lecture ``Partial Differential
+Equations II''.
+\item Maxwell's equations: $E\left(t,x\right)$ is the electric field and
+$B\left(t,x\right)$ the magnetic field.
+\begin{align*}
+\text{div}\left(E\right) & =4\pi\varrho &  & \text{Gauss law}\\
+\text{rot}\left(E\right) & =-\partial_{t}B &  & \text{Maxwell}\\
+\text{div}\left(B\right) & =0\\
+\text{rot}\left(B\right) & =4\pi j-\partial_{t}E &  & \text{Faraday}
+\end{align*}
+This is a system of 8 partial differential equation.
+\item Einstein's field equation:
+\begin{align*}
+R_{ij}-\frac{1}{2}Rg_{ij} & =4\pi\kappa T_{ij}
+\end{align*}
+This is a geometric partial differential equation. $R_{ij}$ is the
+Ricci curvature, $R$ the scalar curvature and $T_{ij}$ the energy-momentum
+tensor. It is a system of 10 partial differential equations.
+\item Equations of relativistic quantum mechanics:
+\begin{align*}
+\left(-\partial_{t}^{2}+\upDelta\right)\psi & =m^{2}\psi
+\end{align*}
+This is the Klein-Gordon equation with the mass $m$.
+\begin{align*}
+\ii\gamma^{j}\partial_{j}\psi & =m\psi
+\end{align*}
+This is the Dirac equation, a system of 4 complex-valued or 8 real-valued
+partial differential equations for a particle with spin $\frac{1}{2}$.
+\item Water waves can be described by the Korteweg-de Vries equation:
+\begin{align*}
+\partial_{t}u+u\partial_{x}u+\partial_{x}^{3}u & =0
+\end{align*}
+\begin{figure}[H]
+\noindent \begin{centering}
+\begin{tikzpicture}
+  \draw (-4,1) -- (4,1) (-4,-1) -- (4,-1);
+  \draw[dashed] (-1,0.7) -- (-1,-0.7) (2,0.7) -- (2,-0.7);
+  \draw[thick] plot[smooth,tension=.7] coordinates{(-2,-0.4) (-1.6,-0.25) (-1,0.4) (-0.4,-0.25) (0,-0.4)};
+  \draw[thick,xshift=3cm] plot[smooth,tension=.7] coordinates{(-2,-0.4) (-1.6,-0.25) (-1,0.4) (-0.4,-0.25) (0,-0.4)};
+  \draw[thick,decoration={markings,mark=at position 1 with {\arrow[scale=1.3]{>}};},postaction={decorate}] (0,0.1) -- (1,0.1);
+  \draw plot[smooth cycle,tension=.3] coordinates{(-3.5,-0.3) (-2.75,-0.27) (-2.5,-0.2) (-2.25,0) (-2.5,0.2) (-2.75,0.27) (-3.5,0.3)};
+\end{tikzpicture}
+\par\end{centering}
+
+\caption{Solitons (discovered by John Russel in 1834): When the ship suddenly
+stops, the water flows on along the channel. This wave moves with
+a constant speed and its shape stays the same.}
 
 
-\subsection{erster Unterabschnitt}
+\end{figure}
+
+\item Shock waves: Burger's equation
+\begin{align*}
+\partial_{t}u+u\partial_{x}u & =0
+\end{align*}
+is hyperbolic.
+\item Turbulence can be described by the incompressible Navier-Stokes equations
+for the velocity $v:\Omega\subseteq\mathbb{R}^{3}\to\mathbb{R}^{3}$.
+\begin{align*}
+\text{div}\left(v\right) & =0\\
+\rho\partial_{t}v^{j}+\rho v^{i}\partial_{i}v^{j}-\eta\upDelta v^{j} & =-\partial_{j}P
+\end{align*}
+Here $\varrho$ is the gas density, $P$ the pressure and $\eta$
+the viscosity.
+\end{enumerate}
+
+\section{Classification}
+\begin{enumerate}[label=\Roman*)]
+\item The \emph{order} of a partial differential equation is the highest
+order of the derivatives in it.
+\begin{align*}
+\upDelta u & =f &  & \text{second order}\\
+\partial_{t}\varphi & =\upDelta\varphi &  & \text{second order}\\
+\partial_{t}u+u\partial_{x}u+\partial_{x}^{3}u & =0 &  & \text{third order}
+\end{align*}
+
+\item Algebraic classification:
+
+\begin{enumerate}[label=\alph*)]
+\item \emph{Linear} equations: The unknown function $u$ and its derivatives
+appear only linearly.
+\begin{align*}
+\partial_{t}u & =u &  & \text{linear}\\
+\partial_{t}u+u\partial_{x}u & =0 &  & \text{non-linear}
+\end{align*}
+
+\item Linear \emph{homogeneous} equations: If $u$ is a solution, then $\lambda u$
+for $\lambda\in\mathbb{R}$ is also a solution.
+\begin{align*}
+\upDelta u & =0 &  & \text{linear homogeneous}\\
+\upDelta u & =\varrho &  & \text{linear inhomogeneous}\\
+\LBO u & =0 &  & \text{linear homogeneous}
+\end{align*}
+
+\item Linear with \emph{constant coefficients}:
+\begin{align*}
+\upDelta u & =\rho &  & \text{linear with constant coefficients}\\
+\LBO u & =\varrho &  & \text{in general non-constant coefficients}
+\end{align*}
+
+\end{enumerate}
+\item Classification by type: elliptic, parabolic, hyperbolic\\
+Here we only consider scalar second order equations with $x\in\Omega\subseteq\mathbb{R}^{n}$.
+\begin{align*}
+F\left(x,u,\DD u,\DD^{2}u\right) & =0\\
+F:\Omega\times\mathbb{R}\times\mathbb{R}^{n}\times\mathbb{R}^{n\times n} & \to\mathbb{R}
+\end{align*}
+\begin{align*}
+A_{ij} & :=\frac{\partial F\left(x,u,p_{i},p_{ij}\right)}{\partial p_{ij}}
+\end{align*}
+is a symmetric $n\times n$ matrix.
+
+\begin{itemize}
+\item If $A$ is positive definite, the equation is called \emph{elliptic}.
+\item If $A$ has $n-1$ positive and one negative eigenvalue, the equation
+is called \emph{hyperbolic}.
+\item If $A$ has $n-1$ positive eigenvalues and a non-trivial kernel,
+the equation is called \emph{parabolic}.
+\item If all eigenvalues are negative or $n-1$ are negative, then we replace
+$F$ by $-F$.\\
+All other case of \emph{mixed type} are difficult and we do not consider
+them in this lecture.
+\end{itemize}
+\end{enumerate}
+
+\section{Examples}
+
+Consider the Poisson equation:
+\begin{align*}
+\upDelta u & =\varrho\\
+F\left(x,u,\DD u,\DD^{2}u\right) & =-\varrho\left(x\right)+\delta^{ij}\partial_{ij}u\\
+F\left(x,u,p_{i},p_{ij}\right) & =-\varrho\left(x\right)+\delta^{ij}p_{ij}\\
+A_{ij}=\frac{\partial F\left(x,u,p_{i},p_{ij}\right)}{\partial p_{ij}} & =\delta_{ij}
+\end{align*}
+So we have $A=\mathbbm{1}$ and thus the equation is elliptic.\\
+Now consider the inhomogeneous wave equation:
+\begin{align*}
+\left(\partial_{t}^{2}-\upDelta\right)\phi\left(t,x_{1},x_{2},x_{3}\right) & =\varrho
+\end{align*}
+\begin{align*}
+F\left(x,u,p_{i},p_{ij}\right) & =\varrho\left(x\right)+\eta^{ij}p_{ij} & \eta & =\text{diag}\left(-1,1,1,1\right)
+\end{align*}
+So $A=\eta$ has one negative and three positive eigenvalues which
+means that the equation is hyperbolic.
+\begin{align*}
+\partial_{t}\phi & =\upDelta\phi
+\end{align*}
+\begin{align*}
+F\left(x,u,\DD\phi,\DD^{2}\phi\right) & =-\partial_{0}\phi+\sum_{i,j=1}^{3}\delta^{ij}\partial_{ij}\phi\\
+A_{ij} & =\left(\begin{array}{cccc}
+0 & 0 & 0 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1
+\end{array}\right)
+\end{align*}
+Therefore the equation is parabolic.
 
 
-\part*{Anhang\thispagestyle{empty}}
-
-\addcontentsline{toc}{part}{Anhang}
-
-\fancyhead[R]{Index}
-\fancyhead[C]{Anhang}
+\chapter{Distributions and Fourier transform}
 
 
-\chapter*{Danksagungen}
+\subsubsection*{Motivation}
 
-\addcontentsline{toc}{section}{\hspace*{2.7em}Danksagungen}
+We want to solve partial differential equations with constant coefficients
+in $\Omega=\mathbb{R}^{n}$, for example:
+\begin{align*}
+\left(-\partial_{t}^{2}+\upDelta\right)\phi & =0
+\end{align*}
+Now we make a ``plane wave ansatz'' with $t,\omega\in\mathbb{R}$
+and $k,x\in\mathbb{R}^{n-1}$:
+\begin{align*}
+\phi\left(t,x\right) & =e^{-\ii\omega t+\ii\left\langle k,x\right\rangle }\\
+\partial_{t}\phi\left(t,x\right) & =-\ii\omega\phi\left(t,x\right)\\
+\partial_{j}\phi\left(t,x\right) & =\ii k_{j}\phi\left(t,x\right)
+\end{align*}
+This gives an algebraic equation:
+\begin{align*}
+\left(-\left(-\ii\omega\right)^{2}+\left(\ii k\right)^{2}\right)\phi & =0\\
+\Leftrightarrow\qquad\omega^{2} & =k^{2}
+\end{align*}
+%DATE: Fr 19.4.13\\
+We also want to differentiate non-smooth functions, e.g.:
+\begin{align*}
+\upDelta_{\mathbb{R}^{3}}\frac{1}{\abs x} & =-4\pi\delta\left(x\right)
+\end{align*}
+$\delta\left(x\right)$ is called Dirac $\delta$-distribution.
 
-\fancyhead[R]{Danksagungen}
 
-Mein besonderer Dank geht an Professor Finster, der diese Vorlesung
-hielt und es mir gestattete, diese Vorlesungsmitschrift zu veröffentlichen.
+\section{The Schwartz space and distributions}
 
-Außerdem möchte ich mich ganz herzlich bei allen bedanken, die durch
-aufmerksames Lesen Fehler gefunden und mir diese mitgeteilt haben.
+Laurent Schwartz was the first to investigate distributions systematically.
+He was awarded the fields medal for this.
+
+
+\subsection{Definition \textmd{(Multi-index)}}
+
+For $\mathbb{R}^{n}$ we denote indices by $i,j,k\in\left\{ 1,\ldots,n\right\} $.
+We call $\alpha=\left(i_{1},\ldots,i_{k}\right)$ with $i_{l}\in\left\{ 1,\ldots,n\right\} $
+a \emph{multi-index}. $\abs{\alpha}:=k$ is called the \emph{order}
+or \emph{absolute value} of the multi-index.
+
+With this we can write differentials of order $k$ as
+\begin{align}
+\DD^{\alpha} & :=\frac{\partial}{\partial x^{i_{1}}}\cdots\frac{\partial}{\partial x^{i_{k}}}
+\end{align}
+and homogeneous polynomials of degree $k$ in the components of a
+vector $x=\left(x^{1},\ldots,x^{n}\right)$ as:
+\begin{align}
+x^{\alpha} & :=x^{i_{1}}\cdots x^{i_{k}}
+\end{align}
+For $f\in C^{\infty}\left(\mathbb{R}^{n}\right)$ and $r,s\in\mathbb{N}$
+we define the Schwartz norm:
+\begin{align}
+\norm f_{r,s} & :=\sum_{\alpha,\abs{\alpha}\le r}\sum_{\beta,\abs{\beta}\le s}\sup_{x\in\mathbb{R}^{n}}\abs{x^{\alpha}\DD^{\beta}f\left(x\right)}\\
+\norm f_{0,0} & =\sup_{x\in\mathbb{R}^{n}}\abs{f\left(x\right)}=\norm f_{C^{0}}\nonumber 
+\end{align}
+
+
+
+\subsection{Definition \textmd{(Schwartz space)}}
+
+The \emph{Schwartz space} $\mathcal{S}\left(\mathbb{R}^{n}\right)$
+is the vector space of all $f\in C^{\infty}\left(\mathbb{R}^{n}\right)$
+for which all Schwartz norms are finite, i.e. for all $r,s\in\mathbb{N}$
+holds:
+\begin{align*}
+\norm f_{r,s} & <\infty
+\end{align*}
+This space is an infinite-dimensional vector space.\\
+On a normed space $\left(E,\norm .\right)$, the topology is given
+by the open sets.
+
+$\Omega\subseteq E$ is defined as \emph{open} if holds:
+\begin{align*}
+\fall_{x\in\Omega}\ \exs_{\varepsilon>0}\ :\ B_{\varepsilon}\left(x\right) & \subseteq\Omega
+\end{align*}
+A subset $\Omega\subseteq\mathcal{S}\left(\mathbb{R}^{n}\right)$
+is called \emph{open} if for every $f\in\Omega$ there is a $\varepsilon>0$
+and $r,s\in\mathbb{N}$ such that holds:
+\begin{align}
+\left\{ g\in\mathcal{S}\big|\norm{g-f}_{r,s}<\varepsilon\right\}  & \subseteq\Omega
+\end{align}
+
+\begin{description}
+\item [{Note:}] This topology is fine, because it involves many open sets,
+since the condition for open only involves the statement ``there
+are $r,s\in\mathbb{N}$''.\\
+Convergence $f_{n}\to f$ in $\mathcal{S}$ means that \emph{every}
+open neighborhood $U$ of $f$ contains almost all $f_{n}$. For a
+finer topology, the condition for a sequence to converge is stronger.
+\end{description}
+
+\subsection{Theorem}
+
+Convergence $f_{n}\to f$ in $\mathcal{S}$ is equivalent to the convergence
+$\norm{f_{n}-f}_{r,s}\to0$ for all $r,s\in\mathbb{N}$.
+
+
+\subsubsection*{Proof}
+
+``$\Rightarrow$'': Suppose that $f_{n}\to f$ converges. By definition
+of the convergence, every open neighborhood of $f$ contains almost
+all $f_{n}$. For all $r,s\in\mathbb{N}$ the sets $U_{\varepsilon}^{r,s}:=\big\{ g\big|\norm{g-f}_{r,s}<\varepsilon\big\}$
+are open by definition. So the inequality
+\begin{align*}
+\norm{f_{n}-f}_{r,s} & <\varepsilon
+\end{align*}
+holds for almost all $f_{n}$ and thus converges $\norm{f_{n}-f}_{r,s}\to0$.
+
+``$\Leftarrow$'': Assume that $\norm{f_{n}-f}_{r,s}\to0$ converges
+for all $r,s\in\mathbb{N}$. Let $A$ be an open neighborhood of $f$.
+This means by definition that there exist $r,s\in\mathbb{N}$ and
+$\varepsilon\in\mathbb{R}_{>0}$ with $U_{\varepsilon}^{r,s}\subseteq A$.
+For this $\left(r,s\right)$ we know that $\norm{f_{n}-f}_{r,s}\to0$
+converges. Hence there exists a $N\in\mathbb{N}$ such that $\norm{f_{n}-f}_{r,s}<\varepsilon$
+holds for all $n\in\mathbb{N}_{>N}$, in other words $f_{n}\in U_{\varepsilon}^{r,s}\subseteq A$.
+So $f_{n}\to f$ converges in $\mathcal{S}$.\qqed
+
+A vector space with a topology generated by a family of norms or semi-norms
+is a \emph{uniform space} and is called \emph{topological vector space}.
+
+
+\subsection{Definition \textmd{(tempered distribution)}}
+
+Let $\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)$ be the dual space
+of $\mathcal{S}\left(\mathbb{R}^{n}\right)$. It is called the space
+of \emph{tempered distributions} (\foreignlanguage{ngerman}{temperierte
+Distributionen}).
+
+In linear algebra for a finite-dimensional vector space $V$, the
+dual space $V^{*}=L\left(V,\mathbb{R}\right)$ is the space of linear
+functionals. $V^{*}$ is again a vector space with $\dim\left(V^{*}\right)=\dim\left(V\right)$.\\
+Here $\mathcal{S}\left(\mathbb{R}^{n}\right)$ is an infinite-dimensional
+vector space with a topology. $\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)$
+is the space of all \emph{continuous} linear functionals.
+
+In a Banach space $\left(E,\norm .\right)$ holds: A linear functional
+$A:E\to\mathbb{R}$ is continuous if and only if $A$ is bounded,
+i.e. $\abs{Au}\le c\norm U$ for all $u\in E$.
+
+
+\subsection{Lemma}
+
+A linear functional $T:\mathcal{S}\left(\mathbb{R}^{n}\right)\to\mathbb{R}$
+is continuous if and only if there are $r,s\in\mathbb{N}$ and a $c\in\mathbb{R}_{>0}$
+such that holds:
+\begin{align}
+\abs{Tf} & \le c\norm f_{r,s}\label{eq:T_bounded}
+\end{align}
+
+
+
+\subsubsection*{Proof}
+
+``$\Leftarrow$'': Assume that (\ref{eq:T_bounded}) holds for some
+$r,s\in\mathbb{N}$. We want to show that $T$ is continuous. To this
+end, let $f_{n}\to f$ be a convergent series in $\mathcal{S}$. Our
+task is to show that $Tf_{n}\to Tf$ converges.\\
+The convergence $f_{n}\to f$ implies $\norm{f_{n}-f}_{r',s'}\to0$
+for all $r',s'\in\mathbb{N}$ and thus in particular for $r,s$ satisfying
+the inequality (\ref{eq:T_bounded}). By linearity follows:
+\begin{align*}
+\abs{Tf_{n}-Tf} & =\abs{T\left(f_{n}-f\right)}\le c\norm{f_{n}-f}_{r,s}\xrightarrow{n\to\infty}0
+\end{align*}
+So $T$ maps convergent sequences to convergent sequences and is thus
+continuous.
+
+``$\Rightarrow$'': Assume that $T$ is continuous. Then the preimage
+of open sets is open, in particular $T^{-1}\left(B_{1}\left(0\right)\right)\subseteq\mathcal{S}\left(\mathbb{R}^{n}\right)$
+is open. So there exist $r,s\in\mathbb{N}$ and a $\varepsilon\in\mathbb{R}_{>0}$
+such that holds:
+\begin{align*}
+T^{-1}\left(B_{1}\left(0\right)\right) & \supseteq U_{\varepsilon}^{r,s}:=\big\{ g\big|\norm g_{r,s}<\varepsilon\big\}
+\end{align*}
+This implies:
+\begin{align*}
+\norm g_{r,s}<\varepsilon & \quad\Rightarrow\quad g\in T^{-1}\left(B_{1}\left(0\right)\right)
+\end{align*}
+Now $g\in T^{-1}\left(B_{1}\left(0\right)\right)$ means $\abs{Tg}<1$.
+For any $f\in\mathcal{S}\left(\mathbb{R}^{n}\right)$ apply this to
+$g=\frac{f}{\lambda}$ with $\lambda\in\mathbb{R}_{>0}$.
+\begin{align*}
+\frac{1}{\lambda}\norm f_{r,s}<\varepsilon & \quad\Rightarrow\quad\frac{1}{\lambda}\abs{Tf}<1\qquad/\cdot\lambda\\
+\norm f_{r,s}<\lambda\varepsilon & \quad\Rightarrow\quad\abs{Tf}<\lambda
+\end{align*}
+Now choose $\lambda=\frac{2}{\varepsilon}\norm f_{r,s}$, so the left
+side holds, which implies:
+\begin{align*}
+\abs{Tf} & <\frac{2}{\varepsilon}\norm f_{r,s}\qquad\fall_{f\in\mathcal{S}\left(\mathbb{R}^{n}\right)}
+\end{align*}
+\qqed
+
+
+\subsection{Example \textmd{($\delta$-distribution)}}
+\begin{enumerate}[label=\alph*)]
+\item Consider the following functional:
+\begin{align*}
+\delta:\mathcal{S}\left(\mathbb{R}\right) & \to\mathbb{R}\\
+f & \mapsto f\left(0\right)
+\end{align*}
+This is obviously linear.
+\begin{align*}
+\abs{\delta\left(f\right)} & =\abs{f\left(0\right)}\le\sup_{\mathbb{R}}\abs f=\norm f_{0,0}
+\end{align*}
+Hence $\delta$ is continuous, which means that $\delta\in\mathcal{S}^{*}\left(\mathbb{R}\right)$
+is a tempered distribution.\\
+A convenient \emph{notation} with $f\in\mathcal{S}\left(\mathbb{R}\right)$
+is:
+\begin{align*}
+\delta\left(f\right) & =\int_{\mathbb{R}}f\left(x\right)\delta\left(x\right)\dd x
+\end{align*}
+
+\item In higher dimension $n\in\mathbb{N}$ we define:
+\begin{align*}
+\delta:\mathcal{S}\left(\mathbb{R}^{n}\right) & \to\mathbb{R}\\
+f & \mapsto f\left(0\right)
+\end{align*}
+Again holds $\abs{\delta\left(f\right)}\le\norm f_{0,0}$. The physicists'
+notation for this is:
+\begin{align*}
+\delta\left(f\right) & =\int_{\mathbb{R}^{n}}f\left(x\right)\delta^{\left(n\right)}\left(x\right)\dd^{n}x\\
+\delta^{\left(n\right)}\left(x\right) & =\delta\left(x^{1}\right)\cdots\delta\left(x^{n}\right)
+\end{align*}
+
+\end{enumerate}
+
+\subsubsection*{Remark}
+
+$\delta$ can also be introduced as a \emph{measure} on $\mathbb{R}^{n}$,
+the \emph{Dirac measure}. For $A\subseteq\mathbb{R}^{n}$ define:
+\begin{align*}
+\delta\left(x\right) & =\begin{cases}
+1 & \text{if }0\in A\\
+0 & \text{otherwise}
+\end{cases}
+\end{align*}
+Then for $f\in C^{0}\left(\mathbb{R}^{n}\right)$ the expression 
+\begin{align*}
+\int_{\mathbb{R}^{n}}f\left(x\right)\dd\delta\left(x\right) & =f\left(0\right)
+\end{align*}
+makes mathematical sense as an integral.
+
+This is useful because convergence theorems and so on from measure
+theory are available. The problem is, that this does not work for
+every distribution and thus is not general enough for most purposes,
+e.g. the derivative $\delta'\left(x\right)$ is a distribution, but
+cannot be written as a measure.
+
+
+\subsection{Example \textmd{(integral operator)}}
+\begin{enumerate}[label=\alph*)]
+\item Consider $g\in C^{\infty}\left(\mathbb{R}^{n}\right)$ with at most
+polynomial growth, i.e. there are $c\in\mathbb{R}_{>0}$ and $r\in\mathbb{N}$
+such that holds:
+\begin{align*}
+\abs{g\left(x\right)} & \le c\left(1+\abs x^{r}\right)
+\end{align*}
+Now define:
+\begin{align*}
+T_{g}:\mathcal{S}\left(\mathbb{R}^{n}\right) & \to\mathbb{R}\\
+f & \mapsto\int_{\mathbb{R}^{n}}g\left(x\right)f\left(x\right)\dd^{n}x
+\end{align*}
+The integral here is just the Lebesgue integral and it exists:\\
+For $f\in\mathcal{S}\left(\mathbb{R}^{n}\right)$ holds $\norm f_{r,s}<\infty$
+for all $r,s\in\mathbb{N}$.
+\begin{align*}
+\sup_{\mathbb{R}}\abs f+\sup_{x\in\mathbb{R}}\left(\abs x^{s}\cdot\abs{f\left(x\right)}\right) & \le\norm f_{0,s}<\infty\\
+\Rightarrow\qquad\sup_{x\in\mathbb{R}}\left(\left(1+\abs x^{s}\right)\abs{f\left(x\right)}\right) & \le\norm f_{0,s}\\
+\Rightarrow\qquad\abs{f\left(x\right)} & \le\frac{\norm f_{0,s}}{1+\abs x^{s}}\qquad\fall_{s\in\mathbb{N}}
+\end{align*}
+So we get:
+\begin{align*}
+T_{g}f & =\int g\left(x\right)f\left(x\right)\dd^{n}x\le\int c\left(1+\abs x^{r}\right)\frac{\norm f_{0,s}}{\left(1+\abs x^{s}\right)}\dd^{n}x=\\
+ & \sr ={\text{polar coordinates}}{\rho:=\abs x}c\norm f_{0,s}\underbrace{\mu\left(S^{n-1}\right)}_{\text{volume of unit sphere}}\int_{0}^{\infty}\rho^{n-1}\frac{1+\rho^{r}}{1+\rho^{s}}\dd\rho\stackrel{s>r+n}{<}\infty
+\end{align*}
+This is finite if and only if the integrand decays faster than $\rho^{-1}$,
+i.e. $n-1+r-s<-1$ and thus $s>n+r$. Since $s\in\mathbb{N}$ is arbitrary,
+the integral exists.\\
+Continuity: The previous estimate implies with $s=n+r+1$:
+\begin{align*}
+\abs{T_{g}f} & \le C\left(g,n\right)\norm f_{0,s}
+\end{align*}
+Thus $T_{g}\in\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)$ is a tempered
+distribution.
+\item Chose $g\left(x\right)=e^{x}$ and define:
+\begin{align*}
+T_{g}f & :=\int_{-\infty}^{\infty}f\left(x\right)e^{x}\dd x
+\end{align*}
+This is \emph{not} a well-defined tempered distribution. Namely, choose:
+\begin{align*}
+f\left(x\right) & =\frac{1}{\cosh\left(\frac{x}{2}\right)}
+\end{align*}
+\begin{figure}[H]
+\noindent \begin{centering}
+\begin{tikzpicture}
+ \begin{axis}[width=16cm, axis equal image, axis x line=middle, axis y line=middle, xlabel=$x$, domain=-4:4, ymin=0, ymax=1.2, samples=300]
+  \addplot[mark=none] {1/cosh(x/2)};
+  \addlegendentry{$f(x)$}
+ \end{axis}
+\end{tikzpicture} 
+\par\end{centering}
+
+\caption{$f\left(x\right)$ decays rapidly.}
+\end{figure}
+$f\left(x\right)$ and all its derivatives decay rapidly (exponentially
+fast $\sim e^{-\frac{x}{2}}$) at $\pm\infty$, so $f\in\mathcal{S}$
+is a Schwartz function. But $T_{g}f$ diverges:
+\begin{align*}
+T_{g}f & =\int_{-\infty}^{\infty}\frac{e^{x}}{\cosh\left(\frac{x}{2}\right)}\dd x=+\infty
+\end{align*}
+
+\end{enumerate}
+
+\part*{Appendix\thispagestyle{empty}}
+
+\addcontentsline{toc}{part}{Appendix}
+
+\fancyhead[R]{}
+\fancyhead[C]{Appendix}
+
+
+\chapter*{Acknowledgements}
+
+\addcontentsline{toc}{section}{\hspace*{2.7em}Acknowledgements}
+
+\fancyhead[R]{Acknowledgements}
+
+My special thanks goes to Professor Finster, who gave this lecture
+and allowed me to publish this script of the lecture.
+
+I would also like to thank all those, who found errors by careful
+reading and told me of them.
 
 \vspace{1cm}
 
