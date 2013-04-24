@@ -1713,11 +1713,7 @@ Lawrence C.
 \emph on
 Partial Differential Equations
 \emph default
-; American Mathematical Society, 2010
-\begin_inset Newline newline
-\end_inset
-
-ISBN: 978-0-8218-4974-3
+; American Mathematical Society, 2010; ISBN: 978-0-8218-4974-3
 \begin_inset Newline newline
 \end_inset
 
@@ -1734,11 +1730,7 @@ David Gilborg, Neil S.
 \emph on
 Elliptic Partial Differential Equations of second order
 \emph default
-; Springer, 2001
-\begin_inset Newline newline
-\end_inset
-
-ISBN: 3-540-41160-7
+; Springer, 2001; ISBN: 3-540-41160-7
 \begin_inset Newline newline
 \end_inset
 
@@ -1983,7 +1975,7 @@ status open
 \end_layout
 
 \begin_layout Chapter
-A brief introduction
+A Brief Introduction
 \end_layout
 
 \begin_layout Standard
@@ -2859,7 +2851,7 @@ Therefore the equation is parabolic.
 \end_layout
 
 \begin_layout Chapter
-Distributions and Fourier transform
+Distributions and Fourier Transform
 \end_layout
 
 \begin_layout Subsubsection*
@@ -2950,18 +2942,18 @@ We also want to differentiate non-smooth functions, e.g.:
 \end_layout
 
 \begin_layout Section
-The Schwartz space and distributions
+The Schwartz Space and Distributions
 \end_layout
 
 \begin_layout Standard
 Laurent Schwartz was the first to investigate distributions systematically.
- He was awarded the fields medal for this.
+ He was awarded the fields medal for his research.
 \end_layout
 
 \begin_layout Subsection
 Definition 
 \series medium
-(Multi-index)
+(Multi-Index)
 \end_layout
 
 \begin_layout Standard
@@ -3039,12 +3031,27 @@ For
 \begin_inset Formula $r,s\in\mathbb{N}$
 \end_inset
 
- we define the Schwartz norm:
+ we define the 
+\emph on
+Schwartz norm
+\emph default
+:
 \begin_inset Formula 
 \begin{align}
-\norm f_{r,s} & :=\sum_{\alpha,\abs{\alpha}\le r}\sum_{\beta,\abs{\beta}\le s}\sup_{x\in\mathbb{R}^{n}}\abs{x^{\alpha}\DD^{\beta}f\left(x\right)}\\
-\norm f_{0,0} & =\sup_{x\in\mathbb{R}^{n}}\abs{f\left(x\right)}=\norm f_{C^{0}}\nonumber 
+\norm f_{r,s} & :=\sum_{\alpha,\abs{\alpha}\le r}\sum_{\beta,\abs{\beta}\le s}\sup_{x\in\mathbb{R}^{n}}\abs{x^{\alpha}\DD^{\beta}f\left(x\right)}
 \end{align}
+
+\end_inset
+
+For example for 
+\begin_inset Formula $r=0=s$
+\end_inset
+
+ we have:
+\begin_inset Formula 
+\begin{align*}
+\norm f_{0,0} & =\sup_{x\in\mathbb{R}^{n}}\abs{f\left(x\right)}=\norm f_{C^{0}}
+\end{align*}
 
 \end_inset
 
@@ -3054,7 +3061,7 @@ For
 \begin_layout Subsection
 Definition 
 \series medium
-(Schwartz space)
+(Schwartz Space)
 \end_layout
 
 \begin_layout Standard
@@ -3133,7 +3140,7 @@ open
  such that holds:
 \begin_inset Formula 
 \begin{align}
-\left\{ g\in\mathcal{S}\big|\norm{g-f}_{r,s}<\varepsilon\right\}  & \subseteq\Omega
+\left\{ g\in\mathcal{S}\Big|\norm{g-f}_{r,s}<\varepsilon\right\}  & \subseteq\Omega
 \end{align}
 
 \end_inset
@@ -3188,7 +3195,9 @@ every
 \end_layout
 
 \begin_layout Subsection
-Theorem
+Theorem 
+\series medium
+(Criterion for Convergence)
 \end_layout
 
 \begin_layout Standard
@@ -3378,7 +3387,7 @@ topological vector space
 \begin_layout Subsection
 Definition 
 \series medium
-(tempered distribution)
+(Tempered Distribution)
 \end_layout
 
 \begin_layout Standard
@@ -3466,7 +3475,18 @@ In a Banach space
 \end_layout
 
 \begin_layout Subsection
-Lemma
+Lemma 
+\series medium
+(Criterion for Continuity)
+\series default
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Lem-continuous_functional"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3690,10 +3710,36 @@ qqed
 Example 
 \series medium
 (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\series medium
+
+\backslash
+texorpdfstring{
+\end_layout
+
+\end_inset
+
+
 \begin_inset Formula $\delta$
 \end_inset
 
--distribution)
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\series medium
+}{Delta}
+\end_layout
+
+\end_inset
+
+-Distribution)
 \end_layout
 
 \begin_layout Enumerate
@@ -3863,7 +3909,7 @@ This is useful because convergence theorems and so on from measure theory
 \begin_layout Subsection
 Example 
 \series medium
-(integral operator)
+(Integral Operator)
 \end_layout
 
 \begin_layout Enumerate
@@ -3937,9 +3983,9 @@ For
 .
 \begin_inset Formula 
 \begin{align*}
-\sup_{\mathbb{R}}\abs f+\sup_{x\in\mathbb{R}}\left(\abs x^{s}\cdot\abs{f\left(x\right)}\right) & \le\norm f_{0,s}<\infty\\
-\Rightarrow\qquad\sup_{x\in\mathbb{R}}\left(\left(1+\abs x^{s}\right)\abs{f\left(x\right)}\right) & \le\norm f_{0,s}\\
-\Rightarrow\qquad\abs{f\left(x\right)} & \le\frac{\norm f_{0,s}}{1+\abs x^{s}}\qquad\fall_{s\in\mathbb{N}}
+\sup_{\mathbb{R}}\abs f+\sup_{x\in\mathbb{R}}\left(\abs x^{\tilde{r}}\cdot\abs{f\left(x\right)}\right) & \le\norm f_{\tilde{r},0}<\infty\\
+\Rightarrow\qquad\sup_{x\in\mathbb{R}}\left(\left(1+\abs x^{\tilde{r}}\right)\abs{f\left(x\right)}\right) & \le\norm f_{\tilde{r},0}\\
+\Rightarrow\qquad\abs{f\left(x\right)} & \le\frac{\norm f_{\tilde{r},0}}{1+\abs x^{\tilde{r}}}\qquad\fall_{\tilde{r}\in\mathbb{N}}
 \end{align*}
 
 \end_inset
@@ -3947,8 +3993,8 @@ For
 So we get:
 \begin_inset Formula 
 \begin{align*}
-T_{g}f & =\int g\left(x\right)f\left(x\right)\dd^{n}x\le\int c\left(1+\abs x^{r}\right)\frac{\norm f_{0,s}}{\left(1+\abs x^{s}\right)}\dd^{n}x=\\
- & \sr ={\text{polar coordinates}}{\rho:=\abs x}c\norm f_{0,s}\underbrace{\mu\left(S^{n-1}\right)}_{\text{volume of unit sphere}}\int_{0}^{\infty}\rho^{n-1}\frac{1+\rho^{r}}{1+\rho^{s}}\dd\rho\stackrel{s>r+n}{<}\infty
+T_{g}f & =\int g\left(x\right)f\left(x\right)\dd^{n}x\le\int c\left(1+\abs x^{r}\right)\frac{\norm f_{\tilde{r},0}}{\left(1+\abs x^{\tilde{r}}\right)}\dd^{n}x=\\
+ & \sr ={\text{polar coordinates}}{\rho:=\abs x}c\norm f_{\tilde{r},0}\underbrace{\mu\left(S^{n-1}\right)}_{\text{volume of unit sphere}}\int_{0}^{\infty}\rho^{n-1}\frac{1+\rho^{r}}{1+\rho^{\tilde{r}}}\dd\rho\stackrel{\tilde{r}>r+n}{<}\infty
 \end{align*}
 
 \end_inset
@@ -3959,16 +4005,16 @@ This is finite if and only if the integrand decays faster than
 
 , i.e.
  
-\begin_inset Formula $n-1+r-s<-1$
+\begin_inset Formula $n-1+r-\tilde{r}<-1$
 \end_inset
 
  and thus 
-\begin_inset Formula $s>n+r$
+\begin_inset Formula $\tilde{r}>n+r$
 \end_inset
 
 .
  Since 
-\begin_inset Formula $s\in\mathbb{N}$
+\begin_inset Formula $\tilde{r}\in\mathbb{N}$
 \end_inset
 
  is arbitrary, the integral exists.
@@ -3976,13 +4022,13 @@ This is finite if and only if the integrand decays faster than
 \end_inset
 
 Continuity: The previous estimate implies with 
-\begin_inset Formula $s=n+r+1$
+\begin_inset Formula $\tilde{r}=n+r+1$
 \end_inset
 
 :
 \begin_inset Formula 
 \begin{align*}
-\abs{T_{g}f} & \le C\left(g,n\right)\norm f_{0,s}
+\abs{T_{g}f} & \le C\left(g,n\right)\norm f_{\tilde{r},0}
 \end{align*}
 
 \end_inset
@@ -4123,6 +4169,931 @@ end{tikzpicture}
 \begin_inset Formula 
 \begin{align*}
 T_{g}f & =\int_{-\infty}^{\infty}\frac{e^{x}}{\cosh\left(\frac{x}{2}\right)}\dd x=+\infty
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%DATE: Mi 24.4.13
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Remark 
+\series medium
+(Schwartz Functions as Distributions)
+\end_layout
+
+\begin_layout Standard
+The mapping
+\begin_inset Formula 
+\begin{align*}
+T:\mathcal{S}\left(\mathbb{R}^{n}\right) & \to\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)\\
+f & \mapsto T_{f}
+\end{align*}
+
+\end_inset
+
+is injective.
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $T$
+\end_inset
+
+ was injective, there were 
+\begin_inset Formula $f_{1},f_{2}\in\mathcal{S}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ with 
+\begin_inset Formula $T_{f_{1}}=T_{f_{2}}$
+\end_inset
+
+ and 
+\begin_inset Formula $f_{1}\not=f_{2}$
+\end_inset
+
+.
+ By linearity this would imply 
+\begin_inset Formula $T_{g}=0$
+\end_inset
+
+ with 
+\begin_inset Formula $g=f_{1}-f_{2}\not=0$
+\end_inset
+
+ and we could choose a 
+\begin_inset Formula $y\in\mathbb{R}^{n}$
+\end_inset
+
+ with 
+\begin_inset Formula $g\left(y\right)\not=0$
+\end_inset
+
+.
+ By continuity follows 
+\begin_inset Formula $g>0$
+\end_inset
+
+ or 
+\begin_inset Formula $g<0$
+\end_inset
+
+ in a neighborhood 
+\begin_inset Formula $U$
+\end_inset
+
+ of 
+\begin_inset Formula $y$
+\end_inset
+
+.
+ Now choose a test function 
+\begin_inset Formula $h$
+\end_inset
+
+ with 
+\begin_inset Formula $\text{supp}\left(h\right)\subseteq U$
+\end_inset
+
+ and 
+\begin_inset Formula $h\ge0$
+\end_inset
+
+.
+ Then follows the contradiction:
+\begin_inset Formula 
+\begin{align*}
+0=T_{g}\left(h\right) & =\int_{\mathbb{R}^{n}}g\left(x\right)h\left(x\right)\dd^{n}x\not=0
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Thus we can regard distributions as 
+\begin_inset Quotes eld
+\end_inset
+
+generalized functions
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Namely we identify a function 
+\begin_inset Formula $g$
+\end_inset
+
+ with 
+\begin_inset Formula $T_{g}$
+\end_inset
+
+.
+ (Later on many people often do not distinguish between 
+\begin_inset Formula $g$
+\end_inset
+
+ and 
+\begin_inset Formula $T_{g}$
+\end_inset
+
+.)
+\end_layout
+
+\begin_layout Subsubsection*
+Operations on Schwartz Functions and Distributions
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ is a vector space with addition 
+\begin_inset Formula $T+S$
+\end_inset
+
+ and scalar multiplication 
+\begin_inset Formula $\alpha\cdot f$
+\end_inset
+
+ for distributions 
+\begin_inset Formula $T,S\in\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\alpha\in\mathbb{R}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Multiplication of a distribution by a Schwartz function is defined for 
+\begin_inset Formula $T\in\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $f,g\in\mathcal{S}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ as:
+\begin_inset Formula 
+\begin{align*}
+\left(fT\right)\left(g\right) & :=T\left(f\cdot g\right)
+\end{align*}
+
+\end_inset
+
+This is well defined, because 
+\begin_inset Formula $f\cdot g$
+\end_inset
+
+ is again a Schwartz function and for 
+\begin_inset Formula $h\in\mathcal{S}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ holds:
+\begin_inset Formula 
+\begin{align*}
+\left(fT_{h}\right)\left(g\right) & \stackrel{\text{definition of }fT_{h}}{=}T_{h}\left(f\cdot g\right)\stackrel{\text{definition of }T_{h}}{=}\int_{\mathbb{R}^{n}}h\left(x\right)\left(f\cdot g\right)\left(x\right)\dd^{n}x=\\
+ & =\int_{\mathbb{R}^{n}}\left(f\cdot h\right)\left(x\right)g\left(x\right)\dd^{n}x=T_{fh}\left(g\right)
+\end{align*}
+
+\end_inset
+
+So this definition is extends the multiplication of Schwartz functions to
+ distributions.
+ But we still have to show, that this operation gives a continuous functional.
+\end_layout
+
+\begin_layout Subsection
+Lemma 
+\series medium
+(Multiplication of a Distribution by a Schwartz Function)
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $f\in\mathcal{S}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ be a Schwartz function and 
+\begin_inset Formula $T\in\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ a distribution.
+ Then 
+\begin_inset Formula $fT$
+\end_inset
+
+ is a 
+\emph on
+continuous
+\emph default
+ linear functional on 
+\begin_inset Formula $\mathcal{S}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+, in other words 
+\begin_inset Formula $fT\in\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ is also a distribution.
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+According to Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Lem-continuous_functional"
+
+\end_inset
+
+, our task is to show that there are 
+\begin_inset Formula $r,s\in\mathbb{N}$
+\end_inset
+
+ and a 
+\begin_inset Formula $C\in\mathbb{R}_{>0}$
+\end_inset
+
+ with:
+\begin_inset Formula 
+\begin{align*}
+\abs{\left(fT\right)\left(g\right)} & \le C\norm g_{r,s}
+\end{align*}
+
+\end_inset
+
+Since 
+\begin_inset Formula $T$
+\end_inset
+
+ is continuous, there exist 
+\begin_inset Formula $r,s\in\mathbb{N}$
+\end_inset
+
+ and a 
+\begin_inset Formula $\tilde{C}\in\mathbb{R}_{>0}$
+\end_inset
+
+ with:
+\begin_inset Formula 
+\begin{align*}
+\abs{T\left(fg\right)} & \le\tilde{C}\norm{fg}_{r,s}
+\end{align*}
+
+\end_inset
+
+Thus it remains to show that there is a 
+\begin_inset Formula $c\left(r,s\right)\in\mathbb{R}_{>0}$
+\end_inset
+
+ such that for all 
+\begin_inset Formula $f,g\in\mathcal{S}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ holds:
+\begin_inset Formula 
+\begin{align*}
+\norm{fg}_{r,s} & \le c\left(r,s\right)\norm f_{r,s}\cdot\norm g_{r,s}
+\end{align*}
+
+\end_inset
+
+This inequality can be proven by induction in 
+\begin_inset Formula $s$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Induction basis 
+\begin_inset Formula $s=0$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\norm{fg}_{r,0} & =\sum_{\abs{\alpha}\le r}\sup_{x\in\mathbb{R}^{n}}\left(\abs{x^{\alpha}f\left(x\right)g\left(x\right)}\right)\le\\
+ & \le\sup_{y\in\mathbb{R}^{n}}\abs{g\left(y\right)}\sum_{\abs{\alpha}\le r}\sup_{x\in\mathbb{R}^{n}}\left(\abs{x^{\alpha}f\left(x\right)}\right)=\\
+ & =\norm g_{0,0}\cdot\norm f_{r,0}\le\norm g_{r,0}\cdot\norm f_{r,0}
+\end{align*}
+
+\end_inset
+
+Induction step 
+\begin_inset Formula $s\leadsto s+1$
+\end_inset
+
+: Assume that the statement holds for a 
+\begin_inset Formula $s\in\mathbb{N}$
+\end_inset
+
+ for all 
+\begin_inset Formula $r\in\mathbb{N}$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\beta$
+\end_inset
+
+ be a multi-index with 
+\begin_inset Formula $\abs{\beta}=s+1$
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $\beta=\left(i_{1},\ldots,i_{s+1}\right)$
+\end_inset
+
+.
+ Now set:
+\begin_inset Formula 
+\begin{align*}
+\hat{\beta} & :=\left(i_{1},\ldots,i_{s}\right) & j & :=i_{s+1} & \DD^{\beta} & :=\DD^{\hat{\beta}}\frac{\partial}{\partial x^{j}}
+\end{align*}
+
+\end_inset
+
+It holds:
+\begin_inset Formula 
+\begin{align*}
+\DD^{\beta}\left(fg\right) & =\DD^{\hat{\beta}}\frac{\partial}{\partial x^{j}}\left(fg\right)=\DD^{\hat{\beta}}\left(\left(\frac{\partial}{\partial x^{j}}f\right)g+f\left(\frac{\partial}{\partial x^{j}}g\right)\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\norm{fg}_{r,s+1} & =\norm{f\cdot g}_{r,s}+\sum_{\sr{}{\abs{\alpha}\le r}{\abs{\beta}=s+1}}\sup_{x\in\mathbb{R}}\abs{x^{\alpha}\DD^{\beta}\left(f\cdot g\right)\left(x\right)}=\\
+ & =\norm{fg}_{r,s}+\sum_{\sr{}{\abs{\alpha}\le r}{\abs{\hat{\beta}}=s}}\sum_{j=1}^{n}\sup_{x\in\mathbb{R}}\abs{x^{\alpha}\DD^{\hat{\beta}}\left(\left(\frac{\partial}{\partial x^{j}}f\left(x\right)\right)g\left(x\right)+f\left(x\right)\left(\frac{\partial}{\partial x^{j}}g\left(x\right)\right)\right)}\le\\
+ & \sr{\le}{\text{induction}}{\text{hypothesis}}c\left(r,s\right)\norm f_{r,s}\norm g_{r,s}+\sum_{j=1}^{n}c\left(r,s\right)\left(\norm{\frac{\partial}{\partial x^{j}}f}_{r,s}\norm g_{r,s}+\norm f_{r,s}\norm{\frac{\partial}{\partial x^{j}}g}_{r,s}\right)\le\\
+ & \le c\left(r,s\right)\norm f_{r,s}\norm g_{r,s}+n\cdot c\left(r,s\right)\left(\norm f_{r,s+1}\norm g_{r,s}+\norm f_{r,s}\norm g_{r,s+1}\right)\le\\
+ & \le\underbrace{\left(2n+1\right)c\left(r,s\right)}_{=c\left(r,s+1\right)}\norm f_{r,s+1}\norm g_{r,s+1}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Example 
+\series medium
+(Derivative of the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\series medium
+
+\backslash
+texorpdfstring{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\delta$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\series medium
+}{Delta}
+\end_layout
+
+\end_inset
+
+-Distribution)
+\end_layout
+
+\begin_layout Standard
+We make a formal computation:
+\begin_inset Formula 
+\begin{align*}
+\int_{\mathbb{R}}\delta'\left(x\right)f\left(x\right)\dd x & =\int_{\mathbb{R}}\left(\frac{\dd}{\dd x}\delta\left(x\right)\right)f\left(x\right)\dd x\sr ={\text{integration}}{\text{by parts}}-\int_{\mathbb{R}}\delta\left(x\right)f'\left(x\right)\dd x=-f'\left(0\right)
+\end{align*}
+
+\end_inset
+
+This motivates us to 
+\emph on
+define
+\emph default
+:
+\begin_inset Formula 
+\begin{align*}
+\delta':\mathcal{S}\left(\mathbb{R}\right) & \to\mathbb{R}\\
+f & \mapsto-f'\left(0\right)
+\end{align*}
+
+\end_inset
+
+This is obviously linear and it is continuous, because for all 
+\begin_inset Formula $f\in\mathcal{S}\left(\mathbb{R}\right)$
+\end_inset
+
+ holds:
+\begin_inset Formula 
+\begin{align*}
+\abs{\delta'\left(f\right)} & =\abs{f'\left(0\right)}\le\norm f_{0,1}
+\end{align*}
+
+\end_inset
+
+Hence we have 
+\begin_inset Formula $\delta'\in\mathcal{S}^{*}\left(\mathbb{R}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Remark
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\delta'$
+\end_inset
+
+ cannot be introduced as a measure, in contrast to 
+\begin_inset Formula $\delta$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\delta\left(\Omega\right) & =\begin{cases}
+1 & \text{if }0\in\Omega\\
+0 & \text{otherwise}
+\end{cases}\\
+\delta'\left(\Omega\right) & =?
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Definition 
+\series medium
+(Distributional Derivative, Convolution)
+\end_layout
+
+\begin_layout Itemize
+For a tempered distribution 
+\begin_inset Formula $T\in\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ we define the 
+\emph on
+distributional derivative
+\emph default
+ 
+\begin_inset Formula $\DD^{\alpha}T$
+\end_inset
+
+ by:
+\begin_inset Formula 
+\begin{align*}
+\left(\DD^{\alpha}T\right)\left(f\right) & :=\left(-1\right)^{\abs{\alpha}}T\left(\DD^{\alpha}f\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $\DD^{\alpha}T$
+\end_inset
+
+ is a distribution, since it is a continuous functional:
+\begin_inset Formula 
+\begin{align*}
+\abs{\left(\DD^{\alpha}T\right)\left(f\right)} & =\abs{T\left(\DD^{\alpha}f\right)}\stackrel{T\text{ continuous}}{\le}C\norm{\DD^{\alpha}f}_{r,s}\le C\norm f_{r,s+\abs{\alpha}}
+\end{align*}
+
+\end_inset
+
+So we have a mapping 
+\begin_inset Formula $\DD^{\alpha}:\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)\to\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+The convolution (
+\lang ngerman
+Faltung
+\lang english
+) for 
+\begin_inset Formula $f,g\in\mathcal{S}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ is defined as:
+\begin_inset Formula 
+\begin{align*}
+\left(f*g\right)\left(x\right) & :=\int_{\mathbb{R}^{n}}f\left(x-y\right)g\left(y\right)\dd^{n}y
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Lemma 
+\series medium
+(Commutativity and Associativity of the Convolution)
+\end_layout
+
+\begin_layout Standard
+The convolution is commutative and associative, i.e.
+ for 
+\begin_inset Formula $f,g,h\in\mathcal{S}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ holds:
+\begin_inset Formula 
+\begin{align*}
+f*g & =g*f & f*\left(g*h\right) & =\left(f*g\right)*h
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\left(f*g\right)\left(x\right) & =\int_{\mathbb{R}^{n}}f\left(x-y\right)g\left(y\right)\dd^{n}y\sr ={z:=x-y}{\dd^{n}z=\dd^{n}y}\int_{\mathbb{R}^{n}}f\left(z\right)g\left(x-z\right)\dd^{n}z=\left(g*f\right)\left(x\right)
+\end{align*}
+
+\end_inset
+
+Associativity follows analogously using Fubini's theorem:
+\begin_inset Formula 
+\begin{align*}
+f*\left(g*h\right)\left(x\right) & =\int_{\mathbb{R}^{n}}f\left(x-y\right)\left(g*h\right)\left(y\right)\dd^{n}y=\\
+ & =\int_{\mathbb{R}^{n}}f\left(x-y\right)\left(\int_{\mathbb{R}^{n}}g\left(y-z\right)h\left(z\right)\dd^{n}z\right)\dd^{n}y=\\
+ & \sr ={\tilde{y}:=y-z}{\dd^{n}\tilde{y}=\dd y}\int_{\mathbb{R}^{n}}\int_{\mathbb{R}^{n}}f\left(x-\tilde{y}-z\right)g\left(\tilde{y}\right)h\left(z\right)\dd^{n}\tilde{y}\dd^{n}z=\\
+ & =\int_{\mathbb{R}^{n}}\left(\int_{\mathbb{R}^{n}}f\left(x-z-\tilde{y}\right)g\left(\tilde{y}\right)\dd^{n}\tilde{y}\right)h\left(z\right)\dd^{n}z=\\
+ & =\int_{\mathbb{R}^{n}}\left(f*g\right)\left(x-z\right)h\left(z\right)\dd^{n}z=\\
+ & =\left(f*g\right)*h\left(x\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Proposition 
+\series medium
+(Convolution is Continuous)
+\end_layout
+
+\begin_layout Standard
+The convolution 
+\begin_inset Formula $*:\mathcal{S}\times\mathcal{S}\to\mathcal{S}$
+\end_inset
+
+ is continuous.
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\norm{f*g}_{r,s} & =\sum_{\sr{}{\abs{\alpha}\le r}{\abs{\beta}\le s}}\sup_{x\in\mathbb{R}^{n}}\abs{x^{\alpha}\DD_{x}^{\beta}\int_{\mathbb{R}^{n}}f\left(x-y\right)g\left(y\right)\dd^{n}y}
+\end{align*}
+
+\end_inset
+
+The derivative may be commuted with the integral:
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial}{\partial x_{j}}\left(f*g\right)\left(x\right) & =\lim_{\varepsilon\searrow0}\frac{1}{\varepsilon}\left(\left(f*g\right)\left(x+\varepsilon e_{j}\right)-\left(f*g\right)\left(x\right)\right)=\\
+ & =\lim_{\varepsilon\searrow0}\int_{\mathbb{R}^{n}}\frac{f\left(x+\varepsilon e_{j}-y\right)-f\left(x-y\right)}{\varepsilon}g\left(y\right)\dd^{n}y
+\end{align*}
+
+\end_inset
+
+Using the estimate
+\begin_inset Formula 
+\begin{align*}
+\frac{f\left(x+\varepsilon e_{j}-y\right)-f\left(x-y\right)}{\varepsilon} & =\frac{1}{\varepsilon}\int_{0}^{1}\frac{\dd}{\dd\tau}\left(f\left(x+\varepsilon\tau e_{j}-y\right)\right)\dd\tau=\\
+ & =\frac{1}{\varepsilon}\int_{0}^{1}\left(\partial_{j}f\right)\left(x+\varepsilon\tau e_{j}-y\right)\varepsilon\dd\tau\\
+\Rightarrow\qquad\abs{\frac{f\left(x+\varepsilon e_{j}-y\right)-f\left(x-y\right)}{\varepsilon}} & \le\sup_{\mathbb{R}^{n}}\abs{\partial_{j}f}\le\norm f_{0,1}
+\end{align*}
+
+\end_inset
+
+we get:
+\begin_inset Formula 
+\begin{align*}
+\abs{\frac{f\left(x+\varepsilon e_{j}-y\right)-f\left(x-y\right)}{\varepsilon}g\left(y\right)} & \le\norm f_{0,1}\cdot\abs{g\left(y\right)}\in L^{1}\left(\mathbb{R}^{n}\right)
+\end{align*}
+
+\end_inset
+
+Thus the dominated convergence theorem implies:
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial}{\partial x_{j}}\left(f*g\right)\left(x\right) & =\int_{\mathbb{R}^{n}}\frac{\partial}{\partial x^{j}}f\left(x-y\right)g\left(y\right)\dd^{n}y
+\end{align*}
+
+\end_inset
+
+By induction follows:
+\begin_inset Formula 
+\begin{align*}
+x^{\alpha}\DD^{\beta}\int_{\mathbb{R}}f\left(x-y\right)g\left(y\right)\dd^{n}y & =x^{\alpha}\int_{\mathbb{R}^{n}}\left(\DD^{\beta}f\right)\left(x-y\right)g\left(y\right)\dd^{n}y
+\end{align*}
+
+\end_inset
+
+Now we treat the 
+\begin_inset Formula $x^{\alpha}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+x^{\alpha} & =\left(\left(x-y\right)+y\right)^{\alpha}=\sum_{\gamma,\delta\text{ with }\alpha=\gamma+\delta}c_{\gamma\delta}\left(x-y\right)^{\gamma}\cdot y^{\delta}
+\end{align*}
+
+\end_inset
+
+Here holds 
+\begin_inset Formula $\abs{\gamma},\abs{\delta}\le\abs{\alpha}$
+\end_inset
+
+.
+ Now we can estimate:
+\begin_inset Formula 
+\begin{align*}
+\abs{\left(x-y\right)^{\gamma}\DD^{\beta}f\left(x\right)} & \le\norm f_{r,s}
+\end{align*}
+
+\end_inset
+
+Hence we get:
+\begin_inset Formula 
+\begin{align*}
+\norm{f*g}_{r,s} & \le c\left(r,s\right)\norm f_{r,s}\sum_{\delta}\int_{\mathbb{R}^{n}}\abs{y^{\delta}g\left(y\right)}\cdot\frac{\left(1+\abs y\right)^{n+1}}{\left(1+\abs y\right)^{n+1}}\dd^{n}y\le\\
+ & \le c\left(r,s\right)\norm f_{r,s}\norm g_{n+1+r,0}\underbrace{\int_{\mathbb{R}^{n}}\frac{\dd^{n}y}{\left(1+\abs y\right)^{n+1}}}_{<\infty}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+How can we define the convolution of 
+\begin_inset Formula $T\in S^{*}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ with 
+\begin_inset Formula $f\in S\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+? 
+\begin_inset Formula $f*T_{g}$
+\end_inset
+
+ should be equal to 
+\begin_inset Formula $T_{f*g}$
+\end_inset
+
+.
+ For 
+\begin_inset Formula $h\in\mathcal{S}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ holds:
+\begin_inset Formula 
+\begin{align*}
+T_{f*g}\left(h\right) & =\int_{\mathbb{R}^{n}}\left(f*g\right)\left(x\right)\cdot h\left(x\right)\dd^{n}x=\\
+ & =\int_{\mathbb{R}^{n}}\left(\int_{\mathbb{R}^{n}}f\left(x-y\right)g\left(y\right)\dd^{n}y\right)\cdot h\left(x\right)\dd^{n}x
+\end{align*}
+
+\end_inset
+
+By Fubini we may interchange the order of integration to get:
+\begin_inset Formula 
+\begin{align*}
+T_{f*g}\left(h\right) & =\int_{\mathbb{R}^{n}}g\left(y\right)\left(\int_{\mathbb{R}^{n}}f\left(x-y\right)\cdot h\left(x\right)\dd^{n}x\right)\dd^{n}y=\\
+ & \sr ={\tilde{f}\left(z\right):=f\left(-z\right)}{}\int_{\mathbb{R}^{n}}g\left(y\right)\left(\int_{\mathbb{R}^{n}}\tilde{f}\left(y-x\right)\cdot h\left(x\right)\dd^{n}x\right)\dd^{n}y=\\
+ & =\int_{\mathbb{R}^{n}}g\left(y\right)\left(\tilde{f}*h\right)\left(y\right)\dd^{n}y=T_{g}\left(\tilde{f}*h\right)
+\end{align*}
+
+\end_inset
+
+So for a distribution 
+\begin_inset Formula $T\in S^{*}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ we define the 
+\emph on
+convolution
+\emph default
+ as:
+\begin_inset Formula 
+\begin{align*}
+*:\mathcal{S}\left(\mathbb{R}^{n}\right)\times\mathcal{S}^{*}\left(\mathbb{R}^{n}\right) & \to\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)\\
+\left(f*T\right)\left(h\right) & :=T\left(\tilde{f}*h\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $S,T\in\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+, 
+\begin_inset Formula $S*T$
+\end_inset
+
+ and 
+\begin_inset Formula $S\cdot T$
+\end_inset
+
+ are ill-defined in general.
+ For example 
+\begin_inset Formula $\delta\left(x\right)\cdot\delta\left(x\right)$
+\end_inset
+
+ makes no sense, as well as 
+\begin_inset Formula $T_{f}*T_{f}$
+\end_inset
+
+ for 
+\begin_inset Formula $f=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+The Fourier Transform
+\end_layout
+
+\begin_layout Standard
+First consider the Fourier transform on 
+\begin_inset Formula $\mathcal{S}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ and later on 
+\begin_inset Formula $\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Definition 
+\series medium
+(Fourier Transform)
+\end_layout
+
+\begin_layout Standard
+Define linear functionals 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ and 
+\begin_inset Formula $\overline{\mathcal{F}}$
+\end_inset
+
+ on 
+\begin_inset Formula $\mathcal{S}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\left(\mathcal{F}f\right)\left(p\right) & :=\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}e^{-\ii px}f\left(x\right)\dd^{n}x\\
+\left(\overline{\mathcal{F}}f\right)\left(x\right) & :=\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}e^{\ii px}f\left(p\right)\dd^{n}p
+\end{align*}
+
+\end_inset
+
+The integrals are well-defined and finite, because 
+\begin_inset Formula $f$
+\end_inset
+
+ has suitable decay properties at infinity.
+\end_layout
+
+\begin_layout Standard
+An alternative convention, which is not convenient here, because it has
+ less symmetry, is:
+\begin_inset Formula 
+\begin{align*}
+\left(\mathcal{F}f\right)\left(p\right) & :=\int_{\mathbb{R}^{n}}e^{-\ii px}f\left(x\right)\dd^{n}x\\
+\left(\overline{\mathcal{F}}f\right)\left(x\right) & :=\frac{1}{\left(2\pi\right)^{n}}\int_{\mathbb{R}^{n}}e^{\ii px}f\left(p\right)\dd^{n}p
 \end{align*}
 
 \end_inset
