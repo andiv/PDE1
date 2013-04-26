@@ -3715,7 +3715,6 @@ status open
 
 \begin_layout Plain Layout
 
-\series medium
 
 \backslash
 texorpdfstring{
@@ -3733,7 +3732,6 @@ status open
 
 \begin_layout Plain Layout
 
-\series medium
 }{Delta}
 \end_layout
 
@@ -4399,6 +4397,50 @@ So this definition is extends the multiplication of Schwartz functions to
 \end_layout
 
 \begin_layout Subsection
+Definition 
+\series medium
+(regular/singular distribution)
+\end_layout
+
+\begin_layout Standard
+A tempered distribution 
+\begin_inset Formula $T$
+\end_inset
+
+ is called 
+\emph on
+regular
+\emph default
+ distribution if there is a 
+\begin_inset Formula $g\in L_{\text{loc}}^{1}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ (locally integrable, i.e.
+ integrable on every compact interval) with 
+\begin_inset Formula $T=T_{g}$
+\end_inset
+
+.
+ Otherwise, 
+\begin_inset Formula $T$
+\end_inset
+
+ is called 
+\emph on
+singular
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+For example 
+\begin_inset Formula $\delta\left(x\right)$
+\end_inset
+
+ is singular.
+\end_layout
+
+\begin_layout Subsection
 Lemma 
 \series medium
 (Multiplication of a Distribution by a Schwartz Function)
@@ -4549,7 +4591,7 @@ Induction step
  Now set:
 \begin_inset Formula 
 \begin{align*}
-\hat{\beta} & :=\left(i_{1},\ldots,i_{s}\right) & j & :=i_{s+1} & \DD^{\beta} & :=\DD^{\hat{\beta}}\frac{\partial}{\partial x^{j}}
+\hat{\beta} & :=\left(i_{1},\ldots,i_{s}\right) & j & :=i_{s+1} & \DD^{\beta} & =\DD^{\hat{\beta}}\frac{\partial}{\partial x^{j}}
 \end{align*}
 
 \end_inset
@@ -4602,7 +4644,6 @@ status open
 
 \begin_layout Plain Layout
 
-\series medium
 
 \backslash
 texorpdfstring{
@@ -4620,7 +4661,6 @@ status open
 
 \begin_layout Plain Layout
 
-\series medium
 }{Delta}
 \end_layout
 
@@ -5094,6 +5134,803 @@ An alternative convention, which is not convenient here, because it has
 \begin{align*}
 \left(\mathcal{F}f\right)\left(p\right) & :=\int_{\mathbb{R}^{n}}e^{-\ii px}f\left(x\right)\dd^{n}x\\
 \left(\overline{\mathcal{F}}f\right)\left(x\right) & :=\frac{1}{\left(2\pi\right)^{n}}\int_{\mathbb{R}^{n}}e^{\ii px}f\left(p\right)\dd^{n}p
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%DATE: Fr 26.4.13
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Proposition 
+\series medium
+(Fourier Transform)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ and 
+\begin_inset Formula $\overline{\mathcal{F}}$
+\end_inset
+
+ are well-defined linear operators from 
+\begin_inset Formula $\mathcal{S}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ to 
+\begin_inset Formula $\mathcal{S}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+The linearity is clear.
+ We still have to show, that all norms 
+\begin_inset Formula $\norm{\mathcal{F}f}_{r,s}$
+\end_inset
+
+ are finite.
+ First consider the norm 
+\begin_inset Formula $\norm ._{0,0}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\abs{\left(\mathcal{F}f\right)\left(p\right)} & \le\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}\abs{f\left(x\right)}\cdot\frac{\left(1+\abs x\right)^{n+1}}{\left(1+\abs x\right)^{n+1}}\dd^{n}x\le\\
+ & \le\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\norm f_{n+1,0}\underbrace{\int_{\mathbb{R}^{n}}\frac{\dd^{n}x}{\left(1+\abs x\right)^{n+1}}}_{<\infty}\le c\norm f_{n+1,0}
+\end{align*}
+
+\end_inset
+
+Now we consider 
+\begin_inset Formula $\abs{p^{\alpha}\DD^{\beta}\left(\mathcal{F}f\right)\left(p\right)}$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial}{\partial p^{j}}\left(\mathcal{F}f\right)\left(p\right) & =\frac{\partial}{\partial p^{j}}\int e^{-\ii px}f\left(x\right)\dd^{n}x=\ldots=\int\left(\frac{\partial}{\partial p^{j}}e^{-\ii px}\right)f\left(x\right)\dd^{n}x=\\
+ & =\int\left(-\ii x^{j}\right)e^{-\ii px}f\left(x\right)\dd^{n}x
+\end{align*}
+
+\end_inset
+
+That the derivative and the integral can be interchanged is shown as follows:
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial}{\partial p^{j}}\int e^{-\ii px}f\left(x\right)\dd^{n}x & =\lim_{\varepsilon\searrow0}\int\frac{e^{-\ii\left(p+\varepsilon e_{j}\right)x}-e^{-\ii px}}{\varepsilon}f\left(x\right)\dd^{n}x\\
+\frac{e^{-\ii\left(p+\varepsilon e_{j}\right)x}-e^{-\ii px}}{\varepsilon} & =\frac{1}{\varepsilon}\int_{0}^{1}\frac{\dd}{\dd\tau}e^{-\ii\left(p+\varepsilon\tau e_{j}\right)x}\dd\tau=-\ii e_{j}x\int_{0}^{1}e^{-\ii\left(p+\varepsilon\tau e_{j}\right)x}\dd\tau\\
+\Rightarrow\qquad\abs{\frac{e^{-\ii\left(p+\varepsilon e_{j}\right)x}-e^{-\ii px}}{\varepsilon}} & \le\norm x\cdot\int_{0}^{1}\underbrace{\abs{e^{-\ii\left(p+\varepsilon\tau e_{j}\right)x}}}_{=1}\dd\tau=\norm x\\
+\abs{\frac{e^{-\ii\left(p+\varepsilon e_{j}\right)x}-e^{-\ii px}}{\varepsilon}f\left(x\right)} & \le\norm x\cdot\abs{f\left(x\right)}\le\frac{\norm x}{1+\norm x^{n+2}}\norm f_{n+2,0}=:h\left(x\right)\in L^{1}\left(\mathbb{R}^{n}\right)
+\end{align*}
+
+\end_inset
+
+This allows us to apply the dominated convergence theorem to take the limit
+ 
+\begin_inset Formula $\varepsilon\to0$
+\end_inset
+
+ inside the integral.
+ Iteration of this process gives:
+\begin_inset Formula 
+\begin{align*}
+\DD^{\beta}\left(\mathcal{F}f\right)\left(p\right) & =\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int_{\mathbb{R}}\left(-\ii\right)^{\abs{\beta}}x^{\beta}f\left(x\right)e^{-\ii px}\dd^{n}x\\
+p^{\alpha}\DD^{\beta}\left(\mathcal{F}f\right)\left(p\right) & =\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int_{\mathbb{R}}\left(-\ii\right)^{\abs{\beta}}x^{\beta}f\left(x\right)p^{\alpha}e^{-\ii px}\dd^{n}x\\
+p^{j}e^{-\ii px} & =\ii\frac{\partial}{\partial x^{j}}e^{-\ii px}\\
+\Rightarrow\qquad p^{\alpha}e^{-\ii px} & =\ii^{\abs{\alpha}}\DD_{x}^{\alpha}e^{-\ii px}\\
+p^{\alpha}\DD^{\beta}\left(\mathcal{F}f\right)\left(p\right) & =\frac{\left(-\ii\right)^{\abs{\beta}}\ii^{\abs{\alpha}}}{\left(2\pi\right)^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}\underbrace{\left(x^{\beta}f\left(x\right)\right)}_{\text{rapid decay}}\left(\DD_{x}^{\alpha}e^{-\ii px}\right)\dd^{n}x=\\
+ & \sr ={\text{integration}}{\text{by parts}}\frac{\left(-\ii\right)^{\abs{\beta}}\ii^{\abs{\alpha}}}{\left(2\pi\right)^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}\left(-1\right)^{\abs{\alpha}}\DD_{x}^{\alpha}\left(x^{\beta}f\left(x\right)\right)e^{-\ii px}\dd^{n}x=\\
+ & =\frac{\left(-\ii\right)^{\abs{\alpha}+\abs{\beta}}}{\left(2\pi\right)^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}\DD_{x}^{\alpha}\left(x^{\beta}f\left(x\right)\right)e^{-\ii px}\dd^{n}x
+\end{align*}
+
+\end_inset
+
+From the computation we did earlier in the proof we know:
+\begin_inset Formula 
+\begin{align*}
+\abs{\DD_{x}^{\alpha}\left(\mathcal{F}f\right)\left(p\right)} & \le C\norm{\DD_{x}^{\alpha}\left(x^{\beta}f\right)}_{n+1,0}\le\tilde{C}\left(\alpha,\beta\right)\norm f_{\abs{\beta}+n+1,\abs{\alpha}}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\norm{\mathcal{F}f}_{r,s} & \le\tilde{c}\left(s,r,n\right)\norm f_{s+n+1,r}
+\end{align*}
+
+\end_inset
+
+Therefore 
+\begin_inset Formula $\mathcal{F}:\mathcal{S}\left(\mathbb{R}^{n}\right)\to\mathcal{S}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ is well-defined.
+ The same follows analogously for 
+\begin_inset Formula $\overline{\mathcal{F}}$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So we have the following correspondence:
+\begin_inset Formula 
+\begin{align*}
+-\ii x^{j} & \leftrightarrow\frac{\partial}{\partial p^{j}}\\
+-\ii\frac{\partial}{\partial x^{j}} & \leftrightarrow p^{j}
+\end{align*}
+
+\end_inset
+
+Here the derivatives always act on 
+\begin_inset Formula $f$
+\end_inset
+
+ or 
+\begin_inset Formula $\mathcal{F}f$
+\end_inset
+
+ and not on 
+\begin_inset Formula $e^{-\ii px}$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+x^{\alpha}\DD^{\beta}f & \leftrightarrow\ii^{\abs{\alpha}+\abs{\beta}}\DD_{p}^{\alpha}p^{\beta}\left(\mathcal{F}f\right)\left(p\right)=\ii^{\abs{\alpha}+\abs{\beta}}p^{\beta}\DD^{\alpha}\left(\mathcal{F}f\right)\left(p\right)+\text{lower order terms}
+\end{align*}
+
+\end_inset
+
+Suppose we had worked with 
+\begin_inset Formula $\norm f_{0,k}=\abs f_{C^{k}}$
+\end_inset
+
+ as family of norms.
+ Then the norms of the Fourier transform of a function with finite norms
+ would not necessarily be finite.
+\end_layout
+
+\begin_layout Subsection
+Theorem 
+\series medium
+(Plancherel, convergence generating factor)
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Thm-Plancherel"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ and 
+\begin_inset Formula $\overline{\mathcal{F}}$
+\end_inset
+
+ are inverse to each other:
+\begin_inset Formula 
+\begin{align*}
+\overline{\mathcal{F}}\mathcal{F} & =\mathcal{F}\overline{\mathcal{F}}=\mathbbm{1}:\mathcal{S}\left(\mathbb{R}^{n}\right)\to\mathcal{S}\left(\mathbb{R}^{n}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\left(\mathcal{F}\overline{\mathcal{F}}f\right)\left(p\right) & =\frac{1}{\left(2\pi\right)^{n}}\int_{\mathbb{R}^{n}}e^{-\ii px}\underbrace{\left(\int_{\mathbb{R}^{n}}e^{\ii qx}f\left(q\right)\dd^{n}q\right)}_{\left(\overline{\mathcal{F}}f\right)\left(x\right)}\dd^{n}x\stackrel{?}{=}f\left(p\right)\\
+ & \stackrel{?}{=}\frac{1}{\left(2\pi\right)^{n}}\int_{\mathbb{R}^{n}}f\left(q\right)\left(\int_{\mathbb{R}^{n}}e^{-\ii\left(p-q\right)x}\dd^{n}x\right)\dd^{n}q
+\end{align*}
+
+\end_inset
+
+The problem here is, that 
+\begin_inset Formula $e^{-\ii\left(p-q\right)x}$
+\end_inset
+
+ does not decay at infinity, so the integral is not well-defined.
+ Instead we have to introduce a 
+\emph on
+convergence generating factor
+\emph default
+ 
+\begin_inset Formula $e^{-\varepsilon x^{2}}$
+\end_inset
+
+ and, after integrating, calculate the limes 
+\begin_inset Formula $\varepsilon\to0$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+\left(\mathcal{F}\overline{\mathcal{F}}f\right)\left(p\right) & =\frac{1}{\left(2\pi\right)^{n}}\lim_{\varepsilon\searrow0}\int_{\mathbb{R}^{n}}e^{-\ii px}e^{-\varepsilon x^{2}}\left(\int_{\mathbb{R}^{n}}e^{\ii qx}f\left(q\right)\dd^{n}q\right)\dd^{n}x=\\
+ & \stackrel{\text{Fubini}}{=}\frac{1}{\left(2\pi\right)^{n}}\lim_{\varepsilon\searrow0}\int_{\mathbb{R}^{n}}f\left(q\right)\left(\int_{\mathbb{R}^{n}}e^{-\ii\left(p-q\right)x}e^{-\varepsilon x^{2}}\dd^{n}x\right)\dd^{n}q
+\end{align*}
+
+\end_inset
+
+The resulting Gaussian integral can be computed in closed form.
+ In one dimension it is:
+\begin_inset Formula 
+\begin{align*}
+\int_{\mathbb{R}}e^{-\ii\lambda x}e^{-\varepsilon x^{2}}\dd x & =\int_{\mathbb{R}}e^{-\varepsilon\left(x+\frac{\ii\lambda}{2\varepsilon}\right)^{2}-\frac{\lambda^{2}}{4\varepsilon}}\dd x=e^{-\frac{\lambda^{2}}{4\varepsilon}}\int_{\mathbb{R}}e^{-\varepsilon\left(x+\frac{\ii\lambda}{2\varepsilon}\right)^{2}}\dd x=\\
+ & \sr ={z=\sqrt{\varepsilon}\left(x+\frac{\ii\lambda}{2\varepsilon}\right)}{\dd z=\sqrt{\varepsilon}\dd x}e^{-\frac{\lambda^{2}}{4\varepsilon}}\int_{\mathbb{R}+\frac{\ii\lambda}{2\sqrt{\varepsilon}}}e^{-z^{2}}\frac{\dd z}{\sqrt{\varepsilon}}=\\
+ & \sr ={\text{contour}}{\text{deformation}}\frac{e^{-\frac{\lambda^{2}}{4\varepsilon}}}{\sqrt{\varepsilon}}\underbrace{\int_{\mathbb{R}}e^{-z^{2}}\dd z}_{=\sqrt{\pi}}=\sqrt{\frac{\pi}{\varepsilon}}e^{-\frac{\lambda^{2}}{4\varepsilon}}
+\end{align*}
+
+\end_inset
+
+So we get:
+\begin_inset Formula 
+\begin{align*}
+\left(\mathcal{F}\overline{\mathcal{F}}f\right)\left(p\right) & =\frac{1}{\left(2\pi\right)^{n}}\lim_{\varepsilon\searrow0}\int_{\mathbb{R}^{n}}f\left(q\right)\left(\frac{\pi}{\varepsilon}\right)^{\frac{n}{2}}e^{-\frac{\left(p-q\right)^{2}}{4\varepsilon}}\dd^{n}q
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+begin{axis}[width=9cm, axis x line=middle, axis y line=middle, xtick={0},
+ ytick={0}, xlabel=$q$,domain=-6:6,samples=300, ymin=-0.5]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+addplot[mark=none] {exp(-(1-x)^2/4)};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+addlegendentry{$
+\backslash
+varepsilon = 1$}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+addplot[blue,dashed,mark=none] {exp(-(1-x)^2/0.4)/sqrt(0.5)};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+addlegendentry{$
+\backslash
+varepsilon = 0.5$}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+addplot[red!50!black,dotted,mark=none] {exp(-(1-x)^2/0.03)/sqrt(0.1)};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+addlegendentry{$
+\backslash
+varepsilon = 0.1$}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (axis cs: 1,-0.05) -- (axis cs: 1,0.05) node[above]{$p$};
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+end{axis}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture} 
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+begin{axis}[width=9cm, axis equal image, axis x line=middle, axis y line=middle,
+ xtick={0}, ytick={0}, xlabel=$q^i$, ylabel=$q^j$, xmin=-1, xmax=3, ymin=-0.45,
+ ymax=3]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (axis cs: 2.05,0.95) -- (axis cs: 1.95,1.05) (axis cs: 2.05,1.05) -- (axis
+ cs: 1.95,0.95) (axis cs:2,1) node[below]{$p$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (axis cs: 2,1) circle (10.8mm);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (axis cs: 2,1) -- node[above]{$
+\backslash
+varepsilon$} (axis cs: 1.4,1);
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+end{axis}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture} 
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+The Gaussian gets very narrow and very high as 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ decreases.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Estimate the integral as follows:
+\begin_inset Formula 
+\begin{align*}
+\left(\mathcal{F}\overline{\mathcal{F}}f\right)\left(p\right) & =\lim_{\varepsilon\searrow0}\frac{1}{\left(4\pi\varepsilon\right)^{\frac{n}{2}}}\left(\int_{\mathbb{R}^{n}}f\left(p\right)e^{-\frac{\left(p-q\right)^{2}}{4\varepsilon}}\dd^{n}q+\int_{\mathbb{R}^{n}}\left(f\left(q\right)-f\left(p\right)\right)e^{-\frac{\left(p-q\right)^{2}}{4\varepsilon}}\dd^{n}q\right)
+\end{align*}
+
+\end_inset
+
+The first integral gives:
+\begin_inset Formula 
+\begin{align*}
+\int_{\mathbb{R}^{n}}e^{-\frac{\left(p-q\right)^{2}}{4\varepsilon}}\dd^{n}q & \sr ={z=\frac{p-q}{2\sqrt{\varepsilon}}}{\dd^{n}z=\frac{\dd^{n}q}{\left(4\varepsilon\right)^{\frac{n}{2}}}}\left(4\varepsilon\right)^{\frac{n}{2}}\underbrace{\int_{\mathbb{R}^{n}}e^{-z^{2}}\dd^{n}q}_{=\pi^{\frac{n}{2}}}=\left(4\pi\varepsilon\right)^{\frac{n}{2}}
+\end{align*}
+
+\end_inset
+
+So we get:
+\begin_inset Formula 
+\begin{align*}
+\left(\mathcal{F}\overline{\mathcal{F}}f\right)\left(p\right) & =f\left(p\right)+\lim_{\varepsilon\searrow0}\frac{1}{\left(4\pi\varepsilon\right)^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}\left(f\left(q\right)-f\left(p\right)\right)e^{-\frac{\left(p-q\right)^{2}}{4\varepsilon}}\dd^{n}q
+\end{align*}
+
+\end_inset
+
+It remains to show that the second summand goes to zero for 
+\begin_inset Formula $\varepsilon\to0$
+\end_inset
+
+.
+ We use the following scaling argument:
+\begin_inset Formula 
+\begin{align*}
+\frac{1}{\varepsilon^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}\left(f\left(q\right)-f\left(p\right)\right)e^{-\frac{\left(p-q\right)^{2}}{4\varepsilon}}\dd^{4}q & \sr ={u=\frac{p-q}{\sqrt{\varepsilon}}}{\dd^{n}q=\varepsilon^{\frac{n}{2}}\dd^{n}u}\frac{1}{\varepsilon^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}\left(f\left(p-\sqrt{\varepsilon}u\right)-f\left(p\right)\right)e^{-\frac{u^{2}}{4}}\varepsilon^{\frac{n}{2}}\dd^{n}u=\\
+ & =\int_{\mathbb{R}^{n}}\underbrace{\left(f\left(p-\sqrt{\varepsilon}u\right)-f\left(p\right)\right)}_{\xrightarrow{\varepsilon\searrow0}0\ \text{pointwise}}e^{-\frac{u^{2}}{4}}\dd^{n}u
+\end{align*}
+
+\end_inset
+
+For the integrand holds:
+\begin_inset Formula 
+\begin{align*}
+\underbrace{\left(f\left(p-\sqrt{\varepsilon}u\right)-f\left(p\right)\right)}_{\xrightarrow{\varepsilon\searrow0}0\ \text{pointwise}}e^{-\frac{u^{2}}{4}} & \le\norm f_{0,0}e^{-\frac{u^{2}}{4}}\in L^{1}\left(\mathbb{R}^{n}\right)
+\end{align*}
+
+\end_inset
+
+So the dominated convergence theorem can be applied to get:
+\begin_inset Formula 
+\begin{align*}
+\left(\mathcal{F}\overline{\mathcal{F}}f\right)\left(p\right) & =f\left(p\right)+\lim_{\varepsilon\searrow0}\frac{1}{\left(4\pi\right)^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}\underbrace{\lim_{\varepsilon\searrow0}\left(f\left(p-\sqrt{\varepsilon}u\right)-f\left(p\right)\right)}_{=0}e^{-\frac{u^{2}}{4}}\dd^{n}u=f\left(p\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\overline{\mathcal{F}}\mathcal{F}=\mathbbm{1}$
+\end_inset
+
+ follows analogously.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We want to generalize the Fourier transform to 
+\begin_inset Formula $\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+.
+ We begin with the case 
+\begin_inset Formula $T_{g}$
+\end_inset
+
+ with 
+\begin_inset Formula $g\in\mathcal{S}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+.
+ We want:
+\begin_inset Formula 
+\begin{align*}
+\mathcal{F}\left(T_{g}\right) & =T_{\mathcal{F}g}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+T_{\mathcal{F}g}\left(f\right) & =\int_{\mathbb{R}^{n}}\left(\mathcal{F}g\right)\left(p\right)f\left(p\right)\dd^{n}p=\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}\left(\int_{\mathbb{R}^{n}}e^{-\ii px}g\left(x\right)\dd^{n}x\right)f\left(p\right)\dd^{n}p
+\end{align*}
+
+\end_inset
+
+Fubini's theorem allows us to interchange the orders of integration:
+\begin_inset Formula 
+\begin{align*}
+T_{\mathcal{F}g}\left(f\right) & =\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}g\left(x\right)\underbrace{\left(\int_{\mathbb{R}^{n}}e^{-\ii px}f\left(p\right)\dd^{n}p\right)}_{=\mathcal{F}f\left(x\right)}\dd^{n}x=\int_{\mathbb{R}^{n}}g\left(x\right)\left(\mathcal{F}f\right)\left(x\right)\dd^{n}x=\TT_{g}\left(\mathcal{F}f\right)
+\end{align*}
+
+\end_inset
+
+Since we want 
+\begin_inset Formula $\left(\mathcal{F}T_{g}\right)\left(f\right)=T_{\mathcal{F}g}=T_{g}\left(\mathcal{F}f\right)$
+\end_inset
+
+, this motivates the following general definition:
+\end_layout
+
+\begin_layout Subsection
+Definition 
+\series medium
+(Fourier transform of distributions)
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Def-Fourier_distribution"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathcal{F},\overline{\mathcal{F}}:\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)\to\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ are defined by their action on a test function 
+\begin_inset Formula $f\in\mathcal{S}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\left(\mathcal{F}T\right)\left(f\right) & :=T\left(\mathcal{F}f\right)\\
+\left(\overline{\mathcal{F}}T\right)\left(f\right) & :=T\left(\overline{\mathcal{F}}f\right)
+\end{align*}
+
+\end_inset
+
+It holds:
+\begin_inset Formula 
+\begin{align*}
+\abs{\left(\mathcal{F}T\right)\left(f\right)} & =\abs{T\left(\mathcal{F}f\right)}\sr{\le}{T\in\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)}{\Rightarrow\exs r,s\in\mathbb{N},c\in\mathbb{R}_{>0}}c\norm{\mathcal{F}f}_{r,s}\le\tilde{c}\norm f_{s+n+1,r}
+\end{align*}
+
+\end_inset
+
+Thus 
+\begin_inset Formula $\mathcal{F}T$
+\end_inset
+
+ is indeed a tempered distribution.
+\end_layout
+
+\begin_layout Subsection
+Theorem 
+\series medium
+(Plancherel for distributions)
+\end_layout
+
+\begin_layout Standard
+Plancherel's theorem holds on 
+\begin_inset Formula $\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ as well:
+\begin_inset Formula 
+\begin{align*}
+\mathcal{F}\overline{\mathcal{F}} & =\overline{\mathcal{F}}\mathcal{F}=\mathbbm{1}_{\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\left(\mathcal{F}\overline{\mathcal{F}}T\right)\left(f\right) & \stackrel{\text{Definition }\ref{sub:Def-Fourier_distribution}}{=}\left(\overline{\mathcal{F}}T\right)\left(\mathcal{F}f\right)=T\left(\overline{\mathcal{F}}\mathcal{F}f\right)\stackrel{\text{Plancherel }\ref{sub:Thm-Plancherel}}{=}T\left(f\right)
+\end{align*}
+
+\end_inset
+
+Since this holds for all 
+\begin_inset Formula $f\in\mathcal{S}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ and all 
+\begin_inset Formula $T\in\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ it follows:
+\begin_inset Formula 
+\begin{align*}
+\mathcal{F}\overline{\mathcal{F}} & =\mathbbm{1}_{\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)}
+\end{align*}
+
+\end_inset
+
+The same follows for 
+\begin_inset Formula $\overline{\mathcal{F}}\mathcal{F}$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Example
+\end_layout
+
+\begin_layout Enumerate
+Fourier transform of 
+\begin_inset Formula $\delta$
+\end_inset
+
+-Distribution:
+\begin_inset Formula 
+\begin{align*}
+\left(\mathcal{F}\delta\right)\left(f\right) & =\delta\left(\mathcal{F}f\right)=\left(\mathcal{F}f\right)\left(0\right)=\\
+ & =\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}e^{-\ii px}f\left(x\right)\dd^{n}x\bigg|_{p=0}=\int_{\mathbb{R}^{n}}\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}f\left(x\right)\dd^{n}x=T_{\left(2\pi\right)^{-\frac{n}{2}}}\left(f\right)
+\end{align*}
+
+\end_inset
+
+This means:
+\begin_inset Formula 
+\begin{align*}
+\mathcal{F}\delta & =T_{\left(2\pi\right)^{-\frac{n}{2}}}
+\end{align*}
+
+\end_inset
+
+Or, in a more computational manner, one can write this as:
+\begin_inset Formula 
+\begin{align*}
+\mathcal{F}\delta & =\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}e^{-\ii px}\delta\left(x\right)\dd^{n}x=\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}
+\end{align*}
+
+\end_inset
+
+This is not satisfying from a mathematical point of view, because one does
+ not know, that the usual formula for the Fourier transform also works for
+ distributions.
+\end_layout
+
+\begin_layout Enumerate
+Consider 
+\begin_inset Formula $T_{g}$
+\end_inset
+
+ with 
+\begin_inset Formula $g\left(p\right)=e^{\ii py}$
+\end_inset
+
+ for a given 
+\begin_inset Formula $y\in\mathbb{R}^{n}$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+\left(\mathcal{F}T_{g}\right)\left(f\right) & =T_{g}\left(\mathcal{F}f\right)=T_{g}\left(\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int e^{-\ii px}f\left(x\right)\dd^{n}x\right)=\\
+ & =\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int e^{\ii py}\left(\int e^{-\ii px}f\left(x\right)\dd^{n}x\right)\dd^{n}p=\\
+ & =\left(2\pi\right)^{\frac{n}{2}}\left(\overline{\mathcal{F}}\mathcal{F}\right)f\left(y\right)=\left(2\pi\right)^{\frac{n}{2}}f\left(y\right)
+\end{align*}
+
+\end_inset
+
+So we get:
+\begin_inset Formula 
+\begin{align*}
+\mathcal{F}T_{g}f & =\left(2\pi\right)^{\frac{n}{2}}f\left(y\right)\\
+\left(\mathcal{F}T_{g}\right)\left(x\right) & =\left(2\pi\right)^{\frac{n}{2}}\delta^{\left(n\right)}\left(x-y\right)
+\end{align*}
+
+\end_inset
+
+Formally one can write:
+\begin_inset Formula 
+\begin{align*}
+\left(\mathcal{F}g\right)\left(x\right) & =\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}e^{-\ii px}e^{\ii py}\dd^{n}p=\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}e^{-\ii p\left(x-y\right)}\dd^{n}p
+\end{align*}
+
+\end_inset
+
+This is ill-defined, but physicists use the formal relation:
+\begin_inset Formula 
+\begin{align*}
+\int_{\mathbb{R}^{n}}e^{-\ii p\left(x-y\right)}\dd^{n}p & =\left(2\pi\right)^{n}\delta^{\left(n\right)}\left(x-y\right)
 \end{align*}
 
 \end_inset

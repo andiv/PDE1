@@ -1078,6 +1078,16 @@ to distributions. But we still have to show, that this operation gives
 a continuous functional.
 \end{itemize}
 
+\subsection{Definition \textmd{(regular/singular distribution)}}
+
+A tempered distribution $T$ is called \emph{regular} distribution
+if there is a $g\in L_{\text{loc}}^{1}\left(\mathbb{R}^{n}\right)$
+(locally integrable, i.e. integrable on every compact interval) with
+$T=T_{g}$. Otherwise, $T$ is called \emph{singular}.
+
+For example $\delta\left(x\right)$ is singular.
+
+
 \subsection{Lemma \textmd{(Multiplication of a Distribution by a Schwartz Function)}}
 
 Let $f\in\mathcal{S}\left(\mathbb{R}^{n}\right)$ be a Schwartz function
@@ -1119,7 +1129,7 @@ a $s\in\mathbb{N}$ for all $r\in\mathbb{N}$. Let $\beta$ be a multi-index
 with $\abs{\beta}=s+1$, i.e. $\beta=\left(i_{1},\ldots,i_{s+1}\right)$.
 Now set:
 \begin{align*}
-\hat{\beta} & :=\left(i_{1},\ldots,i_{s}\right) & j & :=i_{s+1} & \DD^{\beta} & :=\DD^{\hat{\beta}}\frac{\partial}{\partial x^{j}}
+\hat{\beta} & :=\left(i_{1},\ldots,i_{s}\right) & j & :=i_{s+1} & \DD^{\beta} & =\DD^{\hat{\beta}}\frac{\partial}{\partial x^{j}}
 \end{align*}
 It holds:
 \begin{align*}
@@ -1317,6 +1327,258 @@ has less symmetry, is:
 \end{align*}
 
 
+%DATE: Fr 26.4.13
+
+
+\subsection{Proposition \textmd{(Fourier Transform)}}
+
+$\mathcal{F}$ and $\overline{\mathcal{F}}$ are well-defined linear
+operators from $\mathcal{S}\left(\mathbb{R}^{n}\right)$ to $\mathcal{S}\left(\mathbb{R}^{n}\right)$.
+
+
+\subsubsection*{Proof}
+
+The linearity is clear. We still have to show, that all norms $\norm{\mathcal{F}f}_{r,s}$
+are finite. First consider the norm $\norm ._{0,0}$:
+\begin{align*}
+\abs{\left(\mathcal{F}f\right)\left(p\right)} & \le\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}\abs{f\left(x\right)}\cdot\frac{\left(1+\abs x\right)^{n+1}}{\left(1+\abs x\right)^{n+1}}\dd^{n}x\le\\
+ & \le\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\norm f_{n+1,0}\underbrace{\int_{\mathbb{R}^{n}}\frac{\dd^{n}x}{\left(1+\abs x\right)^{n+1}}}_{<\infty}\le c\norm f_{n+1,0}
+\end{align*}
+Now we consider $\abs{p^{\alpha}\DD^{\beta}\left(\mathcal{F}f\right)\left(p\right)}$.
+\begin{align*}
+\frac{\partial}{\partial p^{j}}\left(\mathcal{F}f\right)\left(p\right) & =\frac{\partial}{\partial p^{j}}\int e^{-\ii px}f\left(x\right)\dd^{n}x=\ldots=\int\left(\frac{\partial}{\partial p^{j}}e^{-\ii px}\right)f\left(x\right)\dd^{n}x=\\
+ & =\int\left(-\ii x^{j}\right)e^{-\ii px}f\left(x\right)\dd^{n}x
+\end{align*}
+That the derivative and the integral can be interchanged is shown
+as follows:
+\begin{align*}
+\frac{\partial}{\partial p^{j}}\int e^{-\ii px}f\left(x\right)\dd^{n}x & =\lim_{\varepsilon\searrow0}\int\frac{e^{-\ii\left(p+\varepsilon e_{j}\right)x}-e^{-\ii px}}{\varepsilon}f\left(x\right)\dd^{n}x\\
+\frac{e^{-\ii\left(p+\varepsilon e_{j}\right)x}-e^{-\ii px}}{\varepsilon} & =\frac{1}{\varepsilon}\int_{0}^{1}\frac{\dd}{\dd\tau}e^{-\ii\left(p+\varepsilon\tau e_{j}\right)x}\dd\tau=-\ii e_{j}x\int_{0}^{1}e^{-\ii\left(p+\varepsilon\tau e_{j}\right)x}\dd\tau\\
+\Rightarrow\qquad\abs{\frac{e^{-\ii\left(p+\varepsilon e_{j}\right)x}-e^{-\ii px}}{\varepsilon}} & \le\norm x\cdot\int_{0}^{1}\underbrace{\abs{e^{-\ii\left(p+\varepsilon\tau e_{j}\right)x}}}_{=1}\dd\tau=\norm x\\
+\abs{\frac{e^{-\ii\left(p+\varepsilon e_{j}\right)x}-e^{-\ii px}}{\varepsilon}f\left(x\right)} & \le\norm x\cdot\abs{f\left(x\right)}\le\frac{\norm x}{1+\norm x^{n+2}}\norm f_{n+2,0}=:h\left(x\right)\in L^{1}\left(\mathbb{R}^{n}\right)
+\end{align*}
+This allows us to apply the dominated convergence theorem to take
+the limit $\varepsilon\to0$ inside the integral. Iteration of this
+process gives:
+\begin{align*}
+\DD^{\beta}\left(\mathcal{F}f\right)\left(p\right) & =\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int_{\mathbb{R}}\left(-\ii\right)^{\abs{\beta}}x^{\beta}f\left(x\right)e^{-\ii px}\dd^{n}x\\
+p^{\alpha}\DD^{\beta}\left(\mathcal{F}f\right)\left(p\right) & =\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int_{\mathbb{R}}\left(-\ii\right)^{\abs{\beta}}x^{\beta}f\left(x\right)p^{\alpha}e^{-\ii px}\dd^{n}x\\
+p^{j}e^{-\ii px} & =\ii\frac{\partial}{\partial x^{j}}e^{-\ii px}\\
+\Rightarrow\qquad p^{\alpha}e^{-\ii px} & =\ii^{\abs{\alpha}}\DD_{x}^{\alpha}e^{-\ii px}\\
+p^{\alpha}\DD^{\beta}\left(\mathcal{F}f\right)\left(p\right) & =\frac{\left(-\ii\right)^{\abs{\beta}}\ii^{\abs{\alpha}}}{\left(2\pi\right)^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}\underbrace{\left(x^{\beta}f\left(x\right)\right)}_{\text{rapid decay}}\left(\DD_{x}^{\alpha}e^{-\ii px}\right)\dd^{n}x=\\
+ & \sr ={\text{integration}}{\text{by parts}}\frac{\left(-\ii\right)^{\abs{\beta}}\ii^{\abs{\alpha}}}{\left(2\pi\right)^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}\left(-1\right)^{\abs{\alpha}}\DD_{x}^{\alpha}\left(x^{\beta}f\left(x\right)\right)e^{-\ii px}\dd^{n}x=\\
+ & =\frac{\left(-\ii\right)^{\abs{\alpha}+\abs{\beta}}}{\left(2\pi\right)^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}\DD_{x}^{\alpha}\left(x^{\beta}f\left(x\right)\right)e^{-\ii px}\dd^{n}x
+\end{align*}
+From the computation we did earlier in the proof we know:
+\begin{align*}
+\abs{\DD_{x}^{\alpha}\left(\mathcal{F}f\right)\left(p\right)} & \le C\norm{\DD_{x}^{\alpha}\left(x^{\beta}f\right)}_{n+1,0}\le\tilde{C}\left(\alpha,\beta\right)\norm f_{\abs{\beta}+n+1,\abs{\alpha}}
+\end{align*}
+\begin{align*}
+\norm{\mathcal{F}f}_{r,s} & \le\tilde{c}\left(s,r,n\right)\norm f_{s+n+1,r}
+\end{align*}
+Therefore $\mathcal{F}:\mathcal{S}\left(\mathbb{R}^{n}\right)\to\mathcal{S}\left(\mathbb{R}^{n}\right)$
+is well-defined. The same follows analogously for $\overline{\mathcal{F}}$.\qqed
+
+So we have the following correspondence:
+\begin{align*}
+-\ii x^{j} & \leftrightarrow\frac{\partial}{\partial p^{j}}\\
+-\ii\frac{\partial}{\partial x^{j}} & \leftrightarrow p^{j}
+\end{align*}
+Here the derivatives always act on $f$ or $\mathcal{F}f$ and not
+on $e^{-\ii px}$.
+\begin{align*}
+x^{\alpha}\DD^{\beta}f & \leftrightarrow\ii^{\abs{\alpha}+\abs{\beta}}\DD_{p}^{\alpha}p^{\beta}\left(\mathcal{F}f\right)\left(p\right)=\ii^{\abs{\alpha}+\abs{\beta}}p^{\beta}\DD^{\alpha}\left(\mathcal{F}f\right)\left(p\right)+\text{lower order terms}
+\end{align*}
+Suppose we had worked with $\norm f_{0,k}=\abs f_{C^{k}}$ as family
+of norms. Then the norms of the Fourier transform of a function with
+finite norms would not necessarily be finite.
+
+
+\subsection{Theorem \textmd{(Plancherel, convergence generating factor)\label{sub:Thm-Plancherel}}}
+
+$\mathcal{F}$ and $\overline{\mathcal{F}}$ are inverse to each other:
+\begin{align*}
+\overline{\mathcal{F}}\mathcal{F} & =\mathcal{F}\overline{\mathcal{F}}=\mathbbm{1}:\mathcal{S}\left(\mathbb{R}^{n}\right)\to\mathcal{S}\left(\mathbb{R}^{n}\right)
+\end{align*}
+
+
+
+\subsubsection*{Proof}
+
+\begin{align*}
+\left(\mathcal{F}\overline{\mathcal{F}}f\right)\left(p\right) & =\frac{1}{\left(2\pi\right)^{n}}\int_{\mathbb{R}^{n}}e^{-\ii px}\underbrace{\left(\int_{\mathbb{R}^{n}}e^{\ii qx}f\left(q\right)\dd^{n}q\right)}_{\left(\overline{\mathcal{F}}f\right)\left(x\right)}\dd^{n}x\stackrel{?}{=}f\left(p\right)\\
+ & \stackrel{?}{=}\frac{1}{\left(2\pi\right)^{n}}\int_{\mathbb{R}^{n}}f\left(q\right)\left(\int_{\mathbb{R}^{n}}e^{-\ii\left(p-q\right)x}\dd^{n}x\right)\dd^{n}q
+\end{align*}
+The problem here is, that $e^{-\ii\left(p-q\right)x}$ does not decay
+at infinity, so the integral is not well-defined. Instead we have
+to introduce a \emph{convergence generating factor} $e^{-\varepsilon x^{2}}$
+and, after integrating, calculate the limes $\varepsilon\to0$.
+\begin{align*}
+\left(\mathcal{F}\overline{\mathcal{F}}f\right)\left(p\right) & =\frac{1}{\left(2\pi\right)^{n}}\lim_{\varepsilon\searrow0}\int_{\mathbb{R}^{n}}e^{-\ii px}e^{-\varepsilon x^{2}}\left(\int_{\mathbb{R}^{n}}e^{\ii qx}f\left(q\right)\dd^{n}q\right)\dd^{n}x=\\
+ & \stackrel{\text{Fubini}}{=}\frac{1}{\left(2\pi\right)^{n}}\lim_{\varepsilon\searrow0}\int_{\mathbb{R}^{n}}f\left(q\right)\left(\int_{\mathbb{R}^{n}}e^{-\ii\left(p-q\right)x}e^{-\varepsilon x^{2}}\dd^{n}x\right)\dd^{n}q
+\end{align*}
+The resulting Gaussian integral can be computed in closed form. In
+one dimension it is:
+\begin{align*}
+\int_{\mathbb{R}}e^{-\ii\lambda x}e^{-\varepsilon x^{2}}\dd x & =\int_{\mathbb{R}}e^{-\varepsilon\left(x+\frac{\ii\lambda}{2\varepsilon}\right)^{2}-\frac{\lambda^{2}}{4\varepsilon}}\dd x=e^{-\frac{\lambda^{2}}{4\varepsilon}}\int_{\mathbb{R}}e^{-\varepsilon\left(x+\frac{\ii\lambda}{2\varepsilon}\right)^{2}}\dd x=\\
+ & \sr ={z=\sqrt{\varepsilon}\left(x+\frac{\ii\lambda}{2\varepsilon}\right)}{\dd z=\sqrt{\varepsilon}\dd x}e^{-\frac{\lambda^{2}}{4\varepsilon}}\int_{\mathbb{R}+\frac{\ii\lambda}{2\sqrt{\varepsilon}}}e^{-z^{2}}\frac{\dd z}{\sqrt{\varepsilon}}=\\
+ & \sr ={\text{contour}}{\text{deformation}}\frac{e^{-\frac{\lambda^{2}}{4\varepsilon}}}{\sqrt{\varepsilon}}\underbrace{\int_{\mathbb{R}}e^{-z^{2}}\dd z}_{=\sqrt{\pi}}=\sqrt{\frac{\pi}{\varepsilon}}e^{-\frac{\lambda^{2}}{4\varepsilon}}
+\end{align*}
+So we get:
+\begin{align*}
+\left(\mathcal{F}\overline{\mathcal{F}}f\right)\left(p\right) & =\frac{1}{\left(2\pi\right)^{n}}\lim_{\varepsilon\searrow0}\int_{\mathbb{R}^{n}}f\left(q\right)\left(\frac{\pi}{\varepsilon}\right)^{\frac{n}{2}}e^{-\frac{\left(p-q\right)^{2}}{4\varepsilon}}\dd^{n}q
+\end{align*}
+
+
+\begin{figure}[H]
+\noindent \begin{centering}
+\begin{tikzpicture}
+ \begin{axis}[width=9cm, axis x line=middle, axis y line=middle, xtick={0}, ytick={0}, xlabel=$q$,domain=-6:6,samples=300, ymin=-0.5]
+  \addplot[mark=none] {exp(-(1-x)^2/4)};
+  \addlegendentry{$\varepsilon = 1$}
+  \addplot[blue,dashed,mark=none] {exp(-(1-x)^2/0.4)/sqrt(0.5)};
+  \addlegendentry{$\varepsilon = 0.5$}
+  \addplot[red!50!black,dotted,mark=none] {exp(-(1-x)^2/0.03)/sqrt(0.1)};
+  \addlegendentry{$\varepsilon = 0.1$}
+  \draw (axis cs: 1,-0.05) -- (axis cs: 1,0.05) node[above]{$p$};
+ \end{axis}
+\end{tikzpicture} \hfill{}\begin{tikzpicture}
+ \begin{axis}[width=9cm, axis equal image, axis x line=middle, axis y line=middle, xtick={0}, ytick={0}, xlabel=$q^i$, ylabel=$q^j$, xmin=-1, xmax=3, ymin=-0.45, ymax=3]
+  \draw (axis cs: 2.05,0.95) -- (axis cs: 1.95,1.05) (axis cs: 2.05,1.05) -- (axis cs: 1.95,0.95) (axis cs:2,1) node[below]{$p$};
+  \draw (axis cs: 2,1) circle (10.8mm);
+  \draw (axis cs: 2,1) -- node[above]{$\varepsilon$} (axis cs: 1.4,1);
+ \end{axis}
+\end{tikzpicture} \caption{The Gaussian gets very narrow and very high as $\varepsilon$ decreases.}
+
+\par\end{centering}
+
+\end{figure}
+
+
+Estimate the integral as follows:
+\begin{align*}
+\left(\mathcal{F}\overline{\mathcal{F}}f\right)\left(p\right) & =\lim_{\varepsilon\searrow0}\frac{1}{\left(4\pi\varepsilon\right)^{\frac{n}{2}}}\left(\int_{\mathbb{R}^{n}}f\left(p\right)e^{-\frac{\left(p-q\right)^{2}}{4\varepsilon}}\dd^{n}q+\int_{\mathbb{R}^{n}}\left(f\left(q\right)-f\left(p\right)\right)e^{-\frac{\left(p-q\right)^{2}}{4\varepsilon}}\dd^{n}q\right)
+\end{align*}
+The first integral gives:
+\begin{align*}
+\int_{\mathbb{R}^{n}}e^{-\frac{\left(p-q\right)^{2}}{4\varepsilon}}\dd^{n}q & \sr ={z=\frac{p-q}{2\sqrt{\varepsilon}}}{\dd^{n}z=\frac{\dd^{n}q}{\left(4\varepsilon\right)^{\frac{n}{2}}}}\left(4\varepsilon\right)^{\frac{n}{2}}\underbrace{\int_{\mathbb{R}^{n}}e^{-z^{2}}\dd^{n}q}_{=\pi^{\frac{n}{2}}}=\left(4\pi\varepsilon\right)^{\frac{n}{2}}
+\end{align*}
+So we get:
+\begin{align*}
+\left(\mathcal{F}\overline{\mathcal{F}}f\right)\left(p\right) & =f\left(p\right)+\lim_{\varepsilon\searrow0}\frac{1}{\left(4\pi\varepsilon\right)^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}\left(f\left(q\right)-f\left(p\right)\right)e^{-\frac{\left(p-q\right)^{2}}{4\varepsilon}}\dd^{n}q
+\end{align*}
+It remains to show that the second summand goes to zero for $\varepsilon\to0$.
+We use the following scaling argument:
+\begin{align*}
+\frac{1}{\varepsilon^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}\left(f\left(q\right)-f\left(p\right)\right)e^{-\frac{\left(p-q\right)^{2}}{4\varepsilon}}\dd^{4}q & \sr ={u=\frac{p-q}{\sqrt{\varepsilon}}}{\dd^{n}q=\varepsilon^{\frac{n}{2}}\dd^{n}u}\frac{1}{\varepsilon^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}\left(f\left(p-\sqrt{\varepsilon}u\right)-f\left(p\right)\right)e^{-\frac{u^{2}}{4}}\varepsilon^{\frac{n}{2}}\dd^{n}u=\\
+ & =\int_{\mathbb{R}^{n}}\underbrace{\left(f\left(p-\sqrt{\varepsilon}u\right)-f\left(p\right)\right)}_{\xrightarrow{\varepsilon\searrow0}0\ \text{pointwise}}e^{-\frac{u^{2}}{4}}\dd^{n}u
+\end{align*}
+For the integrand holds:
+\begin{align*}
+\underbrace{\left(f\left(p-\sqrt{\varepsilon}u\right)-f\left(p\right)\right)}_{\xrightarrow{\varepsilon\searrow0}0\ \text{pointwise}}e^{-\frac{u^{2}}{4}} & \le\norm f_{0,0}e^{-\frac{u^{2}}{4}}\in L^{1}\left(\mathbb{R}^{n}\right)
+\end{align*}
+So the dominated convergence theorem can be applied to get:
+\begin{align*}
+\left(\mathcal{F}\overline{\mathcal{F}}f\right)\left(p\right) & =f\left(p\right)+\lim_{\varepsilon\searrow0}\frac{1}{\left(4\pi\right)^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}\underbrace{\lim_{\varepsilon\searrow0}\left(f\left(p-\sqrt{\varepsilon}u\right)-f\left(p\right)\right)}_{=0}e^{-\frac{u^{2}}{4}}\dd^{n}u=f\left(p\right)
+\end{align*}
+
+
+$\overline{\mathcal{F}}\mathcal{F}=\mathbbm{1}$ follows analogously.\qqed
+
+We want to generalize the Fourier transform to $\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)$.
+We begin with the case $T_{g}$ with $g\in\mathcal{S}\left(\mathbb{R}^{n}\right)$.
+We want:
+\begin{align*}
+\mathcal{F}\left(T_{g}\right) & =T_{\mathcal{F}g}
+\end{align*}
+\begin{align*}
+T_{\mathcal{F}g}\left(f\right) & =\int_{\mathbb{R}^{n}}\left(\mathcal{F}g\right)\left(p\right)f\left(p\right)\dd^{n}p=\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}\left(\int_{\mathbb{R}^{n}}e^{-\ii px}g\left(x\right)\dd^{n}x\right)f\left(p\right)\dd^{n}p
+\end{align*}
+Fubini's theorem allows us to interchange the orders of integration:
+\begin{align*}
+T_{\mathcal{F}g}\left(f\right) & =\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}g\left(x\right)\underbrace{\left(\int_{\mathbb{R}^{n}}e^{-\ii px}f\left(p\right)\dd^{n}p\right)}_{=\mathcal{F}f\left(x\right)}\dd^{n}x=\int_{\mathbb{R}^{n}}g\left(x\right)\left(\mathcal{F}f\right)\left(x\right)\dd^{n}x=\TT_{g}\left(\mathcal{F}f\right)
+\end{align*}
+Since we want $\left(\mathcal{F}T_{g}\right)\left(f\right)=T_{\mathcal{F}g}=T_{g}\left(\mathcal{F}f\right)$,
+this motivates the following general definition:
+
+
+\subsection{Definition \textmd{(Fourier transform of distributions)\label{sub:Def-Fourier_distribution}}}
+
+$\mathcal{F},\overline{\mathcal{F}}:\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)\to\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)$
+are defined by their action on a test function $f\in\mathcal{S}\left(\mathbb{R}^{n}\right)$:
+\begin{align*}
+\left(\mathcal{F}T\right)\left(f\right) & :=T\left(\mathcal{F}f\right)\\
+\left(\overline{\mathcal{F}}T\right)\left(f\right) & :=T\left(\overline{\mathcal{F}}f\right)
+\end{align*}
+It holds:
+\begin{align*}
+\abs{\left(\mathcal{F}T\right)\left(f\right)} & =\abs{T\left(\mathcal{F}f\right)}\sr{\le}{T\in\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)}{\Rightarrow\exs r,s\in\mathbb{N},c\in\mathbb{R}_{>0}}c\norm{\mathcal{F}f}_{r,s}\le\tilde{c}\norm f_{s+n+1,r}
+\end{align*}
+Thus $\mathcal{F}T$ is indeed a tempered distribution.
+
+
+\subsection{Theorem \textmd{(Plancherel for distributions)}}
+
+Plancherel's theorem holds on $\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)$
+as well:
+\begin{align*}
+\mathcal{F}\overline{\mathcal{F}} & =\overline{\mathcal{F}}\mathcal{F}=\mathbbm{1}_{\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)}
+\end{align*}
+
+
+
+\subsubsection*{Proof}
+
+\begin{align*}
+\left(\mathcal{F}\overline{\mathcal{F}}T\right)\left(f\right) & \stackrel{\text{Definition }\ref{sub:Def-Fourier_distribution}}{=}\left(\overline{\mathcal{F}}T\right)\left(\mathcal{F}f\right)=T\left(\overline{\mathcal{F}}\mathcal{F}f\right)\stackrel{\text{Plancherel }\ref{sub:Thm-Plancherel}}{=}T\left(f\right)
+\end{align*}
+Since this holds for all $f\in\mathcal{S}\left(\mathbb{R}^{n}\right)$
+and all $T\in\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)$ it follows:
+\begin{align*}
+\mathcal{F}\overline{\mathcal{F}} & =\mathbbm{1}_{\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)}
+\end{align*}
+The same follows for $\overline{\mathcal{F}}\mathcal{F}$.\qqed
+
+
+\subsection{Example}
+\begin{enumerate}
+\item Fourier transform of $\delta$-Distribution:
+\begin{align*}
+\left(\mathcal{F}\delta\right)\left(f\right) & =\delta\left(\mathcal{F}f\right)=\left(\mathcal{F}f\right)\left(0\right)=\\
+ & =\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}e^{-\ii px}f\left(x\right)\dd^{n}x\bigg|_{p=0}=\int_{\mathbb{R}^{n}}\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}f\left(x\right)\dd^{n}x=T_{\left(2\pi\right)^{-\frac{n}{2}}}\left(f\right)
+\end{align*}
+This means:
+\begin{align*}
+\mathcal{F}\delta & =T_{\left(2\pi\right)^{-\frac{n}{2}}}
+\end{align*}
+Or, in a more computational manner, one can write this as:
+\begin{align*}
+\mathcal{F}\delta & =\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}e^{-\ii px}\delta\left(x\right)\dd^{n}x=\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}
+\end{align*}
+This is not satisfying from a mathematical point of view, because
+one does not know, that the usual formula for the Fourier transform
+also works for distributions.
+\item Consider $T_{g}$ with $g\left(p\right)=e^{\ii py}$ for a given $y\in\mathbb{R}^{n}$.
+\begin{align*}
+\left(\mathcal{F}T_{g}\right)\left(f\right) & =T_{g}\left(\mathcal{F}f\right)=T_{g}\left(\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int e^{-\ii px}f\left(x\right)\dd^{n}x\right)=\\
+ & =\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int e^{\ii py}\left(\int e^{-\ii px}f\left(x\right)\dd^{n}x\right)\dd^{n}p=\\
+ & =\left(2\pi\right)^{\frac{n}{2}}\left(\overline{\mathcal{F}}\mathcal{F}\right)f\left(y\right)=\left(2\pi\right)^{\frac{n}{2}}f\left(y\right)
+\end{align*}
+So we get:
+\begin{align*}
+\mathcal{F}T_{g}f & =\left(2\pi\right)^{\frac{n}{2}}f\left(y\right)\\
+\left(\mathcal{F}T_{g}\right)\left(x\right) & =\left(2\pi\right)^{\frac{n}{2}}\delta^{\left(n\right)}\left(x-y\right)
+\end{align*}
+Formally one can write:
+\begin{align*}
+\left(\mathcal{F}g\right)\left(x\right) & =\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}e^{-\ii px}e^{\ii py}\dd^{n}p=\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}e^{-\ii p\left(x-y\right)}\dd^{n}p
+\end{align*}
+This is ill-defined, but physicists use the formal relation:
+\begin{align*}
+\int_{\mathbb{R}^{n}}e^{-\ii p\left(x-y\right)}\dd^{n}p & =\left(2\pi\right)^{n}\delta^{\left(n\right)}\left(x-y\right)
+\end{align*}
+
+\end{enumerate}
 
 \part*{Appendix\thispagestyle{empty}}
 
