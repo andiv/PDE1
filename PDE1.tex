@@ -908,10 +908,10 @@ side holds, which implies:
 \subsection{Example \textmd{(\texorpdfstring{$\delta$}{Delta}-Distribution)}}
 \begin{enumerate}[label=\alph*)]
 \item Consider the following functional:
-\begin{align*}
+\begin{align}
 \delta:\mathcal{S}\left(\mathbb{R}\right) & \to\mathbb{R}\\
-f & \mapsto f\left(0\right)
-\end{align*}
+f & \mapsto f\left(0\right)\nonumber 
+\end{align}
 This is obviously linear.
 \begin{align*}
 \abs{\delta\left(f\right)} & =\abs{f\left(0\right)}\le\sup_{\mathbb{R}}\abs f=\norm f_{0,0}
@@ -942,12 +942,12 @@ notation for this is:
 
 $\delta$ can also be introduced as a \emph{measure} on $\mathbb{R}^{n}$,
 the \emph{Dirac measure}. For $A\subseteq\mathbb{R}^{n}$ define:
-\begin{align*}
+\begin{align}
 \delta\left(x\right) & =\begin{cases}
 1 & \text{if }0\in A\\
 0 & \text{otherwise}
 \end{cases}
-\end{align*}
+\end{align}
 Then for $f\in C^{0}\left(\mathbb{R}^{n}\right)$ the expression 
 \begin{align*}
 \int_{\mathbb{R}^{n}}f\left(x\right)\dd\delta\left(x\right) & =f\left(0\right)
@@ -1064,9 +1064,9 @@ $T,S\in\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)$ and $\alpha\in\mathbb{R}$.
 \item Multiplication of a distribution by a Schwartz function is defined
 for $T\in\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)$ and $f,g\in\mathcal{S}\left(\mathbb{R}^{n}\right)$
 as:
-\begin{align*}
+\begin{align}
 \left(fT\right)\left(g\right) & :=T\left(f\cdot g\right)
-\end{align*}
+\end{align}
 This is well defined, because $f\cdot g$ is again a Schwartz function
 and for $h\in\mathcal{S}\left(\mathbb{R}^{n}\right)$ holds:
 \begin{align*}
@@ -1154,10 +1154,10 @@ We make a formal computation:
 \int_{\mathbb{R}}\delta'\left(x\right)f\left(x\right)\dd x & =\int_{\mathbb{R}}\left(\frac{\dd}{\dd x}\delta\left(x\right)\right)f\left(x\right)\dd x\sr ={\text{integration}}{\text{by parts}}-\int_{\mathbb{R}}\delta\left(x\right)f'\left(x\right)\dd x=-f'\left(0\right)
 \end{align*}
 This motivates us to \emph{define}:
-\begin{align*}
+\begin{align}
 \delta':\mathcal{S}\left(\mathbb{R}\right) & \to\mathbb{R}\\
-f & \mapsto-f'\left(0\right)
-\end{align*}
+f & \mapsto-f'\left(0\right)\nonumber 
+\end{align}
 This is obviously linear and it is continuous, because for all $f\in\mathcal{S}\left(\mathbb{R}\right)$
 holds:
 \begin{align*}
@@ -1168,7 +1168,8 @@ Hence we have $\delta'\in\mathcal{S}^{*}\left(\mathbb{R}\right)$.
 
 \subsubsection*{Remark}
 
-$\delta'$ cannot be introduced as a measure, in contrast to $\delta$:
+In contrast to $\delta$, the distribution $\delta'$ cannot be introduced
+as a measure:
 \begin{align*}
 \delta\left(\Omega\right) & =\begin{cases}
 1 & \text{if }0\in\Omega\\
@@ -1183,9 +1184,9 @@ $\delta'$ cannot be introduced as a measure, in contrast to $\delta$:
 \begin{itemize}
 \item For a tempered distribution $T\in\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)$
 we define the \emph{distributional derivative} $\DD^{\alpha}T$ by:
-\begin{align*}
+\begin{align}
 \left(\DD^{\alpha}T\right)\left(f\right) & :=\left(-1\right)^{\abs{\alpha}}T\left(\DD^{\alpha}f\right)
-\end{align*}
+\end{align}
 $\DD^{\alpha}T$ is a distribution, since it is a continuous functional:
 \begin{align*}
 \abs{\left(\DD^{\alpha}T\right)\left(f\right)} & =\abs{T\left(\DD^{\alpha}f\right)}\stackrel{T\text{ continuous}}{\le}C\norm{\DD^{\alpha}f}_{r,s}\le C\norm f_{r,s+\abs{\alpha}}
@@ -1193,9 +1194,9 @@ $\DD^{\alpha}T$ is a distribution, since it is a continuous functional:
 So we have a mapping $\DD^{\alpha}:\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)\to\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)$.
 \item The convolution (\foreignlanguage{ngerman}{Faltung}) for $f,g\in\mathcal{S}\left(\mathbb{R}^{n}\right)$
 is defined as:
-\begin{align*}
+\begin{align}
 \left(f*g\right)\left(x\right) & :=\int_{\mathbb{R}^{n}}f\left(x-y\right)g\left(y\right)\dd^{n}y
-\end{align*}
+\end{align}
 
 \end{itemize}
 
@@ -1203,9 +1204,9 @@ is defined as:
 
 The convolution is commutative and associative, i.e. for $f,g,h\in\mathcal{S}\left(\mathbb{R}^{n}\right)$
 holds:
-\begin{align*}
+\begin{align}
 f*g & =g*f & f*\left(g*h\right) & =\left(f*g\right)*h
-\end{align*}
+\end{align}
 
 
 
@@ -1276,6 +1277,9 @@ Hence we get:
 \end{align*}
 \qqed
 
+
+\subsection{Definition \textmd{(Convolution with Distribution)}}
+
 How can we define the convolution of $T\in S^{*}\left(\mathbb{R}^{n}\right)$
 with $f\in S\left(\mathbb{R}^{n}\right)$? $f*T_{g}$ should be equal
 to $T_{f*g}$. For $h\in\mathcal{S}\left(\mathbb{R}^{n}\right)$ holds:
@@ -1283,7 +1287,8 @@ to $T_{f*g}$. For $h\in\mathcal{S}\left(\mathbb{R}^{n}\right)$ holds:
 T_{f*g}\left(h\right) & =\int_{\mathbb{R}^{n}}\left(f*g\right)\left(x\right)\cdot h\left(x\right)\dd^{n}x=\\
  & =\int_{\mathbb{R}^{n}}\left(\int_{\mathbb{R}^{n}}f\left(x-y\right)g\left(y\right)\dd^{n}y\right)\cdot h\left(x\right)\dd^{n}x
 \end{align*}
-By Fubini we may interchange the order of integration to get:
+By Fubini's theorem we may interchange the order of integration to
+get:
 \begin{align*}
 T_{f*g}\left(h\right) & =\int_{\mathbb{R}^{n}}g\left(y\right)\left(\int_{\mathbb{R}^{n}}f\left(x-y\right)\cdot h\left(x\right)\dd^{n}x\right)\dd^{n}y=\\
  & \sr ={\tilde{f}\left(z\right):=f\left(-z\right)}{}\int_{\mathbb{R}^{n}}g\left(y\right)\left(\int_{\mathbb{R}^{n}}\tilde{f}\left(y-x\right)\cdot h\left(x\right)\dd^{n}x\right)\dd^{n}y=\\
@@ -1291,10 +1296,10 @@ T_{f*g}\left(h\right) & =\int_{\mathbb{R}^{n}}g\left(y\right)\left(\int_{\mathbb
 \end{align*}
 So for a distribution $T\in S^{*}\left(\mathbb{R}^{n}\right)$ we
 define the \emph{convolution} as:
-\begin{align*}
+\begin{align}
 *:\mathcal{S}\left(\mathbb{R}^{n}\right)\times\mathcal{S}^{*}\left(\mathbb{R}^{n}\right) & \to\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)\\
-\left(f*T\right)\left(h\right) & :=T\left(\tilde{f}*h\right)
-\end{align*}
+\left(f*T\right)\left(h\right) & :=T\left(\tilde{f}*h\right)\nonumber 
+\end{align}
 
 
 For $S,T\in\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)$, $S*T$ and
@@ -1312,10 +1317,10 @@ and later on $\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)$.
 
 Define linear functionals $\mathcal{F}$ and $\overline{\mathcal{F}}$
 on $\mathcal{S}$:
-\begin{align*}
+\begin{align}
 \left(\mathcal{F}f\right)\left(p\right) & :=\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}e^{-\ii px}f\left(x\right)\dd^{n}x\\
 \left(\overline{\mathcal{F}}f\right)\left(x\right) & :=\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}e^{\ii px}f\left(p\right)\dd^{n}p
-\end{align*}
+\end{align}
 The integrals are well-defined and finite, because $f$ has suitable
 decay properties at infinity.
 
@@ -1380,10 +1385,10 @@ Therefore $\mathcal{F}:\mathcal{S}\left(\mathbb{R}^{n}\right)\to\mathcal{S}\left
 is well-defined. The same follows analogously for $\overline{\mathcal{F}}$.\qqed
 
 So we have the following correspondence:
-\begin{align*}
+\begin{align}
 -\ii x^{j} & \leftrightarrow\frac{\partial}{\partial p^{j}}\\
 -\ii\frac{\partial}{\partial x^{j}} & \leftrightarrow p^{j}
-\end{align*}
+\end{align}
 Here the derivatives always act on $f$ or $\mathcal{F}f$ and not
 on $e^{-\ii px}$.
 \begin{align*}
@@ -1394,12 +1399,12 @@ of norms. Then the norms of the Fourier transform of a function with
 finite norms would not necessarily be finite.
 
 
-\subsection{Theorem \textmd{(Plancherel, convergence generating factor)\label{sub:Thm-Plancherel}}}
+\subsection{Theorem \textmd{(Plancherel, Convergence Generating Factor)\label{sub:Thm-Plancherel}}}
 
 $\mathcal{F}$ and $\overline{\mathcal{F}}$ are inverse to each other:
-\begin{align*}
+\begin{align}
 \overline{\mathcal{F}}\mathcal{F} & =\mathcal{F}\overline{\mathcal{F}}=\mathbbm{1}:\mathcal{S}\left(\mathbb{R}^{n}\right)\to\mathcal{S}\left(\mathbb{R}^{n}\right)
-\end{align*}
+\end{align}
 
 
 
@@ -1502,14 +1507,14 @@ Since we want $\left(\mathcal{F}T_{g}\right)\left(f\right)=T_{\mathcal{F}g}=T_{g
 this motivates the following general definition:
 
 
-\subsection{Definition \textmd{(Fourier transform of distributions)\label{sub:Def-Fourier_distribution}}}
+\subsection{Definition \textmd{(Fourier Transform of Distributions)\label{sub:Def-Fourier_distribution}}}
 
 $\mathcal{F},\overline{\mathcal{F}}:\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)\to\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)$
 are defined by their action on a test function $f\in\mathcal{S}\left(\mathbb{R}^{n}\right)$:
-\begin{align*}
+\begin{align}
 \left(\mathcal{F}T\right)\left(f\right) & :=T\left(\mathcal{F}f\right)\\
 \left(\overline{\mathcal{F}}T\right)\left(f\right) & :=T\left(\overline{\mathcal{F}}f\right)
-\end{align*}
+\end{align}
 It holds:
 \begin{align*}
 \abs{\left(\mathcal{F}T\right)\left(f\right)} & =\abs{T\left(\mathcal{F}f\right)}\sr{\le}{T\in\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)}{\Rightarrow\exs r,s\in\mathbb{N},c\in\mathbb{R}_{>0}}c\norm{\mathcal{F}f}_{r,s}\le\tilde{c}\norm f_{s+n+1,r}
@@ -1517,13 +1522,13 @@ It holds:
 Thus $\mathcal{F}T$ is indeed a tempered distribution.
 
 
-\subsection{Theorem \textmd{(Plancherel for distributions)}}
+\subsection{Theorem \textmd{(Plancherel for Distributions)}}
 
 Plancherel's theorem holds on $\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)$
 as well:
-\begin{align*}
+\begin{align}
 \mathcal{F}\overline{\mathcal{F}} & =\overline{\mathcal{F}}\mathcal{F}=\mathbbm{1}_{\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)}
-\end{align*}
+\end{align}
 
 
 
@@ -1540,9 +1545,10 @@ and all $T\in\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)$ it follows:
 The same follows for $\overline{\mathcal{F}}\mathcal{F}$.\qqed
 
 
-\subsection{Example}
+\subsection{Examples}
 \begin{enumerate}
-\item Fourier transform of $\delta$-Distribution:
+\item The Fourier transform of the $\delta$-Distribution can be calculated
+as follows:
 \begin{align*}
 \left(\mathcal{F}\delta\right)\left(f\right) & =\delta\left(\mathcal{F}f\right)=\left(\mathcal{F}f\right)\left(0\right)=\\
  & =\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}e^{-\ii px}f\left(x\right)\dd^{n}x\bigg|_{p=0}=\int_{\mathbb{R}^{n}}\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}f\left(x\right)\dd^{n}x=T_{\left(2\pi\right)^{-\frac{n}{2}}}\left(f\right)
@@ -1558,27 +1564,283 @@ Or, in a more computational manner, one can write this as:
 This is not satisfying from a mathematical point of view, because
 one does not know, that the usual formula for the Fourier transform
 also works for distributions.
-\item Consider $T_{g}$ with $g\left(p\right)=e^{\ii py}$ for a given $y\in\mathbb{R}^{n}$.
+\item Consider $T_{f}$ with $g\left(p\right)=e^{\ii py}$ for a given $y\in\mathbb{R}^{n}$.
 \begin{align*}
-\left(\mathcal{F}T_{g}\right)\left(f\right) & =T_{g}\left(\mathcal{F}f\right)=T_{g}\left(\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int e^{-\ii px}f\left(x\right)\dd^{n}x\right)=\\
- & =\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int e^{\ii py}\left(\int e^{-\ii px}f\left(x\right)\dd^{n}x\right)\dd^{n}p=\\
- & =\left(2\pi\right)^{\frac{n}{2}}\left(\overline{\mathcal{F}}\mathcal{F}\right)f\left(y\right)=\left(2\pi\right)^{\frac{n}{2}}f\left(y\right)
+\left(\mathcal{F}T_{f}\right)\left(h\right) & =T_{f}\left(\mathcal{F}h\right)=T_{f}\left(\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int e^{-\ii px}h\left(x\right)\dd^{n}x\right)=\\
+ & =\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int e^{\ii py}\left(\int e^{-\ii px}h\left(x\right)\dd^{n}x\right)\dd^{n}p=\\
+ & =\left(2\pi\right)^{\frac{n}{2}}\left(\overline{\mathcal{F}}\mathcal{F}\right)h\left(y\right)=\left(2\pi\right)^{\frac{n}{2}}h\left(y\right)
 \end{align*}
 So we get:
 \begin{align*}
-\mathcal{F}T_{g}f & =\left(2\pi\right)^{\frac{n}{2}}f\left(y\right)\\
-\left(\mathcal{F}T_{g}\right)\left(x\right) & =\left(2\pi\right)^{\frac{n}{2}}\delta^{\left(n\right)}\left(x-y\right)
+\mathcal{F}T_{f}h & =\left(2\pi\right)^{\frac{n}{2}}h\left(y\right)\\
+\left(\mathcal{F}T_{f}\right)\left(x\right) & =\left(2\pi\right)^{\frac{n}{2}}\delta^{\left(n\right)}\left(x-y\right)
 \end{align*}
 Formally one can write:
 \begin{align*}
-\left(\mathcal{F}g\right)\left(x\right) & =\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}e^{-\ii px}e^{\ii py}\dd^{n}p=\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}e^{-\ii p\left(x-y\right)}\dd^{n}p
+\left(\mathcal{F}f\right)\left(x\right) & =\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}e^{-\ii px}e^{\ii py}\dd^{n}p=\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}e^{-\ii p\left(x-y\right)}\dd^{n}p
 \end{align*}
 This is ill-defined, but physicists use the formal relation:
 \begin{align*}
 \int_{\mathbb{R}^{n}}e^{-\ii p\left(x-y\right)}\dd^{n}p & =\left(2\pi\right)^{n}\delta^{\left(n\right)}\left(x-y\right)
 \end{align*}
+%DATE: Fr 3.5.13
+\item Consider $T=T_{g}$ with $g\left(p\right)=p^{2}e^{\ii py}$ for a
+given $y\in\mathbb{R}$. 
+\begin{align*}
+\left(\mathcal{F}T_{g}\right)\left(f\right) & =T_{g}\left(\mathcal{F}f\right)=\int_{-\infty}^{\infty}g\left(p\right)\left(\mathcal{F}f\right)\left(p\right)\dd p=\\
+ & =\int g\left(p\right)\left(\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}f\left(x\right)e^{-\ii px}\dd x\right)\dd p
+\end{align*}
+One cannot interchange the integrals, because the integral
+\begin{align*}
+\int_{-\infty}^{\infty}\underbrace{g\left(p\right)e^{-\ii p\alpha}}_{\not\in L^{1}}\dd p
+\end{align*}
+does not exist. Therefore we work again with a convergence generating
+factor, which we can due to the dominated convergence theorem:
+\begin{align*}
+\left(\mathcal{F}T_{g}\right)\left(f\right) & =\lim_{\varepsilon\searrow0}\int_{-\infty}^{\infty}g\left(p\right)e^{-\varepsilon\abs p}\left(\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}f\left(x\right)e^{-\ii px}\dd x\right)\dd p=\\
+ & =\frac{1}{\sqrt{2\pi}}\lim_{\varepsilon\searrow0}\int_{-\infty}^{\infty}f\left(x\right)\left(\int_{-\infty}^{\infty}g\left(p\right)e^{-\varepsilon\abs p}e^{-\ii px}\dd p\right)\dd x=\\
+ & =\frac{1}{\sqrt{2\pi}}\lim_{\varepsilon\searrow0}\int_{-\infty}^{\infty}f\left(x\right)\left(\int_{-\infty}^{\infty}p^{2}e^{\ii py}e^{-\varepsilon\abs p}e^{-\ii px}\dd p\right)\dd x=\\
+ & =\frac{1}{\sqrt{2\pi}}\lim_{\varepsilon\searrow0}\int_{-\infty}^{\infty}f\left(x\right)\left(\int_{-\infty}^{\infty}\left(\ii\partial_{x}\right)^{2}e^{-\ii p\left(x-y\right)-\varepsilon\abs p}\dd p\right)\dd x=\\
+ & \stackrel{\text{Lebesgue theorem}}{=}\frac{1}{\sqrt{2\pi}}\lim_{\varepsilon\searrow0}\int_{-\infty}^{\infty}f\left(x\right)\left(\ii\partial_{x}\right)^{2}\left(\int_{-\infty}^{\infty}e^{-\ii p\left(x-y\right)-\varepsilon\abs p}\dd p\right)\dd x
+\end{align*}
+Now one can decompose the integral into integrals from $-\infty$
+to 0 and from $0$ to $\infty$ and calculate the result.
+\begin{align*}
+\left(\mathcal{F}T_{g}\right)\left(f\right) & =\frac{1}{\sqrt{2\pi}}\lim_{\varepsilon\searrow0}\int_{-\infty}^{\infty}f\left(x\right)\left(\ii\partial_{x}\right)^{2}\left(\int_{-\infty}^{0}e^{-\ii p\left(x-y\right)+\varepsilon p}\dd p+\int_{0}^{\infty}e^{-\ii p\left(x-y\right)-\varepsilon p}\dd p\right)\dd x=\\
+ & =\frac{-1}{\sqrt{2\pi}}\lim_{\varepsilon\searrow0}\int_{-\infty}^{\infty}f\left(x\right)\partial_{x}^{2}\left(\frac{1}{-\ii\left(x-y\right)+\varepsilon}-\frac{1}{-\ii\left(x-y\right)-\varepsilon}\right)\dd x=\\
+ & =\frac{-1}{\sqrt{2\pi}}\lim_{\varepsilon\searrow0}\int_{-\infty}^{\infty}f\left(x\right)\partial_{x}^{2}\left(\frac{-\ii\left(x-y\right)-\varepsilon-\left(-\ii\left(x-y\right)+\varepsilon\right)}{-\left(x-y\right)^{2}-\varepsilon^{2}}\right)\dd x=\\
+ & =\frac{1}{\sqrt{2\pi}}\lim_{\varepsilon\searrow0}\int_{-\infty}^{\infty}f\left(x\right)\partial_{x}^{2}\left(\frac{2\varepsilon}{\left(x-y\right)^{2}+\varepsilon^{2}}\right)\dd x=\\
+ & \sr ={\text{integration}}{\text{by parts}}\sqrt{\frac{2}{\pi}}\lim_{\varepsilon\searrow0}\int_{-\infty}^{\infty}f''\left(x\right)\cdot\frac{\varepsilon}{\left(x-y\right)^{2}+\varepsilon^{2}}\dd x=\\
+ & \sr ={z:=\frac{x-y}{\varepsilon}}{\dd z=\frac{\dd x}{\varepsilon}}\sqrt{\frac{2}{\pi}}\lim_{\varepsilon\searrow0}\int_{-\infty}^{\infty}f''\left(\varepsilon z+y\right)\cdot\frac{\varepsilon}{\varepsilon^{2}z^{2}+\varepsilon^{2}}\varepsilon\dd z=\\
+ & =\sqrt{\frac{2}{\pi}}\lim_{\varepsilon\searrow0}\int_{-\infty}^{\infty}f''\left(\varepsilon z+y\right)\cdot\frac{1}{z^{2}+1}\dd z=\\
+ & =\sqrt{\frac{2}{\pi}}f''\left(y\right)\underbrace{\int_{-\infty}^{\infty}\frac{1}{z^{2}+1}\dd z}_{=\pi}=\sqrt{2\pi}f''\left(y\right)
+\end{align*}
+So we get:
+\begin{align*}
+\left(\mathcal{F}T_{g}\right)\left(x\right) & =\sqrt{2\pi}\delta''\left(x-y\right)
+\end{align*}
+
+\item Consider the following Hilbert space:
+\begin{align*}
+L^{2}\left(\mathbb{R}^{n}\right) & =\left\{ f:\mathbb{R}^{n}\to\mathbb{R}\bigg|f\text{ measurable with }\int\abs f^{2}\dd^{n}x<\infty\right\} 
+\end{align*}
+For $f\in L^{2}\left(\mathbb{R}^{n}\right)$ define:
+\begin{align*}
+T_{f}\left(g\right) & :=\int_{\mathbb{R}^{n}}f\left(x\right)g\left(x\right)\dd^{n}x\\
+\abs{T_{f}\left(g\right)} & \stackrel{\text{Schwarz}}{\le}\norm f_{L^{2}\left(\mathbb{R}^{n}\right)}\norm g_{L^{2}\left(\mathbb{R}^{n}\right)}\le\norm f_{L^{2}\left(\mathbb{R}^{n}\right)}\cdot c\left(n\right)\norm g_{n+1,0}
+\end{align*}
+Here we used:
+\begin{align*}
+\abs{g\left(x\right)} & \le\tilde{c}\left(n\right)\frac{\norm g_{n+1,0}}{\left(1+\abs x\right)^{n+1}}
+\end{align*}
+So we have $T_{f}\in\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)$.
+\begin{align*}
+L^{2}\left(\mathbb{R}^{n}\right) & \hookrightarrow\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)\xrightarrow{\mathcal{F}}\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)\\
+f & \mapsto\ \ \ T_{f}\quad\mapsto\mathcal{F}T_{f}
+\end{align*}
 
 \end{enumerate}
+
+\subsection{Theorem}
+
+The mappings $\mathcal{F},\overline{\mathcal{F}}:L^{2}\left(\mathbb{R}^{n}\right)\to L^{2}\left(\mathbb{R}^{n}\right)$
+are isometries, i.e.:
+\begin{align}
+\norm f_{L^{2}\left(\mathbb{R}^{n}\right)} & =\norm{\mathcal{F}f}_{L^{2}\left(\mathbb{R}^{n}\right)}
+\end{align}
+Due to $\mathcal{F}\overline{\mathcal{F}}=1$ they are even unitary
+transformations.
+
+
+\subsubsection*{Proof}
+
+Consider first $f,g\in\mathcal{S}\left(\mathbb{R}^{n}\right)\subseteq L^{2}\left(\mathbb{R}^{n}\right)$.
+\begin{align*}
+\left\langle \mathcal{F}f,\mathcal{F}g\right\rangle _{L^{2}\left(\mathbb{R}^{n}\right)} & =\int_{\mathbb{R}^{n}}\overline{\left(\mathcal{F}f\right)\left(x\right)}\left(\mathcal{F}g\right)\left(x\right)\dd^{n}x\stackrel{?}{=}\int\overline{f}\left(x\right)g\left(x\right)\dd^{n}x\\
+ & =T_{\overline{\mathcal{F}}\,\overline{f}}\left(\mathcal{F}g\right)=\left(\overline{\mathcal{F}}T_{\overline{f}}\right)\left(\mathcal{F}g\right)=T_{\overline{f}}\left(\overline{\mathcal{F}}\mathcal{F}g\right)=\\
+ & \stackrel{\overline{\mathcal{F}}\mathcal{F}=1}{=}T_{\overline{f}}\left(g\right)=\int\overline{f}\left(x\right)g\left(x\right)\dd^{n}x
+\end{align*}
+$\mathcal{S}\left(\mathbb{R}^{n}\right)$ is dense in $L^{2}\left(\mathbb{R}^{n}\right)$.
+Because $\mathcal{F}$ is continuous, $\mathcal{F}$ is also isometric
+on $L^{2}\left(\mathbb{R}^{n}\right)$.\\
+For $f\in L^{2}\left(\mathbb{R}^{n}\right)$ choose $f_{n}\in\mathcal{S}\left(\mathbb{R}^{n}\right)$
+with $f_{n}\to f$ converging in $L^{2}\left(\mathbb{R}^{n}\right)$.
+Then holds for all $n\in\mathbb{N}$:
+\begin{align*}
+\norm{f_{n}}_{L^{2}} & =\norm{\mathcal{F}f_{n}}
+\end{align*}
+In the limes $n\to\infty$ we get, since $\mathcal{F}$ is continuous:
+\begin{align*}
+\norm f & =\norm{\mathcal{F}f}
+\end{align*}
+\qqed
+
+
+\section{Applications to Partial Differential Equations with Constant Coefficients}
+
+Consider as example the Poisson equation
+\begin{align*}
+\upDelta u & =f
+\end{align*}
+ in $\mathbb{R}^{n}$ with a given $f$ and assume for simplicity
+$f\in\mathcal{S}\left(\mathbb{R}^{n}\right)$. After a Fourier transform
+and defining $\hat{u}:=\mathcal{F}u$ and $\hat{f}=\mathcal{F}f$
+we get:
+\begin{align*}
+\left(-\norm p^{2}\right)\hat{u}\left(p\right) & =\hat{f}\left(p\right)\\
+\Rightarrow\qquad\hat{u}\left(p\right) & =-\frac{\hat{f}\left(p\right)}{\norm p^{2}}
+\end{align*}
+Then $\overline{\mathcal{F}}\hat{u}$ is a solution of the Poisson
+equation.
+\begin{itemize}
+\item For $\norm p^{-2}\hat{f}\left(p\right)\in\mathcal{S}\left(\mathbb{R}^{n}\right)$
+the method works directly and one gets a $u\in\mathcal{S}\left(\mathbb{R}^{n}\right)$.
+\item In the case of $n\ge3$, $\hat{u}=-\norm p^{-2}\hat{f}\left(p\right)$
+is a regular distribution. (If $n<3$ the integral does not necessarily
+converge.)
+\begin{align*}
+\left(T_{\hat{u}}\right)\left(g\right) & :=\int\left(-\frac{\hat{f}\left(p\right)}{\norm p^{2}}\right)g\left(p\right)\dd^{n}p
+\end{align*}
+Therefore $u:=\overline{\mathcal{F}}T_{\hat{u}}$ is a distributional
+solution of the Poisson equation, so we get $\upDelta u=T_{f}$.
+
+\begin{description}
+\item [{Problem:}] The distributional solution is not unique, because e.g.
+\begin{align*}
+\hat{u}\left(p\right) & =-\frac{\hat{f}\left(p\right)}{\norm p^{2}}+c\delta\left(p\right)
+\end{align*}
+is also a solution. Therefore we have to specify the behavior of $u\left(x\right)$
+in the limit $\norm x\to\infty$.
+\end{description}
+\end{itemize}
+
+\chapter{The Laplace equation\texorpdfstring{{ in $\Omega\subseteq\mathbb{R}^{n}$}}{}}
+
+In this chapter we always consider an open subset $\Omega\subseteq\mathbb{R}^{n}$
+with boundary $\partial\Omega$. With the Laplacian
+\begin{align}
+\upDelta & =\frac{\partial^{2}}{\partial x_{1}^{2}}+\ldots+\frac{\partial^{2}}{\partial x_{n}^{2}}
+\end{align}
+the Laplace equation can be written as:
+\begin{align*}
+\upDelta u & =0
+\end{align*}
+The inhomogeneous Laplace equation is called Poisson equation:
+\begin{align*}
+\upDelta u & =f
+\end{align*}
+For both one needs to specify boundary conditions on $\partial\Omega$
+to get a unique solution.
+
+\setcounter{section}{-1}
+
+
+\section{Reminder}
+
+
+\subsection{Theorem \textmd{(Gauss's Theorem)}}
+
+If $Y$ is a smooth vector field on the closure $\overline{\Omega}$
+and $\partial\Omega$ is smooth with inner normal $\nu$, then holds:
+\begin{align}
+\int_{\Omega}\text{div}\left(Y\right)\underbrace{\dd^{n}x}_{=\dd\mu} & =\int_{\partial\Omega}\left\langle Y,\nu\right\rangle \dd\mu_{\partial\Omega}
+\end{align}
+
+
+
+\subsubsection*{(Proof omitted)}
+
+
+\subsection{Theorem \textmd{(Green's Identities)}}
+
+For $u,w\in C^{\infty}\left(\overline{\Omega}\right)$ holds:
+\begin{align}
+\int_{\Omega}w\upDelta u\dd\mu_{\Omega} & =\int_{\partial\Omega}w\left(\nabla_{\nu}u\right)\dd\mu_{\partial\Omega}-\int_{\Omega}\left\langle \nabla w,\nabla u\right\rangle \dd\mu_{\Omega}\\
+\int_{\Omega}\left(w\left(\upDelta u\right)-\left(\upDelta w\right)u\right)\dd\mu_{\Omega} & =\int_{\partial\Omega}\left(w\left(\nabla_{\nu}u\right)-\left(\nabla_{\nu}w\right)u\right)\dd\mu_{\partial\Omega}
+\end{align}
+
+
+
+\subsubsection*{Proof}
+
+We use $\upDelta=\text{div}\,\text{grad}$ and integrate by parts:
+\begin{align*}
+\int_{\Omega}w\upDelta u\dd\mu_{\Omega} & =\int_{\Omega}w\cdot\text{div}\left(\nabla u\right)\dd\mu_{\Omega}=\int_{\Omega}\text{div}\left(w\nabla u\right)-\left\langle \nabla w,\nabla u\right\rangle \dd\mu_{\Omega}
+\end{align*}
+Then one can use Gauss's theorem to get the first identity. Now one
+subtracts the identity with $w$ and $u$ commuted:
+\begin{align*}
+w\upDelta u-u\upDelta w & =\text{div}\left(w\nabla u\right)-\left\langle \nabla w,\nabla u\right\rangle -\left(\text{div}\left(u\nabla w\right)-\left\langle \nabla u,\nabla w\right\rangle \right)=\\
+ & \stackrel{\left\langle .,.\right\rangle \text{ symmetric}}{=}\text{div}\left(w\nabla u\right)-\text{div}\left(u\nabla w\right)
+\end{align*}
+Using Gauss's theorem the second identity follows.\qqed
+
+
+\section{Representation Formulas for Harmonic Functions}
+
+
+\subsection{Definition \textmd{(Harmonic Functions)}}
+
+A function $u\in C^{2}\left(\overline{\Omega}\right)$ is called \emph{harmonic},
+if the Laplacian vanishes:
+\begin{align*}
+\upDelta u & =0
+\end{align*}
+The harmonic functions form a vector space.
+
+
+\subsubsection*{Examples}
+\begin{itemize}
+\item Constant or linear functions
+\item $u\left(x_{1},x_{2}\right)=x_{1}^{2}-x_{2}^{2}$ is harmonic on $\mathbb{R}^{2}$.
+\item Holomorphic functions on $\Omega\subseteq\mathbb{C}\stackrel{\sim}{=}\mathbb{R}^{2}$
+\end{itemize}
+Consider now \emph{spherically symmetric harmonic functions}. For
+this we choose polar coordinates $\left(r,\vartheta,\varphi\right)$
+in $\mathbb{R}^{3}$:
+\begin{align*}
+x & =r\cos\left(\vartheta\right)\\
+y & =r\sin\left(\vartheta\right)\cos\left(\varphi\right)\\
+z & =r\sin\left(\vartheta\right)\sin\left(\varphi\right)
+\end{align*}
+More general in $\mathbb{R}^{n}$ we choose $r=\norm x$ and $\omega\in S^{n-1}$.
+Regard $\mathbb{R}^{n}$ with the Euclidian metric as a Riemannian
+manifold $\left(M,g\right)$. Polar coordinates give a special chart
+on $\Omega\subseteq M$ with $0\not\in\Omega$. The we can calculate
+$\upDelta=\LBO$ as Laplace-Beltrami operator in polar coordinates.
+The metric is:
+\begin{align*}
+g & =\left(\begin{array}{cc}
+1 & 0\\
+0 & r^{2}g_{S^{n-1}}
+\end{array}\right) & g^{-1} & =\left(\begin{array}{cc}
+1 & 0\\
+0 & r^{-2}g_{S^{n-1}}^{-1}
+\end{array}\right)
+\end{align*}
+\begin{align*}
+\det\left(g\right) & =r^{2\left(n-1\right)}g_{S^{n-1}}\\
+\sqrt{\det\left(g\right)} & =r^{n-1}\sqrt{\det\left(g_{S^{n-1}}\right)}
+\end{align*}
+Now the Laplace-Beltrami operator can be calculated with the \emph{Koszul
+formula}:
+\begin{align}
+\LBO u & =\nabla_{j}\nabla^{j}u=\frac{1}{\sqrt{\det\left(g\right)}}\frac{\partial}{\partial x^{j}}\left(\sqrt{\det\left(g\right)}g^{jk}\frac{\partial}{\partial x^{k}}u\right)=\\
+ & =\frac{1}{r^{n-1}\sqrt{\det\left(g_{S^{n-1}}\right)}}\frac{\partial}{\partial x^{j}}\left(r^{n-1}\sqrt{\det\left(g_{S^{n-1}}\right)}g^{jk}\frac{\partial}{\partial x^{k}}u\right)=\nonumber \\
+ & =\frac{1}{r^{n-1}\sqrt{\det\left(g_{S^{n-1}}\right)}}\frac{\partial}{\partial r}\left(r^{n-1}\sqrt{\det\left(g_{S^{n-1}}\right)}\frac{\partial}{\partial r}u\right)+\nonumber \\
+ & \qquad+\sum_{j,k=2}^{n}\frac{1}{r^{n-1}\sqrt{\det\left(g_{S^{n-1}}\right)}}\frac{\partial}{\partial x^{j}}\left(r^{n-1}\sqrt{\det\left(g_{S^{n-1}}\right)}\frac{1}{r^{2}}\left(g_{S^{n-1}}\right)^{jk}\frac{\partial}{\partial x^{k}}u\right)=\nonumber \\
+ & =\frac{1}{r^{n-1}}\frac{\partial}{\partial r}\left(r^{n-1}\frac{\partial}{\partial r}u\right)+\frac{1}{r^{2}}\LBO_{S^{n-1}}u\nonumber 
+\end{align}
+The important formula is:
+\begin{align}
+\LBO & =\frac{1}{r^{n-1}}\frac{\partial}{\partial r}\left(r^{n-1}\frac{\partial}{\partial r}\,.\,\right)+\frac{1}{r^{2}}\LBO_{S^{n-1}}
+\end{align}
+For spherically symmetric Solutions, the Laplace equation reads:
+\begin{align*}
+\frac{1}{r^{n-1}}\frac{\partial}{\partial r}\left(r^{n-1}\frac{\partial}{\partial r}u\left(r\right)\right) & =0
+\end{align*}
+
+
 
 \part*{Appendix\thispagestyle{empty}}
 

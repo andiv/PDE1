@@ -3764,10 +3764,10 @@ alph*)
 
 Consider the following functional:
 \begin_inset Formula 
-\begin{align*}
+\begin{align}
 \delta:\mathcal{S}\left(\mathbb{R}\right) & \to\mathbb{R}\\
-f & \mapsto f\left(0\right)
-\end{align*}
+f & \mapsto f\left(0\right)\nonumber 
+\end{align}
 
 \end_inset
 
@@ -3868,12 +3868,12 @@ Dirac measure
 
  define:
 \begin_inset Formula 
-\begin{align*}
+\begin{align}
 \delta\left(x\right) & =\begin{cases}
 1 & \text{if }0\in A\\
 0 & \text{otherwise}
 \end{cases}
-\end{align*}
+\end{align}
 
 \end_inset
 
@@ -4368,9 +4368,9 @@ Multiplication of a distribution by a Schwartz function is defined for
 
  as:
 \begin_inset Formula 
-\begin{align*}
+\begin{align}
 \left(fT\right)\left(g\right) & :=T\left(f\cdot g\right)
-\end{align*}
+\end{align}
 
 \end_inset
 
@@ -4684,10 +4684,10 @@ define
 \emph default
 :
 \begin_inset Formula 
-\begin{align*}
+\begin{align}
 \delta':\mathcal{S}\left(\mathbb{R}\right) & \to\mathbb{R}\\
-f & \mapsto-f'\left(0\right)
-\end{align*}
+f & \mapsto-f'\left(0\right)\nonumber 
+\end{align}
 
 \end_inset
 
@@ -4715,14 +4715,15 @@ Remark
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\delta'$
-\end_inset
-
- cannot be introduced as a measure, in contrast to 
+In contrast to 
 \begin_inset Formula $\delta$
 \end_inset
 
-:
+, the distribution 
+\begin_inset Formula $\delta'$
+\end_inset
+
+ cannot be introduced as a measure:
 \begin_inset Formula 
 \begin{align*}
 \delta\left(\Omega\right) & =\begin{cases}
@@ -4758,9 +4759,9 @@ distributional derivative
 
  by:
 \begin_inset Formula 
-\begin{align*}
+\begin{align}
 \left(\DD^{\alpha}T\right)\left(f\right) & :=\left(-1\right)^{\abs{\alpha}}T\left(\DD^{\alpha}f\right)
-\end{align*}
+\end{align}
 
 \end_inset
 
@@ -4794,9 +4795,9 @@ Faltung
 
  is defined as:
 \begin_inset Formula 
-\begin{align*}
+\begin{align}
 \left(f*g\right)\left(x\right) & :=\int_{\mathbb{R}^{n}}f\left(x-y\right)g\left(y\right)\dd^{n}y
-\end{align*}
+\end{align}
 
 \end_inset
 
@@ -4817,9 +4818,9 @@ The convolution is commutative and associative, i.e.
 
  holds:
 \begin_inset Formula 
-\begin{align*}
+\begin{align}
 f*g & =g*f & f*\left(g*h\right) & =\left(f*g\right)*h
-\end{align*}
+\end{align}
 
 \end_inset
 
@@ -4986,6 +4987,12 @@ qqed
 
 \end_layout
 
+\begin_layout Subsection
+Definition 
+\series medium
+(Convolution with Distribution)
+\end_layout
+
 \begin_layout Standard
 How can we define the convolution of 
 \begin_inset Formula $T\in S^{*}\left(\mathbb{R}^{n}\right)$
@@ -5017,7 +5024,7 @@ T_{f*g}\left(h\right) & =\int_{\mathbb{R}^{n}}\left(f*g\right)\left(x\right)\cdo
 
 \end_inset
 
-By Fubini we may interchange the order of integration to get:
+By Fubini's theorem we may interchange the order of integration to get:
 \begin_inset Formula 
 \begin{align*}
 T_{f*g}\left(h\right) & =\int_{\mathbb{R}^{n}}g\left(y\right)\left(\int_{\mathbb{R}^{n}}f\left(x-y\right)\cdot h\left(x\right)\dd^{n}x\right)\dd^{n}y=\\
@@ -5037,10 +5044,10 @@ convolution
 \emph default
  as:
 \begin_inset Formula 
-\begin{align*}
+\begin{align}
 *:\mathcal{S}\left(\mathbb{R}^{n}\right)\times\mathcal{S}^{*}\left(\mathbb{R}^{n}\right) & \to\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)\\
-\left(f*T\right)\left(h\right) & :=T\left(\tilde{f}*h\right)
-\end{align*}
+\left(f*T\right)\left(h\right) & :=T\left(\tilde{f}*h\right)\nonumber 
+\end{align}
 
 \end_inset
 
@@ -5113,10 +5120,10 @@ Define linear functionals
 
 :
 \begin_inset Formula 
-\begin{align*}
+\begin{align}
 \left(\mathcal{F}f\right)\left(p\right) & :=\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}e^{-\ii px}f\left(x\right)\dd^{n}x\\
 \left(\overline{\mathcal{F}}f\right)\left(x\right) & :=\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}e^{\ii px}f\left(p\right)\dd^{n}p
-\end{align*}
+\end{align}
 
 \end_inset
 
@@ -5292,10 +5299,10 @@ qqed
 \begin_layout Standard
 So we have the following correspondence:
 \begin_inset Formula 
-\begin{align*}
+\begin{align}
 -\ii x^{j} & \leftrightarrow\frac{\partial}{\partial p^{j}}\\
 -\ii\frac{\partial}{\partial x^{j}} & \leftrightarrow p^{j}
-\end{align*}
+\end{align}
 
 \end_inset
 
@@ -5331,7 +5338,7 @@ Suppose we had worked with
 \begin_layout Subsection
 Theorem 
 \series medium
-(Plancherel, convergence generating factor)
+(Plancherel, Convergence Generating Factor)
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:Thm-Plancherel"
@@ -5351,9 +5358,9 @@ name "sub:Thm-Plancherel"
 
  are inverse to each other:
 \begin_inset Formula 
-\begin{align*}
+\begin{align}
 \overline{\mathcal{F}}\mathcal{F} & =\mathcal{F}\overline{\mathcal{F}}=\mathbbm{1}:\mathcal{S}\left(\mathbb{R}^{n}\right)\to\mathcal{S}\left(\mathbb{R}^{n}\right)
-\end{align*}
+\end{align}
 
 \end_inset
 
@@ -5736,7 +5743,7 @@ Since we want
 \begin_layout Subsection
 Definition 
 \series medium
-(Fourier transform of distributions)
+(Fourier Transform of Distributions)
 \begin_inset CommandInset label
 LatexCommand label
 name "sub:Def-Fourier_distribution"
@@ -5756,10 +5763,10 @@ name "sub:Def-Fourier_distribution"
 
 :
 \begin_inset Formula 
-\begin{align*}
+\begin{align}
 \left(\mathcal{F}T\right)\left(f\right) & :=T\left(\mathcal{F}f\right)\\
 \left(\overline{\mathcal{F}}T\right)\left(f\right) & :=T\left(\overline{\mathcal{F}}f\right)
-\end{align*}
+\end{align}
 
 \end_inset
 
@@ -5781,7 +5788,7 @@ Thus
 \begin_layout Subsection
 Theorem 
 \series medium
-(Plancherel for distributions)
+(Plancherel for Distributions)
 \end_layout
 
 \begin_layout Standard
@@ -5791,9 +5798,9 @@ Plancherel's theorem holds on
 
  as well:
 \begin_inset Formula 
-\begin{align*}
+\begin{align}
 \mathcal{F}\overline{\mathcal{F}} & =\overline{\mathcal{F}}\mathcal{F}=\mathbbm{1}_{\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)}
-\end{align*}
+\end{align}
 
 \end_inset
 
@@ -5849,15 +5856,15 @@ qqed
 \end_layout
 
 \begin_layout Subsection
-Example
+Examples
 \end_layout
 
 \begin_layout Enumerate
-Fourier transform of 
+The Fourier transform of the 
 \begin_inset Formula $\delta$
 \end_inset
 
--Distribution:
+-Distribution can be calculated as follows:
 \begin_inset Formula 
 \begin{align*}
 \left(\mathcal{F}\delta\right)\left(f\right) & =\delta\left(\mathcal{F}f\right)=\left(\mathcal{F}f\right)\left(0\right)=\\
@@ -5889,7 +5896,7 @@ This is not satisfying from a mathematical point of view, because one does
 
 \begin_layout Enumerate
 Consider 
-\begin_inset Formula $T_{g}$
+\begin_inset Formula $T_{f}$
 \end_inset
 
  with 
@@ -5903,9 +5910,9 @@ Consider
 .
 \begin_inset Formula 
 \begin{align*}
-\left(\mathcal{F}T_{g}\right)\left(f\right) & =T_{g}\left(\mathcal{F}f\right)=T_{g}\left(\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int e^{-\ii px}f\left(x\right)\dd^{n}x\right)=\\
- & =\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int e^{\ii py}\left(\int e^{-\ii px}f\left(x\right)\dd^{n}x\right)\dd^{n}p=\\
- & =\left(2\pi\right)^{\frac{n}{2}}\left(\overline{\mathcal{F}}\mathcal{F}\right)f\left(y\right)=\left(2\pi\right)^{\frac{n}{2}}f\left(y\right)
+\left(\mathcal{F}T_{f}\right)\left(h\right) & =T_{f}\left(\mathcal{F}h\right)=T_{f}\left(\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int e^{-\ii px}h\left(x\right)\dd^{n}x\right)=\\
+ & =\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int e^{\ii py}\left(\int e^{-\ii px}h\left(x\right)\dd^{n}x\right)\dd^{n}p=\\
+ & =\left(2\pi\right)^{\frac{n}{2}}\left(\overline{\mathcal{F}}\mathcal{F}\right)h\left(y\right)=\left(2\pi\right)^{\frac{n}{2}}h\left(y\right)
 \end{align*}
 
 \end_inset
@@ -5913,8 +5920,8 @@ Consider
 So we get:
 \begin_inset Formula 
 \begin{align*}
-\mathcal{F}T_{g}f & =\left(2\pi\right)^{\frac{n}{2}}f\left(y\right)\\
-\left(\mathcal{F}T_{g}\right)\left(x\right) & =\left(2\pi\right)^{\frac{n}{2}}\delta^{\left(n\right)}\left(x-y\right)
+\mathcal{F}T_{f}h & =\left(2\pi\right)^{\frac{n}{2}}h\left(y\right)\\
+\left(\mathcal{F}T_{f}\right)\left(x\right) & =\left(2\pi\right)^{\frac{n}{2}}\delta^{\left(n\right)}\left(x-y\right)
 \end{align*}
 
 \end_inset
@@ -5922,7 +5929,7 @@ So we get:
 Formally one can write:
 \begin_inset Formula 
 \begin{align*}
-\left(\mathcal{F}g\right)\left(x\right) & =\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}e^{-\ii px}e^{\ii py}\dd^{n}p=\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}e^{-\ii p\left(x-y\right)}\dd^{n}p
+\left(\mathcal{F}f\right)\left(x\right) & =\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}e^{-\ii px}e^{\ii py}\dd^{n}p=\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}e^{-\ii p\left(x-y\right)}\dd^{n}p
 \end{align*}
 
 \end_inset
@@ -5931,6 +5938,776 @@ This is ill-defined, but physicists use the formal relation:
 \begin_inset Formula 
 \begin{align*}
 \int_{\mathbb{R}^{n}}e^{-\ii p\left(x-y\right)}\dd^{n}p & =\left(2\pi\right)^{n}\delta^{\left(n\right)}\left(x-y\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%DATE: Fr 3.5.13
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Consider 
+\begin_inset Formula $T=T_{g}$
+\end_inset
+
+ with 
+\begin_inset Formula $g\left(p\right)=p^{2}e^{\ii py}$
+\end_inset
+
+ for a given 
+\begin_inset Formula $y\in\mathbb{R}$
+\end_inset
+
+.
+ 
+\begin_inset Formula 
+\begin{align*}
+\left(\mathcal{F}T_{g}\right)\left(f\right) & =T_{g}\left(\mathcal{F}f\right)=\int_{-\infty}^{\infty}g\left(p\right)\left(\mathcal{F}f\right)\left(p\right)\dd p=\\
+ & =\int g\left(p\right)\left(\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}f\left(x\right)e^{-\ii px}\dd x\right)\dd p
+\end{align*}
+
+\end_inset
+
+One cannot interchange the integrals, because the integral
+\begin_inset Formula 
+\begin{align*}
+\int_{-\infty}^{\infty}\underbrace{g\left(p\right)e^{-\ii p\alpha}}_{\not\in L^{1}}\dd p
+\end{align*}
+
+\end_inset
+
+does not exist.
+ Therefore we work again with a convergence generating factor, which we
+ can due to the dominated convergence theorem:
+\begin_inset Formula 
+\begin{align*}
+\left(\mathcal{F}T_{g}\right)\left(f\right) & =\lim_{\varepsilon\searrow0}\int_{-\infty}^{\infty}g\left(p\right)e^{-\varepsilon\abs p}\left(\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}f\left(x\right)e^{-\ii px}\dd x\right)\dd p=\\
+ & =\frac{1}{\sqrt{2\pi}}\lim_{\varepsilon\searrow0}\int_{-\infty}^{\infty}f\left(x\right)\left(\int_{-\infty}^{\infty}g\left(p\right)e^{-\varepsilon\abs p}e^{-\ii px}\dd p\right)\dd x=\\
+ & =\frac{1}{\sqrt{2\pi}}\lim_{\varepsilon\searrow0}\int_{-\infty}^{\infty}f\left(x\right)\left(\int_{-\infty}^{\infty}p^{2}e^{\ii py}e^{-\varepsilon\abs p}e^{-\ii px}\dd p\right)\dd x=\\
+ & =\frac{1}{\sqrt{2\pi}}\lim_{\varepsilon\searrow0}\int_{-\infty}^{\infty}f\left(x\right)\left(\int_{-\infty}^{\infty}\left(\ii\partial_{x}\right)^{2}e^{-\ii p\left(x-y\right)-\varepsilon\abs p}\dd p\right)\dd x=\\
+ & \stackrel{\text{Lebesgue theorem}}{=}\frac{1}{\sqrt{2\pi}}\lim_{\varepsilon\searrow0}\int_{-\infty}^{\infty}f\left(x\right)\left(\ii\partial_{x}\right)^{2}\left(\int_{-\infty}^{\infty}e^{-\ii p\left(x-y\right)-\varepsilon\abs p}\dd p\right)\dd x
+\end{align*}
+
+\end_inset
+
+Now one can decompose the integral into integrals from 
+\begin_inset Formula $-\infty$
+\end_inset
+
+ to 0 and from 
+\begin_inset Formula $0$
+\end_inset
+
+ to 
+\begin_inset Formula $\infty$
+\end_inset
+
+ and calculate the result.
+\begin_inset Formula 
+\begin{align*}
+\left(\mathcal{F}T_{g}\right)\left(f\right) & =\frac{1}{\sqrt{2\pi}}\lim_{\varepsilon\searrow0}\int_{-\infty}^{\infty}f\left(x\right)\left(\ii\partial_{x}\right)^{2}\left(\int_{-\infty}^{0}e^{-\ii p\left(x-y\right)+\varepsilon p}\dd p+\int_{0}^{\infty}e^{-\ii p\left(x-y\right)-\varepsilon p}\dd p\right)\dd x=\\
+ & =\frac{-1}{\sqrt{2\pi}}\lim_{\varepsilon\searrow0}\int_{-\infty}^{\infty}f\left(x\right)\partial_{x}^{2}\left(\frac{1}{-\ii\left(x-y\right)+\varepsilon}-\frac{1}{-\ii\left(x-y\right)-\varepsilon}\right)\dd x=\\
+ & =\frac{-1}{\sqrt{2\pi}}\lim_{\varepsilon\searrow0}\int_{-\infty}^{\infty}f\left(x\right)\partial_{x}^{2}\left(\frac{-\ii\left(x-y\right)-\varepsilon-\left(-\ii\left(x-y\right)+\varepsilon\right)}{-\left(x-y\right)^{2}-\varepsilon^{2}}\right)\dd x=\\
+ & =\frac{1}{\sqrt{2\pi}}\lim_{\varepsilon\searrow0}\int_{-\infty}^{\infty}f\left(x\right)\partial_{x}^{2}\left(\frac{2\varepsilon}{\left(x-y\right)^{2}+\varepsilon^{2}}\right)\dd x=\\
+ & \sr ={\text{integration}}{\text{by parts}}\sqrt{\frac{2}{\pi}}\lim_{\varepsilon\searrow0}\int_{-\infty}^{\infty}f''\left(x\right)\cdot\frac{\varepsilon}{\left(x-y\right)^{2}+\varepsilon^{2}}\dd x=\\
+ & \sr ={z:=\frac{x-y}{\varepsilon}}{\dd z=\frac{\dd x}{\varepsilon}}\sqrt{\frac{2}{\pi}}\lim_{\varepsilon\searrow0}\int_{-\infty}^{\infty}f''\left(\varepsilon z+y\right)\cdot\frac{\varepsilon}{\varepsilon^{2}z^{2}+\varepsilon^{2}}\varepsilon\dd z=\\
+ & =\sqrt{\frac{2}{\pi}}\lim_{\varepsilon\searrow0}\int_{-\infty}^{\infty}f''\left(\varepsilon z+y\right)\cdot\frac{1}{z^{2}+1}\dd z=\\
+ & =\sqrt{\frac{2}{\pi}}f''\left(y\right)\underbrace{\int_{-\infty}^{\infty}\frac{1}{z^{2}+1}\dd z}_{=\pi}=\sqrt{2\pi}f''\left(y\right)
+\end{align*}
+
+\end_inset
+
+So we get:
+\begin_inset Formula 
+\begin{align*}
+\left(\mathcal{F}T_{g}\right)\left(x\right) & =\sqrt{2\pi}\delta''\left(x-y\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Consider the following Hilbert space:
+\begin_inset Formula 
+\begin{align*}
+L^{2}\left(\mathbb{R}^{n}\right) & =\left\{ f:\mathbb{R}^{n}\to\mathbb{R}\bigg|f\text{ measurable with }\int\abs f^{2}\dd^{n}x<\infty\right\} 
+\end{align*}
+
+\end_inset
+
+For 
+\begin_inset Formula $f\in L^{2}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ define:
+\begin_inset Formula 
+\begin{align*}
+T_{f}\left(g\right) & :=\int_{\mathbb{R}^{n}}f\left(x\right)g\left(x\right)\dd^{n}x\\
+\abs{T_{f}\left(g\right)} & \stackrel{\text{Schwarz}}{\le}\norm f_{L^{2}\left(\mathbb{R}^{n}\right)}\norm g_{L^{2}\left(\mathbb{R}^{n}\right)}\le\norm f_{L^{2}\left(\mathbb{R}^{n}\right)}\cdot c\left(n\right)\norm g_{n+1,0}
+\end{align*}
+
+\end_inset
+
+Here we used:
+\begin_inset Formula 
+\begin{align*}
+\abs{g\left(x\right)} & \le\tilde{c}\left(n\right)\frac{\norm g_{n+1,0}}{\left(1+\abs x\right)^{n+1}}
+\end{align*}
+
+\end_inset
+
+So we have 
+\begin_inset Formula $T_{f}\in\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+L^{2}\left(\mathbb{R}^{n}\right) & \hookrightarrow\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)\xrightarrow{\mathcal{F}}\mathcal{S}^{*}\left(\mathbb{R}^{n}\right)\\
+f & \mapsto\ \ \ T_{f}\quad\mapsto\mathcal{F}T_{f}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Theorem
+\end_layout
+
+\begin_layout Standard
+The mappings 
+\begin_inset Formula $\mathcal{F},\overline{\mathcal{F}}:L^{2}\left(\mathbb{R}^{n}\right)\to L^{2}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ are isometries, i.e.:
+\begin_inset Formula 
+\begin{align}
+\norm f_{L^{2}\left(\mathbb{R}^{n}\right)} & =\norm{\mathcal{F}f}_{L^{2}\left(\mathbb{R}^{n}\right)}
+\end{align}
+
+\end_inset
+
+Due to 
+\begin_inset Formula $\mathcal{F}\overline{\mathcal{F}}=1$
+\end_inset
+
+ they are even unitary transformations.
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+Consider first 
+\begin_inset Formula $f,g\in\mathcal{S}\left(\mathbb{R}^{n}\right)\subseteq L^{2}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+\left\langle \mathcal{F}f,\mathcal{F}g\right\rangle _{L^{2}\left(\mathbb{R}^{n}\right)} & =\int_{\mathbb{R}^{n}}\overline{\left(\mathcal{F}f\right)\left(x\right)}\left(\mathcal{F}g\right)\left(x\right)\dd^{n}x\stackrel{?}{=}\int\overline{f}\left(x\right)g\left(x\right)\dd^{n}x\\
+ & =T_{\overline{\mathcal{F}}\,\overline{f}}\left(\mathcal{F}g\right)=\left(\overline{\mathcal{F}}T_{\overline{f}}\right)\left(\mathcal{F}g\right)=T_{\overline{f}}\left(\overline{\mathcal{F}}\mathcal{F}g\right)=\\
+ & \stackrel{\overline{\mathcal{F}}\mathcal{F}=1}{=}T_{\overline{f}}\left(g\right)=\int\overline{f}\left(x\right)g\left(x\right)\dd^{n}x
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $\mathcal{S}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ is dense in 
+\begin_inset Formula $L^{2}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+.
+ Because 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ is continuous, 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ is also isometric on 
+\begin_inset Formula $L^{2}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+For 
+\begin_inset Formula $f\in L^{2}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ choose 
+\begin_inset Formula $f_{n}\in\mathcal{S}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ with 
+\begin_inset Formula $f_{n}\to f$
+\end_inset
+
+ converging in 
+\begin_inset Formula $L^{2}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+.
+ Then holds for all 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\norm{f_{n}}_{L^{2}} & =\norm{\mathcal{F}f_{n}}
+\end{align*}
+
+\end_inset
+
+In the limes 
+\begin_inset Formula $n\to\infty$
+\end_inset
+
+ we get, since 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ is continuous:
+\begin_inset Formula 
+\begin{align*}
+\norm f & =\norm{\mathcal{F}f}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Applications to Partial Differential Equations with Constant Coefficients
+\end_layout
+
+\begin_layout Standard
+Consider as example the Poisson equation
+\begin_inset Formula 
+\begin{align*}
+\upDelta u & =f
+\end{align*}
+
+\end_inset
+
+ in 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+ with a given 
+\begin_inset Formula $f$
+\end_inset
+
+ and assume for simplicity 
+\begin_inset Formula $f\in\mathcal{S}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+.
+ After a Fourier transform and defining 
+\begin_inset Formula $\hat{u}:=\mathcal{F}u$
+\end_inset
+
+ and 
+\begin_inset Formula $\hat{f}=\mathcal{F}f$
+\end_inset
+
+ we get:
+\begin_inset Formula 
+\begin{align*}
+\left(-\norm p^{2}\right)\hat{u}\left(p\right) & =\hat{f}\left(p\right)\\
+\Rightarrow\qquad\hat{u}\left(p\right) & =-\frac{\hat{f}\left(p\right)}{\norm p^{2}}
+\end{align*}
+
+\end_inset
+
+Then 
+\begin_inset Formula $\overline{\mathcal{F}}\hat{u}$
+\end_inset
+
+ is a solution of the Poisson equation.
+\end_layout
+
+\begin_layout Itemize
+For 
+\begin_inset Formula $\norm p^{-2}\hat{f}\left(p\right)\in\mathcal{S}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ the method works directly and one gets a 
+\begin_inset Formula $u\in\mathcal{S}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+In the case of 
+\begin_inset Formula $n\ge3$
+\end_inset
+
+, 
+\begin_inset Formula $\hat{u}=-\norm p^{-2}\hat{f}\left(p\right)$
+\end_inset
+
+ is a regular distribution.
+ (If 
+\begin_inset Formula $n<3$
+\end_inset
+
+ the integral does not necessarily converge.)
+\begin_inset Formula 
+\begin{align*}
+\left(T_{\hat{u}}\right)\left(g\right) & :=\int\left(-\frac{\hat{f}\left(p\right)}{\norm p^{2}}\right)g\left(p\right)\dd^{n}p
+\end{align*}
+
+\end_inset
+
+Therefore 
+\begin_inset Formula $u:=\overline{\mathcal{F}}T_{\hat{u}}$
+\end_inset
+
+ is a distributional solution of the Poisson equation, so we get 
+\begin_inset Formula $\upDelta u=T_{f}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+Problem: The distributional solution is not unique, because e.g.
+\begin_inset Formula 
+\begin{align*}
+\hat{u}\left(p\right) & =-\frac{\hat{f}\left(p\right)}{\norm p^{2}}+c\delta\left(p\right)
+\end{align*}
+
+\end_inset
+
+is also a solution.
+ Therefore we have to specify the behavior of 
+\begin_inset Formula $u\left(x\right)$
+\end_inset
+
+ in the limit 
+\begin_inset Formula $\norm x\to\infty$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Chapter
+The Laplace equation
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texorpdfstring{
+\end_layout
+
+\end_inset
+
+
+ in 
+\begin_inset Formula $\Omega\subseteq\mathbb{R}^{n}$
+\end_inset
+
+
+\lang english
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}{}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In this chapter we always consider an open subset 
+\begin_inset Formula $\Omega\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ with boundary 
+\begin_inset Formula $\partial\Omega$
+\end_inset
+
+.
+ With the Laplacian
+\begin_inset Formula 
+\begin{align}
+\upDelta & =\frac{\partial^{2}}{\partial x_{1}^{2}}+\ldots+\frac{\partial^{2}}{\partial x_{n}^{2}}
+\end{align}
+
+\end_inset
+
+the Laplace equation can be written as:
+\begin_inset Formula 
+\begin{align*}
+\upDelta u & =0
+\end{align*}
+
+\end_inset
+
+The inhomogeneous Laplace equation is called Poisson equation:
+\begin_inset Formula 
+\begin{align*}
+\upDelta u & =f
+\end{align*}
+
+\end_inset
+
+For both one needs to specify boundary conditions on 
+\begin_inset Formula $\partial\Omega$
+\end_inset
+
+ to get a unique solution.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{section}{-1}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Reminder
+\end_layout
+
+\begin_layout Subsection
+Theorem 
+\series medium
+(Gauss's Theorem)
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $Y$
+\end_inset
+
+ is a smooth vector field on the closure 
+\begin_inset Formula $\overline{\Omega}$
+\end_inset
+
+ and 
+\begin_inset Formula $\partial\Omega$
+\end_inset
+
+ is smooth with inner normal 
+\begin_inset Formula $\nu$
+\end_inset
+
+, then holds:
+\begin_inset Formula 
+\begin{align}
+\int_{\Omega}\text{div}\left(Y\right)\underbrace{\dd^{n}x}_{=\dd\mu} & =\int_{\partial\Omega}\left\langle Y,\nu\right\rangle \dd\mu_{\partial\Omega}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+(Proof omitted)
+\end_layout
+
+\begin_layout Subsection
+Theorem 
+\series medium
+(Green's Identities)
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $u,w\in C^{\infty}\left(\overline{\Omega}\right)$
+\end_inset
+
+ holds:
+\begin_inset Formula 
+\begin{align}
+\int_{\Omega}w\upDelta u\dd\mu_{\Omega} & =\int_{\partial\Omega}w\left(\nabla_{\nu}u\right)\dd\mu_{\partial\Omega}-\int_{\Omega}\left\langle \nabla w,\nabla u\right\rangle \dd\mu_{\Omega}\\
+\int_{\Omega}\left(w\left(\upDelta u\right)-\left(\upDelta w\right)u\right)\dd\mu_{\Omega} & =\int_{\partial\Omega}\left(w\left(\nabla_{\nu}u\right)-\left(\nabla_{\nu}w\right)u\right)\dd\mu_{\partial\Omega}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+We use 
+\begin_inset Formula $\upDelta=\text{div}\,\text{grad}$
+\end_inset
+
+ and integrate by parts:
+\begin_inset Formula 
+\begin{align*}
+\int_{\Omega}w\upDelta u\dd\mu_{\Omega} & =\int_{\Omega}w\cdot\text{div}\left(\nabla u\right)\dd\mu_{\Omega}=\int_{\Omega}\text{div}\left(w\nabla u\right)-\left\langle \nabla w,\nabla u\right\rangle \dd\mu_{\Omega}
+\end{align*}
+
+\end_inset
+
+Then one can use Gauss's theorem to get the first identity.
+ Now one subtracts the identity with 
+\begin_inset Formula $w$
+\end_inset
+
+ and 
+\begin_inset Formula $u$
+\end_inset
+
+ commuted:
+\begin_inset Formula 
+\begin{align*}
+w\upDelta u-u\upDelta w & =\text{div}\left(w\nabla u\right)-\left\langle \nabla w,\nabla u\right\rangle -\left(\text{div}\left(u\nabla w\right)-\left\langle \nabla u,\nabla w\right\rangle \right)=\\
+ & \stackrel{\left\langle .,.\right\rangle \text{ symmetric}}{=}\text{div}\left(w\nabla u\right)-\text{div}\left(u\nabla w\right)
+\end{align*}
+
+\end_inset
+
+Using Gauss's theorem the second identity follows.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Representation Formulas for Harmonic Functions
+\end_layout
+
+\begin_layout Subsection
+Definition 
+\series medium
+(Harmonic Functions)
+\end_layout
+
+\begin_layout Standard
+A function 
+\begin_inset Formula $u\in C^{2}\left(\overline{\Omega}\right)$
+\end_inset
+
+ is called 
+\emph on
+harmonic
+\emph default
+, if the Laplacian vanishes:
+\begin_inset Formula 
+\begin{align*}
+\upDelta u & =0
+\end{align*}
+
+\end_inset
+
+The harmonic functions form a vector space.
+\end_layout
+
+\begin_layout Subsubsection*
+Examples
+\end_layout
+
+\begin_layout Itemize
+Constant or linear functions
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $u\left(x_{1},x_{2}\right)=x_{1}^{2}-x_{2}^{2}$
+\end_inset
+
+ is harmonic on 
+\begin_inset Formula $\mathbb{R}^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Holomorphic functions on 
+\begin_inset Formula $\Omega\subseteq\mathbb{C}\stackrel{\sim}{=}\mathbb{R}^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Consider now 
+\emph on
+spherically symmetric harmonic functions
+\emph default
+.
+ For this we choose polar coordinates 
+\begin_inset Formula $\left(r,\vartheta,\varphi\right)$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathbb{R}^{3}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+x & =r\cos\left(\vartheta\right)\\
+y & =r\sin\left(\vartheta\right)\cos\left(\varphi\right)\\
+z & =r\sin\left(\vartheta\right)\sin\left(\varphi\right)
+\end{align*}
+
+\end_inset
+
+More general in 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+ we choose 
+\begin_inset Formula $r=\norm x$
+\end_inset
+
+ and 
+\begin_inset Formula $\omega\in S^{n-1}$
+\end_inset
+
+.
+ Regard 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+ with the Euclidian metric as a Riemannian manifold 
+\begin_inset Formula $\left(M,g\right)$
+\end_inset
+
+.
+ Polar coordinates give a special chart on 
+\begin_inset Formula $\Omega\subseteq M$
+\end_inset
+
+ with 
+\begin_inset Formula $0\not\in\Omega$
+\end_inset
+
+.
+ The we can calculate 
+\begin_inset Formula $\upDelta=\LBO$
+\end_inset
+
+ as Laplace-Beltrami operator in polar coordinates.
+ The metric is:
+\begin_inset Formula 
+\begin{align*}
+g & =\left(\begin{array}{cc}
+1 & 0\\
+0 & r^{2}g_{S^{n-1}}
+\end{array}\right) & g^{-1} & =\left(\begin{array}{cc}
+1 & 0\\
+0 & r^{-2}g_{S^{n-1}}^{-1}
+\end{array}\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\det\left(g\right) & =r^{2\left(n-1\right)}g_{S^{n-1}}\\
+\sqrt{\det\left(g\right)} & =r^{n-1}\sqrt{\det\left(g_{S^{n-1}}\right)}
+\end{align*}
+
+\end_inset
+
+Now the Laplace-Beltrami operator can be calculated with the 
+\emph on
+Koszul formula
+\emph default
+:
+\begin_inset Formula 
+\begin{align}
+\LBO u & =\nabla_{j}\nabla^{j}u=\frac{1}{\sqrt{\det\left(g\right)}}\frac{\partial}{\partial x^{j}}\left(\sqrt{\det\left(g\right)}g^{jk}\frac{\partial}{\partial x^{k}}u\right)=\\
+ & =\frac{1}{r^{n-1}\sqrt{\det\left(g_{S^{n-1}}\right)}}\frac{\partial}{\partial x^{j}}\left(r^{n-1}\sqrt{\det\left(g_{S^{n-1}}\right)}g^{jk}\frac{\partial}{\partial x^{k}}u\right)=\nonumber \\
+ & =\frac{1}{r^{n-1}\sqrt{\det\left(g_{S^{n-1}}\right)}}\frac{\partial}{\partial r}\left(r^{n-1}\sqrt{\det\left(g_{S^{n-1}}\right)}\frac{\partial}{\partial r}u\right)+\nonumber \\
+ & \qquad+\sum_{j,k=2}^{n}\frac{1}{r^{n-1}\sqrt{\det\left(g_{S^{n-1}}\right)}}\frac{\partial}{\partial x^{j}}\left(r^{n-1}\sqrt{\det\left(g_{S^{n-1}}\right)}\frac{1}{r^{2}}\left(g_{S^{n-1}}\right)^{jk}\frac{\partial}{\partial x^{k}}u\right)=\nonumber \\
+ & =\frac{1}{r^{n-1}}\frac{\partial}{\partial r}\left(r^{n-1}\frac{\partial}{\partial r}u\right)+\frac{1}{r^{2}}\LBO_{S^{n-1}}u\nonumber 
+\end{align}
+
+\end_inset
+
+The important formula is:
+\begin_inset Formula 
+\begin{align}
+\LBO & =\frac{1}{r^{n-1}}\frac{\partial}{\partial r}\left(r^{n-1}\frac{\partial}{\partial r}\,.\,\right)+\frac{1}{r^{2}}\LBO_{S^{n-1}}
+\end{align}
+
+\end_inset
+
+For spherically symmetric Solutions, the Laplace equation reads:
+\begin_inset Formula 
+\begin{align*}
+\frac{1}{r^{n-1}}\frac{\partial}{\partial r}\left(r^{n-1}\frac{\partial}{\partial r}u\left(r\right)\right) & =0
 \end{align*}
 
 \end_inset
