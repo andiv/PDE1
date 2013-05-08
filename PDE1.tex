@@ -1215,7 +1215,9 @@ f*g & =g*f & f*\left(g*h\right) & =\left(f*g\right)*h
 \begin{align*}
 \left(f*g\right)\left(x\right) & =\int_{\mathbb{R}^{n}}f\left(x-y\right)g\left(y\right)\dd^{n}y\sr ={z:=x-y}{\dd^{n}z=\dd^{n}y}\int_{\mathbb{R}^{n}}f\left(z\right)g\left(x-z\right)\dd^{n}z=\left(g*f\right)\left(x\right)
 \end{align*}
-Associativity follows analogously using Fubini's theorem:
+Associativity follows analogously using Fubini's theorem, which can
+be applied, since the function $\left(y,z\right)\mapsto f\left(x-y\right)g\left(y-z\right)h\left(z\right)$
+is an element of $\mathcal{S}\left(\mathbb{R}^{2n}\right)\subseteq L^{1}\left(\mathbb{R}^{2n}\right)$:
 \begin{align*}
 f*\left(g*h\right)\left(x\right) & =\int_{\mathbb{R}^{n}}f\left(x-y\right)\left(g*h\right)\left(y\right)\dd^{n}y=\\
  & =\int_{\mathbb{R}^{n}}f\left(x-y\right)\left(\int_{\mathbb{R}^{n}}g\left(y-z\right)h\left(z\right)\dd^{n}z\right)\dd^{n}y=\\
@@ -1499,7 +1501,7 @@ We want:
 \begin{align*}
 T_{\mathcal{F}g}\left(f\right) & =\int_{\mathbb{R}^{n}}\left(\mathcal{F}g\right)\left(p\right)f\left(p\right)\dd^{n}p=\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}\left(\int_{\mathbb{R}^{n}}e^{-\ii px}g\left(x\right)\dd^{n}x\right)f\left(p\right)\dd^{n}p
 \end{align*}
-Fubini's theorem allows us to interchange the orders of integration:
+Fubini's theorem allows us to interchange the order of integration:
 \begin{align*}
 T_{\mathcal{F}g}\left(f\right) & =\frac{1}{\left(2\pi\right)^{\frac{n}{2}}}\int_{\mathbb{R}^{n}}g\left(x\right)\underbrace{\left(\int_{\mathbb{R}^{n}}e^{-\ii px}f\left(p\right)\dd^{n}p\right)}_{=\mathcal{F}f\left(x\right)}\dd^{n}x=\int_{\mathbb{R}^{n}}g\left(x\right)\left(\mathcal{F}f\right)\left(x\right)\dd^{n}x=\TT_{g}\left(\mathcal{F}f\right)
 \end{align*}
@@ -1714,7 +1716,7 @@ in the limit $\norm x\to\infty$.
 \end{description}
 \end{itemize}
 
-\chapter{The Laplace equation\texorpdfstring{{ in $\Omega\subseteq\mathbb{R}^{n}$}}{}}
+\chapter{The Laplace equation\texorpdfstring{ in $\Omega\subseteq\mathbb{R}^{n}$}{}}
 
 In this chapter we always consider an open subset $\Omega\subseteq\mathbb{R}^{n}$
 with boundary $\partial\Omega$. With the Laplacian
@@ -1741,7 +1743,7 @@ to get a unique solution.
 \subsection{Theorem \textmd{(Gauss's Theorem)}}
 
 If $Y$ is a smooth vector field on the closure $\overline{\Omega}$
-and $\partial\Omega$ is smooth with inner normal $\nu$, then holds:
+and $\partial\Omega$ is smooth with outer normal $\nu$, then holds:
 \begin{align}
 \int_{\Omega}\text{div}\left(Y\right)\underbrace{\dd^{n}x}_{=\dd\mu} & =\int_{\partial\Omega}\left\langle Y,\nu\right\rangle \dd\mu_{\partial\Omega}
 \end{align}
@@ -1803,12 +1805,12 @@ x & =r\cos\left(\vartheta\right)\\
 y & =r\sin\left(\vartheta\right)\cos\left(\varphi\right)\\
 z & =r\sin\left(\vartheta\right)\sin\left(\varphi\right)
 \end{align*}
-More general in $\mathbb{R}^{n}$ we choose $r=\norm x$ and $\omega\in S^{n-1}$.
-Regard $\mathbb{R}^{n}$ with the Euclidian metric as a Riemannian
-manifold $\left(M,g\right)$. Polar coordinates give a special chart
-on $\Omega\subseteq M$ with $0\not\in\Omega$. The we can calculate
-$\upDelta=\LBO$ as Laplace-Beltrami operator in polar coordinates.
-The metric is:
+More general in $\mathbb{R}^{n}$ with $n\in\mathbb{N}_{\ge2}$ we
+choose $r=\norm x$ and $\omega\in S^{n-1}$. Regard $\mathbb{R}^{n}$
+with the Euclidian metric as a Riemannian manifold $\left(M,g\right)$.
+Polar coordinates give a special chart on $\Omega\subseteq M$ with
+$0\not\in\Omega$. The we can calculate $\upDelta=\LBO$ as Laplace-Beltrami
+operator in polar coordinates. The metric is:
 \begin{align*}
 g & =\left(\begin{array}{cc}
 1 & 0\\
@@ -1835,11 +1837,334 @@ The important formula is:
 \begin{align}
 \LBO & =\frac{1}{r^{n-1}}\frac{\partial}{\partial r}\left(r^{n-1}\frac{\partial}{\partial r}\,.\,\right)+\frac{1}{r^{2}}\LBO_{S^{n-1}}
 \end{align}
-For spherically symmetric Solutions, the Laplace equation reads:
+For spherically symmetric solutions $\Gamma\in C^{\infty}\left(\mathbb{R}^{n}\setminus\left\{ 0\right\} \right)$,
+the Laplace equation reads:
 \begin{align*}
-\frac{1}{r^{n-1}}\frac{\partial}{\partial r}\left(r^{n-1}\frac{\partial}{\partial r}u\left(r\right)\right) & =0
+\LB\Gamma=\frac{1}{r^{n-1}}\frac{\partial}{\partial r}\left(r^{n-1}\frac{\partial}{\partial r}\Gamma\left(r\right)\right) & =0
 \end{align*}
 
+
+%DATE: Mi 8.5.13
+
+This gives:
+\begin{align*}
+r^{n-1}\frac{\partial}{\partial r}\Gamma\left(r\right) & =c\\
+\frac{\partial}{\partial r}\Gamma\left(r\right) & =cr^{1-n}
+\end{align*}
+\begin{align*}
+\Gamma\left(r\right) & =a+C\int^{r}\tau^{1-n}\dd\tau=\begin{cases}
+a+\tilde{c}\ln\left(r\right) & \text{if }n=2\\
+a+\frac{c}{r^{n+2}} & \text{if }n>2
+\end{cases}
+\end{align*}
+Now we choose specific values for $a$ and $c$ or $\tilde{c}$.
+
+
+\subsection{Definition \textmd{(Fundamental Solution of Laplace Equation)}}
+
+The \emph{fundamental solution} $\Gamma$ of the Laplace equation
+in $\mathbb{R}^{n}$ is defined by:
+\begin{align}
+\Gamma\left(x,y\right) & =\Gamma\left(\norm{x-y}\right):=\begin{cases}
+\frac{1}{2\pi}\ln\left(\norm{x-y}\right) & \text{if }n=2\\
+\frac{1}{n\left(2-n\right)\omega_{n}}\norm{x-y}^{2-n} & \text{if }n>2
+\end{cases}
+\end{align}
+Here $\omega_{n}:=\mu\left(B_{1}\left(0\right)\right)$ is the Lebesgue
+measure of the unit ball.
+
+For example for $n=3$ we have $\omega_{3}=\frac{4\pi}{3}$ and thus:
+\begin{align}
+\Gamma\left(x,y\right) & =\frac{1}{3\left(-1\right)\frac{4\pi}{3}}\cdot\frac{1}{\norm{x-y}}=-\frac{1}{4\pi}\frac{1}{\norm{x-y}}
+\end{align}
+
+
+
+\subsection{Theorem \textmd{(Green's representation)}}
+
+Let $\Omega\subseteq\mathbb{R}^{n}$ be open with smooth boundary
+and $u\in C^{2}\left(\overline{\Omega}\right)$. Then for any $y\in\Omega$
+holds:
+\begin{align}
+u\left(y\right) & =\int_{\partial\Omega}\left(u\left(x\right)\nabla_{\nu}\Gamma\left(x,y\right)-\Gamma\left(x,y\right)\nabla_{\nu}u\left(x\right)\right)\dd\mu_{\partial\Omega}\left(x\right)+\int_{\Omega}\Gamma\left(x,y\right)\left(\upDelta u\right)\left(x\right)\dd\mu\left(x\right)
+\end{align}
+For harmonic functions with $\upDelta u=0$, this simplifies to:
+\begin{align}
+u\left(y\right) & =\int_{\partial\Omega}\left(u\left(x\right)\nabla_{\nu}\Gamma\left(x,y\right)-\Gamma\left(x,y\right)\nabla_{\nu}u\left(x\right)\right)\dd\mu_{\partial\Omega}\left(x\right)
+\end{align}
+Thus $u$ has an explicit representation in terms of its boundary
+values on $\partial\Omega$.
+
+
+\subsubsection*{Proof}
+
+Choose $\varepsilon\in\mathbb{R}_{>0}$ such that $B_{\varepsilon}\left(y\right)\subseteq\Omega$.
+\begin{align*}
+\int_{\Omega\setminus B_{\varepsilon}\left(y\right)}\underbrace{\Gamma\left(x,y\right)}_{\text{smooth}}\underbrace{\left(\upDelta u\right)\left(x\right)}_{\text{continuous}}\dd\mu\left(x\right)
+\end{align*}
+
+
+\begin{figure}[H]
+\noindent \begin{centering}
+\begin{tikzpicture}[arr/.style={decoration={markings,mark=at position 1 with {\arrow[scale=2]{>}};},postaction={decorate}},scale=0.8]
+  \draw (-0.1,-0.1) -- (0.1,0.1);
+  \draw (-0.1,0.1) -- (0.1,-0.1);
+  \node[right=0pt] at (0,0) {$y$};
+  \draw (0,0) circle(1);
+  \draw[dashed] (0,0) -- node[above left=-2pt]{$\varepsilon$} ({cos(100)},{sin(100)});
+  \draw plot[smooth cycle,tension=.7,scale=2] coordinates{(0,-2) (1,-0.95) (2,0.2) (1.5,1.4) (0,2) (-2,-0.5)};
+  \node at (0.5,4.5) {$\Omega$};
+  \foreach \x in {20,80,...,360} {
+    \draw[arr, orange] ({cos(\x)},{sin(\x)}) -- ({1.5*cos(\x)},{1.5*sin(\x)});
+    \draw[arr] ({cos(\x)},{sin(\x)}) -- ({0.5*cos(\x)},{0.5*sin(\x)});
+	}
+  \node[orange] at (1.5,0.3) {$\nu$};
+  \draw[arr] (0,4) -- (-0.3,4.45);
+  \draw[arr] (4.05,1) -- (4.55,1);
+  \draw[arr] (2,-1.9) -- (2.3,-2.2);
+  \draw[arr] (-2,-3.27) -- node[below right=2pt]{$\nu$} (-2.25,-3.74);
+  \draw[arr] (-3,1.2) -- (-3.4,1.5);
+\end{tikzpicture}
+\par\end{centering}
+
+\caption{Outer normal $\nu$ of $\Omega\setminus B_{\varepsilon}\left(y\right)$
+(black) and of $B_{\varepsilon}\left(y\right)$ (orange) }
+\end{figure}
+
+
+We apply the second Green's identity to obtain with $v\left(x\right):=\Gamma\left(x,y\right)$:
+\begin{align*}
+\int_{\Omega\setminus B_{\varepsilon}\left(y\right)}\big(v\cdot\upDelta u-\underbrace{\left(\upDelta v\right)}_{=0}u\big)\dd\mu & =\int_{\partial\left(\Omega\setminus B_{\varepsilon}\left(y\right)\right)}\left(v\left(\nabla_{\nu}u\right)-\left(\nabla_{\nu}v\right)u\right)\dd\mu_{\partial\Omega}=\\
+ & =\int_{\partial\Omega}\left(\Gamma\left(x,y\right)\nabla_{\nu}u\left(x\right)-\left(\nabla_{\nu}\Gamma\right)\left(x,y\right)u\left(x\right)\right)\dd\mu_{\partial\Omega}+\\
+ & \qquad-\int_{\partial B_{\varepsilon}\left(y\right)}\left(\Gamma\left(x,y\right)\nabla_{\nu}u\left(x\right)-\nabla_{\nu}\Gamma\left(x,y\right)u\left(x\right)\right)\dd\mu_{\partial B_{\varepsilon}\left(y\right)}
+\end{align*}
+The minus in front of $\int_{\partial B_{\varepsilon}\left(y\right)}$
+comes from the fact, that the outer normal of $\partial\left(\Omega\setminus B_{\varepsilon}\left(y\right)\right)$
+shows in the opposite direction of the outer normal of $\partial B_{\varepsilon}\left(y\right)$.
+The left side of the integral gives in the limit $\varepsilon\searrow0$:
+\begin{align*}
+\lim_{\varepsilon\searrow0}\int_{\Omega\setminus B_{\varepsilon}\left(y\right)}v\cdot\upDelta u\dd\mu & =\int_{\Omega}v\cdot\upDelta u\dd\mu=\int_{\Omega}\Gamma\left(x,y\right)\cdot\left(\upDelta u\right)\left(x\right)\dd\mu\left(x\right)
+\end{align*}
+We estimate the integral over $\partial B_{\varepsilon}\left(y\right)$
+in the limit $\varepsilon\searrow0$:
+\begin{align*}
+\abs{\int_{\partial B_{\varepsilon}\left(y\right)}\Gamma\left(x,y\right)\nabla_{\nu}u\left(x\right)\dd\mu_{\partial B_{\varepsilon}\left(y\right)}} & \le\Gamma\left(\varepsilon\right)\sup_{B_{\varepsilon}\left(y\right)}\norm{\nabla u}\cdot\underbrace{n\omega_{n}}_{\sr{}{\text{surface area of}}{\text{the unit sphere}}}\varepsilon^{n-1}\sim\\
+ & \sim\begin{cases}
+\varepsilon & \text{if }n>2\\
+\varepsilon\ln\left(\varepsilon\right) & \text{if }n=2
+\end{cases}\xrightarrow{\varepsilon\searrow0}0
+\end{align*}
+Now we expand the second part around $\varepsilon=0$:
+\begin{align*}
+\int_{\partial B_{\varepsilon}\left(y\right)}\left(\nabla_{\nu}\Gamma\right)\left(x,y\right)u\left(x\right)\dd\mu_{\partial B_{\varepsilon}\left(y\right)} & =\underbrace{\frac{\partial}{\partial\varepsilon}\Gamma\left(\varepsilon\right)}_{=\frac{1}{n\omega_{n}}\varepsilon^{1-n}}\underbrace{\int_{\partial B_{\varepsilon}\left(y\right)}u\left(x\right)\dd\mu_{B_{\varepsilon}\left(y\right)}}_{=u\left(y\right)n\omega_{n}\varepsilon^{n-1}+o_{0}\left(\varepsilon^{n-1}\right)}=\\
+ & =u\left(y\right)+o_{0}\left(\varepsilon^{0}\right)\xrightarrow{\varepsilon\searrow0}u\left(y\right)
+\end{align*}
+This gives:
+\begin{align*}
+\int_{\Omega}\Gamma\left(x,y\right)\left(\upDelta u\right)\left(x\right)\dd\mu\left(x\right) & =\int_{\partial\Omega}\left(\Gamma\left(x,y\right)\nabla_{\nu}u\left(x\right)-\left(\nabla_{\nu}\Gamma\right)\left(x,y\right)u\left(x\right)\right)\dd\mu_{\partial\Omega}+u\left(y\right)
+\end{align*}
+\begin{align*}
+\Rightarrow\qquad u\left(y\right) & =\int_{\partial\Omega}\left(u\left(x\right)\nabla_{\nu}\Gamma\left(x,y\right)-\Gamma\left(x,y\right)\nabla_{\nu}u\left(x\right)\right)\dd\mu_{\partial\Omega}\left(x\right)+\int_{\Omega}\Gamma\left(x,y\right)\left(\upDelta u\right)\left(x\right)\dd\mu\left(x\right)
+\end{align*}
+\qqed
+
+
+\subsection{Corollary \textmd{(Laplacian of Fundamental Solution is Delta Distribution)}}
+
+For any $\varphi\in C_{0}^{\infty}\left(\Omega\right)$ holds:
+\begin{align}
+\varphi\left(y\right) & =\int_{\Omega}\Gamma\left(x,y\right)\left(\upDelta\varphi\right)\left(x\right)\dd\mu\left(x\right)\label{eq:phi-as-integral}
+\end{align}
+This can also be expressed in terms of distributions as:
+\begin{align}
+\upDelta_{x}\Gamma\left(x,y\right) & =\delta^{\left(n\right)}\left(x-y\right)
+\end{align}
+More correctly, for fixed $y\in\mathbb{R}^{n}$, $T\left(x\right):=T_{\Gamma\left(x,y\right)}$
+defines a regular distribution. Equation (\ref{eq:phi-as-integral})
+means, that for all $\varphi\in C_{0}^{\infty}\left(\Omega\right)\subseteq\mathcal{S}\left(\mathbb{R}^{n}\right)$:
+\begin{align*}
+\left(\upDelta T\right)\left(\varphi\right) & =\varphi\left(y\right)\\
+\Leftrightarrow\qquad\upDelta T & =\delta_{y}
+\end{align*}
+
+
+
+\subsubsection*{Proof}
+
+Since the support of $\varphi$ lies inside of $\Omega$, the first
+term in Green's representation vanishes:
+\begin{align*}
+\varphi\left(y\right) & =\int_{\partial\Omega}\left(\varphi\left(x\right)\nabla_{\nu}\Gamma\left(x,y\right)-\Gamma\left(x,y\right)\nabla_{\nu}\varphi\left(x\right)\right)\dd\mu_{\partial\Omega}\left(x\right)+\int_{\Omega}\Gamma\left(x,y\right)\left(\upDelta\varphi\right)\left(x\right)\dd\mu\left(x\right)=\\
+ & =\int_{\Omega}\Gamma\left(x,y\right)\left(\upDelta\varphi\right)\left(x\right)\dd\mu\left(x\right)
+\end{align*}
+\qqed
+
+Next we investigate the existence of solutions.
+\begin{align}
+\upDelta u & =0 & u\big|_{\partial\Omega} & =u_{0} &  & \text{Dirichlet problem}\\
+\upDelta u & =0 & \nabla_{\nu}u\big|_{\partial\Omega} & =u_{1} &  & \text{Neumann problem}
+\end{align}
+The problem is, that the representation
+\begin{align*}
+u\left(y\right) & =\int_{\partial\Omega}\left(u\left(x\right)\nabla_{\nu}\Gamma\left(x,y\right)-\Gamma\left(x,y\right)\nabla_{\nu}u\left(x\right)\right)\dd\mu_{\partial\Omega}\left(x\right)
+\end{align*}
+needs booth $u$ and $\nabla_{\nu}u$ on the boundary. Suppose we
+want to solve the Dirichlet problem. Then $u_{0}=u\big|_{\partial\Omega}$
+is given, but $\nabla_{\nu}u\big|_{\partial\Omega}$ is unknown.
+
+
+\section{The Green's Function}
+
+Consider the Dirichlet problem for the Poisson equation:
+\begin{align}
+\upDelta u\left(x\right) & =f\left(x\right)\qquad\fall_{x\in\Omega} & u\big|_{\partial\Omega} & =\varphi
+\end{align}
+Assume $u\in C^{2}\left(\overline{\Omega}\right)$, $f\in C^{0}\left(\overline{\Omega}\right)$
+and $\varphi\in C^{2}\left(\partial\Omega\right)$.
+
+
+\subsection{Definition \textmd{(Green's function)}}
+
+A function $G\left(x,y\right)$ defined for $x,y\in\overline{\Omega}$
+with $x\not=y$ is called \emph{Green's function} for the domain $\Omega$
+if the following conditions are satisfied:
+\begin{enumerate}[label=\roman*)]
+\item For all $x\in\partial\Omega$ holds ${\displaystyle G\left(x,y\right)=0}$.
+\item $h\left(x,y\right):=G\left(x,y\right)-\Gamma\left(x,y\right)$ is
+in $C^{2}\left(\Omega\right)$, even for $x=y$, and harmonic in $x\in\Omega$.
+\end{enumerate}
+
+\subsection{Proposition \textmd{(Solution of Dirichlet Problem)}}
+
+For a solution $u$ of the Dirichlet problem for the Poisson equation
+holds:
+\begin{align}
+u\left(y\right) & =\int_{\partial\Omega}\varphi\left(x\right)\nabla_{\nu}G\left(x,y\right)\dd\mu_{\partial\Omega}\left(x\right)+\int_{\Omega}f\left(x\right)G\left(x,y\right)\dd\mu\left(x\right)
+\end{align}
+
+
+
+\subsubsection*{Proof}
+
+\begin{align*}
+\int_{\Omega}h\left(x,y\right)\left(\upDelta u\right)\left(x\right)\dd\mu\left(x\right) & =\int_{\Omega}h\left(x,y\right)f\left(x\right)\dd\mu\left(x\right)=\\
+ & \sr ={\text{2. Green's}}{\text{identity}}\int_{\partial\Omega}\left(h\left(x,y\right)\left(\nabla_{\nu}u\right)\left(x\right)-\left(\nabla_{\nu}h\left(x,y\right)\right)\cdot u\left(x\right)\right)\dd\mu_{\partial\Omega}\left(x\right)
+\end{align*}
+Now we add the Green's representation
+\begin{align*}
+\int_{\Omega}\Gamma\left(x,y\right)f\left(x\right)\dd\mu\left(x\right) & =\int_{\partial\Omega}\left(\Gamma\left(x,y\right)\left(\nabla_{\nu}u\right)\left(x\right)-\left(\nabla_{\nu}\Gamma\left(x,y\right)\right)u\left(x\right)\right)\dd\mu_{\partial\Omega}\left(x\right)+u\left(y\right)
+\end{align*}
+to get:
+\begin{align*}
+\int_{\Omega}G\left(x,y\right)f\left(x\right)\dd\mu\left(x\right) & =\int_{\partial\Omega}\left(G\left(x,y\right)\left(\nabla_{\nu}u\right)\left(x\right)-\left(\nabla_{\nu}G\left(x,y\right)\right)u\left(x\right)\right)\dd\mu_{\partial\Omega}\left(x\right)+u\left(y\right)
+\end{align*}
+Since $G\left(x,y\right)=0$ on $\partial\Omega$, the proposition
+follows.\qqed
+
+
+\subsection{Theorem \textmd{(Symmetry of the Green's Function)}}
+
+For all $x,y\in\Omega$ with $x\not=y$ holds $G\left(x,y\right)=G\left(y,x\right)$.
+
+
+\subsubsection*{Proof}
+
+\begin{figure}[H]
+\noindent \begin{centering}
+\begin{tikzpicture}[scale=0.7]
+  \node at (0.5,4.5) {$\Omega$};
+  \draw[clip] plot[smooth cycle,tension=.7,scale=2] coordinates{(0,-2) (1,-0.95) (2,0.2) (1.5,1.4) (0,2) (-2,-0.5)};
+  \foreach \x in {-4.5,-3,...,2}     \draw (\x,-5) -- ({\x + 3},5);
+  \draw[fill=white] (1,0) circle(1);
+  \draw (1,0) +(-0.1,-0.1) -- +(0.1,0.1) +(-0.1,0.1) -- +(0.1,-0.1);
+  \node[right=0pt] at (1,0) {$y$};
+  \draw[dashed] (1,0) -- node[above left=-2pt]{$\varepsilon$} +({cos(90)},{sin(90)});
+  \draw[fill=white] (-2.5,-1) circle(1);
+  \draw (-2.5,-1) +(-0.1,-0.1) -- +(0.1,0.1) +(-0.1,0.1) -- +(0.1,-0.1);
+  \node[right=0pt] at (-2.5,-1) {$x$};
+  \draw[dashed] (-2.5,-1) -- node[above left=-2pt]{$\varepsilon$} +({cos(90)},{sin(90)});
+\end{tikzpicture}
+\par\end{centering}
+
+\caption{$B_{\varepsilon}\left(x\right)\subseteq\Omega$, $B_{\varepsilon}\left(y\right)\subseteq\Omega$,
+$B_{\varepsilon}\left(x\right)\cap B_{\varepsilon}\left(y\right)=\emptyset$}
+\end{figure}
+
+
+Choose $\varepsilon\in\mathbb{R}_{>0}$ such that $B_{\varepsilon}\left(x\right)$
+and $B_{\varepsilon}\left(y\right)$ are disjoint subsets of $\Omega$.
+\begin{align*}
+u\left(z\right) & :=G\left(z,x\right) & v\left(z\right) & :=G\left(z,y\right)
+\end{align*}
+It holds $u,v\in C^{2}\left(\Omega\setminus\left(B_{\varepsilon}\left(x\right)\cup B_{\varepsilon}\left(y\right)\right)\right)$
+and $u,v$ are harmonic. Moreover for $z\in\partial\Omega$ holds:
+\begin{align*}
+u\left(z\right) & =G\left(z,x\right)=0 & v\left(z\right) & =G\left(z,y\right)=0
+\end{align*}
+Apply again the second Green's identity:
+\begin{align*}
+0 & =\int_{\Omega\setminus\left(B_{\varepsilon}\left(x\right)\cup B_{\varepsilon}\left(y\right)\right)}\big(v\underbrace{\left(\upDelta u\right)}_{=0}-\underbrace{\left(\upDelta v\right)}_{=0}u\big)\dd\mu=\\
+ & =\int_{\partial\Omega\setminus\left(B_{\varepsilon}\left(x\right)\cup B_{\varepsilon}\left(y\right)\right)}\left(v\left(\nabla_{\nu}u\right)-\left(\nabla_{\nu}v\right)u\right)\dd\mu_{\partial\Omega\setminus\left(B_{\varepsilon}\left(x\right)\cup B_{\varepsilon}\left(y\right)\right)}
+\end{align*}
+Moreover, the boundary values on $\partial\Omega$ vanish. We conclude:
+\begin{align*}
+0 & =\int_{\partial B_{\varepsilon}\left(x\right)\cup\partial B_{\varepsilon}\left(y\right)}\left(v\left(\nabla_{\nu}u\right)-\left(\nabla_{\nu}v\right)u\right)\dd\mu_{\partial B_{\varepsilon}\left(x\right)\cup\partial B_{\varepsilon}\left(y\right)}
+\end{align*}
+Consider the integral over $\partial B_{\varepsilon}\left(x\right)$
+first. Since $G=\Gamma+h$ and $h\in C^{2}$ is bounded, we know for
+all $z\in\partial B_{\varepsilon}\left(x\right)$:
+\begin{align*}
+u\left(z\right) & =G\left(z,x\right)\sim\Gamma\left(z,x\right)\sim\begin{cases}
+\ln\left(\varepsilon\right) & \text{if }n=2\\
+\varepsilon^{2-n} & \text{if }n>2
+\end{cases}
+\end{align*}
+Since $\nabla_{\nu}v$ is also bounded due to $v\in C^{2}\left(B_{\varepsilon}\left(x\right)\right)$,
+we get:
+\begin{align*}
+\int_{\partial B_{\varepsilon}\left(x\right)}\left(\nabla_{\nu}v\right)u\dd_{\partial B_{\varepsilon}\left(x\right)} & \xrightarrow{\varepsilon\searrow0}0
+\end{align*}
+The other term gives:
+\begin{align*}
+\int_{\partial B_{\varepsilon}\left(x\right)}v\left(\nabla_{\nu}u\right)\dd_{\partial B_{\varepsilon}\left(x\right)} & \sr ={\nabla_{\nu}u=\frac{\partial}{\partial\varepsilon}\Gamma\left(\varepsilon\right)+o_{0}\left(\varepsilon^{0}\right)=}{=\tilde{c}\varepsilon^{1-n}+o_{0}\left(\varepsilon^{0}\right)}cv\left(x\right)\varepsilon^{1-n}\underbrace{\int_{\partial B_{\varepsilon}\left(x\right)}1\dd\mu_{\partial B_{\varepsilon}\left(x\right)}}_{=n\omega_{n}\varepsilon^{n-1}}+o_{0}\left(\varepsilon\right)\xrightarrow{\varepsilon\searrow0}cv\left(x\right)
+\end{align*}
+Here the constant $c\not=0$ does not vanish. Now follows:
+\begin{align*}
+\int_{\partial B_{\varepsilon}\left(x\right)}\left(\left(\nabla_{\nu}v\right)u-v\left(\nabla_{\nu}u\right)\right)\dd\mu_{\partial B_{\varepsilon}\left(x\right)} & \xrightarrow{\varepsilon\searrow0}cv\left(x\right)\\
+\int_{\partial B_{\varepsilon}\left(y\right)}\left(\left(\nabla_{\nu}v\right)u-v\left(\nabla_{\nu}u\right)\right)\dd\mu_{\partial B_{\varepsilon}\left(x\right)} & \xrightarrow{\varepsilon\searrow0}cu\left(y\right)
+\end{align*}
+Adding these two integrals gives:
+\begin{align*}
+0 & =c\left(v\left(x\right)-u\left(y\right)\right)\\
+\Rightarrow\qquad G\left(x,y\right) & =v\left(x\right)=u\left(y\right)=G\left(y,x\right)
+\end{align*}
+\qqed
+
+Any solution $u$ of the Dirichlet problem
+\begin{align*}
+\upDelta u & =f & u\big|_{\partial\Omega} & =\varphi
+\end{align*}
+has the representation:
+\begin{align*}
+u\left(y\right) & =\int_{\partial\Omega}\varphi\left(x\right)\nabla_{\nu}G\left(x,y\right)\dd\mu_{\partial\Omega}\left(x\right)+\int_{\Omega}G\left(x,y\right)f\left(x\right)\dd\mu\left(x\right)
+\end{align*}
+We define:
+\begin{align*}
+u\left(y\right) & :=\int_{\partial\Omega}\varphi\left(x\right)\nabla_{\nu}G\left(x,y\right)\dd\mu_{\partial\Omega}\left(x\right)+\int_{\Omega}G\left(x,y\right)f\left(x\right)\dd\mu\left(x\right)
+\end{align*}
+Since $G$ is symmetric, $G\left(x,y\right)=G\left(y,x\right)$, the
+equation $\upDelta_{x}G\left(x,y\right)=\delta^{\left(n\right)}\left(x-y\right)$
+implies $\upDelta_{y}G\left(x,y\right)=\delta^{\left(n\right)}\left(x-y\right)$
+as well. As a consequence, a formal computation gives:
+\begin{align*}
+\upDelta_{y}u\left(y\right) & =\int_{\partial\Omega}\varphi\left(x\right)\nabla_{\nu}\delta^{\left(n\right)}\left(x-y\right)\dd\mu_{\partial\Omega}\left(x\right)+\int_{\Omega}\delta^{\left(n\right)}\left(x-y\right)f\left(x\right)\dd\mu\left(x\right)
+\end{align*}
+For $y\in\Omega$ the first term vanishes, so we get:
+\begin{align*}
+\upDelta_{y}u\left(y\right) & =f\left(y\right)
+\end{align*}
+This formal calculation can be made rigorous, once an explicit Green's
+function is given.
 
 
 \part*{Appendix\thispagestyle{empty}}
