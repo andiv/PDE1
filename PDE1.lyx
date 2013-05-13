@@ -2129,9 +2129,13 @@ Laplace equation
 \emph default
  with the 
 \emph on
-Laplace operator
+Laplace operator 
 \emph default
- 
+(or
+\emph on
+ Laplacian
+\emph default
+) 
 \begin_inset Formula $\upDelta$
 \end_inset
 
@@ -5909,7 +5913,7 @@ Consider
 \end_inset
 
  with 
-\begin_inset Formula $g\left(p\right)=e^{\ii py}$
+\begin_inset Formula $f\left(p\right)=e^{\ii py}$
 \end_inset
 
  for a given 
@@ -6095,7 +6099,9 @@ f & \mapsto\ \ \ T_{f}\quad\mapsto\mathcal{F}T_{f}
 \end_layout
 
 \begin_layout Subsection
-Theorem
+Theorem 
+\series medium
+(Fourier Transform is isometry)
 \end_layout
 
 \begin_layout Standard
@@ -6758,7 +6764,7 @@ r^{n-1}\frac{\partial}{\partial r}\Gamma\left(r\right) & =c\\
 \begin{align*}
 \Gamma\left(r\right) & =a+C\int^{r}\tau^{1-n}\dd\tau=\begin{cases}
 a+\tilde{c}\ln\left(r\right) & \text{if }n=2\\
-a+\frac{c}{r^{n+2}} & \text{if }n>2
+a+\frac{c}{r^{n-2}} & \text{if }n>2
 \end{cases}
 \end{align*}
 
@@ -7484,7 +7490,7 @@ For a solution
  of the Dirichlet problem for the Poisson equation holds:
 \begin_inset Formula 
 \begin{align}
-u\left(y\right) & =\int_{\partial\Omega}\varphi\left(x\right)\nabla_{\nu}G\left(x,y\right)\dd\mu_{\partial\Omega}\left(x\right)+\int_{\Omega}f\left(x\right)G\left(x,y\right)\dd\mu\left(x\right)
+u\left(y\right) & =\int_{\partial\Omega}u\left(x\right)\nabla_{\nu}G\left(x,y\right)\dd\mu_{\partial\Omega}\left(x\right)+\int_{\Omega}f\left(x\right)G\left(x,y\right)\dd\mu\left(x\right)
 \end{align}
 
 \end_inset
@@ -7560,11 +7566,15 @@ For all
 \begin_inset Formula $x\not=y$
 \end_inset
 
- holds 
-\begin_inset Formula $G\left(x,y\right)=G\left(y,x\right)$
+ holds:
+\begin_inset Formula 
+\begin{align}
+G\left(x,y\right) & =G\left(y,x\right)
+\end{align}
+
 \end_inset
 
-.
+
 \end_layout
 
 \begin_layout Subsubsection*
@@ -7898,7 +7908,7 @@ Any solution
 has the representation:
 \begin_inset Formula 
 \begin{align*}
-u\left(y\right) & =\int_{\partial\Omega}\varphi\left(x\right)\nabla_{\nu}G\left(x,y\right)\dd\mu_{\partial\Omega}\left(x\right)+\int_{\Omega}G\left(x,y\right)f\left(x\right)\dd\mu\left(x\right)
+u\left(y\right) & =\int_{\partial\Omega}u\left(x\right)\nabla_{\nu}G\left(x,y\right)\dd\mu_{\partial\Omega}\left(x\right)+\int_{\Omega}G\left(x,y\right)f\left(x\right)\dd\mu\left(x\right)
 \end{align*}
 
 \end_inset
@@ -7950,12 +7960,1077 @@ For
 
 This formal calculation can be made rigorous, once an explicit Green's function
  is given.
+ Then one can also check, whether the boundary conditions are satisfied.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%DATE: Fr 10.5.13
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Example 
+\series medium
+(Green's function for 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texorpdfstring{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $B_{R}\left(0\right)$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}{Br(0)}
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+Now we want to construction the Green's function for 
+\begin_inset Formula $\Omega:=B_{R}\left(0\right)\subseteq\mathbb{R}^{n}$
+\end_inset
+
+.
+ Consider an electric charge inside an earthed, electrically conducting
+ sphere, that screens the electric field, so that it vanishes outside the
+ sphere.
+ The electric field inside the sphere can be calculated using the concept
+ of a mirror charge, which ensures, that the electric field is perpendicular
+ to the sphere.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfloat[charge in earthed sphere]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[scale=1]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (0,0) circle (2cm);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (1,0) node[above]{$y$} +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (0,0) +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (0,0) -- node[above]{$R$} (-2,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw ({2cm*cos(-10)},{2cm*sin(-10)}) -- ++(0,-2) +(-0.7,0) -- +(0.7,0) ++(0,-0.2)
+ +(-0.4,0) -- +(0.4,0) ++(0,-0.2) +(-0.2,0) -- +(0.2,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+subfloat[equivalent mirror charge outside sphere]{
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[dashed] (0,0) circle (2cm);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (0,0) +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (1,0) node[above]{$y$} +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (4,0) node[above]{$
+\backslash
+tilde{y}$} node[below]{mirror charge} +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) --
+ +(-0.1,0.1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[dashed] ({2cm*cos(-10)},{2cm*sin(-10)}) -- ++(0,-2) +(-0.7,0) -- +(0.7,0)
+ ++(0,-0.2) +(-0.4,0) -- +(0.4,0) ++(0,-0.2) +(-0.2,0) -- +(0.2,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+The mirror charge replicates the boundary conditions of the sphere.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The position of the mirror charge must be:
+\begin_inset Formula 
+\begin{align*}
+\tilde{y} & =\frac{R^{2}}{y^{2}}\cdot y\\
+\Rightarrow\qquad\norm y\cdot\norm{\tilde{y}} & =R^{2}
+\end{align*}
+
+\end_inset
+
+Compare this with the inversion with respect to the unit circle (
+\lang ngerman
+Spiegelung am Einheitskreis
+\lang english
+) in the complex plane:
+\begin_inset Formula 
+\begin{align*}
+z & \mapsto\frac{1}{\overline{z}}=\frac{z}{\abs z^{2}}
+\end{align*}
+
+\end_inset
+
+This motivates the ansatz:
+\begin_inset Formula 
+\begin{align*}
+G\left(x,y\right) & =\begin{cases}
+\Gamma\left(\norm{x-y}\right)-\Gamma\left(\frac{\norm y}{R}\norm{x-\tilde{y}}\right) & \text{if }y\not=0\\
+\Gamma\left(\norm x\right)-\Gamma\left(R\right) & \text{if }y=0
+\end{cases}
+\end{align*}
+
+\end_inset
+
+Let us verify that 
+\begin_inset Formula $G$
+\end_inset
+
+ has all the required properties:
+\begin_inset Formula 
+\begin{align*}
+G\left(x,y\right)-\Gamma\left(x,y\right) & =\begin{cases}
+-\Gamma\left(\frac{\norm y}{R}\norm{x-\tilde{y}}\right) & \text{if }y\not=0\\
+-\Gamma\left(R\right) & \text{if }y=0
+\end{cases}
+\end{align*}
+
+\end_inset
+
+For 
+\begin_inset Formula $x,y\in B_{R}\left(0\right)$
+\end_inset
+
+ follows 
+\begin_inset Formula $\tilde{y}\not\in B_{R}\left(0\right)$
+\end_inset
+
+ and thus 
+\begin_inset Formula $x\not=\tilde{y}$
+\end_inset
+
+.
+ So 
+\begin_inset Formula $\Gamma\left(\frac{\norm y}{R}\norm{x-\tilde{y}}\right)$
+\end_inset
+
+ is smooth if 
+\begin_inset Formula $y\not=0$
+\end_inset
+
+.
+ To see smoothness in the case 
+\begin_inset Formula $y=0$
+\end_inset
+
+, we rewrite:
+\begin_inset Formula 
+\begin{align}
+\Gamma\left(\frac{\norm y}{R}\norm{x-\tilde{y}}\right) & =\Gamma\left(\sqrt{\frac{y^{2}}{R^{2}}\left(x^{2}+\tilde{y}^{2}-2\left\langle x,\tilde{y}\right\rangle \right)}\,\right)=\nonumber \\
+ & =\Gamma\left(\sqrt{\frac{y^{2}}{R^{2}}\left(x^{2}+\frac{R^{4}}{y^{2}}-2\frac{R^{2}}{y^{2}}\left\langle x,y\right\rangle \right)}\,\right)=\nonumber \\
+ & =\Gamma\left(\sqrt{\frac{x^{2}y^{2}}{R^{2}}+R^{2}-2\left\langle x,y\right\rangle }\,\right)\label{eq:G-symmetric}
+\end{align}
+
+\end_inset
+
+The argument is smooth at 
+\begin_inset Formula $y=0$
+\end_inset
+
+ and it holds:
+\begin_inset Formula 
+\begin{align*}
+\lim_{y\to0}\Gamma\left(\frac{\norm y}{R}\norm{x-\tilde{y}}\right) & =\Gamma\left(R\right)
+\end{align*}
+
+\end_inset
+
+So 
+\begin_inset Formula $G\left(x,y\right)-\Gamma\left(x,y\right)$
+\end_inset
+
+ is in 
+\begin_inset Formula $C^{2}$
+\end_inset
+
+ for 
+\begin_inset Formula $x,y\in\Omega$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $x\in\partial\Omega$
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $\norm x=R$
+\end_inset
+
+, holds:
+\begin_inset Formula 
+\begin{align*}
+G\left(x,y\right) & =\Gamma\left(\norm{x-y}\right)-\Gamma\left(\sqrt{\frac{\norm x^{2}\norm y^{2}}{R^{2}}+R^{2}-2\left\langle x,y\right\rangle }\,\right)=\\
+ & \sr ={\norm x=R}{}\Gamma\left(\norm{x-y}\right)-\Gamma\left(\sqrt{\norm y^{2}+\norm x^{2}-2\left\langle x,y\right\rangle }\,\right)=\\
+ & =\Gamma\left(\norm{x-y}\right)-\Gamma\left(\sqrt{\norm{x-y}^{2}}\:\right)=0
+\end{align*}
+
+\end_inset
+
+Thus 
+\begin_inset Formula $G\left(x,y\right)$
+\end_inset
+
+ satisfies the boundary condition 
+\begin_inset Formula $G\left(x,y\right)=0$
+\end_inset
+
+ for 
+\begin_inset Formula $x\in\partial\Omega$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Now we show that 
+\begin_inset Formula $G\left(x,y\right)-\Gamma\left(x,y\right)$
+\end_inset
+
+ is harmonic:
+\begin_inset Formula 
+\begin{align*}
+G\left(x,y\right)-\Gamma\left(x,y\right) & =-\Gamma\left(\frac{\norm y}{R}\norm{x-\tilde{y}}\right)\\
+\nabla\Gamma\left(\frac{\norm y}{R}\norm{x-\tilde{y}}\right) & =\Gamma'\left(\frac{\norm y}{R}\norm{x-\tilde{y}}\right)\frac{\norm y}{R}\nabla\norm{x-\tilde{y}}\\
+\upDelta\Gamma\left(\frac{\norm y}{R}\norm{x-\tilde{y}}\right) & =\Gamma''\left(\frac{\norm y}{R}\norm{x-\tilde{y}}\right)\left(\frac{\norm y}{R}\right)^{2}\left(\nabla\norm{x-\tilde{y}}\right)^{2}+\\
+ & \qquad+\Gamma'\left(\frac{\norm y}{R}\norm{x-\tilde{y}}\right)\frac{\norm y}{R}\upDelta\norm{x-\tilde{y}}
+\end{align*}
+
+\end_inset
+
+We know:
+\begin_inset Formula 
+\begin{align*}
+0 & =\upDelta\Gamma=\frac{1}{r^{n-1}}\partial_{r}\left(r^{n-1}\partial_{r}\Gamma\right)\\
+\Rightarrow\qquad0 & =\Gamma''\left(r\right)+\frac{n-1}{r}\Gamma'\left(r\right)
+\end{align*}
+
+\end_inset
+
+With this follows:
+\begin_inset Formula 
+\begin{align*}
+\upDelta\Gamma\left(\frac{\norm y}{R}\norm{x-\tilde{y}}\right) & =-\left(n-1\right)\frac{R}{\norm y\norm{x-\tilde{y}}}\Gamma'\left(\frac{\norm y}{R}\norm{x-\tilde{y}}\right)\left(\frac{\norm y}{R}\right)^{2}\left(\nabla\norm{x-\tilde{y}}\right)^{2}+\\
+ & \qquad+\Gamma'\left(\frac{\norm y}{R}\norm{x-\tilde{y}}\right)\frac{\norm y}{R}\upDelta\norm{x-\tilde{y}}=\\
+ & =\frac{\norm y}{R}\Gamma'\left(\frac{\norm y}{R}\norm{x-\tilde{y}}\right)\left(\frac{-\left(n-1\right)}{\norm{x-\tilde{y}}}\left(\nabla\norm{x-\tilde{y}}\right)^{2}+\upDelta\norm{x-\tilde{y}}\right)=\\
+ & =\frac{\norm y}{R}\Gamma'\left(\frac{\norm y}{R}\norm{x-\tilde{y}}\right)\left(\frac{-\left(n-1\right)}{\norm{x-\tilde{y}}}\left(\frac{x-\tilde{y}}{\norm{x-\tilde{y}}}\right)^{2}+\frac{n-1}{\norm{x-\tilde{y}}}\right)=0
+\end{align*}
+
+\end_inset
+
+Thus 
+\begin_inset Formula $G\left(x,y\right)$
+\end_inset
+
+ is the desired Green's function.
+ From 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:G-symmetric"
+
+\end_inset
+
+ one sees explicitly:
+\begin_inset Formula 
+\begin{align*}
+G\left(x,y\right) & =G\left(y,x\right)
+\end{align*}
+
+\end_inset
+
+We hope that the solution of the Dirichlet problem
+\begin_inset Formula 
+\begin{align*}
+\upDelta u & =f & u\big|_{\partial B_{R}\left(0\right)} & =\varphi
+\end{align*}
+
+\end_inset
+
+is given by the Green's representation:
+\begin_inset Formula 
+\begin{align*}
+u\left(y\right) & =\int_{B_{R}\left(0\right)}G\left(x,y\right)f\left(x\right)\dd\mu\left(x\right)+\int_{B_{R}\left(0\right)}\nabla_{\nu}G\left(x,y\right)\varphi\left(x\right)\dd\mu_{\partial B_{R}\left(0\right)}\left(x\right)
+\end{align*}
+
+\end_inset
+
+Computing 
+\begin_inset Formula $\nabla_{\nu}G\left(x,y\right)$
+\end_inset
+
+ for 
+\begin_inset Formula $x\in\partial B_{R}\left(0\right)$
+\end_inset
+
+ gives:
+\begin_inset Formula 
+\begin{align*}
+\nabla_{\nu}G\left(x,y\right) & =\frac{R^{2}-y^{2}}{n\omega_{n}R}\cdot\frac{1}{\norm{x-y}^{n}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Theorem 
+\series medium
+(Poisson representation)
+\end_layout
+
+\begin_layout Standard
+The function
+\begin_inset Formula 
+\begin{align}
+u\left(y\right) & :=\begin{cases}
+\frac{R^{2}-y^{2}}{n\omega_{n}R}\int_{B_{R}\left(0\right)}\frac{\varphi\left(x\right)}{\norm{x-y}^{n}}\dd\mu_{\partial B_{R}\left(0\right)} & \text{if }y\in B_{R}\left(0\right)\\
+\varphi\left(y\right) & \text{if }y\in\partial B_{R}\left(0\right)
+\end{cases}
+\end{align}
+
+\end_inset
+
+with 
+\begin_inset Formula $\varphi\in C^{0}\left(\partial B_{R}\left(0\right)\right)$
+\end_inset
+
+ has the following properties:
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $u\in C^{0}\left(\overline{B_{R}\left(0\right)}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $u\in C^{2}\left(B_{R}\left(0\right)\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $u$
+\end_inset
+
+ is harmonic in 
+\begin_inset Formula $B_{R}\left(0\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+This can be shown using Green's representation, computing the boundary values
+ and justifying that the 
+\begin_inset Formula $y$
+\end_inset
+
+-derivative may be taken inside the integral.
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO: Beweis ergänzen
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+The Mean Value Theorem and the Maximum Principle for Harmonic Functions
+\end_layout
+
+\begin_layout Subsection
+Theorem 
+\series medium
+(Mean Value Formulas)
+\end_layout
+
+\begin_layout Standard
+A continuous function 
+\begin_inset Formula $u:\Omega\to\mathbb{R}$
+\end_inset
+
+ with 
+\begin_inset Formula $\Omega\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ is harmonic, i.e.
+ 
+\begin_inset Formula $u\in C^{2}\left(\Omega\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\upDelta u=0$
+\end_inset
+
+, if and only if for all 
+\begin_inset Formula $x_{0}\in\Omega$
+\end_inset
+
+ and all balls 
+\begin_inset Formula $B_{r}\left(x_{0}\right)\subseteq\Omega$
+\end_inset
+
+ one of the following mean value formulas holds:
+\begin_inset Formula 
+\begin{align}
+u\left(x_{0}\right) & =\frac{1}{n\omega_{n}r^{n-1}}\int_{\partial B_{r}\left(x_{0}\right)}u\left(x\right)\dd\mu_{\partial B_{R}}\left(x\right) &  & \text{(spherical mean)}\\
+u\left(x_{0}\right) & =\frac{1}{\omega_{n}r^{n}}\int_{B_{r}\left(x_{0}\right)}u\left(x\right)\dd\mu\left(x\right) &  & \text{(mean over ball)}
+\end{align}
+
+\end_inset
+
+In this case, the other formula holds as well.
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+: Let 
+\begin_inset Formula $u\in C^{2}\left(\Omega\right)$
+\end_inset
+
+ be harmonic and 
+\begin_inset Formula $B_{r}\left(x_{0}\right)\subseteq\Omega$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $B_{r}\left(y\right)\subseteq\Omega$
+\end_inset
+
+ holds also for all 
+\begin_inset Formula $y$
+\end_inset
+
+ in a neighborhood of 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+.
+ The function
+\begin_inset Formula 
+\begin{align*}
+H\left(x,y\right) & =\Gamma\left(x,y\right)-\Gamma\left(r\right)
+\end{align*}
+
+\end_inset
+
+coincides up to a constant with the fundamental solution and 
+\begin_inset Formula $H\left(x,y\right)=0$
+\end_inset
+
+ for 
+\begin_inset Formula $x\in\partial B_{r}\left(y\right)$
+\end_inset
+
+.
+ Using Green's representation gives: 
+\begin_inset Formula 
+\begin{align*}
+u\left(y\right) & =\int_{B_{r}\left(y\right)}\underbrace{\left(\upDelta u\right)\left(x\right)}_{=0}\cdot H\left(x,y\right)\dd\mu\left(x\right)+\\
+ & \qquad+\int_{\partial B_{r}\left(y\right)}\bigg(u\left(x\right)\nabla_{\nu}H\left(x,y\right)-\underbrace{H\left(x,y\right)}_{=0}\nabla_{\nu}u\left(x\right)\bigg)\dd\mu_{\partial B_{r}\left(y\right)}\left(x\right)=\\
+ & =\int_{\partial B_{r}\left(y\right)}u\left(x\right)\nabla_{\nu}H\left(x,y\right)\dd\mu_{\partial B_{r}\left(y\right)}\left(x\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\nabla_{\nu}H\left(x,y\right) & =\nabla_{\nu,x}\Gamma\left(\norm{x-y}\right)\sr ={r:=\norm{x-y}}{}\frac{\partial}{\partial r}\Gamma\left(r\right)=\frac{1}{n\omega_{n}r^{n-1}}
+\end{align*}
+
+\end_inset
+
+For 
+\begin_inset Formula $y:=x_{0}$
+\end_inset
+
+ follows the spherical mean formula:
+\begin_inset Formula 
+\begin{align*}
+u\left(x_{0}\right) & =\frac{1}{n\omega_{n}r^{n-1}}\int_{\partial B_{r}\left(x_{0}\right)}u\left(x\right)\dd\mu_{\partial B_{R}}\left(x\right)
+\end{align*}
+
+\end_inset
+
+Now follows:
+\begin_inset Formula 
+\begin{align}
+\int_{B_{r}\left(y\right)}u\left(x\right)\dd\mu\left(x\right) & \stackrel{\text{Fubini}}{=}\int_{0}^{r}\dd\rho\int_{\partial B_{\rho}\left(y\right)}u\left(x\right)\dd\mu_{\partial B_{\rho}\left(y\right)}\left(x\right)=\int_{0}^{r}u\left(y\right)n\omega_{n}\rho^{n-1}\dd\rho=\nonumber \\
+ & =u\left(y\right)n\omega_{n}\cdot\frac{1}{n}r^{n}=\omega_{n}r^{n}u\left(y\right)\label{eq:comp-spherical-mean}
+\end{align}
+
+\end_inset
+
+
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+: Let 
+\begin_inset Formula $u\in C^{0}\left(\Omega\right)$
+\end_inset
+
+ be continuous.
+ If the formula for the spherical mean holds, the computation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:comp-spherical-mean"
+
+\end_inset
+
+ gives the formula for means over balls.
+ Let us show that the formula for means over balls implies the formula for
+ spherical means.
+ So assume for fixed 
+\begin_inset Formula $y$
+\end_inset
+
+ and all 
+\begin_inset Formula $r<r_{0}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+u\left(y\right) & =\frac{1}{\omega_{n}r^{n}}\int_{B_{r}\left(y\right)}u\left(x\right)\dd\mu\left(x\right)
+\end{align*}
+
+\end_inset
+
+Thus using Fubini's theorem follows:
+\begin_inset Formula 
+\begin{align*}
+r^{n}u\left(y\right) & =\frac{1}{\omega_{n}}\overbrace{\int_{0}^{r}\dd\rho\underbrace{\int_{\partial B_{\rho}\left(y\right)}u\left(x\right)\dd\mu_{\partial B_{\rho}\left(y\right)}\left(x\right)}_{\text{continuous in }\rho}}^{C^{1}\text{ in }r}
+\end{align*}
+
+\end_inset
+
+Differentiation on both sides with respect to 
+\begin_inset Formula $r$
+\end_inset
+
+ gives the formula for spherical means:
+\begin_inset Formula 
+\begin{align*}
+nr^{n-1}u\left(y\right) & =\frac{1}{\omega_{n}}\int_{\partial B_{r}\left(y\right)}u\left(x\right)\dd\mu_{\partial B_{r}\left(y\right)}\left(x\right)
+\end{align*}
+
+\end_inset
+
+Next we show, that 
+\begin_inset Formula $u$
+\end_inset
+
+ is smooth in 
+\begin_inset Formula $\Omega$
+\end_inset
+
+.
+ The idea is to mollify by convolution.
+ Choose:
+\begin_inset Formula 
+\begin{align*}
+\varrho\left(t\right) & :=\begin{cases}
+c_{n}e^{\frac{1}{t^{2}-1}} & \text{if }-1<t<1\\
+0 & \text{otherwise}
+\end{cases}\in C_{0}^{\infty}\left(\mathbb{R}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+begin{axis}[width=9cm, axis x line=middle, axis y line=middle, ytick={0},
+ xlabel=$t$, ylabel=$
+\backslash
+varrho$,xmin=-1.5, xmax=1.5, ymax=0.4 ,samples=300]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+addplot[mark=none,domain=-0.9999:0.9999] {exp(1/(x^2-1))};
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+end{axis}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture} 
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $\varrho\left(t\right)$
+\end_inset
+
+ is smooth and has compact support 
+\begin_inset Formula $\left[-1,1\right]$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then holds 
+\begin_inset Formula $\varrho\left(\norm x\right)\in C_{0}^{\infty}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+.
+ Choose 
+\begin_inset Formula $c_{n}$
+\end_inset
+
+ such that holds:
+\begin_inset Formula 
+\begin{align*}
+1 & =\int_{\mathbb{R}^{n}}\varrho\left(\norm x\right)\dd^{n}x
+\end{align*}
+
+\end_inset
+
+Now for 
+\begin_inset Formula $\varepsilon\in\mathbb{R}_{>0}$
+\end_inset
+
+ set:
+\begin_inset Formula 
+\begin{align*}
+\varrho_{\varepsilon}\left(x,y\right) & :=\frac{1}{\varepsilon^{n}}\varrho\left(\frac{\norm{x-y}}{\varepsilon}\right)
+\end{align*}
+
+\end_inset
+
+Then still holds:
+\begin_inset Formula 
+\begin{align*}
+1 & =\int_{\mathbb{R}^{n}}\varrho_{\varepsilon}\left(x,y\right)\dd^{n}x
+\end{align*}
+
+\end_inset
+
+Also we know 
+\begin_inset Formula $\varrho_{\varepsilon}\left(x,.\right)\in C_{0}^{\infty}\left(B_{2\varepsilon}\left(x\right)\right)$
+\end_inset
+
+.
+ Choose 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ so small that 
+\begin_inset Formula $B_{2\varepsilon}\left(y\right)\subseteq\Omega$
+\end_inset
+
+ and use 
+\begin_inset Formula $\varrho_{\varepsilon}$
+\end_inset
+
+ as our convolution kernel to define:
+\begin_inset Formula 
+\begin{align*}
+u_{\varepsilon}\left(y\right) & :=\int_{\Omega}\varrho_{\varepsilon}\left(x,y\right)u\left(x\right)\dd\mu\left(x\right)
+\end{align*}
+
+\end_inset
+
+Now 
+\begin_inset Formula $u_{\varepsilon}$
+\end_inset
+
+ is a smooth function, because 
+\begin_inset Formula $\varrho_{\varepsilon}\left(x,.\right)$
+\end_inset
+
+ is smooth and any derivative with respect to 
+\begin_inset Formula $y$
+\end_inset
+
+ can be exchanged with the integral, since the integration volume is compact.
+\begin_inset Formula 
+\begin{align*}
+u_{\varepsilon}\left(y\right) & =\frac{1}{\varepsilon^{n}}\int_{\Omega}\varrho\left(\frac{\norm{x-y}}{\varepsilon}\right)u\left(x\right)\dd\mu\left(x\right)
+\end{align*}
+
+\end_inset
+
+Choose polar coordinates around 
+\begin_inset Formula $y$
+\end_inset
+
+ and use Fubini to get:
+\begin_inset Formula 
+\begin{align*}
+u_{\varepsilon}\left(y\right) & =\frac{1}{\varepsilon^{n}}\int_{0}^{2\varepsilon}\dd r\int_{\partial B_{r}\left(y\right)}\varrho\left(\frac{r}{\varepsilon}\right)u\left(x\right)\dd\mu_{\partial B_{r}\left(y\right)}\left(x\right)=\\
+ & \stackrel{\text{spherical mean}}{=}\frac{1}{\varepsilon^{n}}\int_{0}^{2\varepsilon}\dd r\varrho\left(\frac{r}{\varepsilon}\right)u\left(y\right)n\omega_{n}r^{n-1}=\\
+ & =u\left(y\right)\frac{1}{\varepsilon^{n}}\int_{0}^{2\varepsilon}\dd r\int_{\partial B_{r}\left(y\right)}1\cdot\varrho\left(\frac{r}{\varepsilon}\right)\dd\mu_{\partial B_{r}\left(y\right)}\left(x\right)=\\
+ & =u\left(y\right)\int_{\mathbb{R}^{n}}\varrho_{\varepsilon}\left(x,y\right)\dd^{n}x=u\left(y\right)
+\end{align*}
+
+\end_inset
+
+Thus 
+\begin_inset Formula $u$
+\end_inset
+
+ is smooth.
+\end_layout
+
+\begin_layout Standard
+Compute 
+\begin_inset Formula $\upDelta u$
+\end_inset
+
+ using the theorem of Gauss:
+\begin_inset Formula 
+\begin{align*}
+\int_{B_{r}\left(y\right)}\left(\upDelta u\left(x\right)\right)\dd\mu\left(x\right) & =\int_{\partial B_{r}\left(y\right)}\nabla_{\nu}u\dd\mu_{\partial B_{r}\left(y\right)}
+\end{align*}
+
+\end_inset
+
+With
+\begin_inset Formula 
+\begin{align*}
+\omega & :=\frac{x-y}{\norm{x-y}}\in S^{n-1}
+\end{align*}
+
+\end_inset
+
+we get:
+\begin_inset Formula 
+\begin{align*}
+\int_{B_{r}\left(y\right)}\left(\upDelta u\left(x\right)\right)\dd\mu\left(x\right) & =r^{n-1}\int_{\partial B_{1}\left(0\right)}\frac{\partial}{\partial r}u\left(y+r\omega\right)\dd\mu_{\partial B_{1}\left(0\right)}\left(\omega\right)=\\
+ & =r^{n-1}\frac{\partial}{\partial r}\left(\frac{1}{r^{n-1}}\int_{\partial B_{r}\left(y\right)}u\left(x\right)\dd\mu_{\partial B_{r}\left(y\right)}\left(x\right)\right)=\\
+ & \sr ={\text{mean value}}{\text{property}}r^{n-1}\frac{\partial}{\partial r}\left(\frac{1}{r^{n-1}}u\left(y\right)n\omega_{n}r^{n-1}\right)=0
+\end{align*}
+
+\end_inset
+
+In the limes 
+\begin_inset Formula $r\to0$
+\end_inset
+
+ follows 
+\begin_inset Formula $\upDelta u\left(y\right)=0$
+\end_inset
+
+ since 
+\begin_inset Formula $u$
+\end_inset
+
+ is smooth.
+ Thus 
+\begin_inset Formula $u$
+\end_inset
+
+ is harmonic.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Part*
 Appendix
 \begin_inset ERT
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
