@@ -8646,7 +8646,7 @@ H\left(x,y\right) & =\Gamma\left(x,y\right)-\Gamma\left(r\right)
 
 \end_inset
 
-coincides up to a constant with the fundamental solution and 
+coincides up to a constant with the fundamental solution and it holds 
 \begin_inset Formula $H\left(x,y\right)=0$
 \end_inset
 
@@ -9025,6 +9025,1409 @@ qqed
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%DATE: Mi 15.5.13
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Theorem 
+\series medium
+(Strong Maximum Principle)
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $u\in C^{2}\left(\Omega\right)$
+\end_inset
+
+ be a harmonic function on an open and connected subset 
+\begin_inset Formula $\Omega\subseteq\mathbb{R}^{n}$
+\end_inset
+
+.
+ If a point 
+\begin_inset Formula $x_{0}\in\Omega$
+\end_inset
+
+ with
+\begin_inset Formula 
+\begin{align*}
+u\left(x_{0}\right) & =\sup_{x\in\Omega}\left(u\right)
+\end{align*}
+
+\end_inset
+
+or
+\begin_inset Formula 
+\begin{align*}
+u\left(x_{0}\right) & =\inf_{x\in\Omega}\left(u\right)
+\end{align*}
+
+\end_inset
+
+exists, then 
+\begin_inset Formula $u$
+\end_inset
+
+ is constant.
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+Since 
+\begin_inset Formula $-u$
+\end_inset
+
+ is also harmonic, it suffices to consider the case 
+\begin_inset Formula $u\left(x_{0}\right)=\sup_{\Omega}\left(u\right)$
+\end_inset
+
+, so assume
+\begin_inset Formula 
+\begin{align*}
+u\left(x_{0}\right) & =\sup_{\Omega}\left(u\right)=:M
+\end{align*}
+
+\end_inset
+
+and define:
+\begin_inset Formula 
+\begin{align*}
+\Omega_{M} & :=\left\{ x\in\Omega\big|u\left(x\right)=M\right\} 
+\end{align*}
+
+\end_inset
+
+Clearly, 
+\begin_inset Formula $\Omega_{M}$
+\end_inset
+
+ is not empty, because 
+\begin_inset Formula $x_{0}\in\Omega_{M}$
+\end_inset
+
+.
+ By continuity, 
+\begin_inset Formula $\Omega_{M}$
+\end_inset
+
+ is closed in 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ with respect to the relative topology.
+ Thus it suffices to show that 
+\begin_inset Formula $\Omega_{M}$
+\end_inset
+
+ is open.
+ Consider 
+\begin_inset Formula $y\in\Omega_{M}$
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $u\left(y\right)=M$
+\end_inset
+
+, and choose 
+\begin_inset Formula $r\in\mathbb{R}_{>0}$
+\end_inset
+
+ with 
+\begin_inset Formula $B_{r}\left(y\right)\subseteq\Omega$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+0 & =u\left(y\right)-M\sr ={\text{mean value}}{\text{property}}\frac{1}{\omega_{n}r^{n}}\int_{B_{r}\left(y\right)}\underbrace{\left(u\left(x\right)-M\right)}_{\le0}\dd\mu\left(x\right)
+\end{align*}
+
+\end_inset
+
+Since 
+\begin_inset Formula $u\left(x\right)\le M$
+\end_inset
+
+, the integrand is non-positive and continuous.
+ So 
+\begin_inset Formula $u\left(x\right)=M$
+\end_inset
+
+ for all 
+\begin_inset Formula $x\in B_{r}\left(y\right)$
+\end_inset
+
+ and thus follows 
+\begin_inset Formula $B_{r}\left(y\right)\subseteq\Omega_{M}$
+\end_inset
+
+.
+ This means that 
+\begin_inset Formula $\Omega_{M}$
+\end_inset
+
+ is open.
+ Since it is also non-empty, closed and connected, the only possibility
+ is 
+\begin_inset Formula $\Omega_{M}=\Omega$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Theorem 
+\series medium
+(Weak Maximum Principle)
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\Omega\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ be open and bounded and 
+\begin_inset Formula $u\in C^{0}\left(\overline{\Omega}\right)$
+\end_inset
+
+ be harmonic.
+ Then holds for all 
+\begin_inset Formula $x\in\Omega$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\min_{y\in\partial\Omega}\left(u\left(y\right)\right) & \le u\left(x\right)\le\max_{y\in\partial\Omega}\left(u\left(y\right)\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+If the statement were false, there would be an interior maximum or minimum
+ at point 
+\begin_inset Formula $x_{0}\in\Omega$
+\end_inset
+
+, since 
+\begin_inset Formula $\overline{\Omega}$
+\end_inset
+
+ is compact, which ensures that the maximum and minimum of 
+\begin_inset Formula $u$
+\end_inset
+
+ are attained in 
+\begin_inset Formula $\overline{\Omega}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Let 
+\begin_inset Formula $\tilde{\Omega}\subseteq\Omega$
+\end_inset
+
+ be the connected component of 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ which contains 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw plot[smooth cycle,tension=1] coordinates{(0,0) (1,0) (0,1) (-1,0)};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (0.3,0.5) node[left]{$x_0$} +(-0.1,-0.1) -- +(0.1,0.1) +(-0.1,0.1) -- +(0.1,-0.1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (0,1.3) {$
+\backslash
+tilde{
+\backslash
+Omega}$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw plot[smooth cycle,tension=1] coordinates{(2,-0.5) (4,0) (3,2)};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node (a) at (1.5,1) {$
+\backslash
+Omega$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (a.-130) -- (0.9,0.5) (a.-70) -- (2,0.5);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $\tilde{\Omega}$
+\end_inset
+
+ is the connected component of 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ that contains 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The strong maximum principle implies 
+\begin_inset Formula $u=u\left(x_{0}\right)$
+\end_inset
+
+ on 
+\begin_inset Formula $\tilde{\Omega}$
+\end_inset
+
+.
+ Thus follows:
+\begin_inset Formula 
+\begin{align*}
+\min_{\partial\tilde{\Omega}}\left(u\right) & =u\left(x_{0}\right)=\max_{\partial\tilde{\Omega}}\left(u\right)\\
+\Rightarrow\qquad\min_{\partial\Omega}\left(u\right)\le\min_{\partial\tilde{\Omega}}\left(u\right) & =u\left(x_{0}\right)=\max_{\partial\tilde{\Omega}}\left(u\right)\le\max_{\partial\Omega}\left(u\right)
+\end{align*}
+
+\end_inset
+
+Therefore 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ cannot be an interior maximum or minimum in contradiction to our assumption.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Corollary 
+\series medium
+(Uniqueness of Solutions of the Poisson Equation)
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $u,v\in C^{0}\left(\overline{\Omega}\right)\cap C^{2}\left(\Omega\right)$
+\end_inset
+
+ be solutions of the Poisson equation:
+\begin_inset Formula 
+\begin{align*}
+\upDelta u & =f=\upDelta v
+\end{align*}
+
+\end_inset
+
+If moreover holds 
+\begin_inset Formula $u\le v$
+\end_inset
+
+ on 
+\begin_inset Formula $\partial\Omega$
+\end_inset
+
+, then follows 
+\begin_inset Formula $u\le v$
+\end_inset
+
+ in 
+\begin_inset Formula $\Omega$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+In particular, 
+\begin_inset Formula $u=v$
+\end_inset
+
+ on 
+\begin_inset Formula $\partial\Omega$
+\end_inset
+
+ implies 
+\begin_inset Formula $u=v$
+\end_inset
+
+ in 
+\begin_inset Formula $\Omega$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+The function 
+\begin_inset Formula $h:=u-v$
+\end_inset
+
+ is harmonic
+\begin_inset Formula 
+\begin{align*}
+\upDelta h & =\upDelta u-\upDelta v=f-f=0
+\end{align*}
+
+\end_inset
+
+and on 
+\begin_inset Formula $\partial\Omega$
+\end_inset
+
+ holds 
+\begin_inset Formula $h\le0$
+\end_inset
+
+.
+ The weak maximum principle gives 
+\begin_inset Formula $h\le0$
+\end_inset
+
+ in 
+\begin_inset Formula $\Omega$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Corollary 
+\series medium
+(Liouville's Theorem)
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $u:\mathbb{R}^{n}\to\mathbb{R}$
+\end_inset
+
+ is harmonic and bounded, then 
+\begin_inset Formula $u$
+\end_inset
+
+ is constant.
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+Choose 
+\begin_inset Formula $y_{1},y_{2}\in\mathbb{R}^{n}$
+\end_inset
+
+.
+ Then for any 
+\begin_inset Formula $r\in\mathbb{R}_{>0}$
+\end_inset
+
+ holds for 
+\begin_inset Formula $i\in\left\{ 1,2\right\} $
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+u\left(y_{i}\right) & =\frac{1}{\omega_{n}r^{n}}\int_{B_{r}\left(y_{i}\right)}u\left(x\right)\dd\mu\left(x\right)
+\end{align*}
+
+\end_inset
+
+The difference is:
+\begin_inset Formula 
+\begin{align*}
+u\left(y_{1}\right)-u\left(y_{2}\right) & =\frac{1}{\omega_{n}r^{n}}\left(\int_{B_{r}\left(y_{1}\right)}u\left(x\right)\dd\mu\left(x\right)-\int_{B_{r}\left(y_{2}\right)}u\left(x\right)\dd\mu\left(x\right)\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (0,0) node[left]{$y_1$} +(-0.1,-0.1) -- +(0.1,0.1) +(-0.1,0.1) -- +(0.1,-0.1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (0.5,0) node[right]{$y_2$} +(-0.1,-0.1) -- +(0.1,0.1) +(-0.1,0.1) -- +(0.1,-0.1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[dashed] (0,0) -- node[above]{$r$} +({2*cos(150)},{2*sin(150)});
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[dashed] (0.5,0) -- node[below right=-3pt]{$r$} +({2*cos(60)},{2*sin(60)});
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[red,dashed] (0,0) -- node[right]{$r_-$} +({1.5*cos(100)},{1.5*sin(100)});
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[red,dashed] (0,0) -- node[right]{$r_+$} +({2.5*cos(260)},{2.5*sin(260)});
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{scope}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[clip] (2,0) arc (0:360:2)  (2.5,0) arc (0:-360:2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+foreach 
+\backslash
+x in {-4.9,-3.8,...,3}     
+\backslash
+draw (-4,
+\backslash
+x) -- (4,{
+\backslash
+x +4});
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{scope}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[red,thick] (0,0) circle(1.5) circle (2.5);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $r_{-}:=r-\norm{y_{1}-y_{2}}$
+\end_inset
+
+, 
+\begin_inset Formula $r_{+}:=r+\norm{y_{1}-y_{2}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So we get:
+\begin_inset Formula 
+\begin{align*}
+u\left(y_{1}\right)-u\left(y_{2}\right) & \le\frac{1}{\omega_{n}r^{n}}\underbrace{\sup_{\mathbb{R}^{n}}\left(\abs u\right)}_{<\infty}\mu\left(B_{r}\left(y_{1}\right)\setminus B_{r}\left(y_{2}\right)\cup B_{r}\left(y_{2}\right)\setminus B_{r}\left(y_{1}\right)\right)\le\\
+ & \le\frac{1}{\omega_{n}r^{n}}\sup_{\mathbb{R}^{n}}\left(\abs u\right)\left(\mu\left(B_{r+\norm{y_{2}-y_{1}}}\left(y_{1}\right)\right)-\mu\left(B_{r-\norm{y_{2}-y_{1}}}\left(y_{1}\right)\right)\right)\le\\
+ & \le\frac{1}{\omega_{n}r^{n}}\sup_{\mathbb{R}^{n}}\left(\abs u\right)\left(\omega_{n}\left(r+\norm{y_{2}-y_{1}}^{n}\right)-\omega_{n}\left(r-\norm{y_{2}-y_{1}}^{n}\right)\right)=\\
+ & =\sup_{\mathbb{R}^{n}}\left(\abs u\right)\frac{1}{r^{n}}\left(2n\norm{y_{2}-y_{1}}r^{n-1}+\ldots\right)\xrightarrow{r\to\infty}0
+\end{align*}
+
+\end_inset
+
+This gives 
+\begin_inset Formula $u\left(y_{1}\right)=u\left(y_{2}\right)$
+\end_inset
+
+ and thus 
+\begin_inset Formula $u$
+\end_inset
+
+ is constant.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+The Harnack Inequality for Harmonic Functions
+\end_layout
+
+\begin_layout Subsection
+Theorem 
+\series medium
+(Harnack inequality)
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\Omega\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ be open and 
+\begin_inset Formula $u:\Omega\to\mathbb{R}$
+\end_inset
+
+ harmonic and non-negative.
+ Then for every compact, (for simplicity) connected subset 
+\begin_inset Formula $\Omega'\subseteq\Omega$
+\end_inset
+
+ there is a constant 
+\begin_inset Formula $c=c\left(\Omega,\Omega'\right)\in\mathbb{R}$
+\end_inset
+
+, which is independent of 
+\begin_inset Formula $u$
+\end_inset
+
+, such that holds:
+\begin_inset Formula 
+\begin{align*}
+\sup_{\Omega'}\left(u\right) & \le c\cdot\inf_{\Omega'}\left(u\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Proof
+\end_layout
+
+\begin_layout Standard
+We begin with the case 
+\begin_inset Formula $\Omega'=B_{r}\left(x_{0}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $B_{4r}\left(x_{0}\right)\subseteq\overline{\Omega}$
+\end_inset
+
+.
+ Choose 
+\begin_inset Formula $y_{1},y_{2}\in\Omega'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[scale=0.8]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw plot[smooth cycle] coordinates {(-4,-4) (4,-3) (5,4) (-5,4)};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (-4,4) {$
+\backslash
+overline{
+\backslash
+Omega}$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (1.3,0) {$
+\backslash
+Omega '$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node (x0) at (0,0){};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node (y1) at (-0.3,0.5){};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node (y2) at (0,-0.7){};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (x0) node[left] {$x_0$} +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (y1) node[right] {$y_1$} +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (y2) node[right] {$y_2$} +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (x0) circle(1) circle(4);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[red] (y1) circle(1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[blue] (x0) circle(2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[green] (y2) circle(3);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula ${\color{red}B_{r}\left(y_{1}\right)}\subseteq{\color{blue}B_{2r}\left(x_{0}\right)}\subseteq{\color{green}B_{3r}\left(y_{2}\right)}\subseteq B_{4r}\left(x_{0}\right)\subseteq\overline{\Omega}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It holds:
+\begin_inset Formula 
+\begin{align*}
+u\left(y_{1}\right) & =\frac{1}{\omega_{n}r^{n}}\int_{{\color{red}B_{r}\left(y_{1}\right)}}u\left(x\right)\dd\mu\left(x\right)\sr{\le}{u\ge0}{}\frac{1}{\omega_{n}r^{n}}\int_{{\color{blue}B_{2r}\left(x_{0}\right)}}u\left(x\right)\dd\mu\left(x\right)\le\\
+ & \le\frac{1}{\omega_{n}r^{n}}\int_{{\color{green}B_{3r}\left(y_{2}\right)}}u\left(x\right)\dd\mu\left(x\right)\le\frac{3^{n}}{\omega_{n}\left(3r\right)^{n}}\int_{{\color{green}B_{3r}\left(y_{2}\right)}}u\left(x\right)\dd\mu\left(x\right)=3^{n}u\left(y_{2}\right)
+\end{align*}
+
+\end_inset
+
+Taking the supremum over 
+\begin_inset Formula $y_{1}$
+\end_inset
+
+ and the infimum over 
+\begin_inset Formula $y_{2}$
+\end_inset
+
+ we get:
+\begin_inset Formula 
+\begin{align*}
+\sup_{B_{r}\left(x_{0}\right)}\left(u\right) & \le3^{n}\inf_{B_{r}\left(x_{0}\right)}\left(u\right)
+\end{align*}
+
+\end_inset
+
+Now consider a general compact subset 
+\begin_inset Formula $\Omega'\subseteq\Omega$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $\Omega'$
+\end_inset
+
+ is empty, we have nothing to show, so consider a non-empty 
+\begin_inset Formula $\Omega'$
+\end_inset
+
+.
+ We want to find a 
+\begin_inset Formula $r\in\mathbb{R}_{>0}$
+\end_inset
+
+ such that for every 
+\begin_inset Formula $x\in\Omega'$
+\end_inset
+
+ holds 
+\begin_inset Formula $B_{4r}\left(x\right)\subseteq\Omega$
+\end_inset
+
+.
+ For 
+\begin_inset Formula $\Omega=\mathbb{R}^{n}$
+\end_inset
+
+ we can choose any 
+\begin_inset Formula $r$
+\end_inset
+
+.
+ Otherwise 
+\begin_inset Formula $\partial\Omega\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ is non-empty and closed.
+ Since 
+\begin_inset Formula $\Omega'$
+\end_inset
+
+ is also non-empty and even compact, the distance 
+\begin_inset Formula $\text{dist}\left(\Omega',\partial\Omega\right)$
+\end_inset
+
+ is attained.
+ This must be larger than zero, because from 
+\begin_inset Formula $\partial\Omega\cap\Omega=\emptyset$
+\end_inset
+
+ and 
+\begin_inset Formula $\Omega'\subseteq\Omega$
+\end_inset
+
+ follows 
+\begin_inset Formula $\partial\Omega\cap\Omega'=\emptyset$
+\end_inset
+
+.
+ So we can choose any 
+\begin_inset Formula $r\in\mathbb{R}_{>0}$
+\end_inset
+
+ with:
+\begin_inset Formula 
+\begin{align*}
+r & <\frac{1}{4}\text{dist}\left(\Omega',\partial\Omega\right)
+\end{align*}
+
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+We cover 
+\begin_inset Formula $\Omega'$
+\end_inset
+
+ by a finite number 
+\begin_inset Formula $\Omega_{1},\ldots,\Omega_{N}$
+\end_inset
+
+ of balls of radius 
+\begin_inset Formula $r.$
+\end_inset
+
+ On each of the sets 
+\begin_inset Formula $\Omega_{l}$
+\end_inset
+
+ holds:
+\begin_inset Formula 
+\begin{align*}
+\sup\left(u\right) & \le3^{n}\text{inf}\left(u\right)
+\end{align*}
+
+\end_inset
+
+One can proceed inductively as follows: Without loss of generality holds
+ 
+\begin_inset Formula $\sup_{\Omega'}\left(u\right)\le\sup_{\Omega_{1}}\left(u\right)$
+\end_inset
+
+, otherwise change the numbering of the 
+\begin_inset Formula $\Omega_{i}$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $\Omega'$
+\end_inset
+
+ is connected, one can choose a finite number 
+\begin_inset Formula $\Omega_{2},\ldots,\Omega_{k}$
+\end_inset
+
+ from the balls of the covering such that for 
+\begin_inset Formula $i\in\left\{ 1,\ldots,k-1\right\} $
+\end_inset
+
+ holds
+\begin_inset Formula 
+\begin{align*}
+\Omega_{i}\cap\Omega_{i+1} & \not=\emptyset
+\end{align*}
+
+\end_inset
+
+and 
+\begin_inset Formula $\inf_{\Omega_{k}}\left(u\right)\le\inf_{\Omega'}\left(u\right)$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $\inf_{\Omega_{1}}\left(u\right)\le\inf_{\Omega'}\left(u\right)$
+\end_inset
+
+, we can choose 
+\begin_inset Formula $k=1$
+\end_inset
+
+.
+ It holds:
+\begin_inset Formula 
+\begin{align*}
+\sup_{\Omega_{i}}\left(u\right) & \le3^{n}\inf_{\Omega_{i}}\left(u\right)\sr{\le}{z_{i}\in\Omega_{i}\cap\Omega_{i+1}}{}3^{n}u\left(z_{i}\right)\le3^{n}\sup_{\Omega_{i+1}}\left(u\right)
+\end{align*}
+
+\end_inset
+
+Inductively one gets after 
+\begin_inset Formula $k-1$
+\end_inset
+
+ steps:
+\begin_inset Formula 
+\begin{align*}
+\sup_{\Omega'}\left(u\right)\le\sup_{\Omega_{1}}\left(u\right) & \le3^{\left(k-1\right)n}\sup_{\Omega_{k}}\left(u\right)\le3^{kn}\inf_{\Omega_{k}}\left(u\right)\le3^{kn}\inf_{\Omega'}\left(u\right)
+\end{align*}
+
+\end_inset
+
+In the worst case of 
+\begin_inset Formula $u$
+\end_inset
+
+, we have 
+\begin_inset Formula $k=N$
+\end_inset
+
+ and therefore for any 
+\begin_inset Formula $u$
+\end_inset
+
+ holds:
+\begin_inset Formula 
+\begin{align*}
+\sup_{\Omega'}\left(u\right) & \le3^{Nn}\inf_{\Omega'}\left(u\right)
+\end{align*}
+
+\end_inset
+
+Thus the theorem is proven.
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Corollary 
+\series medium
+(Harnack's Convergence Theorem)
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $u_{n}:\Omega\to\mathbb{R}^{n}$
+\end_inset
+
+ be a monotonically increasing sequence of harmonic functions.
+ Assume that there is a 
+\begin_inset Formula $y\in\Omega$
+\end_inset
+
+, where 
+\begin_inset Formula $u_{n}\left(y\right)$
+\end_inset
+
+ is a bounded sequence.
+\begin_inset Newline newline
+\end_inset
+
+Then the functions 
+\begin_inset Formula $u_{n}$
+\end_inset
+
+ converge locally uniformly, i.e.
+ uniformly in a small neighborhood of 
+\begin_inset Formula $y$
+\end_inset
+
+, to a harmonic function 
+\begin_inset Formula $u$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+Since the sequence 
+\begin_inset Formula $u_{n}\left(y\right)$
+\end_inset
+
+ is bounded and monotonically increasing, it is convergent, i.e.
+ for all 
+\begin_inset Formula $\varepsilon\in\mathbb{R}_{>0}$
+\end_inset
+
+ there exists a 
+\begin_inset Formula $N\in\mathbb{N}$
+\end_inset
+
+ such that for all 
+\begin_inset Formula $k>m>N$
+\end_inset
+
+ holds:
+\begin_inset Formula 
+\begin{align*}
+u_{k}\left(y\right)-u_{m}\left(y\right) & <\varepsilon
+\end{align*}
+
+\end_inset
+
+The function 
+\begin_inset Formula $u_{k}-u_{m}$
+\end_inset
+
+ is non-negative and harmonic.
+ Now choose a bounded and connected neighborhood 
+\begin_inset Formula $\Omega'$
+\end_inset
+
+ of 
+\begin_inset Formula $y$
+\end_inset
+
+ with 
+\begin_inset Formula $\overline{\Omega'}\subseteq\Omega$
+\end_inset
+
+.
+ According to the Harnack inequality holds:
+\begin_inset Formula 
+\begin{align*}
+\sup_{\overline{\Omega'}}\left(u_{k}-u_{m}\right) & \le c\left(\Omega,\overline{\Omega'}\right)\cdot\inf_{\overline{\Omega'}}\left(u_{k}-u_{m}\right)\le c\left(u_{k}\left(y\right)-u_{m}\left(y\right)\right)\xrightarrow{k,m\to\infty}0
+\end{align*}
+
+\end_inset
+
+Hence 
+\begin_inset Formula $u_{k}$
+\end_inset
+
+ converges 
+\emph on
+uniformly
+\emph default
+ in 
+\begin_inset Formula $\Omega'$
+\end_inset
+
+ to a function 
+\begin_inset Formula $u\in C^{0}\left(\Omega'\right)$
+\end_inset
+
+.
+ The function 
+\begin_inset Formula $u$
+\end_inset
+
+ is harmonic, because for all 
+\begin_inset Formula $x_{0}\in\Omega'$
+\end_inset
+
+ and 
+\begin_inset Formula $r\in\mathbb{R}_{>0}$
+\end_inset
+
+ such that 
+\begin_inset Formula $B_{r}\left(x_{0}\right)\subseteq\Omega'$
+\end_inset
+
+ holds:
+\begin_inset Formula 
+\begin{align*}
+u_{k}\left(x_{0}\right) & =\frac{1}{\omega_{n}r^{n}}\int_{B_{r}\left(x_{0}\right)}u_{k}\left(x\right)\dd\mu\left(x\right)
+\end{align*}
+
+\end_inset
+
+From 
+\begin_inset Formula $u_{k}\left(x_{0}\right)\to u\left(x_{0}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $u_{k}\left(x\right)\rightrightarrows u\left(x\right)$
+\end_inset
+
+ follows:
+\begin_inset Formula 
+\begin{align*}
+u\left(x_{0}\right) & =\frac{1}{\omega_{n}r^{n}}\int_{B_{r}\left(x_{0}\right)}u\left(x\right)\dd\mu\left(x\right)
+\end{align*}
+
+\end_inset
+
+So 
+\begin_inset Formula $u$
+\end_inset
+
+ has the mean-value property and is thus harmonic.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+The Perron Method of Sub- and Supersolution
+\end_layout
+
+\begin_layout Standard
+Consider the Dirichlet problem on a bounded 
+\begin_inset Formula $\Omega\subseteq\mathbb{R}^{n}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\upDelta u & =0 & u\big|_{\partial\Omega} & =\varphi
+\end{align*}
+
+\end_inset
+
+The Perron method, named after Oskar Perron (1880-1972), yields the existence
+ of a solution if 
+\begin_inset Formula $\partial\Omega$
+\end_inset
+
+ is sufficiently smooth.
+ This is a classical method, in the sense that it works always with continuous
+ functions and no weak solutions, but only classical solutions.
+ The idea is to find the solution as a supremum of subsolutions:
+\begin_inset Formula 
+\begin{align*}
+u\left(x\right) & :=\sup_{v\text{ subsolution}}\left(v\left(x\right)\right)
+\end{align*}
+
+\end_inset
+
+This works for any domain and gives a harmonic function, but 
+\begin_inset Formula $\partial\Omega$
+\end_inset
+
+ has to be sufficiently smooth, for the boundary condition to be satisfied.
 \end_layout
 
 \begin_layout Part*
