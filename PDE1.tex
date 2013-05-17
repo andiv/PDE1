@@ -2030,7 +2030,7 @@ A function $G\left(x,y\right)$ defined for $x,y\in\overline{\Omega}$
 with $x\not=y$ is called \emph{Green's function} for the domain $\Omega$
 if the following conditions are satisfied:
 \begin{enumerate}[label=\roman*)]
-\item For all $x\in\partial\Omega$ holds ${\displaystyle G\left(x,y\right)=0}$.
+\item For all $x\in\partial\Omega$ and $y\not=x$ holds ${\displaystyle G\left(x,y\right)=0}$.
 \item $h\left(x,y\right):=G\left(x,y\right)-\Gamma\left(x,y\right)$ is
 in $C^{2}\left(\Omega\right)$, even for $x=y$, and harmonic in $x\in\Omega$.
 \end{enumerate}
@@ -2298,7 +2298,7 @@ gives:
 The function
 \begin{align}
 u\left(y\right) & :=\begin{cases}
-\frac{R^{2}-y^{2}}{n\omega_{n}R}\int_{B_{R}\left(0\right)}\frac{\varphi\left(x\right)}{\norm{x-y}^{n}}\dd\mu_{\partial B_{R}\left(0\right)} & \text{if }y\in B_{R}\left(0\right)\\
+\frac{R^{2}-y^{2}}{n\omega_{n}R}\int_{\partial B_{R}\left(0\right)}\frac{\varphi\left(x\right)}{\norm{x-y}^{n}}\dd\mu_{\partial B_{R}\left(0\right)} & \text{if }y\in B_{R}\left(0\right)\\
 \varphi\left(y\right) & \text{if }y\in\partial B_{R}\left(0\right)
 \end{cases}
 \end{align}
@@ -2492,7 +2492,7 @@ $\Omega_{M}$ is open. Since it is also non-empty, closed and connected,
 the only possibility is $\Omega_{M}=\Omega$.\qqed
 
 
-\subsection{Theorem \textmd{(Weak Maximum Principle)}}
+\subsection{Theorem \textmd{(Weak Maximum Principle)\label{sub:Thm-Weak-Maximum-Principle}}}
 
 Let $\Omega\subseteq\mathbb{R}^{n}$ be open and bounded and $u\in C^{0}\left(\overline{\Omega}\right)$
 be harmonic. Then holds for all $x\in\Omega$:
@@ -2735,9 +2735,10 @@ u\left(x_{0}\right) & =\frac{1}{\omega_{n}r^{n}}\int_{B_{r}\left(x_{0}\right)}u\
 So $u$ has the mean-value property and is thus harmonic.\qqed
 
 
-\chapter{The Perron Method of Sub- and Supersolution}
+\chapter{Perron Method of Sub- and Supersolutions}
 
-Consider the Dirichlet problem on a bounded $\Omega\subseteq\mathbb{R}^{n}$:
+Consider the Dirichlet problem on a bounded $\Omega\subseteq\mathbb{R}^{n}$
+with $\varphi\in C^{2}\left(\partial\Omega\right)$:
 \begin{align*}
 \upDelta u & =0 & u\big|_{\partial\Omega} & =\varphi
 \end{align*}
@@ -2749,8 +2750,324 @@ The idea is to find the solution as a supremum of subsolutions:
 \begin{align*}
 u\left(x\right) & :=\sup_{v\text{ subsolution}}\left(v\left(x\right)\right)
 \end{align*}
-This works for any domain and gives a harmonic function, but $\partial\Omega$
+For any domain this gives a harmonic function, but $\partial\Omega$
 has to be sufficiently smooth, for the boundary condition to be satisfied.
+
+%DATE: Fr 17.5.13
+
+
+\section{Definition \textmd{(Sub- and Superharmonic Functions, Compactly Contained)}}
+
+A function $u\in C^{0}\left(\Omega\right)$ is called \emph{subharmonic}
+(\emph{superharmonic}) in $\Omega$, if for every ball $B\Subset\Omega$
+(\emph{compactly contained} in $\Omega$, i.e. $\overline{B}\subseteq\Omega$)
+and every harmonic function $h\in C^{0}\left(\overline{B}\right)$
+with $u\le h$ (respectively $u\ge h$) in $\partial B$ follows $u\le h$
+(respectively $u\ge h$) in all of $B$.
+
+\begin{figure}[H]
+\noindent \centering{}\begin{tikzpicture}
+  \draw plot [smooth cycle] coordinates {(-2,0) (-1,2) (1,1) (2,-1)};
+  \draw (0,0) node{$h$} circle (0.5);
+  \node at (0,0.7) {$B$};
+  \node at (-1,0.5) {$u$};
+  \node at (0.3,1.9) {$\Omega$};
+\end{tikzpicture}\caption{$h\in C^{0}\left(\overline{B}\right)$}
+\end{figure}
+
+
+Note that every harmonic function is subharmonic and superharmonic
+by the weak maximum principle.
+
+For $\varphi\in C^{2}\left(\partial\Omega\right)$ we consider the
+family $S_{\varphi}$ of functions defined as:
+\begin{align*}
+S_{\varphi} & :=\left\{ v\in C^{0}\left(\overline{\Omega}\right)\big|v\text{ subharmonic},v\big|_{\partial\Omega}\le\varphi\big|_{\partial\Omega}\right\} 
+\end{align*}
+Because the constant $v:=\min_{\partial\Omega}\varphi$ is subharmonic
+and satisfies $v\big|_{\partial\Omega}\le\varphi\big|_{\partial\Omega}$,
+we know $S_{\varphi}\not=\emptyset$. The constant is bigger than
+minus infinity, because $\Omega$ is bounded and thus $\partial\Omega$
+is compact. A function $v\in S_{\varphi}$ is called \emph{subsolution}.
+Now define the function $u$ by:
+\begin{align*}
+u\left(x\right) & :=\sup_{v\in S_{\varphi}}\left(v\left(x\right)\right)\in\mathbb{R}\cup\left\{ \infty\right\} 
+\end{align*}
+We hope, that $u$ is the solution of the Dirichlet problem.
+
+
+\section{Theorem \textmd{(Supremum of Subsolutions is Harmonic)}\label{sec:Thm-u-harmonic}}
+
+The function
+\begin{align*}
+u\left(x\right) & :=\sup_{v\in S_{\varphi}}\left(v\left(x\right)\right)\in\mathbb{R}\cup\left\{ \infty\right\} 
+\end{align*}
+is a harmonic function in $\Omega$.
+
+After proving this theorem, we still need to verify that $u$ satisfies
+the boundary condition.
+
+
+\section{Definition \textmd{(Harmonic Lift)}}
+
+Let $u\in C^{0}\left(\Omega\right)$ be subharmonic in $\Omega$ and
+$B\Subset\Omega$ a ball. The function $\overline{v}\in C^{0}\left(\Omega\right)$
+defined by
+\begin{align*}
+\overline{v}\big|_{\Omega\setminus B} & =v\big|_{\Omega\setminus B} & \upDelta\overline{v}\big|_{B} & =0
+\end{align*}
+is referred to as the \emph{harmonic lift} of $v$ in $B$.
+
+
+\section{Lemma \textmd{(Harmonic Lift Exists)}}
+
+The harmonic lift exists.
+
+
+\subsubsection*{Proof}
+
+Consider the Dirichlet problem on the ball $B$:
+\begin{align*}
+\upDelta u\big|_{B} & =0 & u\big|_{\partial B} & =v\big|_{\partial B}
+\end{align*}
+This Dirichlet problem has an explicit solution $u$ given by the
+Poisson representation. Set:
+\begin{align*}
+\overline{v}\left(x\right) & =\begin{cases}
+v\left(x\right) & \text{if }x\in\Omega\setminus B\\
+u\left(x\right) & \text{if }x\in B
+\end{cases}
+\end{align*}
+\qqed
+
+Note that $\overline{v}\ge v$ follows by the definition of subharmonic,
+because $u\ge v$ holds in $B$ and thus $\overline{v}\ge v$ holds
+in $\Omega$.
+
+
+\section{Lemma \textmd{(Harmonic Lift is Subharmonic)}}
+
+The harmonic lift is again subharmonic.
+
+
+\subsubsection*{Proof}
+
+Let $\overline{v}$ be the harmonic lift of $v$ in $B$.
+
+We want to prove, that for all balls $B'\Subset\Omega$ and for all
+harmonic functions $u$ with $u\ge\overline{v}$ on $\partial B'$
+holds $u\ge\overline{v}$ in $B'$.
+
+If $B'\cap B=\emptyset$ this follows, because $\overline{v}\big|_{\Omega\setminus B}=v$
+and $v$ is subharmonic.
+
+\begin{figure}[H]
+\noindent \centering{}\begin{tikzpicture}[scale=1.5]
+  \draw plot [smooth cycle] coordinates {(-2,0) (-1,2) (2,1) (2,-1)};
+  \draw(0,0.5) circle (0.5) (0.8,0.3) circle (1);
+\begin{scope}
+  \clip (0,0.5) circle (0.5);
+  \clip (0.8,0.3) circle (1);
+  \draw[thick, orange] (0,0.5) circle (0.485);
+  \draw[thick, orange] (0.8,0.3) circle (0.985);
+  \foreach \x in {-0.45,-0.25,...,0.35}     \draw[orange] (-1,\x) -- (1,{\x+1});
+\end{scope}
+  \node[orange] at (0,1.4) {$B\cap B'$};
+  \node at (1.15,0.56) {$v=\overline{v}$};
+\begin{scope}
+  \clip (0.8,0.3) +(1,0) arc (0:360:1) (0,0.5) +(0.5,0) arc (0:-360:0.5);
+  \foreach \x in {-1,-0.25,...,0.5}     \draw (2,\x) -- (0.1,{\x+1});
+\end{scope}
+  \node at (-0.6,0.9) {$B$};
+  \node at (1.6,-0.7) {$B'$};
+  \node at (0.3,2.2) {$\Omega$};
+\end{tikzpicture}\caption{$B'\cap B\not=\emptyset$}
+\end{figure}
+
+
+Otherwise let $u\in C^{2}\left(B'\right)$ be harmonic and $u\ge\overline{v}$
+on $\partial B'$. We know $v\le\overline{v}$ in $\Omega$ thus follows:
+\begin{align*}
+v\big|_{\partial B'} & \le\overline{v}\big|_{\partial B'}\le u\big|_{\partial B'}\\
+\sr{\Rightarrow}{\text{subharmonic}}{}v\big|_{B'} & \le u\big|_{B'}
+\end{align*}
+Therefore we have $\overline{v}=v\le u$ in $B'\setminus B$ and thus
+$\overline{v}\le u$ on $\partial\left(B\cap B'\right)$. Since the
+functions $\overline{v}$ and $u$ are both harmonic in $B\cap B'$,
+the weak maximum principle implies $\overline{v}\le u$ in $B\cap B'$.\qqed
+
+
+\section{Proposition \textmd{(Maximum Principle for Subharmonic Functions)}}
+
+Let $\Omega\subseteq\mathbb{R}^{n}$ be open and connected and $u\in C^{0}\left(\overline{\Omega}\right)$
+subharmonic.
+\begin{enumerate}[label=\alph*)]
+\item Strong maximum principle: If there is a $x_{0}\in\Omega$ with $u\left(x_{0}\right)=\sup_{\Omega}\left(u\right)$,
+then $u$ is constant.
+\item Weak maximum principle: ${\displaystyle u\left(x\right)\le\sup_{\partial\Omega}\left(u\right)}$
+\end{enumerate}
+
+\subsubsection*{Proof}
+
+b) follows from a) just as in the proof of Theorem \ref{sub:Thm-Weak-Maximum-Principle}.
+
+To prove a), suppose that $u\left(x_{0}\right)=\sup_{\Omega}\left(u\right)$
+holds, but $u$ is \emph{not} constant. Then there is a $y\in\Omega$
+and a $r\in\mathbb{R}_{>0}$ such that $u\left(y\right)=\sup_{x\in\Omega}u\left(x\right)$,
+but $u\big|_{\partial B_{r}\left(y\right)}$ is not constant.
+
+Let $c\left(\tau\right)$ be a curve joining $c\left(0\right)=x_{0}$
+with $c\left(1\right)=z$.
+\begin{align*}
+\tilde{\tau} & :=\sup\left\{ \tau\big|u\left(c\left(\tau\right)\right)=u\left(x_{0}\right)\right\} <1
+\end{align*}
+Choose $y:=c\left(\tilde{\tau}\right)$ and $r$ small enough, so
+that $B_{r}\left(y\right)\subseteq\Omega$.
+
+\begin{figure}[H]
+\noindent \centering{}\begin{tikzpicture}[scale=1.5]
+  \draw plot [smooth cycle] coordinates {(-2,0) (-1,2) (2,1) (2,-1)};
+  \node at (0.3,2) {$\Omega$};
+  \draw (-1,1) node[left]{$x_0$} +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+  \draw (1.5,0) node[right]{$z$} +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+  \draw plot [smooth] coordinates {(-1,1) (-0.5,0) (0.5,0.5) (1.5,0)};
+  \draw[red] (0.5,0.5) node[above]{$y$} +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1) +(0,0) circle (0.5) node[above right=10pt]{$B_r(y)$};
+\end{tikzpicture}\caption{$u\left(z\right)<u\left(x_{0}\right)=u\left(y\right)$; $u\big|_{\partial B_{r}\left(y\right)}$
+is not constant.}
+\end{figure}
+
+
+Let $\overline{u}$ be the harmonic lift of $u$ in $B_{r}$. Then
+holds:
+\begin{align*}
+\overline{u}\left(y\right) & \ge u\left(y\right)\ge\sup_{\partial B_{r}\left(y\right)}\left(u\right)=\sup_{\partial B_{r}\left(y\right)}\left(\overline{u}\right)
+\end{align*}
+By the weak maximum principle, which states $\overline{u}\left(y\right)\le\sup_{\partial B_{r}\left(y\right)}\left(\overline{u}\right)$,
+follows that $\overline{u}$ is constant in $B_{r}\left(y\right)$.
+This implies that $\overline{u}\big|_{\partial B_{r}}=u\big|_{\partial B_{r}}$
+is constant, which is a contradiction to $u$ not being constant on
+$\partial B_{r}$.\qqed
+
+
+\section{Proposition\label{sec:Prop-sub-super-equals}}
+
+If $v$ is subharmonic and $u$ superharmonic in $\Omega$ and $v\le u$
+holds on $\partial\Omega$, then in $\Omega$ holds either $v<u$
+or $v=u$, in which case $u$ and $v$ are harmonic.
+
+
+\subsubsection*{Proof}
+
+This is proven in the exercises.\qqed
+
+
+\subsubsection*{Proof of Theorem \ref{sec:Thm-u-harmonic}}
+
+Define $u\left(x\right):=\sup_{v\in S_{\varphi}}\left(v\left(x\right)\right)$.
+According to Proposition \ref{sec:Prop-sub-super-equals} we know,
+since the constant function $\sup_{\partial\Omega}\left(\varphi\right)$
+is superharmonic:
+\begin{align*}
+v\left(x\right) & \le\sup_{\partial\Omega}\left(\varphi\right)\qquad\fall_{v\in S_{\varphi}}\\
+\Rightarrow\qquad u\left(x\right) & \le\sup_{\partial\Omega}\left(\varphi\right)
+\end{align*}
+From $\inf_{\partial\Omega}\left(\varphi\right)\in S_{\varphi}$ and
+because $u$ is the supremum of the functions in $S_{\varphi}$, we
+also know:
+\begin{align*}
+\inf_{\partial\Omega}\left(\varphi\right) & \le u\left(x\right)
+\end{align*}
+Hence $u$ is a bounded function on $\Omega$. Consider $y\in\Omega$.
+By definition of the supremum, there is a sequence $v_{n}\in S_{\varphi}$
+such that $v_{n}\left(y\right)\to u\left(y\right)$ converges. We
+can assume that the functions $v_{n}$ are bounded, because $v_{n}\le u$
+bounds from above and if $v_{n}$ is not bounded from below, we can
+replace it by $\max\left(v_{n},\inf_{\partial\Omega}\left(\varphi\right)\right)$.
+This is again a subsolution.
+
+Choose $r\in\mathbb{R}_{>0}$ such that $B_{r}\left(y\right)\Subset\Omega$
+and let $\overline{v}_{n}$ be the harmonic lift of $v_{n}$ in $B_{r}\left(y\right)$.
+Then $v_{n}\le\overline{v}_{n}$ holds in $\Omega$ and $\overline{v}_{n}\left(y\right)\le u\left(y\right)$,
+since $\overline{v}_{n}$ is again a subsolution. Hence follows:
+\begin{align*}
+\underbrace{v_{n}\left(y\right)}_{\to u\left(y\right)} & \le\overline{v}_{n}\left(y\right)\le u\left(y\right)
+\end{align*}
+Thus we have $\overline{v}_{n}\left(y\right)\to u\left(y\right)$.
+Possibly after choosing a subsequence, the sequence $\overline{v}_{n}\left(y\right)$
+is monotonically increasing. Moreover, we can assume that the sequence
+$v_{n}$ is monotonically increasing in $\Omega$. Namely, we can
+replace $v_{n}$ by $\tilde{v}_{n}$ defined by:
+\begin{align*}
+\tilde{v}_{1} & =v_{1}\\
+\tilde{v}_{2} & :=\max\left(v_{1},v_{2}\right)\\
+\vdots\ \\
+\tilde{v}_{n} & :=\max\left(v_{1},\ldots,v_{n}\right)
+\end{align*}
+These are again subharmonic and they are monotonically increasing.
+Then the $\overline{v}_{n}$ are also monotonically increasing in
+$B_{r}\left(y\right)$ using the maximum principle:
+\begin{align*}
+\left(\overline{v}_{n+1}-\overline{v}_{n}\right)\big|_{\partial B_{r}\left(y\right)} & =\left(v_{n+1}-v_{n}\right)\big|_{\partial B_{r}\left(y\right)}\ge0
+\end{align*}
+The weak maximum principle implies $\overline{v}_{n+1}-\overline{v}_{n}\ge0$
+in $B_{r}\left(y\right)$.
+
+Applying Harnack's convergence theorem, we conclude
+\begin{align*}
+\overline{v}_{n} & \rightrightarrows\overline{v}\text{ in }B_{r}\left(y\right)
+\end{align*}
+and $\overline{v}$ is harmonic.
+
+Now we show $u=\overline{v}$ in $B_{r}\left(y\right)$. Obviously
+holds $\overline{v}\le u,$ because $\overline{v}_{n}\le u$ holds
+for all $n\in\mathbb{N}$.\\
+Thus assume that there is a point $x\in B_{r}\left(y\right)$ with
+$\overline{v}\left(x\right)<u\left(x\right)$. Then there exists a
+subsolution $s\in S_{\varphi}$ with $\overline{v}\left(x\right)<s\left(x\right)<u\left(x\right)$,
+because $u\left(x\right)=\sup_{v\in S_{\varphi}}\left(v\left(x\right)\right)$.
+Thus we also have $v_{n}\left(x\right)\le\overline{v}\left(x\right)<s\left(x\right)$.
+Now form the sequence:
+\begin{align*}
+w_{n} & :=\max\left(s,v_{n}\right)
+\end{align*}
+These are again subharmonic, from $v_{n}\left(x\right)<s\left(x\right)$
+follows $w_{n}\left(x\right)=s\left(x\right)$, and for the harmonic
+lifts holds $\overline{w}_{n}\ge\overline{v}_{n}$. Then repeating
+the above construction for $v_{n}$ replaced by $w_{n}$, we find
+$\overline{w}_{n}\rightrightarrows\overline{w}$ converges uniformly
+to a harmonic $\overline{w}$. Then follows $\overline{v}\le\overline{w}\le u$
+just as before and:
+\begin{align*}
+\overline{v}\left(y\right) & =\overline{w}\left(y\right)=u\left(y\right)\\
+\overline{v}\left(x\right) & <\overline{w}\left(x\right)=s\left(x\right)<u\left(x\right)
+\end{align*}
+The mean value property gives:
+\begin{align*}
+\frac{1}{\omega_{n}r^{n}}\int_{B_{r}\left(y\right)}\overline{w}\left(z\right)\dd\mu\left(z\right) & \ge\frac{1}{\omega_{n}r^{n}}\int_{B_{r}\left(y\right)}\overline{v}\left(z\right)\dd\mu\left(z\right)=\overline{v}\left(y\right)=\overline{w}\left(y\right)=\\
+ & =\frac{1}{\omega_{n}r^{n}}\int_{B_{r}\left(y\right)}\overline{w}\left(z\right)\dd\mu\left(z\right)
+\end{align*}
+Thus follows $\overline{w}=\overline{v}$ in $B_{r}\left(y\right)$
+in contradiction to $\overline{v}\left(x\right)<\overline{w}\left(x\right)$.\qqed
+
+Question: Is $u$ also a solution of the Dirichlet problem?
+
+
+\section{Proposition \textmd{(Existing Solution is Perron Solution)}}
+
+If the Dirichlet problem has a solution, then
+\begin{align*}
+u\left(x\right) & =\sup_{v\in S_{\varphi}}\left(v\left(x\right)\right)
+\end{align*}
+equals this solution.
+
+
+\subsubsection*{Proof}
+
+Let $\tilde{u}$ be a solution of the Dirichlet problem. Then $\tilde{u}$
+is also a subsolution, i.e. $\tilde{u}\in S_{\varphi}$. Therefore
+holds $u\left(x\right)\ge\tilde{u}\left(x\right)$ for all $x\in\Omega$.
+Hence $u-\tilde{u}$ is harmonic and $\left(u-\tilde{u}\right)\big|_{\partial\Omega}=0$.
+By the weak maximum principle follows $u=\tilde{u}$ in $\Omega$.\qqed
 
 
 \part*{Appendix\thispagestyle{empty}}

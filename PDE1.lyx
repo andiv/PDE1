@@ -7450,6 +7450,10 @@ For all
 \begin_inset Formula $x\in\partial\Omega$
 \end_inset
 
+ and 
+\begin_inset Formula $y\not=x$
+\end_inset
+
  holds 
 \begin_inset Formula ${\displaystyle G\left(x,y\right)=0}$
 \end_inset
@@ -8477,7 +8481,7 @@ The function
 \begin_inset Formula 
 \begin{align}
 u\left(y\right) & :=\begin{cases}
-\frac{R^{2}-y^{2}}{n\omega_{n}R}\int_{B_{R}\left(0\right)}\frac{\varphi\left(x\right)}{\norm{x-y}^{n}}\dd\mu_{\partial B_{R}\left(0\right)} & \text{if }y\in B_{R}\left(0\right)\\
+\frac{R^{2}-y^{2}}{n\omega_{n}R}\int_{\partial B_{R}\left(0\right)}\frac{\varphi\left(x\right)}{\norm{x-y}^{n}}\dd\mu_{\partial B_{R}\left(0\right)} & \text{if }y\in B_{R}\left(0\right)\\
 \varphi\left(y\right) & \text{if }y\in\partial B_{R}\left(0\right)
 \end{cases}
 \end{align}
@@ -8528,7 +8532,7 @@ This can be shown using Green's representation, computing the boundary values
 
 -derivative may be taken inside the integral.
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Plain Layout
 TODO: Beweis ergänzen
@@ -9209,6 +9213,13 @@ qqed
 Theorem 
 \series medium
 (Weak Maximum Principle)
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Thm-Weak-Maximum-Principle"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -10391,12 +10402,16 @@ qqed
 \end_layout
 
 \begin_layout Chapter
-The Perron Method of Sub- and Supersolution
+Perron Method of Sub- and Supersolutions
 \end_layout
 
 \begin_layout Standard
 Consider the Dirichlet problem on a bounded 
 \begin_inset Formula $\Omega\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ with 
+\begin_inset Formula $\varphi\in C^{2}\left(\partial\Omega\right)$
 \end_inset
 
 :
@@ -10423,11 +10438,1629 @@ u\left(x\right) & :=\sup_{v\text{ subsolution}}\left(v\left(x\right)\right)
 
 \end_inset
 
-This works for any domain and gives a harmonic function, but 
+For any domain this gives a harmonic function, but 
 \begin_inset Formula $\partial\Omega$
 \end_inset
 
  has to be sufficiently smooth, for the boundary condition to be satisfied.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%DATE: Fr 17.5.13
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Definition 
+\series medium
+(Sub- and Superharmonic Functions, Compactly Contained)
+\end_layout
+
+\begin_layout Standard
+A function 
+\begin_inset Formula $u\in C^{0}\left(\Omega\right)$
+\end_inset
+
+ is called 
+\emph on
+subharmonic
+\emph default
+ (
+\emph on
+superharmonic
+\emph default
+) in 
+\begin_inset Formula $\Omega$
+\end_inset
+
+, if for every ball 
+\begin_inset Formula $B\Subset\Omega$
+\end_inset
+
+ (
+\emph on
+compactly contained
+\emph default
+ in 
+\begin_inset Formula $\Omega$
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $\overline{B}\subseteq\Omega$
+\end_inset
+
+) and every harmonic function 
+\begin_inset Formula $h\in C^{0}\left(\overline{B}\right)$
+\end_inset
+
+ with 
+\begin_inset Formula $u\le h$
+\end_inset
+
+ (respectively 
+\begin_inset Formula $u\ge h$
+\end_inset
+
+) in 
+\begin_inset Formula $\partial B$
+\end_inset
+
+ follows 
+\begin_inset Formula $u\le h$
+\end_inset
+
+ (respectively 
+\begin_inset Formula $u\ge h$
+\end_inset
+
+) in all of 
+\begin_inset Formula $B$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw plot [smooth cycle] coordinates {(-2,0) (-1,2) (1,1) (2,-1)};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (0,0) node{$h$} circle (0.5);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (0,0.7) {$B$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (-1,0.5) {$u$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (0.3,1.9) {$
+\backslash
+Omega$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $h\in C^{0}\left(\overline{B}\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that every harmonic function is subharmonic and superharmonic by the
+ weak maximum principle.
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $\varphi\in C^{2}\left(\partial\Omega\right)$
+\end_inset
+
+ we consider the family 
+\begin_inset Formula $S_{\varphi}$
+\end_inset
+
+ of functions defined as:
+\begin_inset Formula 
+\begin{align*}
+S_{\varphi} & :=\left\{ v\in C^{0}\left(\overline{\Omega}\right)\big|v\text{ subharmonic},v\big|_{\partial\Omega}\le\varphi\big|_{\partial\Omega}\right\} 
+\end{align*}
+
+\end_inset
+
+Because the constant 
+\begin_inset Formula $v:=\min_{\partial\Omega}\varphi$
+\end_inset
+
+ is subharmonic and satisfies 
+\begin_inset Formula $v\big|_{\partial\Omega}\le\varphi\big|_{\partial\Omega}$
+\end_inset
+
+, we know 
+\begin_inset Formula $S_{\varphi}\not=\emptyset$
+\end_inset
+
+.
+ The constant is bigger than minus infinity, because 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ is bounded and thus 
+\begin_inset Formula $\partial\Omega$
+\end_inset
+
+ is compact.
+ A function 
+\begin_inset Formula $v\in S_{\varphi}$
+\end_inset
+
+ is called 
+\emph on
+subsolution
+\emph default
+.
+ Now define the function 
+\begin_inset Formula $u$
+\end_inset
+
+ by:
+\begin_inset Formula 
+\begin{align*}
+u\left(x\right) & :=\sup_{v\in S_{\varphi}}\left(v\left(x\right)\right)\in\mathbb{R}\cup\left\{ \infty\right\} 
+\end{align*}
+
+\end_inset
+
+We hope, that 
+\begin_inset Formula $u$
+\end_inset
+
+ is the solution of the Dirichlet problem.
+\end_layout
+
+\begin_layout Section
+Theorem 
+\series medium
+(Supremum of Subsolutions is Harmonic)
+\series default
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Thm-u-harmonic"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The function
+\begin_inset Formula 
+\begin{align*}
+u\left(x\right) & :=\sup_{v\in S_{\varphi}}\left(v\left(x\right)\right)\in\mathbb{R}\cup\left\{ \infty\right\} 
+\end{align*}
+
+\end_inset
+
+is a harmonic function in 
+\begin_inset Formula $\Omega$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+After proving this theorem, we still need to verify that 
+\begin_inset Formula $u$
+\end_inset
+
+ satisfies the boundary condition.
+\end_layout
+
+\begin_layout Section
+Definition 
+\series medium
+(Harmonic Lift)
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $u\in C^{0}\left(\Omega\right)$
+\end_inset
+
+ be subharmonic in 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ and 
+\begin_inset Formula $B\Subset\Omega$
+\end_inset
+
+ a ball.
+ The function 
+\begin_inset Formula $\overline{v}\in C^{0}\left(\Omega\right)$
+\end_inset
+
+ defined by
+\begin_inset Formula 
+\begin{align*}
+\overline{v}\big|_{\Omega\setminus B} & =v\big|_{\Omega\setminus B} & \upDelta\overline{v}\big|_{B} & =0
+\end{align*}
+
+\end_inset
+
+is referred to as the 
+\emph on
+harmonic lift
+\emph default
+ of 
+\begin_inset Formula $v$
+\end_inset
+
+ in 
+\begin_inset Formula $B$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Lemma 
+\series medium
+(Harmonic Lift Exists)
+\end_layout
+
+\begin_layout Standard
+The harmonic lift exists.
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+Consider the Dirichlet problem on the ball 
+\begin_inset Formula $B$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\upDelta u\big|_{B} & =0 & u\big|_{\partial B} & =v\big|_{\partial B}
+\end{align*}
+
+\end_inset
+
+This Dirichlet problem has an explicit solution 
+\begin_inset Formula $u$
+\end_inset
+
+ given by the Poisson representation.
+ Set:
+\begin_inset Formula 
+\begin{align*}
+\overline{v}\left(x\right) & =\begin{cases}
+v\left(x\right) & \text{if }x\in\Omega\setminus B\\
+u\left(x\right) & \text{if }x\in B
+\end{cases}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that 
+\begin_inset Formula $\overline{v}\ge v$
+\end_inset
+
+ follows by the definition of subharmonic, because 
+\begin_inset Formula $u\ge v$
+\end_inset
+
+ holds in 
+\begin_inset Formula $B$
+\end_inset
+
+ and thus 
+\begin_inset Formula $\overline{v}\ge v$
+\end_inset
+
+ holds in 
+\begin_inset Formula $\Omega$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Lemma 
+\series medium
+(Harmonic Lift is Subharmonic)
+\end_layout
+
+\begin_layout Standard
+The harmonic lift is again subharmonic.
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\overline{v}$
+\end_inset
+
+ be the harmonic lift of 
+\begin_inset Formula $v$
+\end_inset
+
+ in 
+\begin_inset Formula $B$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+We want to prove, that for all balls 
+\begin_inset Formula $B'\Subset\Omega$
+\end_inset
+
+ and for all harmonic functions 
+\begin_inset Formula $u$
+\end_inset
+
+ with 
+\begin_inset Formula $u\ge\overline{v}$
+\end_inset
+
+ on 
+\begin_inset Formula $\partial B'$
+\end_inset
+
+ holds 
+\begin_inset Formula $u\ge\overline{v}$
+\end_inset
+
+ in 
+\begin_inset Formula $B'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $B'\cap B=\emptyset$
+\end_inset
+
+ this follows, because 
+\begin_inset Formula $\overline{v}\big|_{\Omega\setminus B}=v$
+\end_inset
+
+ and 
+\begin_inset Formula $v$
+\end_inset
+
+ is subharmonic.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[scale=1.5]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw plot [smooth cycle] coordinates {(-2,0) (-1,2) (2,1) (2,-1)};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw(0,0.5) circle (0.5) (0.8,0.3) circle (1);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{scope}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+clip (0,0.5) circle (0.5);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+clip (0.8,0.3) circle (1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[thick, orange] (0,0.5) circle (0.485);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[thick, orange] (0.8,0.3) circle (0.985);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+foreach 
+\backslash
+x in {-0.45,-0.25,...,0.35}     
+\backslash
+draw[orange] (-1,
+\backslash
+x) -- (1,{
+\backslash
+x+1});
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{scope}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node[orange] at (0,1.4) {$B
+\backslash
+cap B'$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (1.15,0.56) {$v=
+\backslash
+overline{v}$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{scope}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+clip (0.8,0.3) +(1,0) arc (0:360:1) (0,0.5) +(0.5,0) arc (0:-360:0.5);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+foreach 
+\backslash
+x in {-1,-0.25,...,0.5}     
+\backslash
+draw (2,
+\backslash
+x) -- (0.1,{
+\backslash
+x+1});
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{scope}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (-0.6,0.9) {$B$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (1.6,-0.7) {$B'$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (0.3,2.2) {$
+\backslash
+Omega$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $B'\cap B\not=\emptyset$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Otherwise let 
+\begin_inset Formula $u\in C^{2}\left(B'\right)$
+\end_inset
+
+ be harmonic and 
+\begin_inset Formula $u\ge\overline{v}$
+\end_inset
+
+ on 
+\begin_inset Formula $\partial B'$
+\end_inset
+
+.
+ We know 
+\begin_inset Formula $v\le\overline{v}$
+\end_inset
+
+ in 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ thus follows:
+\begin_inset Formula 
+\begin{align*}
+v\big|_{\partial B'} & \le\overline{v}\big|_{\partial B'}\le u\big|_{\partial B'}\\
+\sr{\Rightarrow}{\text{subharmonic}}{}v\big|_{B'} & \le u\big|_{B'}
+\end{align*}
+
+\end_inset
+
+Therefore we have 
+\begin_inset Formula $\overline{v}=v\le u$
+\end_inset
+
+ in 
+\begin_inset Formula $B'\setminus B$
+\end_inset
+
+ and thus 
+\begin_inset Formula $\overline{v}\le u$
+\end_inset
+
+ on 
+\begin_inset Formula $\partial\left(B\cap B'\right)$
+\end_inset
+
+.
+ Since the functions 
+\begin_inset Formula $\overline{v}$
+\end_inset
+
+ and 
+\begin_inset Formula $u$
+\end_inset
+
+ are both harmonic in 
+\begin_inset Formula $B\cap B'$
+\end_inset
+
+, the weak maximum principle implies 
+\begin_inset Formula $\overline{v}\le u$
+\end_inset
+
+ in 
+\begin_inset Formula $B\cap B'$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Proposition 
+\series medium
+(Maximum Principle for Subharmonic Functions)
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\Omega\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ be open and connected and 
+\begin_inset Formula $u\in C^{0}\left(\overline{\Omega}\right)$
+\end_inset
+
+ subharmonic.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Strong maximum principle: If there is a 
+\begin_inset Formula $x_{0}\in\Omega$
+\end_inset
+
+ with 
+\begin_inset Formula $u\left(x_{0}\right)=\sup_{\Omega}\left(u\right)$
+\end_inset
+
+, then 
+\begin_inset Formula $u$
+\end_inset
+
+ is constant.
+\end_layout
+
+\begin_layout Enumerate
+Weak maximum principle: 
+\begin_inset Formula ${\displaystyle u\left(x\right)\le\sup_{\partial\Omega}\left(u\right)}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+b) follows from a) just as in the proof of Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Thm-Weak-Maximum-Principle"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+To prove a), suppose that 
+\begin_inset Formula $u\left(x_{0}\right)=\sup_{\Omega}\left(u\right)$
+\end_inset
+
+ holds, but 
+\begin_inset Formula $u$
+\end_inset
+
+ is 
+\emph on
+not
+\emph default
+ constant.
+ Then there is a 
+\begin_inset Formula $y\in\Omega$
+\end_inset
+
+ and a 
+\begin_inset Formula $r\in\mathbb{R}_{>0}$
+\end_inset
+
+ such that 
+\begin_inset Formula $u\left(y\right)=\sup_{x\in\Omega}u\left(x\right)$
+\end_inset
+
+, but 
+\begin_inset Formula $u\big|_{\partial B_{r}\left(y\right)}$
+\end_inset
+
+ is not constant.
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $c\left(\tau\right)$
+\end_inset
+
+ be a curve joining 
+\begin_inset Formula $c\left(0\right)=x_{0}$
+\end_inset
+
+ with 
+\begin_inset Formula $c\left(1\right)=z$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+\tilde{\tau} & :=\sup\left\{ \tau\big|u\left(c\left(\tau\right)\right)=u\left(x_{0}\right)\right\} <1
+\end{align*}
+
+\end_inset
+
+Choose 
+\begin_inset Formula $y:=c\left(\tilde{\tau}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $r$
+\end_inset
+
+ small enough, so that 
+\begin_inset Formula $B_{r}\left(y\right)\subseteq\Omega$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[scale=1.5]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw plot [smooth cycle] coordinates {(-2,0) (-1,2) (2,1) (2,-1)};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (0.3,2) {$
+\backslash
+Omega$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (-1,1) node[left]{$x_0$} +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (1.5,0) node[right]{$z$} +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw plot [smooth] coordinates {(-1,1) (-0.5,0) (0.5,0.5) (1.5,0)};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[red] (0.5,0.5) node[above]{$y$} +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1)
+ +(0,0) circle (0.5) node[above right=10pt]{$B_r(y)$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $u\left(z\right)<u\left(x_{0}\right)=u\left(y\right)$
+\end_inset
+
+; 
+\begin_inset Formula $u\big|_{\partial B_{r}\left(y\right)}$
+\end_inset
+
+ is not constant.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\overline{u}$
+\end_inset
+
+ be the harmonic lift of 
+\begin_inset Formula $u$
+\end_inset
+
+ in 
+\begin_inset Formula $B_{r}$
+\end_inset
+
+.
+ Then holds:
+\begin_inset Formula 
+\begin{align*}
+\overline{u}\left(y\right) & \ge u\left(y\right)\ge\sup_{\partial B_{r}\left(y\right)}\left(u\right)=\sup_{\partial B_{r}\left(y\right)}\left(\overline{u}\right)
+\end{align*}
+
+\end_inset
+
+By the weak maximum principle, which states 
+\begin_inset Formula $\overline{u}\left(y\right)\le\sup_{\partial B_{r}\left(y\right)}\left(\overline{u}\right)$
+\end_inset
+
+, follows that 
+\begin_inset Formula $\overline{u}$
+\end_inset
+
+ is constant in 
+\begin_inset Formula $B_{r}\left(y\right)$
+\end_inset
+
+.
+ This implies that 
+\begin_inset Formula $\overline{u}\big|_{\partial B_{r}}=u\big|_{\partial B_{r}}$
+\end_inset
+
+ is constant, which is a contradiction to 
+\begin_inset Formula $u$
+\end_inset
+
+ not being constant on 
+\begin_inset Formula $\partial B_{r}$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Prop-sub-super-equals"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $v$
+\end_inset
+
+ is subharmonic and 
+\begin_inset Formula $u$
+\end_inset
+
+ superharmonic in 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ and 
+\begin_inset Formula $v\le u$
+\end_inset
+
+ holds on 
+\begin_inset Formula $\partial\Omega$
+\end_inset
+
+, then in 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ holds either 
+\begin_inset Formula $v<u$
+\end_inset
+
+ or 
+\begin_inset Formula $v=u$
+\end_inset
+
+, in which case 
+\begin_inset Formula $u$
+\end_inset
+
+ and 
+\begin_inset Formula $v$
+\end_inset
+
+ are harmonic.
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO: Beweis ergänzen
+\end_layout
+
+\end_inset
+
+This is proven in the exercises.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Proof of Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Thm-u-harmonic"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Define 
+\begin_inset Formula $u\left(x\right):=\sup_{v\in S_{\varphi}}\left(v\left(x\right)\right)$
+\end_inset
+
+.
+ According to Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-sub-super-equals"
+
+\end_inset
+
+ we know, since the constant function 
+\begin_inset Formula $\sup_{\partial\Omega}\left(\varphi\right)$
+\end_inset
+
+ is superharmonic:
+\begin_inset Formula 
+\begin{align*}
+v\left(x\right) & \le\sup_{\partial\Omega}\left(\varphi\right)\qquad\fall_{v\in S_{\varphi}}\\
+\Rightarrow\qquad u\left(x\right) & \le\sup_{\partial\Omega}\left(\varphi\right)
+\end{align*}
+
+\end_inset
+
+From 
+\begin_inset Formula $\inf_{\partial\Omega}\left(\varphi\right)\in S_{\varphi}$
+\end_inset
+
+ and because 
+\begin_inset Formula $u$
+\end_inset
+
+ is the supremum of the functions in 
+\begin_inset Formula $S_{\varphi}$
+\end_inset
+
+, we also know:
+\begin_inset Formula 
+\begin{align*}
+\inf_{\partial\Omega}\left(\varphi\right) & \le u\left(x\right)
+\end{align*}
+
+\end_inset
+
+Hence 
+\begin_inset Formula $u$
+\end_inset
+
+ is a bounded function on 
+\begin_inset Formula $\Omega$
+\end_inset
+
+.
+ Consider 
+\begin_inset Formula $y\in\Omega$
+\end_inset
+
+.
+ By definition of the supremum, there is a sequence 
+\begin_inset Formula $v_{n}\in S_{\varphi}$
+\end_inset
+
+ such that 
+\begin_inset Formula $v_{n}\left(y\right)\to u\left(y\right)$
+\end_inset
+
+ converges.
+ We can assume that the functions 
+\begin_inset Formula $v_{n}$
+\end_inset
+
+ are bounded, because 
+\begin_inset Formula $v_{n}\le u$
+\end_inset
+
+ bounds from above and if 
+\begin_inset Formula $v_{n}$
+\end_inset
+
+ is not bounded from below, we can replace it by 
+\begin_inset Formula $\max\left(v_{n},\inf_{\partial\Omega}\left(\varphi\right)\right)$
+\end_inset
+
+.
+ This is again a subsolution.
+\end_layout
+
+\begin_layout Standard
+Choose 
+\begin_inset Formula $r\in\mathbb{R}_{>0}$
+\end_inset
+
+ such that 
+\begin_inset Formula $B_{r}\left(y\right)\Subset\Omega$
+\end_inset
+
+ and let 
+\begin_inset Formula $\overline{v}_{n}$
+\end_inset
+
+ be the harmonic lift of 
+\begin_inset Formula $v_{n}$
+\end_inset
+
+ in 
+\begin_inset Formula $B_{r}\left(y\right)$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $v_{n}\le\overline{v}_{n}$
+\end_inset
+
+ holds in 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ and 
+\begin_inset Formula $\overline{v}_{n}\left(y\right)\le u\left(y\right)$
+\end_inset
+
+, since 
+\begin_inset Formula $\overline{v}_{n}$
+\end_inset
+
+ is again a subsolution.
+ Hence follows:
+\begin_inset Formula 
+\begin{align*}
+\underbrace{v_{n}\left(y\right)}_{\to u\left(y\right)} & \le\overline{v}_{n}\left(y\right)\le u\left(y\right)
+\end{align*}
+
+\end_inset
+
+Thus we have 
+\begin_inset Formula $\overline{v}_{n}\left(y\right)\to u\left(y\right)$
+\end_inset
+
+.
+ Possibly after choosing a subsequence, the sequence 
+\begin_inset Formula $\overline{v}_{n}\left(y\right)$
+\end_inset
+
+ is monotonically increasing.
+ Moreover, we can assume that the sequence 
+\begin_inset Formula $v_{n}$
+\end_inset
+
+ is monotonically increasing in 
+\begin_inset Formula $\Omega$
+\end_inset
+
+.
+ Namely, we can replace 
+\begin_inset Formula $v_{n}$
+\end_inset
+
+ by 
+\begin_inset Formula $\tilde{v}_{n}$
+\end_inset
+
+ defined by:
+\begin_inset Formula 
+\begin{align*}
+\tilde{v}_{1} & =v_{1}\\
+\tilde{v}_{2} & :=\max\left(v_{1},v_{2}\right)\\
+\vdots\ \\
+\tilde{v}_{n} & :=\max\left(v_{1},\ldots,v_{n}\right)
+\end{align*}
+
+\end_inset
+
+These are again subharmonic and they are monotonically increasing.
+ Then the 
+\begin_inset Formula $\overline{v}_{n}$
+\end_inset
+
+ are also monotonically increasing in 
+\begin_inset Formula $B_{r}\left(y\right)$
+\end_inset
+
+ using the maximum principle:
+\begin_inset Formula 
+\begin{align*}
+\left(\overline{v}_{n+1}-\overline{v}_{n}\right)\big|_{\partial B_{r}\left(y\right)} & =\left(v_{n+1}-v_{n}\right)\big|_{\partial B_{r}\left(y\right)}\ge0
+\end{align*}
+
+\end_inset
+
+The weak maximum principle implies 
+\begin_inset Formula $\overline{v}_{n+1}-\overline{v}_{n}\ge0$
+\end_inset
+
+ in 
+\begin_inset Formula $B_{r}\left(y\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Applying Harnack's convergence theorem, we conclude
+\begin_inset Formula 
+\begin{align*}
+\overline{v}_{n} & \rightrightarrows\overline{v}\text{ in }B_{r}\left(y\right)
+\end{align*}
+
+\end_inset
+
+and 
+\begin_inset Formula $\overline{v}$
+\end_inset
+
+ is harmonic.
+\end_layout
+
+\begin_layout Standard
+Now we show 
+\begin_inset Formula $u=\overline{v}$
+\end_inset
+
+ in 
+\begin_inset Formula $B_{r}\left(y\right)$
+\end_inset
+
+.
+ Obviously holds 
+\begin_inset Formula $\overline{v}\le u,$
+\end_inset
+
+ because 
+\begin_inset Formula $\overline{v}_{n}\le u$
+\end_inset
+
+ holds for all 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Thus assume that there is a point 
+\begin_inset Formula $x\in B_{r}\left(y\right)$
+\end_inset
+
+ with 
+\begin_inset Formula $\overline{v}\left(x\right)<u\left(x\right)$
+\end_inset
+
+.
+ Then there exists a subsolution 
+\begin_inset Formula $s\in S_{\varphi}$
+\end_inset
+
+ with 
+\begin_inset Formula $\overline{v}\left(x\right)<s\left(x\right)<u\left(x\right)$
+\end_inset
+
+, because 
+\begin_inset Formula $u\left(x\right)=\sup_{v\in S_{\varphi}}\left(v\left(x\right)\right)$
+\end_inset
+
+.
+ Thus we also have 
+\begin_inset Formula $v_{n}\left(x\right)\le\overline{v}\left(x\right)<s\left(x\right)$
+\end_inset
+
+.
+ Now form the sequence:
+\begin_inset Formula 
+\begin{align*}
+w_{n} & :=\max\left(s,v_{n}\right)
+\end{align*}
+
+\end_inset
+
+These are again subharmonic, from 
+\begin_inset Formula $v_{n}\left(x\right)<s\left(x\right)$
+\end_inset
+
+ follows 
+\begin_inset Formula $w_{n}\left(x\right)=s\left(x\right)$
+\end_inset
+
+, and for the harmonic lifts holds 
+\begin_inset Formula $\overline{w}_{n}\ge\overline{v}_{n}$
+\end_inset
+
+.
+ Then repeating the above construction for 
+\begin_inset Formula $v_{n}$
+\end_inset
+
+ replaced by 
+\begin_inset Formula $w_{n}$
+\end_inset
+
+, we find 
+\begin_inset Formula $\overline{w}_{n}\rightrightarrows\overline{w}$
+\end_inset
+
+ converges uniformly to a harmonic 
+\begin_inset Formula $\overline{w}$
+\end_inset
+
+.
+ Then follows 
+\begin_inset Formula $\overline{v}\le\overline{w}\le u$
+\end_inset
+
+ just as before and:
+\begin_inset Formula 
+\begin{align*}
+\overline{v}\left(y\right) & =\overline{w}\left(y\right)=u\left(y\right)\\
+\overline{v}\left(x\right) & <\overline{w}\left(x\right)=s\left(x\right)<u\left(x\right)
+\end{align*}
+
+\end_inset
+
+The mean value property gives:
+\begin_inset Formula 
+\begin{align*}
+\frac{1}{\omega_{n}r^{n}}\int_{B_{r}\left(y\right)}\overline{w}\left(z\right)\dd\mu\left(z\right) & \ge\frac{1}{\omega_{n}r^{n}}\int_{B_{r}\left(y\right)}\overline{v}\left(z\right)\dd\mu\left(z\right)=\overline{v}\left(y\right)=\overline{w}\left(y\right)=\\
+ & =\frac{1}{\omega_{n}r^{n}}\int_{B_{r}\left(y\right)}\overline{w}\left(z\right)\dd\mu\left(z\right)
+\end{align*}
+
+\end_inset
+
+Thus follows 
+\begin_inset Formula $\overline{w}=\overline{v}$
+\end_inset
+
+ in 
+\begin_inset Formula $B_{r}\left(y\right)$
+\end_inset
+
+ in contradiction to 
+\begin_inset Formula $\overline{v}\left(x\right)<\overline{w}\left(x\right)$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Question: Is 
+\begin_inset Formula $u$
+\end_inset
+
+ also a solution of the Dirichlet problem?
+\end_layout
+
+\begin_layout Section
+Proposition 
+\series medium
+(Existing Solution is Perron Solution)
+\end_layout
+
+\begin_layout Standard
+If the Dirichlet problem has a solution, then
+\begin_inset Formula 
+\begin{align*}
+u\left(x\right) & =\sup_{v\in S_{\varphi}}\left(v\left(x\right)\right)
+\end{align*}
+
+\end_inset
+
+equals this solution.
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\tilde{u}$
+\end_inset
+
+ be a solution of the Dirichlet problem.
+ Then 
+\begin_inset Formula $\tilde{u}$
+\end_inset
+
+ is also a subsolution, i.e.
+ 
+\begin_inset Formula $\tilde{u}\in S_{\varphi}$
+\end_inset
+
+.
+ Therefore holds 
+\begin_inset Formula $u\left(x\right)\ge\tilde{u}\left(x\right)$
+\end_inset
+
+ for all 
+\begin_inset Formula $x\in\Omega$
+\end_inset
+
+.
+ Hence 
+\begin_inset Formula $u-\tilde{u}$
+\end_inset
+
+ is harmonic and 
+\begin_inset Formula $\left(u-\tilde{u}\right)\big|_{\partial\Omega}=0$
+\end_inset
+
+.
+ By the weak maximum principle follows 
+\begin_inset Formula $u=\tilde{u}$
+\end_inset
+
+ in 
+\begin_inset Formula $\Omega$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Part*
