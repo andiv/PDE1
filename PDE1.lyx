@@ -1723,7 +1723,7 @@ Partial Differential Equations
 \begin_layout Itemize
 
 \noun on
-David Gilborg, Neil S.
+David Gilbarg, Neil S.
  Trudinger
 \noun default
 : 
@@ -1735,6 +1735,35 @@ Elliptic Partial Differential Equations of second order
 \end_inset
 
 (classic textbook, complete treatment)
+\end_layout
+
+\begin_layout Itemize
+
+\noun on
+Richard Courant, David Hilbert
+\noun default
+: 
+\emph on
+Methods of Mathematical Physics: Partial Differential Equations, Volume
+ II
+\emph default
+; Wiley, 2008;
+\begin_inset Newline newline
+\end_inset
+
+ISBN: 978-0471504399; 
+\begin_inset CommandInset href
+LatexCommand href
+name "doi: 10.1002/9783527617234"
+target "http://dx.doi.org/10.1002/9783527617234"
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+(Lebesgue spine)
 \end_layout
 
 \begin_layout Standard
@@ -9739,7 +9768,7 @@ So we get:
 \begin{align*}
 u\left(y_{1}\right)-u\left(y_{2}\right) & \le\frac{1}{\omega_{n}r^{n}}\underbrace{\sup_{\mathbb{R}^{n}}\left(\abs u\right)}_{<\infty}\mu\left(B_{r}\left(y_{1}\right)\setminus B_{r}\left(y_{2}\right)\cup B_{r}\left(y_{2}\right)\setminus B_{r}\left(y_{1}\right)\right)\le\\
  & \le\frac{1}{\omega_{n}r^{n}}\sup_{\mathbb{R}^{n}}\left(\abs u\right)\left(\mu\left(B_{r+\norm{y_{2}-y_{1}}}\left(y_{1}\right)\right)-\mu\left(B_{r-\norm{y_{2}-y_{1}}}\left(y_{1}\right)\right)\right)\le\\
- & \le\frac{1}{\omega_{n}r^{n}}\sup_{\mathbb{R}^{n}}\left(\abs u\right)\left(\omega_{n}\left(r+\norm{y_{2}-y_{1}}^{n}\right)-\omega_{n}\left(r-\norm{y_{2}-y_{1}}^{n}\right)\right)=\\
+ & \le\frac{1}{\omega_{n}r^{n}}\sup_{\mathbb{R}^{n}}\left(\abs u\right)\left(\omega_{n}\left(r+\norm{y_{2}-y_{1}}\right)^{n}-\omega_{n}\left(r-\norm{y_{2}-y_{1}}\right)^{n}\right)=\\
  & =\sup_{\mathbb{R}^{n}}\left(\abs u\right)\frac{1}{r^{n}}\left(2n\norm{y_{2}-y_{1}}r^{n-1}+\ldots\right)\xrightarrow{r\to\infty}0
 \end{align*}
 
@@ -10462,7 +10491,7 @@ status open
 \begin_layout Section
 Definition 
 \series medium
-(Sub- and Superharmonic Functions, Compactly Contained)
+(Sub- and Superharmonic Functions, Compactly Contained, Subsolution)
 \end_layout
 
 \begin_layout Standard
@@ -10686,6 +10715,96 @@ We hope, that
 \end_inset
 
  is the solution of the Dirichlet problem.
+\end_layout
+
+\begin_layout Section
+Lemma
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $u_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $u_{2}$
+\end_inset
+
+ are subharmonic then 
+\begin_inset Formula $\text{max}\left(u_{1},u_{2}\right)$
+\end_inset
+
+ is also subharmonic.
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $B\Subset\Omega$
+\end_inset
+
+ and 
+\begin_inset Formula $h\in C^{2}\left(\Omega\right)$
+\end_inset
+
+ be harmonic.
+\begin_inset Formula 
+\begin{align*}
+\max\left(u_{1},u_{2}\right)\big|_{\partial B} & \le h\big|_{\partial B}
+\end{align*}
+
+\end_inset
+
+Then follows 
+\begin_inset Formula $u_{1}\big|_{\partial B}\le h\big|_{\partial B}$
+\end_inset
+
+ and 
+\begin_inset Formula $u_{2}\big|_{\partial B}\le h\big|_{\partial B}$
+\end_inset
+
+ in 
+\begin_inset Formula $B$
+\end_inset
+
+, since 
+\begin_inset Formula $u_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $u_{2}$
+\end_inset
+
+ are subharmonic.
+ Therefore holds also for the maximum in 
+\begin_inset Formula $B$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\max\left(u_{1},u_{2}\right)\big|_{B} & \le h\big|_{B}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -11822,7 +11941,7 @@ The weak maximum principle implies
 Applying Harnack's convergence theorem, we conclude
 \begin_inset Formula 
 \begin{align*}
-\overline{v}_{n} & \rightrightarrows\overline{v}\text{ in }B_{r}\left(y\right)
+\overline{v}_{n} & \rightrightarrows\tilde{v}\text{ in }B_{r}\left(y\right)
 \end{align*}
 
 \end_inset
@@ -11836,7 +11955,7 @@ and
 
 \begin_layout Standard
 Now we show 
-\begin_inset Formula $u=\overline{v}$
+\begin_inset Formula $u=\tilde{v}$
 \end_inset
 
  in 
@@ -11845,7 +11964,7 @@ Now we show
 
 .
  Obviously holds 
-\begin_inset Formula $\overline{v}\le u,$
+\begin_inset Formula $\tilde{v}\le u,$
 \end_inset
 
  because 
@@ -11865,7 +11984,7 @@ Thus assume that there is a point
 \end_inset
 
  with 
-\begin_inset Formula $\overline{v}\left(x\right)<u\left(x\right)$
+\begin_inset Formula $\tilde{v}\left(x\right)<u\left(x\right)$
 \end_inset
 
 .
@@ -11874,7 +11993,7 @@ Thus assume that there is a point
 \end_inset
 
  with 
-\begin_inset Formula $\overline{v}\left(x\right)<s\left(x\right)<u\left(x\right)$
+\begin_inset Formula $\tilde{v}\left(x\right)<s\left(x\right)<u\left(x\right)$
 \end_inset
 
 , because 
@@ -11882,12 +12001,15 @@ Thus assume that there is a point
 \end_inset
 
 .
- Thus we also have 
-\begin_inset Formula $v_{n}\left(x\right)\le\overline{v}\left(x\right)<s\left(x\right)$
+ Thus we also have:
+\begin_inset Formula 
+\begin{align*}
+v_{n}\left(x\right) & \le\tilde{v}\left(x\right)<s\left(x\right)
+\end{align*}
+
 \end_inset
 
-.
- Now form the sequence:
+Now form the sequence:
 \begin_inset Formula 
 \begin{align*}
 w_{n} & :=\max\left(s,v_{n}\right)
@@ -11917,49 +12039,70 @@ These are again subharmonic, from
 \end_inset
 
 , we find 
-\begin_inset Formula $\overline{w}_{n}\rightrightarrows\overline{w}$
+\begin_inset Formula $\overline{w}_{n}\rightrightarrows\tilde{w}$
 \end_inset
 
  converges uniformly to a harmonic 
-\begin_inset Formula $\overline{w}$
+\begin_inset Formula $\tilde{w}$
 \end_inset
 
 .
  Then follows 
-\begin_inset Formula $\overline{v}\le\overline{w}\le u$
+\begin_inset Formula $\tilde{v}\le\tilde{w}\le u$
 \end_inset
 
- just as before and:
-\begin_inset Formula 
-\begin{align*}
-\overline{v}\left(y\right) & =\overline{w}\left(y\right)=u\left(y\right)\\
-\overline{v}\left(x\right) & <\overline{w}\left(x\right)=s\left(x\right)<u\left(x\right)
-\end{align*}
-
-\end_inset
-
-The mean value property gives:
-\begin_inset Formula 
-\begin{align*}
-\frac{1}{\omega_{n}r^{n}}\int_{B_{r}\left(y\right)}\overline{w}\left(z\right)\dd\mu\left(z\right) & \ge\frac{1}{\omega_{n}r^{n}}\int_{B_{r}\left(y\right)}\overline{v}\left(z\right)\dd\mu\left(z\right)=\overline{v}\left(y\right)=\overline{w}\left(y\right)=\\
- & =\frac{1}{\omega_{n}r^{n}}\int_{B_{r}\left(y\right)}\overline{w}\left(z\right)\dd\mu\left(z\right)
-\end{align*}
-
-\end_inset
-
-Thus follows 
-\begin_inset Formula $\overline{w}=\overline{v}$
+ just as before and thus 
+\begin_inset Formula $\tilde{v}-\tilde{w}\le0$
 \end_inset
 
  in 
-\begin_inset Formula $B_{r}\left(y\right)$
-\end_inset
-
- in contradiction to 
-\begin_inset Formula $\overline{v}\left(x\right)<\overline{w}\left(x\right)$
+\begin_inset Formula $B$
 \end_inset
 
 .
+ Additionally 
+\begin_inset Formula $\tilde{v}$
+\end_inset
+
+ and 
+\begin_inset Formula $\tilde{w}$
+\end_inset
+
+ are harmonic and we know:
+\begin_inset Formula 
+\begin{align*}
+\tilde{v}\left(y\right) & =\tilde{w}\left(y\right)=u\left(y\right)
+\end{align*}
+
+\end_inset
+
+So 
+\begin_inset Formula $\tilde{v}-\tilde{w}$
+\end_inset
+
+ attains its maximum in 
+\begin_inset Formula $y\in B$
+\end_inset
+
+ and the strong maximum principle gives 
+\begin_inset Formula $\tilde{v}=\tilde{w}$
+\end_inset
+
+ in 
+\begin_inset Formula $B$
+\end_inset
+
+.
+ From 
+\begin_inset Formula $w_{n}\left(x\right)>s\left(x\right)$
+\end_inset
+
+ follows 
+\begin_inset Formula $\tilde{w}\left(x\right)\ge s\left(x\right)>\tilde{v}\left(x\right)$
+\end_inset
+
+.
+ This is a contradiction.
 \begin_inset ERT
 status open
 
@@ -11967,7 +12110,9 @@ status open
 
 
 \backslash
-qqed
+qqed[
+\backslash
+ref{sec:Thm-u-harmonic}]
 \end_layout
 
 \end_inset
@@ -12048,6 +12193,3316 @@ Let
 \end_inset
 
 .
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%DATE: Mi 22.5.13
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Definition 
+\series medium
+(Barrier, Local Barrier)
+\end_layout
+
+\begin_layout Standard
+A function 
+\begin_inset Formula $w\in C^{0}\left(\overline{\Omega}\right)$
+\end_inset
+
+ is called 
+\emph on
+barrier
+\emph default
+ at 
+\begin_inset Formula $\xi\in\partial\Omega$
+\end_inset
+
+, if holds:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+roman*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $w$
+\end_inset
+
+ is superharmonic.
+\end_layout
+
+\begin_layout Enumerate
+In 
+\begin_inset Formula $\overline{\Omega}\setminus\left\{ \xi\right\} $
+\end_inset
+
+ holds 
+\begin_inset Formula $w>0$
+\end_inset
+
+ and 
+\begin_inset Formula $w\left(\xi\right)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+We show first that the barrier is a local concept.
+\end_layout
+
+\begin_layout Standard
+A 
+\emph on
+local barrier
+\emph default
+ in 
+\begin_inset Formula $\xi\in\partial\Omega$
+\end_inset
+
+ is a function 
+\begin_inset Formula $w\in C^{0}\left(\overline{\Omega}\cap B_{\varepsilon}\left(\xi\right)\right)$
+\end_inset
+
+ for 
+\begin_inset Formula $\varepsilon\in\mathbb{R}_{>0}$
+\end_inset
+
+ with:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+roman*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $w$
+\end_inset
+
+ is superharmonic in 
+\begin_inset Formula $\Omega\cap B_{\varepsilon}\left(\xi\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+In 
+\begin_inset Formula $\overline{\Omega\cap B_{\varepsilon}\left(\xi\right)}\setminus\left\{ \xi\right\} $
+\end_inset
+
+ holds 
+\begin_inset Formula $w>0$
+\end_inset
+
+ and 
+\begin_inset Formula $w\left(\xi\right)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Theorem 
+\series medium
+(Barrier is Local Concept)
+\end_layout
+
+\begin_layout Standard
+If there is a local barrier, there is also a barrier.
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $w\in C^{0}\left(\overline{\Omega\cap B_{\varepsilon}\left(\xi\right)}\right)$
+\end_inset
+
+ be a local barrier.
+ With
+\begin_inset Formula 
+\begin{align*}
+m & :=\inf_{B_{\varepsilon}\left(\xi\right)\setminus B_{\frac{\varepsilon}{2}}\left(\xi\right)}\left(w\right)>0
+\end{align*}
+
+\end_inset
+
+we choose:
+\begin_inset Formula 
+\begin{align*}
+\overline{w}\left(x\right) & :=\begin{cases}
+\min\left(w\left(x\right),m\right) & x\in\overline{\Omega\cap B_{\frac{\varepsilon}{2}}\left(\xi\right)}\\
+m & x\not\in\overline{\Omega\cap B_{\frac{\varepsilon}{2}}\left(\xi\right)}
+\end{cases}
+\end{align*}
+
+\end_inset
+
+This is a barrier.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Definition 
+\series medium
+(regular point)
+\end_layout
+
+\begin_layout Standard
+A border-point 
+\begin_inset Formula $\xi\in\partial\Omega$
+\end_inset
+
+ is called 
+\emph on
+regular
+\emph default
+ if there is a barrier at 
+\begin_inset Formula $\xi$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Theorem 
+\series medium
+(Solution of Dirichlet Problem with Regular Border)
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Thm-Perron-Solution"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $\xi$
+\end_inset
+
+ is a regular border-point, then holds for the function 
+\begin_inset Formula $u\left(x\right):=\sup_{v\in S_{\varphi}}\left(v\left(x\right)\right)$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\lim_{\Omega\ni x\to\xi}u\left(x\right) & =\varphi\left(\xi\right)
+\end{align*}
+
+\end_inset
+
+So if every border point is regular, the Perron solution is the solution
+ of the Dirichlet problem.
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+We construct a supersolution.
+ Because 
+\begin_inset Formula $\xi$
+\end_inset
+
+ is a regular border-point, there is a barrier 
+\begin_inset Formula $w$
+\end_inset
+
+ at 
+\begin_inset Formula $\xi$
+\end_inset
+
+.
+ Consider 
+\begin_inset Formula $\varepsilon\in\mathbb{R}_{>0}$
+\end_inset
+
+ and define:
+\begin_inset Formula 
+\begin{align*}
+M & :=\sup_{\partial\Omega}\left(\abs{\varphi}\right)
+\end{align*}
+
+\end_inset
+
+Now choose 
+\begin_inset Formula $\delta,k\in\mathbb{R}_{>0}$
+\end_inset
+
+ such that holds:
+\begin_inset Formula 
+\begin{align*}
+\abs{\varphi\left(x\right)-\varphi\left(\xi\right)} & <\varepsilon &  & \fall_{x\in B_{\delta}\left(\xi\right)\cap\partial\Omega}\\
+kw\left(x\right) & \ge2M &  & \fall_{x\in\partial\Omega\setminus B_{\delta}\left(\xi\right)}
+\end{align*}
+
+\end_inset
+
+Then
+\begin_inset Formula 
+\begin{align*}
+u_{+}\left(x\right) & :=\varphi\left(\xi\right)+\varepsilon+kw\left(x\right)
+\end{align*}
+
+\end_inset
+
+is a supersolution and
+\begin_inset Formula 
+\begin{align*}
+u_{-}\left(x\right) & :=\varphi\left(\xi\right)-\varepsilon-kw\left(x\right)
+\end{align*}
+
+\end_inset
+
+a subsolution.
+ (These are sub-/superharmonic, because 
+\begin_inset Formula $w\left(x\right)$
+\end_inset
+
+ is superharmonic and thus 
+\begin_inset Formula $-w\left(x\right)$
+\end_inset
+
+ subharmonic and constants are harmonic.)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[scale=2]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[blue] plot[smooth,tension=1] coordinates {(0.8,0.8) (0.7,1.2) (0,1.5) (-0.5,1)
+ (-1,0.7) (-0.7,0) ( 0,-0.6) (0.6,0)};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node[blue] at (0.2,1){$
+\backslash
+partial
+\backslash
+Omega 
+\backslash
+setminus B_
+\backslash
+delta(
+\backslash
+xi)$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[red,thick] (0.8,0.8) ..
+ controls +(-0.1,-0.2) and +(0.1,0.2) ..
+ (0.6,0) node[midway](a){};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node[red] at (1.1,-0.15){$B_
+\backslash
+delta(
+\backslash
+xi)
+\backslash
+cap
+\backslash
+partial
+\backslash
+Omega$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (a) node[right]{$
+\backslash
+xi$} +(0.05,0.05) -- +(-0.05,-0.05) +(0.05,-0.05) -- +(-0.05,0.05);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (a) circle (0.41) node[above right=13pt]{$B_
+\backslash
+delta (
+\backslash
+xi)$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Construction of 
+\begin_inset Formula $u_{+}$
+\end_inset
+
+ and 
+\begin_inset Formula $u_{-}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ ensures 
+\begin_inset Formula $u_{-}\left(x\right)\le\varphi\left(x\right)\le u_{+}\left(x\right)$
+\end_inset
+
+ for 
+\begin_inset Formula $x\in B_{\delta}\left(\xi\right)\cap\partial\Omega$
+\end_inset
+
+ and for 
+\begin_inset Formula $x\in\partial\Omega\setminus B_{\delta}\left(\xi\right)$
+\end_inset
+
+ this follows from 
+\begin_inset Formula $kw\ge2M$
+\end_inset
+
+.
+ Now the maximum principle implies:
+\begin_inset Formula 
+\begin{align*}
+\varphi\left(\xi\right)-\varepsilon-kw\left(x\right) & \le u\left(x\right)\le\varphi\left(\xi\right)+\varepsilon+kw\left(x\right)
+\end{align*}
+
+\end_inset
+
+Due to 
+\begin_inset Formula $\lim_{x\to\xi}\left(w\left(x\right)\right)=0$
+\end_inset
+
+ and because 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ can be chosen arbitrarily, follows:
+\begin_inset Formula 
+\begin{align*}
+\lim_{x\to\xi}u\left(x\right) & =\varphi\left(\xi\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Theorem 
+\series medium
+(Existence of Solution for Dirichlet Problem)
+\end_layout
+
+\begin_layout Standard
+The following statements are equivalent:
+\end_layout
+
+\begin_layout Enumerate
+The Dirichlet problem has for every 
+\begin_inset Formula $\varphi\in C^{0}\left(\partial\Omega\right)$
+\end_inset
+
+ a solution in 
+\begin_inset Formula $C^{2}\left(\Omega\right)\cap C^{0}\left(\overline{\Omega}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Every border-point of 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ is regular.
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+2.
+ 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ 1.
+\begin_inset Quotes erd
+\end_inset
+
+: If every border-point is regular, then the Perron solution 
+\begin_inset Formula $u\left(x\right)$
+\end_inset
+
+ is the solution of the Dirichlet problem after Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Thm-Perron-Solution"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+1.
+ 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ 2.
+\begin_inset Quotes erd
+\end_inset
+
+: For 
+\begin_inset Formula $\xi\in\partial\Omega$
+\end_inset
+
+ let 
+\begin_inset Formula $u$
+\end_inset
+
+ be the solution of the following Dirichlet problem:
+\begin_inset Formula 
+\begin{align*}
+\upDelta u\big|_{\Omega} & =0\\
+u\left(x\right)\big|_{\partial\Omega} & =\norm{x-\xi}\big|_{\partial\Omega}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[scale=2]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw plot[smooth cycle,tension=1] coordinates {(0.8,0.8) (0,1.5) (-0.5,1) (-1,0.7)
+ (-0.7,0) ( 0,-0.6) (0.6,0)};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (0,1.6) {$
+\backslash
+partial
+\backslash
+Omega$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (0.8,0.8) node[right]{$
+\backslash
+xi$} +(0.05,0.05) -- +(-0.05,-0.05) +(0.05,-0.05) -- +(-0.05,0.05);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $u\left(\xi\right)=0$
+\end_inset
+
+, 
+\begin_inset Formula $u\big|_{\partial\Omega\setminus\left\{ \xi\right\} }>0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Were 
+\begin_inset Formula $u\left(y\right)=0$
+\end_inset
+
+ for a 
+\begin_inset Formula $y\in\Omega$
+\end_inset
+
+, we had an interior minimum, and thus the maximum principle would give
+ the contradiction 
+\begin_inset Formula $u=0$
+\end_inset
+
+.
+ So this 
+\begin_inset Formula $u$
+\end_inset
+
+ is a barrier.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+How can one construct barriers? Under what geometrical conditions do barriers
+ exist?
+\end_layout
+
+\begin_layout Standard
+Consider the dimension 
+\begin_inset Formula $n=2$
+\end_inset
+
+.
+ Without loss of generality we assume 
+\begin_inset Formula $\xi=0$
+\end_inset
+
+.
+ We consider this as a problem in 
+\begin_inset Formula $\mathbb{C}\stackrel{\sim}{=}\mathbb{R}^{2}$
+\end_inset
+
+ and define:
+\begin_inset Formula 
+\begin{align*}
+w\left(z\right) & =-\text{Re}\left(\frac{1}{\ln\left(z\right)}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[scale=2]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw plot[smooth,tension=1] coordinates {(0.4,0.4) (0.8,0.8) (0,1.5) (-0.5,1)
+ (-1,0.7) (-0.7,0) ( 0,-0.6)  (0.8,0.25) (0.4,0.4)};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (0,1.6) {$
+\backslash
+Omega$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (0.4,0.4) node[below]{$
+\backslash
+xi :=0$} +(0.05,0.05) -- +(-0.05,-0.05) +(0.05,-0.05) -- +(-0.05,0.05);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[red] (0.4,0.4) -- node[below right]{Strahl $S$} (1.4,0.63);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Omega$
+\end_inset
+
+ under consideration
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Choose the branch cut of the logarithm on 
+\begin_inset Formula $S$
+\end_inset
+
+.
+ Such an 
+\begin_inset Formula $S$
+\end_inset
+
+ with 
+\begin_inset Formula $\Omega\cap S=\emptyset$
+\end_inset
+
+ and 
+\begin_inset Formula $\xi\in S$
+\end_inset
+
+ can always be chosen locally.
+ Thus 
+\begin_inset Formula $\ln\left(z\right)$
+\end_inset
+
+ is holomorphic in 
+\begin_inset Formula $\mathbb{C}\setminus S$
+\end_inset
+
+ and therefore 
+\begin_inset Formula $\left(\ln\left(z\right)\right)^{-1}$
+\end_inset
+
+ is holomorphic on 
+\begin_inset Formula $\mathbb{C}\setminus S$
+\end_inset
+
+, which means that 
+\begin_inset Formula $w$
+\end_inset
+
+ is harmonic on 
+\begin_inset Formula $\mathbb{C}\setminus S$
+\end_inset
+
+ and especially continuous on 
+\begin_inset Formula $\mathbb{C}\setminus S$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+To study the behaviour at the origin, we choose the polar representation:
+\begin_inset Formula 
+\begin{align*}
+z & =re^{\ii\varphi}\\
+\ln\left(z\right) & =\ln\left(r\right)+\ii\varphi+2\pi\ii n
+\end{align*}
+
+\end_inset
+
+Here 
+\begin_inset Formula $n\in\mathbb{Z}$
+\end_inset
+
+ depends on the branch of the logarithm.
+\begin_inset Formula 
+\begin{align*}
+-\frac{1}{\ln\left(z\right)} & =-\frac{1}{\ln\left(r\right)+\ii\varphi+2\pi\ii n}\\
+-\text{Re}\left(\frac{1}{\ln\left(z\right)}\right) & =-\frac{\ln\left(r\right)}{\left(\ln\left(r\right)\right)^{2}+\left(\varphi+2\pi n\right)^{2}}\xrightarrow{r\to0}0
+\end{align*}
+
+\end_inset
+
+This converges locally uniformly in 
+\begin_inset Formula $\varphi$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Alternatively, this follows from the Riemann mapping theorem.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw plot[smooth cycle,tension=1] coordinates {(0.8,0.8) (0,1.5) (-0.5,1) (-1,0.7)
+ (-0.7,0) ( 0,-0.6)};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (0,1.7) {$
+\backslash
+Omega$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[decoration={markings,mark=at position 1 with {
+\backslash
+arrow[scale=2]{>}};},postaction={decorate}] (1,0.5) -- (2,0.5);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (3,0.5) circle (0.8);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (3,1.6) {$B_1(0)
+\backslash
+subseteq 
+\backslash
+mathbb{C}$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Mapping from 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ to 
+\begin_inset Formula $B_{1}\left(0\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Just transform from any simply connected 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ to 
+\begin_inset Formula $B_{1}\left(0\right)\subseteq\mathbb{C}$
+\end_inset
+
+, solve the Dirichlet problem in the ball and transform back.
+\end_layout
+
+\begin_layout Standard
+Consider now the case 
+\begin_inset Formula $n\ge3$
+\end_inset
+
+: One gets barriers if additional conditions are satisfied.
+\end_layout
+
+\begin_layout Section
+Definition 
+\series medium
+(Outer Sphere/Cone Condition)
+\end_layout
+
+\begin_layout Standard
+An open subset 
+\begin_inset Formula $\Omega\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ satisfies in 
+\begin_inset Formula $\xi\in\partial\Omega$
+\end_inset
+
+ the 
+\emph on
+outer sphere condition
+\emph default
+ if there is a closed ball 
+\begin_inset Formula $K\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ with radius 
+\begin_inset Formula $R$
+\end_inset
+
+ such that 
+\begin_inset Formula $K\cap\overline{\Omega}=\left\{ \xi\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+node at (0,3) {satisfied};
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw[yshift=1cm] plot[smooth cycle,tension=1] coordinates {(0.8,0.8) (0,1.5)
+ (-0.5,1) (-1,0.7) (-0.7,0) ( 0,-0.3)  (0.6,0.1)};
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw[yshift=-1cm] plot[smooth,tension=1] coordinates {(0.8,0.9) (0,1) (-0.5,0.7)
+ (-0.3,0) ( 0,-0.6)  (0.4,0.6) (0.8,0.9)};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+begin{scope}[xshift=3cm]
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+node at (0,2) {not satisfied};
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw plot[smooth,tension=1] coordinates {(0.4,0.4) (0.8,0.8) (0,1.5) (-0.5,1)
+ (-1,0.7) (-0.7,0) ( 0,-0.6)  (0.8,0.25) (0.4,0.4)};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+end{scope}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Outer Sphere Condition
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now choose:
+\begin_inset Formula 
+\begin{align*}
+w\left(x\right) & =-\Gamma\left(\norm{x-y}\right)+\Gamma\left(\norm{\xi-y}\right)
+\end{align*}
+
+\end_inset
+
+This function is harmonic and non-negative.
+ Furthermore 
+\begin_inset Formula $w\left(x\right)=0$
+\end_inset
+
+ implies 
+\begin_inset Formula $x=\xi$
+\end_inset
+
+.
+ So 
+\begin_inset Formula $w$
+\end_inset
+
+ is a barrier and we can solve the Dirichlet problem.
+\end_layout
+
+\begin_layout Standard
+An improvement is the so called 
+\emph on
+outer cone condition
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+node at (0,3) {satisfied};
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw[yshift=1cm] plot[smooth cycle,tension=1] coordinates {(0.8,0.8) (0,1.5)
+ (-0.5,1) (-1,0.7) (-0.7,0) ( 0,-0.3)  (0.6,0.1)};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (0.8,1.8) +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[blue] (0.8,1.8) -- +(0.5,1) +(0,0) -- +(1,0.2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node[blue] at (1.6,2.3) {cone};
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw[yshift=-1cm] plot[smooth,tension=1] coordinates {(0,0) (0,0.7) (-0.6,0.8)
+ (-1,0) (0,-1) (1,0) (0,0)};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[blue] (0,-1) -- +(0.5,1) +(0,0) -- +(1,0.3);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+begin{scope}[xshift=4cm]
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+node at (0,2) {not satisfied};
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw plot[smooth,tension=1] coordinates {(0.4,0.4) (0.8,0.8) (0,1.5) (-0.5,1)
+ (-1,0.7) (-0.7,0) ( 0,-0.6)  (0.8,0.25) (0.4,0.4)};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+end{scope}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Outer Cone Condition
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here one can also construct a barrier.
+\end_layout
+
+\begin_layout Section
+Example 
+\series medium
+(Dirichlet Problem without Solution, Lebesgue Spine)
+\end_layout
+
+\begin_layout Standard
+A counter example for the solvability of the Dirichlet problem with continuous
+ boundary values was found in 1912 by Lebesgue.
+ The details can be found in the book of Courant and Hilbert.
+\end_layout
+
+\begin_layout Standard
+We use the Ansatz:
+\begin_inset Formula 
+\begin{align*}
+u\left(x\right) & =\int\Gamma\left(\norm{x-y}\right)\varrho\left(y\right)\dd^{n}y
+\end{align*}
+
+\end_inset
+
+Here 
+\begin_inset Formula $\varrho\left(y\right)$
+\end_inset
+
+ can be viewed as 
+\begin_inset Quotes eld
+\end_inset
+
+charge density
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Then follows:
+\begin_inset Formula 
+\begin{align*}
+\upDelta u\left(x\right) & =\varrho\left(x\right)\\
+\upDelta u\left(x\right) & =0\qquad\text{if }\varrho\left(x\right)=0
+\end{align*}
+
+\end_inset
+
+Consider the charge distribution on the 
+\begin_inset Formula $x$
+\end_inset
+
+-axis:
+\begin_inset Formula 
+\begin{align*}
+\varrho\left(x,y,z\right) & =\begin{cases}
+\delta\left(y\right)\delta\left(z\right)\left(-4\pi x\right) & x\in\left[0,1\right]\\
+0 & \text{otherwise}
+\end{cases}
+\end{align*}
+
+\end_inset
+
+This is the so-called Lebesgue spine in 
+\begin_inset Formula $\mathbb{R}^{3}$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+u\left(x,y,z\right) & =\int_{0}^{1}\Gamma\left(\norm{\left(\xi,0,0\right)-\left(x,y,z\right)}\right)\left(-4\pi\xi\right)\dd\xi=\\
+ & =\int_{0}^{1}\frac{\xi\dd\xi}{\sqrt{\left(\xi-x\right)^{2}+y^{2}+z^{2}}}\dd\xi
+\end{align*}
+
+\end_inset
+
+Define 
+\begin_inset Formula $\zeta:=\sqrt{y^{2}+z^{2}}$
+\end_inset
+
+.
+ The integral gives:
+\begin_inset Formula 
+\begin{align*}
+u\left(x,\zeta\right) & =A\left(x,\zeta\right)-2x\ln\left(\zeta\right)\\
+A\left(x,\zeta\right) & =\sqrt{\left(1-x\right)^{2}+\zeta^{2}}-\sqrt{x^{2}+\zeta^{2}}+x\ln\left(\abs{\left(1+x+\sqrt{\left(1-x\right)^{2}+\zeta^{2}}\right)\left(x+\sqrt{x^{2}+\zeta^{2}}\right)}\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $A$
+\end_inset
+
+ is continuous at the origin:
+\begin_inset Formula 
+\begin{align*}
+1+x+\sqrt{\left(1-x\right)^{2}+\zeta^{2}} & \to2\\
+\lim_{\left(x,\zeta\right)\to0}\left(x+\sqrt{x^{2}+\zeta^{2}}\right) & =\lim_{x\to0}\left(2x\right)\\
+\lim_{x\to0}x\ln\left(x\right) & =0\\
+\Rightarrow\qquad\lim_{\left(x,\zeta\right)\to0}A\left(x,\zeta\right) & =1
+\end{align*}
+
+\end_inset
+
+But 
+\begin_inset Formula $x\ln\left(\zeta\right)$
+\end_inset
+
+ is not continuous at the origin.
+ Consider for example:
+\begin_inset Formula 
+\begin{align*}
+\zeta & =\abs x^{\alpha} & x\ln\left(\zeta\right) & =x\alpha\ln\left(\abs x\right)\xrightarrow{x\to0}0\\
+\zeta & =e^{-\frac{c}{x}} & x\ln\left(\zeta\right) & =x\frac{-c}{x}\xrightarrow{x\to0}-c
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+begin{axis}[width=10cm, axis x line=middle, axis y line=middle, xtick={0},
+ ytick={0}, xlabel=$q$,domain=0:.3,samples=300]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+addplot[mark=none] {x^2};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+addlegendentry{$
+\backslash
+zeta=
+\backslash
+abs{x}^2$}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+addplot[blue,mark=none] {exp(-1/x)};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+addlegendentry{$
+\backslash
+zeta=
+\backslash
+exp (-
+\backslash
+frac{1}{x})$}
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+end{axis}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $\lim_{\left(x,\zeta\right)\to0}A$
+\end_inset
+
+
+\begin_inset Formula $\left(x,\zeta\right)$
+\end_inset
+
+ has different values for different path.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%DATE: Fr 24.5.13
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So the function 
+\begin_inset Formula $-2x\ln\left(\zeta\right)$
+\end_inset
+
+ is constant along the curve 
+\begin_inset Formula $\left\{ \zeta=e^{-\frac{c}{2x}}\Big|x>0\right\} $
+\end_inset
+
+, but is not continuous at the origin.
+ Consider the level set 
+\begin_inset Formula $u\left(x,\zeta\right)=1+C$
+\end_inset
+
+ for 
+\begin_inset Formula $C\in\mathbb{R}_{>0}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+foreach 
+\backslash
+x in {-3,-2,...,2}     
+\backslash
+draw (-1,
+\backslash
+x) -- (4,{
+\backslash
+x + 1.5});
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[scale=1.5,fill=white] plot[smooth, tension=0.7] coordinates {(0,0) (0.5,0.18)
+ (1,1) (1.5,1) (2,0) (1.5,-1) (1,-1) (0.5,-0.18) (0,0)};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[->] (0,0) -- (0,3) node[above]{$
+\backslash
+zeta$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[->] (0,0) -- (4,0) node[right]{$x$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (1,3) {$
+\backslash
+Omega $};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[red] (1.5,0) circle (2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[red] (1.5,0) +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[red] (1.5,0) -- node[above left=-2pt]{$R$} (2.9,1.4);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+The level set 
+\begin_inset Formula $u\left(x,\zeta\right)=1+C$
+\end_inset
+
+ defines the region 
+\begin_inset Formula $\Omega$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We have:
+\begin_inset Formula 
+\begin{align*}
+\upDelta u\big|_{\Omega} & =0\\
+u\big|_{\partial\Omega} & =1+C
+\end{align*}
+
+\end_inset
+
+But 
+\begin_inset Formula $u$
+\end_inset
+
+ is 
+\emph on
+not
+\emph default
+ continuous at 
+\begin_inset Formula $\left(x,y,z\right)=0$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $B$
+\end_inset
+
+ be a ball such that 
+\begin_inset Formula $\partial B\cap\partial\Omega=\emptyset$
+\end_inset
+
+.
+ Now perform an inversion:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (1,2.25) {$
+\backslash
+Omega $};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[red] (-0.75,0) -- (-4,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[scale=1.5] plot[smooth, tension=0.7] coordinates {(-0.5,0) (-1,0.3) (0,1.7)
+ (1,2) (3,1) (3.5,0) (3,-1) (1,-2) (0,-1.7) (-1,-0.3) (-0.5,0)};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (1.5,0) circle (2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (1.5,0) +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (1.5,0) -- node[above left=-2pt]{$R$} (2.9,1.4);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{scope}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+clip[scale=1.5] plot[smooth, tension=0.7] coordinates {(-0.5,0) (-1,0.3) (0,1.7)
+ (1,2) (3,1) (3.5,0) (3,-1) (1,-2) (0,-1.7) (-1,-0.3) (-0.5,0)};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+foreach 
+\backslash
+x in {-3,-2,...,2}     
+\backslash
+draw (-2,
+\backslash
+x) -- (6,{
+\backslash
+x + 1.5});
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{scope}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Omega$
+\end_inset
+
+ inverted
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For formulas see the book of Courant and Hilbert.
+\begin_inset Formula 
+\begin{align*}
+\upDelta u\big|_{\Omega} & =0\\
+u\big|_{\partial\Omega} & =1+C
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $u$
+\end_inset
+
+ is not continous in 
+\begin_inset Formula $\overline{\Omega}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Chapter
+The Maximum Principle for Linear Elliptic Equations
+\end_layout
+
+\begin_layout Standard
+Again 
+\begin_inset Formula $\Omega\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ is an open domain and 
+\begin_inset Formula $u\in C^{2}\left(\Omega,\mathbb{R}\right)$
+\end_inset
+
+ a scalar function.
+ Let 
+\begin_inset Formula $L$
+\end_inset
+
+ be a differential operator of second order, linear and elliptic.
+\begin_inset Formula 
+\begin{align*}
+Lu\left(x\right) & =\sum_{i,j=1}^{n}a^{ij}\left(x\right)\partial_{ij}u\left(x\right)+\sum_{i=1}^{n}b^{i}\left(x\right)\partial_{i}u\left(x\right)+c\left(x\right)u\left(x\right)
+\end{align*}
+
+\end_inset
+
+Usually we use the summation convention to omit the sums.
+ We make the following assumpions:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+roman*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\emph on
+Uniform ellipticity
+\emph default
+: There exists a 
+\begin_inset Formula $\lambda\in\mathbb{R}_{>0}$
+\end_inset
+
+ such that for all 
+\begin_inset Formula $\xi\in\mathbb{R}^{n}$
+\end_inset
+
+ and all 
+\begin_inset Formula $x\in\Omega$
+\end_inset
+
+ holds:
+\begin_inset Formula 
+\begin{align*}
+a^{ij}\left(x\right)\xi_{i}\xi_{j} & \ge\lambda\cdot\abs{\xi}^{2}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+The coefficients are 
+\emph on
+uniformly bounded
+\emph default
+: There exists a 
+\begin_inset Formula $K\in\mathbb{R}_{>0}$
+\end_inset
+
+ such that for all 
+\begin_inset Formula $x\in\Omega$
+\end_inset
+
+ and 
+\begin_inset Formula $i,j\in\left\{ 1,\ldots,n\right\} $
+\end_inset
+
+ holds:
+\begin_inset Formula 
+\begin{align*}
+\abs{a^{ij}\left(x\right)},\abs{b^{i}\left(x\right)},\abs{c\left(x\right)} & \le K
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Consider solutions of the homogeneous equation 
+\begin_inset Formula $Lu=0$
+\end_inset
+
+.
+ Our goal is to derive a maximum principle.
+\end_layout
+
+\begin_layout Section
+Example 
+\series medium
+(One-Dimensional)
+\end_layout
+
+\begin_layout Standard
+We begin with a one-dimensional example.
+\begin_inset Formula 
+\begin{align*}
+u''\left(x\right)+cu\left(x\right) & =0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $c<0$
+\end_inset
+
+: There are two fundamental solutions, i.e.
+ every solution is a linear combination:
+\begin_inset Formula 
+\begin{align*}
+u_{1}\left(x\right) & =e^{\sqrt{\abs c}x}\\
+u_{2}\left(x\right) & =e^{-\sqrt{\abs c}x}
+\end{align*}
+
+\end_inset
+
+Consider 
+\begin_inset Formula $\Omega=\left(0,1\right)$
+\end_inset
+
+ and impose Dirichlet boundary conditions 
+\begin_inset Formula $u\left(0\right)=0=u\left(1\right)$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+u & =\alpha u_{1}+\beta u_{2}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+u\left(0\right) & =0 & \Rightarrow\qquad\alpha & =-\beta & \Rightarrow\qquad u & =\alpha\left(e^{\sqrt{\abs c}x}-e^{-\sqrt{\abs c}x}\right)\\
+u\left(1\right) & =0 & \Rightarrow\qquad\alpha\left(e^{\sqrt{\abs c}}-e^{-\sqrt{\abs c}}\right) & =0 & \Rightarrow\qquad\alpha & =0
+\end{align*}
+
+\end_inset
+
+Thus the Dirichlet problem has a unique solution 
+\begin_inset Formula $u=0$
+\end_inset
+
+, in accordance with the maximum principle.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $c>0$
+\end_inset
+
+: The functions 
+\begin_inset Formula 
+\begin{align*}
+u_{1}\left(x\right) & =\sin\left(\sqrt{c}x\right)\\
+u_{2}\left(x\right) & =\cos\left(\sqrt{c}x\right)
+\end{align*}
+
+\end_inset
+
+are fundamental solutions.
+\begin_inset Formula 
+\begin{align*}
+u & =\alpha u_{1}+\beta u_{2}\\
+u\left(0\right) & =0\qquad\Rightarrow\qquad\beta=0\\
+u\left(1\right) & =0=\alpha\sin\left(\sqrt{c}\right)
+\end{align*}
+
+\end_inset
+
+In the case of 
+\begin_inset Formula $\sin\left(\sqrt{c}\right)=0$
+\end_inset
+
+, the parameter 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ is arbitrary, otherwise follows 
+\begin_inset Formula $\alpha=0$
+\end_inset
+
+ and thus 
+\begin_inset Formula $u=0$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+For example for 
+\begin_inset Formula $c=\pi^{2}$
+\end_inset
+
+ with 
+\begin_inset Formula $\alpha=1$
+\end_inset
+
+ we have:
+\begin_inset Formula 
+\begin{align*}
+u\left(x\right) & =\sin\left(\pi x\right)
+\end{align*}
+
+\end_inset
+
+This is a non-trivial solution of the Dirichlet problem and it has an interior
+ maximum.
+ So the maximum principle is violated.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+begin{axis}[width=12cm, axis x line=middle, axis y line=middle, xlabel=$q$,domai
+n=0:1,samples=300, ymax=1.08, xmax=1.08]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+addplot[mark=none] {sin(x*180)};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+addlegendentry{$u(x)=
+\backslash
+sin (
+\backslash
+pi x)$}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[dashed] (axis cs:0.5,0) -- (axis cs:0.5,1.1);
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+end{axis}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $u\left(x\right)$
+\end_inset
+
+ has an interior maximum.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Theorem 
+\series medium
+(Weak Maximum Principle)
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Thm-Weak-Maximum_elliptic"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\Omega\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ be bounded and 
+\begin_inset Formula $c\left(x\right)=0$
+\end_inset
+
+.
+ Assume 
+\begin_inset Formula $Lu\ge0$
+\end_inset
+
+ (or 
+\begin_inset Formula $Lu\le0$
+\end_inset
+
+) in all of 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ and 
+\begin_inset Formula $u\in C^{2}\left(\Omega\right)\cap C^{0}\left(\overline{\Omega}\right)$
+\end_inset
+
+.
+ Then follows:
+\begin_inset Formula 
+\begin{align*}
+\sup_{\Omega}\left(u\right) & =\sup_{\partial\Omega}\left(u\right) &  & \left(\inf_{\Omega}\left(u\right)=\inf_{\partial\Omega}\left(u\right)\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+Only consider the case 
+\begin_inset Formula $Lu\ge0$
+\end_inset
+
+, since for 
+\begin_inset Formula $Lu\le0$
+\end_inset
+
+ holds 
+\begin_inset Formula $L\left(-u\right)\ge0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+alph*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Assume 
+\begin_inset Formula $Lu>0$
+\end_inset
+
+ and 
+\begin_inset Formula $\sup_{\Omega}\left(u\right)>\sup_{\partial\Omega}\left(u\right)$
+\end_inset
+
+.
+ Then the function 
+\begin_inset Formula $u$
+\end_inset
+
+ has a maximum at 
+\begin_inset Formula $x_{0}\in\Omega$
+\end_inset
+
+.
+ (Here we use that 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ is bounded and thus 
+\begin_inset Formula $\overline{\Omega}$
+\end_inset
+
+ is compact.) This implies
+\begin_inset Formula 
+\begin{align*}
+\partial_{i}u\left(x_{0}\right) & =0
+\end{align*}
+
+\end_inset
+
+and that 
+\begin_inset Formula $\partial_{ij}u\left(x_{0}\right)$
+\end_inset
+
+ is negative semi-definite.
+\begin_inset Formula 
+\begin{align*}
+Lu\left(x_{0}\right) & =\underbrace{a^{ij}\left(x_{0}\right)}_{\text{pos. def.}}\underbrace{\partial_{ij}u\left(x_{0}\right)}_{\text{neg. sem.-def.}}\le0
+\end{align*}
+
+\end_inset
+
+This is a contradiction to 
+\begin_inset Formula $Lu>0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Assume only 
+\begin_inset Formula $Lu\ge0$
+\end_inset
+
+.
+ The idea is to modify 
+\begin_inset Formula $u$
+\end_inset
+
+ such that a) applies.
+\begin_inset Formula 
+\begin{align*}
+Le^{\gamma x_{1}} & =a^{11}\partial_{x_{1}}\partial_{x_{1}}e^{\gamma x_{1}}+b^{1}\partial_{x_{1}}e^{\gamma x_{1}}=\left(\gamma^{2}a^{11}+\gamma b^{1}\right)e^{\gamma x_{1}}
+\end{align*}
+
+\end_inset
+
+We know 
+\begin_inset Formula $a^{11}\left(x\right)>\lambda$
+\end_inset
+
+ and 
+\begin_inset Formula $\abs{b^{1}}<K$
+\end_inset
+
+.
+ For 
+\begin_inset Formula $\gamma>\frac{K}{\lambda}$
+\end_inset
+
+ we have:
+\begin_inset Formula 
+\begin{align*}
+Le^{\gamma x_{1}} & >0
+\end{align*}
+
+\end_inset
+
+Now consider for 
+\begin_inset Formula $\varepsilon\in\mathbb{R}_{>0}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+L\left(u+\varepsilon e^{\gamma x_{1}}\right) & =Lu+\varepsilon Le^{\gamma x_{1}}>0
+\end{align*}
+
+\end_inset
+
+Thus one can apply a) to conclude:
+\begin_inset Formula 
+\begin{align*}
+\sup_{\Omega}\left(u+\varepsilon e^{\gamma x_{1}}\right) & =\sup_{\partial\Omega}\left(u+\varepsilon e^{\gamma x_{1}}\right)
+\end{align*}
+
+\end_inset
+
+Since this holds for all 
+\begin_inset Formula $\varepsilon\in\mathbb{R}_{>0}$
+\end_inset
+
+, we get also:
+\begin_inset Formula 
+\begin{align*}
+\sup_{\Omega}\left(u\right) & =\sup_{\partial\Omega}\left(u\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Corollary
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Cor-Weak-Maximum-c-non-positive"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $c\left(x\right)\le0$
+\end_inset
+
+ and 
+\begin_inset Formula $Lu\ge0$
+\end_inset
+
+ (or 
+\begin_inset Formula $Lu\le0$
+\end_inset
+
+) holds with 
+\begin_inset Formula $u^{+}:=\max\left(u,0\right)$
+\end_inset
+
+ (and 
+\begin_inset Formula $u^{-}:=\min\left(u,0\right)$
+\end_inset
+
+):
+\begin_inset Formula 
+\begin{align*}
+\sup_{\Omega}\left(u\right) & \le\sup_{\partial\Omega}\left(u^{+}\right) & \big(\inf_{\Omega}\left(u\right) & \le\inf_{\partial\Omega}\left(u\right)\big)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+We show this only for 
+\begin_inset Formula $Lu\ge0$
+\end_inset
+
+, since for 
+\begin_inset Formula $Lu\le0$
+\end_inset
+
+ one can consider 
+\begin_inset Formula $-u$
+\end_inset
+
+.
+ 
+\begin_inset Formula $L$
+\end_inset
+
+ without the zero order term is:
+\begin_inset Formula 
+\begin{align*}
+L_{0} & :=a^{ij}\left(x\right)\partial_{ij}+b^{i}\left(x\right)\partial_{i}
+\end{align*}
+
+\end_inset
+
+Now consider the domain:
+\begin_inset Formula 
+\begin{align*}
+\Omega^{+} & :=\left\{ x\in\Omega\big|u\left(x\right)>0\right\} 
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $\Omega^{+}$
+\end_inset
+
+ is again an open, bounded domain and in 
+\begin_inset Formula $\Omega^{+}$
+\end_inset
+
+ holds:
+\begin_inset Formula 
+\begin{align*}
+L_{0}u & \ge L_{0}u+\underbrace{cu}_{\le0}=Lu\ge0
+\end{align*}
+
+\end_inset
+
+Then 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Thm-Weak-Maximum_elliptic"
+
+\end_inset
+
+ yields:
+\begin_inset Formula 
+\begin{align*}
+\sup_{\Omega^{+}}\left(u\right) & =\sup_{\partial\Omega^{+}}\left(u\right)\le\sup_{\partial\Omega}\left(u^{+}\right)
+\end{align*}
+
+\end_inset
+
+If in 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ holds 
+\begin_inset Formula $u\le0$
+\end_inset
+
+, there is nothing to prove.
+ Otherwise holds:
+\begin_inset Formula 
+\begin{align*}
+\sup_{\Omega}\left(u\right) & =\sup_{\Omega^{+}}\left(u\right)=\sup_{\partial\Omega^{+}}\left(u\right)\le\sup_{\partial\Omega}\left(u^{+}\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Theorem
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $c\in\mathbb{R}_{\le0}$
+\end_inset
+
+ and 
+\begin_inset Formula $u,v\in C^{2}\left(\Omega\right)\cap C^{0}\left(\overline{\Omega}\right)$
+\end_inset
+
+ satisfy the inequalities 
+\begin_inset Formula $Lu\ge Lv$
+\end_inset
+
+ in 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ and 
+\begin_inset Formula $u\le v$
+\end_inset
+
+ on 
+\begin_inset Formula $\partial\Omega$
+\end_inset
+
+.
+ Then follows 
+\begin_inset Formula $u\le v$
+\end_inset
+
+ in 
+\begin_inset Formula $\Omega$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+L\left(u-v\right)\big|_{\Omega} & \ge0\\
+\left(u-v\right)\big|_{\partial\Omega} & \le0
+\end{align*}
+
+\end_inset
+
+Apply Corollary 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Cor-Weak-Maximum-c-non-positive"
+
+\end_inset
+
+ to obtain:
+\begin_inset Formula 
+\begin{align*}
+\sup_{\Omega}\left(u-v\right) & \le0 & \Rightarrow\qquad u\big|_{\Omega} & \le v\big|_{\Omega}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now we want to show the strong maximum principle, i.e.
+ 
+\begin_inset Formula $u\left(x\right)=\max_{\Omega}\left(u\right)$
+\end_inset
+
+ for 
+\begin_inset Formula $x\in\Omega$
+\end_inset
+
+ implies that 
+\begin_inset Formula $u$
+\end_inset
+
+ is constant.
+\end_layout
+
+\begin_layout Section
+Definition 
+\series medium
+(Inner Sphere Condition)
+\end_layout
+
+\begin_layout Standard
+A boundary point 
+\begin_inset Formula $x_{0}\in\partial\Omega$
+\end_inset
+
+ satisfies the 
+\emph on
+inner sphere condition
+\emph default
+ if there is a ball 
+\begin_inset Formula $B\subseteq\Omega$
+\end_inset
+
+ such that 
+\begin_inset Formula $x_{0}=\partial B$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[scale=0.7]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[scale=1.5] plot[smooth cycle, tension=0.7] coordinates {(-1,0.3) (1,2)
+ (3,1) (3.5,0) (3,-1)  (0,-1.7)};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (2.5,2.88) node[above]{$x_0$} +(0.1,0.1) -- +(-0.1,-0.1)  +(0.1,-0.1) -- +(-0.1,0.1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (2.5,2.88) +({cos(250)},{sin(250)}) circle (1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (2,2) {$B$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Inner sphere condition
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Lemma
+\end_layout
+
+\begin_layout Standard
+Assume 
+\begin_inset Formula $c=0$
+\end_inset
+
+ and 
+\begin_inset Formula $Lu\ge0$
+\end_inset
+
+ in 
+\begin_inset Formula $\Omega$
+\end_inset
+
+.
+ Moreover, at the boundary point 
+\begin_inset Formula $x_{0}\in\partial\Omega$
+\end_inset
+
+ the following conditions should hold:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+roman*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $u$
+\end_inset
+
+ is continuous at 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $u\left(x_{0}\right)>u\left(x\right)$
+\end_inset
+
+ for all 
+\begin_inset Formula $x\in\Omega$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+The inner sphere condition is satisfied.
+\end_layout
+
+\begin_layout Standard
+Then the normal derivative of 
+\begin_inset Formula $u$
+\end_inset
+
+ at 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+, if it exists, satisfies the inequality:
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial u}{\partial\nu}\left(x_{0}\right) & >0
+\end{align*}
+
+\end_inset
+
+We take the 
+\emph on
+outer
+\emph default
+ normal.
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Note
+\emph default
+: The statement 
+\begin_inset Formula $\frac{\partial u}{\partial\nu}\left(x_{0}\right)\ge0$
+\end_inset
+
+ is obvious.
+ The point is to prove the 
+\emph on
+strict
+\emph default
+ inequality.
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $B=B_{R}\left(y\right)$
+\end_inset
+
+ be the sphere of the inner sphere condition.
+\begin_inset Formula 
+\begin{align*}
+v\left(x\right) & :=e^{-\alpha r^{2}}-e^{-\alpha R^{2}} & r & :=\norm{x-y} & r^{2} & =\left(x-y\right)_{i}\left(x-y\right)^{i}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\partial_{i}r^{2} & =2\left(x-y\right)_{i}\\
+\partial_{ij}r^{2} & =2\delta_{ij}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\partial_{i}e^{-\alpha r^{2}} & =e^{-\alpha r^{2}}\left(-2\alpha\right)\left(x-y\right)_{i}\\
+\partial_{ij}e^{-\alpha r^{2}} & =e^{-\alpha r^{2}}4\alpha^{2}\left(x-y\right)_{i}\left(x-y\right)_{j}+e^{-\alpha r^{2}}\left(-2\alpha\right)\delta_{ij}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+Lv & =e^{-\alpha r^{2}}\Big(4\alpha^{2}\underbrace{a^{ij}\left(x\right)\left(x-y\right)_{i}\left(x-y\right)_{j}}_{\le\lambda\norm{x-y}^{2}}-2\alpha\underbrace{\left(a^{ij}\delta_{ij}+b^{i}\left(x-y\right)_{i}\right)}_{\abs{\ldots}\le n^{2}K+nKR}\Big)
+\end{align*}
+
+\end_inset
+
+For 
+\begin_inset Formula $\varrho<R$
+\end_inset
+
+ consider 
+\begin_inset Formula $B_{R}\left(y\right)\setminus B_{\varrho}\left(y\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw plot[smooth cycle, tension=0.7] coordinates { (-7,0) (-5,2) (-1,2.5)
+ ({2*cos(60)},{2*sin(60)}) (3,0.5) (3,-1)  (0,-3) (-2,-3) (-7,-2)};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (0,0) node[left]{$y$} +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[blue] (0,0) circle(2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (0,0) -- node[above right]{$R$} (2,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[red] (0,0) circle (1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (0,0) -- node[left]{$
+\backslash
+varrho$} (0,1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (0.5,-1.2) node[left]{$x$} +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw ({2*cos(60)},{2*sin(60)}) node[right]{$x_0$} +(0.1,0.1) -- +(-0.1,-0.1)
+ +(0.1,-0.1) -- +(-0.1,0.1);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $Lv\ge0$
+\end_inset
+
+ in 
+\begin_inset Formula $B_{R}\left(y\right)\setminus B_{\varrho}\left(y\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+By choosing 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ sufficiently large, we can arrange that 
+\begin_inset Formula $Lv\ge0$
+\end_inset
+
+ in 
+\begin_inset Formula $B_{R}\left(y\right)\setminus B_{\varrho}\left(y\right)$
+\end_inset
+
+.
+ It holds 
+\begin_inset Formula $u\left(x\right)-u\left(x_{0}\right)<0$
+\end_inset
+
+ on 
+\begin_inset Formula ${\color{red}\partial B_{\varrho}\left(y\right)}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+On 
+\begin_inset Formula ${\color{blue}\partial B_{R}\left(y\right)}$
+\end_inset
+
+ holds 
+\begin_inset Formula $v=0$
+\end_inset
+
+ and 
+\begin_inset Formula $u\left(x\right)-u\left(x_{0}\right)\le0$
+\end_inset
+
+.
+ Thus follows 
+\begin_inset Formula 
+\begin{align*}
+u-u\left(x_{0}\right)+\varepsilon v & \le0
+\end{align*}
+
+\end_inset
+
+on 
+\begin_inset Formula $\partial\left(B_{R}\left(y\right)\setminus B_{\varrho}\left(y\right)\right)$
+\end_inset
+
+ for small enough 
+\begin_inset Formula $\varepsilon\in\mathbb{R}_{>0}$
+\end_inset
+
+ and:
+\begin_inset Formula 
+\begin{align*}
+L\left(u-u\left(x_{0}\right)+\varepsilon v\right) & \ge0
+\end{align*}
+
+\end_inset
+
+The weak maximum principle implies
+\begin_inset Formula 
+\begin{align*}
+u-u\left(x_{0}\right)+\varepsilon v & \le0
+\end{align*}
+
+\end_inset
+
+in 
+\begin_inset Formula $B_{R}\left(y\right)\setminus B_{\varrho}\left(y\right)$
+\end_inset
+
+.
+ Now we compute the normal derivative.
+\begin_inset Formula 
+\begin{align*}
+0\le\frac{\partial}{\partial\nu}\left(u-u\left(x_{0}\right)+\varepsilon v\right)\big|_{x_{0}} & =\frac{\partial u}{\partial\nu}\bigg|_{x_{0}}+\varepsilon\frac{\partial v}{\partial\nu}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial v}{\partial\nu} & =v'\left(r\right)=-2\alpha re^{-\alpha r^{2}}\big|_{r=R}<0
+\end{align*}
+
+\end_inset
+
+Therefore follows:
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial u}{\partial\nu}\left(x_{0}\right) & >0
+\end{align*}
+
+\end_inset
+
+
 \begin_inset ERT
 status open
 

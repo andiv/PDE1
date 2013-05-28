@@ -402,9 +402,13 @@ ISBN: 978-0-387-49318-3; \href{http://dx.doi.org/10.1007/978-0-387-49319-0}{doi:
 \item \noun{Lawrence C. Evans}: \emph{Partial Differential Equations}; American
 Mathematical Society, 2010; ISBN: 978-0-8218-4974-3\\
 (part of the lecture follows this book, lots of details)
-\item \noun{David Gilborg, Neil S. Trudinger}: \emph{Elliptic Partial Differential
+\item \noun{David Gilbarg, Neil S. Trudinger}: \emph{Elliptic Partial Differential
 Equations of second order}; Springer, 2001; ISBN: 3-540-41160-7\\
 (classic textbook, complete treatment)
+\item \noun{Richard Courant, David Hilbert}: \emph{Methods of Mathematical
+Physics: Partial Differential Equations, Volume II}; Wiley, 2008;\\
+ISBN: 978-0471504399; \href{http://dx.doi.org/10.1002/9783527617234}{doi: 10.1002/9783527617234}\\
+(Lebesgue spine)
 \end{itemize}
 Hyperbolic partial differential equations (for the lecture ``Partial
 Differential Equations II''):
@@ -2596,7 +2600,7 @@ So we get:
 \begin{align*}
 u\left(y_{1}\right)-u\left(y_{2}\right) & \le\frac{1}{\omega_{n}r^{n}}\underbrace{\sup_{\mathbb{R}^{n}}\left(\abs u\right)}_{<\infty}\mu\left(B_{r}\left(y_{1}\right)\setminus B_{r}\left(y_{2}\right)\cup B_{r}\left(y_{2}\right)\setminus B_{r}\left(y_{1}\right)\right)\le\\
  & \le\frac{1}{\omega_{n}r^{n}}\sup_{\mathbb{R}^{n}}\left(\abs u\right)\left(\mu\left(B_{r+\norm{y_{2}-y_{1}}}\left(y_{1}\right)\right)-\mu\left(B_{r-\norm{y_{2}-y_{1}}}\left(y_{1}\right)\right)\right)\le\\
- & \le\frac{1}{\omega_{n}r^{n}}\sup_{\mathbb{R}^{n}}\left(\abs u\right)\left(\omega_{n}\left(r+\norm{y_{2}-y_{1}}^{n}\right)-\omega_{n}\left(r-\norm{y_{2}-y_{1}}^{n}\right)\right)=\\
+ & \le\frac{1}{\omega_{n}r^{n}}\sup_{\mathbb{R}^{n}}\left(\abs u\right)\left(\omega_{n}\left(r+\norm{y_{2}-y_{1}}\right)^{n}-\omega_{n}\left(r-\norm{y_{2}-y_{1}}\right)^{n}\right)=\\
  & =\sup_{\mathbb{R}^{n}}\left(\abs u\right)\frac{1}{r^{n}}\left(2n\norm{y_{2}-y_{1}}r^{n-1}+\ldots\right)\xrightarrow{r\to\infty}0
 \end{align*}
 This gives $u\left(y_{1}\right)=u\left(y_{2}\right)$ and thus $u$
@@ -2756,7 +2760,8 @@ has to be sufficiently smooth, for the boundary condition to be satisfied.
 %DATE: Fr 17.5.13
 
 
-\section{Definition \textmd{(Sub- and Superharmonic Functions, Compactly Contained)}}
+\section{Definition \textmd{(Sub- and Superharmonic Functions, Compactly Contained,
+Subsolution)}}
 
 A function $u\in C^{0}\left(\Omega\right)$ is called \emph{subharmonic}
 (\emph{superharmonic}) in $\Omega$, if for every ball $B\Subset\Omega$
@@ -2794,6 +2799,28 @@ Now define the function $u$ by:
 u\left(x\right) & :=\sup_{v\in S_{\varphi}}\left(v\left(x\right)\right)\in\mathbb{R}\cup\left\{ \infty\right\} 
 \end{align*}
 We hope, that $u$ is the solution of the Dirichlet problem.
+
+
+\section{Lemma}
+
+If $u_{1}$ and $u_{2}$ are subharmonic then $\text{max}\left(u_{1},u_{2}\right)$
+is also subharmonic.
+
+
+\subsubsection*{Proof}
+
+Let $B\Subset\Omega$ and $h\in C^{2}\left(\Omega\right)$ be harmonic.
+\begin{align*}
+\max\left(u_{1},u_{2}\right)\big|_{\partial B} & \le h\big|_{\partial B}
+\end{align*}
+Then follows $u_{1}\big|_{\partial B}\le h\big|_{\partial B}$ and
+$u_{2}\big|_{\partial B}\le h\big|_{\partial B}$ in $B$, since $u_{1}$
+and $u_{2}$ are subharmonic. Therefore holds also for the maximum
+in $B$:
+\begin{align*}
+\max\left(u_{1},u_{2}\right)\big|_{B} & \le h\big|_{B}
+\end{align*}
+\qqed
 
 
 \section{Theorem \textmd{(Supremum of Subsolutions is Harmonic)}\label{sec:Thm-u-harmonic}}
@@ -3014,18 +3041,21 @@ in $B_{r}\left(y\right)$.
 
 Applying Harnack's convergence theorem, we conclude
 \begin{align*}
-\overline{v}_{n} & \rightrightarrows\overline{v}\text{ in }B_{r}\left(y\right)
+\overline{v}_{n} & \rightrightarrows\tilde{v}\text{ in }B_{r}\left(y\right)
 \end{align*}
 and $\overline{v}$ is harmonic.
 
-Now we show $u=\overline{v}$ in $B_{r}\left(y\right)$. Obviously
-holds $\overline{v}\le u,$ because $\overline{v}_{n}\le u$ holds
-for all $n\in\mathbb{N}$.\\
+Now we show $u=\tilde{v}$ in $B_{r}\left(y\right)$. Obviously holds
+$\tilde{v}\le u,$ because $\overline{v}_{n}\le u$ holds for all
+$n\in\mathbb{N}$.\\
 Thus assume that there is a point $x\in B_{r}\left(y\right)$ with
-$\overline{v}\left(x\right)<u\left(x\right)$. Then there exists a
-subsolution $s\in S_{\varphi}$ with $\overline{v}\left(x\right)<s\left(x\right)<u\left(x\right)$,
+$\tilde{v}\left(x\right)<u\left(x\right)$. Then there exists a subsolution
+$s\in S_{\varphi}$ with $\tilde{v}\left(x\right)<s\left(x\right)<u\left(x\right)$,
 because $u\left(x\right)=\sup_{v\in S_{\varphi}}\left(v\left(x\right)\right)$.
-Thus we also have $v_{n}\left(x\right)\le\overline{v}\left(x\right)<s\left(x\right)$.
+Thus we also have:
+\begin{align*}
+v_{n}\left(x\right) & \le\tilde{v}\left(x\right)<s\left(x\right)
+\end{align*}
 Now form the sequence:
 \begin{align*}
 w_{n} & :=\max\left(s,v_{n}\right)
@@ -3034,20 +3064,17 @@ These are again subharmonic, from $v_{n}\left(x\right)<s\left(x\right)$
 follows $w_{n}\left(x\right)=s\left(x\right)$, and for the harmonic
 lifts holds $\overline{w}_{n}\ge\overline{v}_{n}$. Then repeating
 the above construction for $v_{n}$ replaced by $w_{n}$, we find
-$\overline{w}_{n}\rightrightarrows\overline{w}$ converges uniformly
-to a harmonic $\overline{w}$. Then follows $\overline{v}\le\overline{w}\le u$
-just as before and:
+$\overline{w}_{n}\rightrightarrows\tilde{w}$ converges uniformly
+to a harmonic $\tilde{w}$. Then follows $\tilde{v}\le\tilde{w}\le u$
+just as before and thus $\tilde{v}-\tilde{w}\le0$ in $B$. Additionally
+$\tilde{v}$ and $\tilde{w}$ are harmonic and we know:
 \begin{align*}
-\overline{v}\left(y\right) & =\overline{w}\left(y\right)=u\left(y\right)\\
-\overline{v}\left(x\right) & <\overline{w}\left(x\right)=s\left(x\right)<u\left(x\right)
+\tilde{v}\left(y\right) & =\tilde{w}\left(y\right)=u\left(y\right)
 \end{align*}
-The mean value property gives:
-\begin{align*}
-\frac{1}{\omega_{n}r^{n}}\int_{B_{r}\left(y\right)}\overline{w}\left(z\right)\dd\mu\left(z\right) & \ge\frac{1}{\omega_{n}r^{n}}\int_{B_{r}\left(y\right)}\overline{v}\left(z\right)\dd\mu\left(z\right)=\overline{v}\left(y\right)=\overline{w}\left(y\right)=\\
- & =\frac{1}{\omega_{n}r^{n}}\int_{B_{r}\left(y\right)}\overline{w}\left(z\right)\dd\mu\left(z\right)
-\end{align*}
-Thus follows $\overline{w}=\overline{v}$ in $B_{r}\left(y\right)$
-in contradiction to $\overline{v}\left(x\right)<\overline{w}\left(x\right)$.\qqed
+So $\tilde{v}-\tilde{w}$ attains its maximum in $y\in B$ and the
+strong maximum principle gives $\tilde{v}=\tilde{w}$ in $B$. From
+$w_{n}\left(x\right)>s\left(x\right)$ follows $\tilde{w}\left(x\right)\ge s\left(x\right)>\tilde{v}\left(x\right)$.
+This is a contradiction.\qqed[\ref{sec:Thm-u-harmonic}]
 
 Question: Is $u$ also a solution of the Dirichlet problem?
 
@@ -3068,6 +3095,727 @@ is also a subsolution, i.e. $\tilde{u}\in S_{\varphi}$. Therefore
 holds $u\left(x\right)\ge\tilde{u}\left(x\right)$ for all $x\in\Omega$.
 Hence $u-\tilde{u}$ is harmonic and $\left(u-\tilde{u}\right)\big|_{\partial\Omega}=0$.
 By the weak maximum principle follows $u=\tilde{u}$ in $\Omega$.\qqed
+
+%DATE: Mi 22.5.13
+
+
+\section{Definition \textmd{(Barrier, Local Barrier)}}
+
+A function $w\in C^{0}\left(\overline{\Omega}\right)$ is called \emph{barrier}
+at $\xi\in\partial\Omega$, if holds:
+\begin{enumerate}[label=\roman*)]
+\item $w$ is superharmonic.
+\item In $\overline{\Omega}\setminus\left\{ \xi\right\} $ holds $w>0$
+and $w\left(\xi\right)=0$.
+\end{enumerate}
+We show first that the barrier is a local concept.
+
+A \emph{local barrier} in $\xi\in\partial\Omega$ is a function $w\in C^{0}\left(\overline{\Omega}\cap B_{\varepsilon}\left(\xi\right)\right)$
+for $\varepsilon\in\mathbb{R}_{>0}$ with:
+\begin{enumerate}[label=\roman*)]
+\item $w$ is superharmonic in $\Omega\cap B_{\varepsilon}\left(\xi\right)$.
+\item In $\overline{\Omega\cap B_{\varepsilon}\left(\xi\right)}\setminus\left\{ \xi\right\} $
+holds $w>0$ and $w\left(\xi\right)=0$.
+\end{enumerate}
+
+\section{Theorem \textmd{(Barrier is Local Concept)}}
+
+If there is a local barrier, there is also a barrier.
+
+
+\subsubsection*{Proof}
+
+Let $w\in C^{0}\left(\overline{\Omega\cap B_{\varepsilon}\left(\xi\right)}\right)$
+be a local barrier. With
+\begin{align*}
+m & :=\inf_{B_{\varepsilon}\left(\xi\right)\setminus B_{\frac{\varepsilon}{2}}\left(\xi\right)}\left(w\right)>0
+\end{align*}
+we choose:
+\begin{align*}
+\overline{w}\left(x\right) & :=\begin{cases}
+\min\left(w\left(x\right),m\right) & x\in\overline{\Omega\cap B_{\frac{\varepsilon}{2}}\left(\xi\right)}\\
+m & x\not\in\overline{\Omega\cap B_{\frac{\varepsilon}{2}}\left(\xi\right)}
+\end{cases}
+\end{align*}
+This is a barrier.\qqed
+
+
+\section{Definition \textmd{(regular point)}}
+
+A border-point $\xi\in\partial\Omega$ is called \emph{regular} if
+there is a barrier at $\xi$.
+
+
+\section{Theorem \textmd{(Solution of Dirichlet Problem with Regular Border)\label{sec:Thm-Perron-Solution}}}
+
+If $\xi$ is a regular border-point, then holds for the function $u\left(x\right):=\sup_{v\in S_{\varphi}}\left(v\left(x\right)\right)$:
+\begin{align*}
+\lim_{\Omega\ni x\to\xi}u\left(x\right) & =\varphi\left(\xi\right)
+\end{align*}
+So if every border point is regular, the Perron solution is the solution
+of the Dirichlet problem.
+
+
+\subsubsection*{Proof}
+
+We construct a supersolution. Because $\xi$ is a regular border-point,
+there is a barrier $w$ at $\xi$. Consider $\varepsilon\in\mathbb{R}_{>0}$
+and define:
+\begin{align*}
+M & :=\sup_{\partial\Omega}\left(\abs{\varphi}\right)
+\end{align*}
+Now choose $\delta,k\in\mathbb{R}_{>0}$ such that holds:
+\begin{align*}
+\abs{\varphi\left(x\right)-\varphi\left(\xi\right)} & <\varepsilon &  & \fall_{x\in B_{\delta}\left(\xi\right)\cap\partial\Omega}\\
+kw\left(x\right) & \ge2M &  & \fall_{x\in\partial\Omega\setminus B_{\delta}\left(\xi\right)}
+\end{align*}
+Then
+\begin{align*}
+u_{+}\left(x\right) & :=\varphi\left(\xi\right)+\varepsilon+kw\left(x\right)
+\end{align*}
+is a supersolution and
+\begin{align*}
+u_{-}\left(x\right) & :=\varphi\left(\xi\right)-\varepsilon-kw\left(x\right)
+\end{align*}
+a subsolution. (These are sub-/superharmonic, because $w\left(x\right)$
+is superharmonic and thus $-w\left(x\right)$ subharmonic and constants
+are harmonic.)
+
+\begin{figure}[H]
+\noindent \begin{centering}
+\begin{tikzpicture}[scale=2]
+  \draw[blue] plot[smooth,tension=1] coordinates {(0.8,0.8) (0.7,1.2) (0,1.5) (-0.5,1) (-1,0.7) (-0.7,0) ( 0,-0.6) (0.6,0)};
+  \node[blue] at (0.2,1){$\partial\Omega \setminus B_\delta(\xi)$};
+  \draw[red,thick] (0.8,0.8) .. controls +(-0.1,-0.2) and +(0.1,0.2) .. (0.6,0) node[midway](a){};
+  \node[red] at (1.1,-0.15){$B_\delta(\xi)\cap\partial\Omega$};
+  \draw (a) node[right]{$\xi$} +(0.05,0.05) -- +(-0.05,-0.05) +(0.05,-0.05) -- +(-0.05,0.05);
+  \draw (a) circle (0.41) node[above right=13pt]{$B_\delta (\xi)$};
+\end{tikzpicture}
+\par\end{centering}
+
+\noindent \centering{}\caption{Construction of $u_{+}$ and $u_{-}$}
+\end{figure}
+
+
+The $\varepsilon$ ensures $u_{-}\left(x\right)\le\varphi\left(x\right)\le u_{+}\left(x\right)$
+for $x\in B_{\delta}\left(\xi\right)\cap\partial\Omega$ and for $x\in\partial\Omega\setminus B_{\delta}\left(\xi\right)$
+this follows from $kw\ge2M$. Now the maximum principle implies:
+\begin{align*}
+\varphi\left(\xi\right)-\varepsilon-kw\left(x\right) & \le u\left(x\right)\le\varphi\left(\xi\right)+\varepsilon+kw\left(x\right)
+\end{align*}
+Due to $\lim_{x\to\xi}\left(w\left(x\right)\right)=0$ and because
+$\varepsilon$ can be chosen arbitrarily, follows:
+\begin{align*}
+\lim_{x\to\xi}u\left(x\right) & =\varphi\left(\xi\right)
+\end{align*}
+\qqed
+
+
+\section{Theorem \textmd{(Existence of Solution for Dirichlet Problem)}}
+
+The following statements are equivalent:
+\begin{enumerate}
+\item The Dirichlet problem has for every $\varphi\in C^{0}\left(\partial\Omega\right)$
+a solution in $C^{2}\left(\Omega\right)\cap C^{0}\left(\overline{\Omega}\right)$.
+\item Every border-point of $\Omega$ is regular.
+\end{enumerate}
+
+\subsubsection*{Proof}
+
+``2. $\Rightarrow$ 1.'': If every border-point is regular, then
+the Perron solution $u\left(x\right)$ is the solution of the Dirichlet
+problem after Theorem \ref{sec:Thm-Perron-Solution}.
+
+``1. $\Rightarrow$ 2.'': For $\xi\in\partial\Omega$ let $u$ be
+the solution of the following Dirichlet problem:
+\begin{align*}
+\upDelta u\big|_{\Omega} & =0\\
+u\left(x\right)\big|_{\partial\Omega} & =\norm{x-\xi}\big|_{\partial\Omega}
+\end{align*}
+
+
+\begin{figure}[H]
+\noindent \begin{centering}
+\begin{tikzpicture}[scale=2]
+  \draw plot[smooth cycle,tension=1] coordinates {(0.8,0.8) (0,1.5) (-0.5,1) (-1,0.7) (-0.7,0) ( 0,-0.6) (0.6,0)};
+  \node at (0,1.6) {$\partial\Omega$};
+  \draw (0.8,0.8) node[right]{$\xi$} +(0.05,0.05) -- +(-0.05,-0.05) +(0.05,-0.05) -- +(-0.05,0.05);
+\end{tikzpicture}
+\par\end{centering}
+
+\noindent \centering{}\caption{$u\left(\xi\right)=0$, $u\big|_{\partial\Omega\setminus\left\{ \xi\right\} }>0$}
+\end{figure}
+
+
+Were $u\left(y\right)=0$ for a $y\in\Omega$, we had an interior
+minimum, and thus the maximum principle would give the contradiction
+$u=0$. So this $u$ is a barrier.\qqed
+
+How can one construct barriers? Under what geometrical conditions
+do barriers exist?
+
+Consider the dimension $n=2$. Without loss of generality we assume
+$\xi=0$. We consider this as a problem in $\mathbb{C}\stackrel{\sim}{=}\mathbb{R}^{2}$
+and define:
+\begin{align*}
+w\left(z\right) & =-\text{Re}\left(\frac{1}{\ln\left(z\right)}\right)
+\end{align*}
+
+
+\begin{figure}[H]
+\noindent \begin{centering}
+\begin{tikzpicture}[scale=2]
+  \draw plot[smooth,tension=1] coordinates {(0.4,0.4) (0.8,0.8) (0,1.5) (-0.5,1) (-1,0.7) (-0.7,0) ( 0,-0.6)  (0.8,0.25) (0.4,0.4)};
+  \node at (0,1.6) {$\Omega$};
+  \draw (0.4,0.4) node[below]{$\xi :=0$} +(0.05,0.05) -- +(-0.05,-0.05) +(0.05,-0.05) -- +(-0.05,0.05);
+  \draw[red] (0.4,0.4) -- node[below right]{Strahl $S$} (1.4,0.63);
+\end{tikzpicture}
+\par\end{centering}
+
+\noindent \centering{}\caption{$\Omega$ under consideration}
+\end{figure}
+
+
+Choose the branch cut of the logarithm on $S$. Such an $S$ with
+$\Omega\cap S=\emptyset$ and $\xi\in S$ can always be chosen locally.
+Thus $\ln\left(z\right)$ is holomorphic in $\mathbb{C}\setminus S$
+and therefore $\left(\ln\left(z\right)\right)^{-1}$ is holomorphic
+on $\mathbb{C}\setminus S$, which means that $w$ is harmonic on
+$\mathbb{C}\setminus S$ and especially continuous on $\mathbb{C}\setminus S$.
+
+To study the behaviour at the origin, we choose the polar representation:
+\begin{align*}
+z & =re^{\ii\varphi}\\
+\ln\left(z\right) & =\ln\left(r\right)+\ii\varphi+2\pi\ii n
+\end{align*}
+Here $n\in\mathbb{Z}$ depends on the branch of the logarithm.
+\begin{align*}
+-\frac{1}{\ln\left(z\right)} & =-\frac{1}{\ln\left(r\right)+\ii\varphi+2\pi\ii n}\\
+-\text{Re}\left(\frac{1}{\ln\left(z\right)}\right) & =-\frac{\ln\left(r\right)}{\left(\ln\left(r\right)\right)^{2}+\left(\varphi+2\pi n\right)^{2}}\xrightarrow{r\to0}0
+\end{align*}
+This converges locally uniformly in $\varphi$.
+
+Alternatively, this follows from the Riemann mapping theorem.
+
+\begin{figure}[H]
+\noindent \begin{centering}
+\begin{tikzpicture}
+  \draw plot[smooth cycle,tension=1] coordinates {(0.8,0.8) (0,1.5) (-0.5,1) (-1,0.7) (-0.7,0) ( 0,-0.6)};
+  \node at (0,1.7) {$\Omega$};
+  \draw[decoration={markings,mark=at position 1 with {\arrow[scale=2]{>}};},postaction={decorate}] (1,0.5) -- (2,0.5);
+  \draw (3,0.5) circle (0.8);
+  \node at (3,1.6) {$B_1(0)\subseteq \mathbb{C}$};
+\end{tikzpicture}
+\par\end{centering}
+
+\noindent \centering{}\caption{Mapping from $\Omega$ to $B_{1}\left(0\right)$}
+\end{figure}
+
+
+Just transform from any simply connected $\Omega$ to $B_{1}\left(0\right)\subseteq\mathbb{C}$,
+solve the Dirichlet problem in the ball and transform back.
+
+Consider now the case $n\ge3$: One gets barriers if additional conditions
+are satisfied.
+
+
+\section{Definition \textmd{(Outer Sphere/Cone Condition)}}
+
+An open subset $\Omega\subseteq\mathbb{R}^{n}$ satisfies in $\xi\in\partial\Omega$
+the \emph{outer sphere condition} if there is a closed ball $K\subseteq\mathbb{R}^{n}$
+with radius $R$ such that $K\cap\overline{\Omega}=\left\{ \xi\right\} $.
+
+\begin{figure}[H]
+\noindent \begin{centering}
+\begin{tikzpicture}
+    \node at (0,3) {satisfied};
+    \draw[yshift=1cm] plot[smooth cycle,tension=1] coordinates {(0.8,0.8) (0,1.5) (-0.5,1) (-1,0.7) (-0.7,0) ( 0,-0.3)  (0.6,0.1)};
+    \draw[yshift=-1cm] plot[smooth,tension=1] coordinates {(0.8,0.9) (0,1) (-0.5,0.7) (-0.3,0) ( 0,-0.6)  (0.4,0.6) (0.8,0.9)};
+  \begin{scope}[xshift=3cm]
+    \node at (0,2) {not satisfied};
+    \draw plot[smooth,tension=1] coordinates {(0.4,0.4) (0.8,0.8) (0,1.5) (-0.5,1) (-1,0.7) (-0.7,0) ( 0,-0.6)  (0.8,0.25) (0.4,0.4)};
+  \end{scope}
+\end{tikzpicture}
+\par\end{centering}
+
+\noindent \centering{}\caption{Outer Sphere Condition}
+\end{figure}
+
+
+Now choose:
+\begin{align*}
+w\left(x\right) & =-\Gamma\left(\norm{x-y}\right)+\Gamma\left(\norm{\xi-y}\right)
+\end{align*}
+This function is harmonic and non-negative. Furthermore $w\left(x\right)=0$
+implies $x=\xi$. So $w$ is a barrier and we can solve the Dirichlet
+problem.
+
+An improvement is the so called \emph{outer cone condition}.
+
+\begin{figure}[H]
+\noindent \begin{centering}
+\begin{tikzpicture}
+    \node at (0,3) {satisfied};
+    \draw[yshift=1cm] plot[smooth cycle,tension=1] coordinates {(0.8,0.8) (0,1.5) (-0.5,1) (-1,0.7) (-0.7,0) ( 0,-0.3)  (0.6,0.1)};
+  \draw (0.8,1.8) +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+  \draw[blue] (0.8,1.8) -- +(0.5,1) +(0,0) -- +(1,0.2);
+  \node[blue] at (1.6,2.3) {cone};
+    \draw[yshift=-1cm] plot[smooth,tension=1] coordinates {(0,0) (0,0.7) (-0.6,0.8) (-1,0) (0,-1) (1,0) (0,0)};
+  \draw[blue] (0,-1) -- +(0.5,1) +(0,0) -- +(1,0.3);
+  \begin{scope}[xshift=4cm]
+    \node at (0,2) {not satisfied};
+    \draw plot[smooth,tension=1] coordinates {(0.4,0.4) (0.8,0.8) (0,1.5) (-0.5,1) (-1,0.7) (-0.7,0) ( 0,-0.6)  (0.8,0.25) (0.4,0.4)};
+  \end{scope}
+\end{tikzpicture}
+\par\end{centering}
+
+\noindent \centering{}\caption{Outer Cone Condition}
+\end{figure}
+
+
+Here one can also construct a barrier.
+
+
+\section{Example \textmd{(Dirichlet Problem without Solution, Lebesgue Spine)}}
+
+A counter example for the solvability of the Dirichlet problem with
+continuous boundary values was found in 1912 by Lebesgue. The details
+can be found in the book of Courant and Hilbert.
+
+We use the Ansatz:
+\begin{align*}
+u\left(x\right) & =\int\Gamma\left(\norm{x-y}\right)\varrho\left(y\right)\dd^{n}y
+\end{align*}
+Here $\varrho\left(y\right)$ can be viewed as ``charge density''.
+Then follows:
+\begin{align*}
+\upDelta u\left(x\right) & =\varrho\left(x\right)\\
+\upDelta u\left(x\right) & =0\qquad\text{if }\varrho\left(x\right)=0
+\end{align*}
+Consider the charge distribution on the $x$-axis:
+\begin{align*}
+\varrho\left(x,y,z\right) & =\begin{cases}
+\delta\left(y\right)\delta\left(z\right)\left(-4\pi x\right) & x\in\left[0,1\right]\\
+0 & \text{otherwise}
+\end{cases}
+\end{align*}
+This is the so-called Lebesgue spine in $\mathbb{R}^{3}$.
+\begin{align*}
+u\left(x,y,z\right) & =\int_{0}^{1}\Gamma\left(\norm{\left(\xi,0,0\right)-\left(x,y,z\right)}\right)\left(-4\pi\xi\right)\dd\xi=\\
+ & =\int_{0}^{1}\frac{\xi\dd\xi}{\sqrt{\left(\xi-x\right)^{2}+y^{2}+z^{2}}}\dd\xi
+\end{align*}
+Define $\zeta:=\sqrt{y^{2}+z^{2}}$. The integral gives:
+\begin{align*}
+u\left(x,\zeta\right) & =A\left(x,\zeta\right)-2x\ln\left(\zeta\right)\\
+A\left(x,\zeta\right) & =\sqrt{\left(1-x\right)^{2}+\zeta^{2}}-\sqrt{x^{2}+\zeta^{2}}+x\ln\left(\abs{\left(1+x+\sqrt{\left(1-x\right)^{2}+\zeta^{2}}\right)\left(x+\sqrt{x^{2}+\zeta^{2}}\right)}\right)
+\end{align*}
+$A$ is continuous at the origin:
+\begin{align*}
+1+x+\sqrt{\left(1-x\right)^{2}+\zeta^{2}} & \to2\\
+\lim_{\left(x,\zeta\right)\to0}\left(x+\sqrt{x^{2}+\zeta^{2}}\right) & =\lim_{x\to0}\left(2x\right)\\
+\lim_{x\to0}x\ln\left(x\right) & =0\\
+\Rightarrow\qquad\lim_{\left(x,\zeta\right)\to0}A\left(x,\zeta\right) & =1
+\end{align*}
+But $x\ln\left(\zeta\right)$ is not continuous at the origin. Consider
+for example:
+\begin{align*}
+\zeta & =\abs x^{\alpha} & x\ln\left(\zeta\right) & =x\alpha\ln\left(\abs x\right)\xrightarrow{x\to0}0\\
+\zeta & =e^{-\frac{c}{x}} & x\ln\left(\zeta\right) & =x\frac{-c}{x}\xrightarrow{x\to0}-c
+\end{align*}
+
+
+\begin{figure}[H]
+\noindent \begin{centering}
+\begin{tikzpicture}
+ \begin{axis}[width=10cm, axis x line=middle, axis y line=middle, xtick={0}, ytick={0}, xlabel=$q$,domain=0:.3,samples=300]
+  \addplot[mark=none] {x^2};
+  \addlegendentry{$\zeta=\abs{x}^2$}
+  \addplot[blue,mark=none] {exp(-1/x)};
+  \addlegendentry{$\zeta=\exp (-\frac{1}{x})$}
+ \end{axis}
+\end{tikzpicture}
+\par\end{centering}
+
+\noindent \centering{}\caption{$\lim_{\left(x,\zeta\right)\to0}A$$\left(x,\zeta\right)$ has different
+values for different path.}
+\end{figure}
+
+
+%DATE: Fr 24.5.13
+
+So the function $-2x\ln\left(\zeta\right)$ is constant along the
+curve $\left\{ \zeta=e^{-\frac{c}{2x}}\Big|x>0\right\} $, but is
+not continuous at the origin. Consider the level set $u\left(x,\zeta\right)=1+C$
+for $C\in\mathbb{R}_{>0}$.
+
+\begin{figure}[H]
+\noindent \begin{centering}
+\begin{tikzpicture}
+  \foreach \x in {-3,-2,...,2}     \draw (-1,\x) -- (4,{\x + 1.5});
+  \draw[scale=1.5,fill=white] plot[smooth, tension=0.7] coordinates {(0,0) (0.5,0.18) (1,1) (1.5,1) (2,0) (1.5,-1) (1,-1) (0.5,-0.18) (0,0)};
+  \draw[->] (0,0) -- (0,3) node[above]{$\zeta$};
+  \draw[->] (0,0) -- (4,0) node[right]{$x$};
+  \node at (1,3) {$\Omega $};
+  \draw[red] (1.5,0) circle (2);
+  \draw[red] (1.5,0) +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+  \draw[red] (1.5,0) -- node[above left=-2pt]{$R$} (2.9,1.4);
+\end{tikzpicture}
+\par\end{centering}
+
+\noindent \centering{}\caption{The level set $u\left(x,\zeta\right)=1+C$ defines the region $\Omega$.}
+\end{figure}
+
+
+We have:
+\begin{align*}
+\upDelta u\big|_{\Omega} & =0\\
+u\big|_{\partial\Omega} & =1+C
+\end{align*}
+But $u$ is \emph{not} continuous at $\left(x,y,z\right)=0$. Let
+$B$ be a ball such that $\partial B\cap\partial\Omega=\emptyset$.
+Now perform an inversion:
+
+\begin{figure}[H]
+\noindent \begin{centering}
+\begin{tikzpicture}
+  \node at (1,2.25) {$\Omega $};
+  \draw[red] (-0.75,0) -- (-4,0);
+  \draw[scale=1.5] plot[smooth, tension=0.7] coordinates {(-0.5,0) (-1,0.3) (0,1.7) (1,2) (3,1) (3.5,0) (3,-1) (1,-2) (0,-1.7) (-1,-0.3) (-0.5,0)};
+  \draw (1.5,0) circle (2);
+  \draw (1.5,0) +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+  \draw (1.5,0) -- node[above left=-2pt]{$R$} (2.9,1.4);
+\begin{scope}
+  \clip[scale=1.5] plot[smooth, tension=0.7] coordinates {(-0.5,0) (-1,0.3) (0,1.7) (1,2) (3,1) (3.5,0) (3,-1) (1,-2) (0,-1.7) (-1,-0.3) (-0.5,0)};
+  \foreach \x in {-3,-2,...,2}     \draw (-2,\x) -- (6,{\x + 1.5});
+\end{scope}
+\end{tikzpicture}
+\par\end{centering}
+
+\noindent \centering{}\caption{$\Omega$ inverted}
+\end{figure}
+
+
+For formulas see the book of Courant and Hilbert.
+\begin{align*}
+\upDelta u\big|_{\Omega} & =0\\
+u\big|_{\partial\Omega} & =1+C
+\end{align*}
+$u$ is not continous in $\overline{\Omega}$.
+
+
+\chapter{The Maximum Principle for Linear Elliptic Equations}
+
+Again $\Omega\subseteq\mathbb{R}^{n}$ is an open domain and $u\in C^{2}\left(\Omega,\mathbb{R}\right)$
+a scalar function. Let $L$ be a differential operator of second order,
+linear and elliptic.
+\begin{align*}
+Lu\left(x\right) & =\sum_{i,j=1}^{n}a^{ij}\left(x\right)\partial_{ij}u\left(x\right)+\sum_{i=1}^{n}b^{i}\left(x\right)\partial_{i}u\left(x\right)+c\left(x\right)u\left(x\right)
+\end{align*}
+Usually we use the summation convention to omit the sums. We make
+the following assumpions:
+\begin{enumerate}[label=\roman*)]
+\item \emph{Uniform ellipticity}: There exists a $\lambda\in\mathbb{R}_{>0}$
+such that for all $\xi\in\mathbb{R}^{n}$ and all $x\in\Omega$ holds:
+\begin{align*}
+a^{ij}\left(x\right)\xi_{i}\xi_{j} & \ge\lambda\cdot\abs{\xi}^{2}
+\end{align*}
+
+\item The coefficients are \emph{uniformly bounded}: There exists a $K\in\mathbb{R}_{>0}$
+such that for all $x\in\Omega$ and $i,j\in\left\{ 1,\ldots,n\right\} $
+holds:
+\begin{align*}
+\abs{a^{ij}\left(x\right)},\abs{b^{i}\left(x\right)},\abs{c\left(x\right)} & \le K
+\end{align*}
+
+\end{enumerate}
+Consider solutions of the homogeneous equation $Lu=0$. Our goal is
+to derive a maximum principle.
+
+
+\section{Example \textmd{(One-Dimensional)}}
+
+We begin with a one-dimensional example.
+\begin{align*}
+u''\left(x\right)+cu\left(x\right) & =0
+\end{align*}
+
+\begin{enumerate}[label=\alph*)]
+\item $c<0$: There are two fundamental solutions, i.e. every solution
+is a linear combination:
+\begin{align*}
+u_{1}\left(x\right) & =e^{\sqrt{\abs c}x}\\
+u_{2}\left(x\right) & =e^{-\sqrt{\abs c}x}
+\end{align*}
+Consider $\Omega=\left(0,1\right)$ and impose Dirichlet boundary
+conditions $u\left(0\right)=0=u\left(1\right)$.
+\begin{align*}
+u & =\alpha u_{1}+\beta u_{2}
+\end{align*}
+\begin{align*}
+u\left(0\right) & =0 & \Rightarrow\qquad\alpha & =-\beta & \Rightarrow\qquad u & =\alpha\left(e^{\sqrt{\abs c}x}-e^{-\sqrt{\abs c}x}\right)\\
+u\left(1\right) & =0 & \Rightarrow\qquad\alpha\left(e^{\sqrt{\abs c}}-e^{-\sqrt{\abs c}}\right) & =0 & \Rightarrow\qquad\alpha & =0
+\end{align*}
+Thus the Dirichlet problem has a unique solution $u=0$, in accordance
+with the maximum principle.
+\item $c>0$: The functions 
+\begin{align*}
+u_{1}\left(x\right) & =\sin\left(\sqrt{c}x\right)\\
+u_{2}\left(x\right) & =\cos\left(\sqrt{c}x\right)
+\end{align*}
+are fundamental solutions.
+\begin{align*}
+u & =\alpha u_{1}+\beta u_{2}\\
+u\left(0\right) & =0\qquad\Rightarrow\qquad\beta=0\\
+u\left(1\right) & =0=\alpha\sin\left(\sqrt{c}\right)
+\end{align*}
+In the case of $\sin\left(\sqrt{c}\right)=0$, the parameter $\alpha$
+is arbitrary, otherwise follows $\alpha=0$ and thus $u=0$.\\
+For example for $c=\pi^{2}$ with $\alpha=1$ we have:
+\begin{align*}
+u\left(x\right) & =\sin\left(\pi x\right)
+\end{align*}
+This is a non-trivial solution of the Dirichlet problem and it has
+an interior maximum. So the maximum principle is violated.\\
+\begin{figure}[H]
+\noindent \begin{centering}
+\begin{tikzpicture}
+ \begin{axis}[width=12cm, axis x line=middle, axis y line=middle, xlabel=$q$,domain=0:1,samples=300, ymax=1.08, xmax=1.08]
+  \addplot[mark=none] {sin(x*180)};
+  \addlegendentry{$u(x)=\sin (\pi x)$}
+  \draw[dashed] (axis cs:0.5,0) -- (axis cs:0.5,1.1);
+ \end{axis}
+\end{tikzpicture}
+\par\end{centering}
+
+\noindent \centering{}\caption{$u\left(x\right)$ has an interior maximum.}
+\end{figure}
+
+\end{enumerate}
+
+\section{Theorem \textmd{(Weak Maximum Principle)\label{sec:Thm-Weak-Maximum_elliptic}}}
+
+Let $\Omega\subseteq\mathbb{R}^{n}$ be bounded and $c\left(x\right)=0$.
+Assume $Lu\ge0$ (or $Lu\le0$) in all of $\Omega$ and $u\in C^{2}\left(\Omega\right)\cap C^{0}\left(\overline{\Omega}\right)$.
+Then follows:
+\begin{align*}
+\sup_{\Omega}\left(u\right) & =\sup_{\partial\Omega}\left(u\right) &  & \left(\inf_{\Omega}\left(u\right)=\inf_{\partial\Omega}\left(u\right)\right)
+\end{align*}
+
+
+
+\subsubsection*{Proof}
+
+Only consider the case $Lu\ge0$, since for $Lu\le0$ holds $L\left(-u\right)\ge0$.
+\begin{enumerate}[label=\alph*)]
+\item Assume $Lu>0$ and $\sup_{\Omega}\left(u\right)>\sup_{\partial\Omega}\left(u\right)$.
+Then the function $u$ has a maximum at $x_{0}\in\Omega$. (Here we
+use that $\Omega$ is bounded and thus $\overline{\Omega}$ is compact.)
+This implies
+\begin{align*}
+\partial_{i}u\left(x_{0}\right) & =0
+\end{align*}
+and that $\partial_{ij}u\left(x_{0}\right)$ is negative semi-definite.
+\begin{align*}
+Lu\left(x_{0}\right) & =\underbrace{a^{ij}\left(x_{0}\right)}_{\text{pos. def.}}\underbrace{\partial_{ij}u\left(x_{0}\right)}_{\text{neg. sem.-def.}}\le0
+\end{align*}
+This is a contradiction to $Lu>0$.
+\item Assume only $Lu\ge0$. The idea is to modify $u$ such that a) applies.
+\begin{align*}
+Le^{\gamma x_{1}} & =a^{11}\partial_{x_{1}}\partial_{x_{1}}e^{\gamma x_{1}}+b^{1}\partial_{x_{1}}e^{\gamma x_{1}}=\left(\gamma^{2}a^{11}+\gamma b^{1}\right)e^{\gamma x_{1}}
+\end{align*}
+We know $a^{11}\left(x\right)>\lambda$ and $\abs{b^{1}}<K$. For
+$\gamma>\frac{K}{\lambda}$ we have:
+\begin{align*}
+Le^{\gamma x_{1}} & >0
+\end{align*}
+Now consider for $\varepsilon\in\mathbb{R}_{>0}$:
+\begin{align*}
+L\left(u+\varepsilon e^{\gamma x_{1}}\right) & =Lu+\varepsilon Le^{\gamma x_{1}}>0
+\end{align*}
+Thus one can apply a) to conclude:
+\begin{align*}
+\sup_{\Omega}\left(u+\varepsilon e^{\gamma x_{1}}\right) & =\sup_{\partial\Omega}\left(u+\varepsilon e^{\gamma x_{1}}\right)
+\end{align*}
+Since this holds for all $\varepsilon\in\mathbb{R}_{>0}$, we get
+also:
+\begin{align*}
+\sup_{\Omega}\left(u\right) & =\sup_{\partial\Omega}\left(u\right)
+\end{align*}
+
+\end{enumerate}
+\qqed
+
+
+\section{Corollary\label{sec:Cor-Weak-Maximum-c-non-positive}}
+
+For $c\left(x\right)\le0$ and $Lu\ge0$ (or $Lu\le0$) holds with
+$u^{+}:=\max\left(u,0\right)$ (and $u^{-}:=\min\left(u,0\right)$):
+\begin{align*}
+\sup_{\Omega}\left(u\right) & \le\sup_{\partial\Omega}\left(u^{+}\right) & \big(\inf_{\Omega}\left(u\right) & \le\inf_{\partial\Omega}\left(u\right)\big)
+\end{align*}
+
+
+
+\subsubsection*{Proof}
+
+We show this only for $Lu\ge0$, since for $Lu\le0$ one can consider
+$-u$. $L$ without the zero order term is:
+\begin{align*}
+L_{0} & :=a^{ij}\left(x\right)\partial_{ij}+b^{i}\left(x\right)\partial_{i}
+\end{align*}
+Now consider the domain:
+\begin{align*}
+\Omega^{+} & :=\left\{ x\in\Omega\big|u\left(x\right)>0\right\} 
+\end{align*}
+$\Omega^{+}$ is again an open, bounded domain and in $\Omega^{+}$
+holds:
+\begin{align*}
+L_{0}u & \ge L_{0}u+\underbrace{cu}_{\le0}=Lu\ge0
+\end{align*}
+Then \ref{sec:Thm-Weak-Maximum_elliptic} yields:
+\begin{align*}
+\sup_{\Omega^{+}}\left(u\right) & =\sup_{\partial\Omega^{+}}\left(u\right)\le\sup_{\partial\Omega}\left(u^{+}\right)
+\end{align*}
+If in $\Omega$ holds $u\le0$, there is nothing to prove. Otherwise
+holds:
+\begin{align*}
+\sup_{\Omega}\left(u\right) & =\sup_{\Omega^{+}}\left(u\right)=\sup_{\partial\Omega^{+}}\left(u\right)\le\sup_{\partial\Omega}\left(u^{+}\right)
+\end{align*}
+\qqed
+
+
+\section{Theorem}
+
+Let $c\in\mathbb{R}_{\le0}$ and $u,v\in C^{2}\left(\Omega\right)\cap C^{0}\left(\overline{\Omega}\right)$
+satisfy the inequalities $Lu\ge Lv$ in $\Omega$ and $u\le v$ on
+$\partial\Omega$. Then follows $u\le v$ in $\Omega$.
+
+
+\subsubsection*{Proof}
+
+\begin{align*}
+L\left(u-v\right)\big|_{\Omega} & \ge0\\
+\left(u-v\right)\big|_{\partial\Omega} & \le0
+\end{align*}
+Apply Corollary \ref{sec:Cor-Weak-Maximum-c-non-positive} to obtain:
+\begin{align*}
+\sup_{\Omega}\left(u-v\right) & \le0 & \Rightarrow\qquad u\big|_{\Omega} & \le v\big|_{\Omega}
+\end{align*}
+\qqed
+
+Now we want to show the strong maximum principle, i.e. $u\left(x\right)=\max_{\Omega}\left(u\right)$
+for $x\in\Omega$ implies that $u$ is constant.
+
+
+\section{Definition \textmd{(Inner Sphere Condition)}}
+
+A boundary point $x_{0}\in\partial\Omega$ satisfies the \emph{inner
+sphere condition} if there is a ball $B\subseteq\Omega$ such that
+$x_{0}=\partial B$.
+
+\begin{figure}[H]
+\noindent \begin{centering}
+\begin{tikzpicture}[scale=0.7]
+  \draw[scale=1.5] plot[smooth cycle, tension=0.7] coordinates {(-1,0.3) (1,2) (3,1) (3.5,0) (3,-1)  (0,-1.7)};
+  \draw (2.5,2.88) node[above]{$x_0$} +(0.1,0.1) -- +(-0.1,-0.1)  +(0.1,-0.1) -- +(-0.1,0.1);
+  \draw (2.5,2.88) +({cos(250)},{sin(250)}) circle (1);
+  \node at (2,2) {$B$};
+\end{tikzpicture}
+\par\end{centering}
+
+\noindent \centering{}\caption{Inner sphere condition}
+\end{figure}
+
+
+
+\section{Lemma}
+
+Assume $c=0$ and $Lu\ge0$ in $\Omega$. Moreover, at the boundary
+point $x_{0}\in\partial\Omega$ the following conditions should hold:
+\begin{enumerate}[label=\roman*)]
+\item $u$ is continuous at $x_{0}$.
+\item $u\left(x_{0}\right)>u\left(x\right)$ for all $x\in\Omega$.
+\item The inner sphere condition is satisfied.
+\end{enumerate}
+Then the normal derivative of $u$ at $x_{0}$, if it exists, satisfies
+the inequality:
+\begin{align*}
+\frac{\partial u}{\partial\nu}\left(x_{0}\right) & >0
+\end{align*}
+We take the \emph{outer} normal.
+
+\emph{Note}: The statement $\frac{\partial u}{\partial\nu}\left(x_{0}\right)\ge0$
+is obvious. The point is to prove the \emph{strict} inequality.
+
+
+\subsubsection*{Proof}
+
+Let $B=B_{R}\left(y\right)$ be the sphere of the inner sphere condition.
+\begin{align*}
+v\left(x\right) & :=e^{-\alpha r^{2}}-e^{-\alpha R^{2}} & r & :=\norm{x-y} & r^{2} & =\left(x-y\right)_{i}\left(x-y\right)^{i}
+\end{align*}
+\begin{align*}
+\partial_{i}r^{2} & =2\left(x-y\right)_{i}\\
+\partial_{ij}r^{2} & =2\delta_{ij}
+\end{align*}
+\begin{align*}
+\partial_{i}e^{-\alpha r^{2}} & =e^{-\alpha r^{2}}\left(-2\alpha\right)\left(x-y\right)_{i}\\
+\partial_{ij}e^{-\alpha r^{2}} & =e^{-\alpha r^{2}}4\alpha^{2}\left(x-y\right)_{i}\left(x-y\right)_{j}+e^{-\alpha r^{2}}\left(-2\alpha\right)\delta_{ij}
+\end{align*}
+\begin{align*}
+Lv & =e^{-\alpha r^{2}}\Big(4\alpha^{2}\underbrace{a^{ij}\left(x\right)\left(x-y\right)_{i}\left(x-y\right)_{j}}_{\le\lambda\norm{x-y}^{2}}-2\alpha\underbrace{\left(a^{ij}\delta_{ij}+b^{i}\left(x-y\right)_{i}\right)}_{\abs{\ldots}\le n^{2}K+nKR}\Big)
+\end{align*}
+For $\varrho<R$ consider $B_{R}\left(y\right)\setminus B_{\varrho}\left(y\right)$.
+
+\begin{figure}[H]
+\noindent \begin{centering}
+\begin{tikzpicture}
+  \draw plot[smooth cycle, tension=0.7] coordinates { (-7,0) (-5,2) (-1,2.5) ({2*cos(60)},{2*sin(60)}) (3,0.5) (3,-1)  (0,-3) (-2,-3) (-7,-2)};
+  \draw (0,0) node[left]{$y$} +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+  \draw[blue] (0,0) circle(2);
+  \draw (0,0) -- node[above right]{$R$} (2,0);
+  \draw[red] (0,0) circle (1);
+  \draw (0,0) -- node[left]{$\varrho$} (0,1);
+  \draw (0.5,-1.2) node[left]{$x$} +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+  \draw ({2*cos(60)},{2*sin(60)}) node[right]{$x_0$} +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+\end{tikzpicture}
+\par\end{centering}
+
+\noindent \centering{}\caption{$Lv\ge0$ in $B_{R}\left(y\right)\setminus B_{\varrho}\left(y\right)$}
+\end{figure}
+
+
+By choosing $\alpha$ sufficiently large, we can arrange that $Lv\ge0$
+in $B_{R}\left(y\right)\setminus B_{\varrho}\left(y\right)$. It holds
+$u\left(x\right)-u\left(x_{0}\right)<0$ on ${\color{red}\partial B_{\varrho}\left(y\right)}$.
+
+On ${\color{blue}\partial B_{R}\left(y\right)}$ holds $v=0$ and
+$u\left(x\right)-u\left(x_{0}\right)\le0$. Thus follows 
+\begin{align*}
+u-u\left(x_{0}\right)+\varepsilon v & \le0
+\end{align*}
+on $\partial\left(B_{R}\left(y\right)\setminus B_{\varrho}\left(y\right)\right)$
+for small enough $\varepsilon\in\mathbb{R}_{>0}$ and:
+\begin{align*}
+L\left(u-u\left(x_{0}\right)+\varepsilon v\right) & \ge0
+\end{align*}
+The weak maximum principle implies
+\begin{align*}
+u-u\left(x_{0}\right)+\varepsilon v & \le0
+\end{align*}
+in $B_{R}\left(y\right)\setminus B_{\varrho}\left(y\right)$. Now
+we compute the normal derivative.
+\begin{align*}
+0\le\frac{\partial}{\partial\nu}\left(u-u\left(x_{0}\right)+\varepsilon v\right)\big|_{x_{0}} & =\frac{\partial u}{\partial\nu}\bigg|_{x_{0}}+\varepsilon\frac{\partial v}{\partial\nu}
+\end{align*}
+\begin{align*}
+\frac{\partial v}{\partial\nu} & =v'\left(r\right)=-2\alpha re^{-\alpha r^{2}}\big|_{r=R}<0
+\end{align*}
+Therefore follows:
+\begin{align*}
+\frac{\partial u}{\partial\nu}\left(x_{0}\right) & >0
+\end{align*}
+\qqed
 
 
 \part*{Appendix\thispagestyle{empty}}
