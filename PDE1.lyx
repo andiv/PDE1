@@ -1738,6 +1738,14 @@ Elliptic Partial Differential Equations of second order
 \end_layout
 
 \begin_layout Itemize
+Adams
+\begin_inset Newline newline
+\end_inset
+
+(Sobolev spaces)
+\end_layout
+
+\begin_layout Itemize
 
 \noun on
 Richard Courant, David Hilbert
@@ -13280,7 +13288,7 @@ Consider now the case
 \begin_layout Section
 Definition 
 \series medium
-(Outer Sphere/Cone Condition)
+(Exterior Sphere/Cone Condition)
 \end_layout
 
 \begin_layout Standard
@@ -13294,7 +13302,7 @@ An open subset
 
  the 
 \emph on
-outer sphere condition
+exterior sphere condition
 \emph default
  if there is a closed ball 
 \begin_inset Formula $K\subseteq\mathbb{R}^{n}$
@@ -13401,7 +13409,7 @@ end{tikzpicture}
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Outer Sphere Condition
+Exterior Sphere Condition
 \end_layout
 
 \end_inset
@@ -13443,7 +13451,7 @@ This function is harmonic and non-negative.
 \begin_layout Standard
 An improvement is the so called 
 \emph on
-outer cone condition
+exterior cone condition
 \emph default
 .
 \end_layout
@@ -13566,7 +13574,7 @@ end{tikzpicture}
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Outer Cone Condition
+Exterior Cone Condition
 \end_layout
 
 \end_inset
@@ -15013,7 +15021,7 @@ Now we want to show the strong maximum principle, i.e.
 \begin_layout Section
 Definition 
 \series medium
-(Inner Sphere Condition)
+(Interior Sphere Condition)
 \end_layout
 
 \begin_layout Standard
@@ -15023,7 +15031,7 @@ A boundary point
 
  satisfies the 
 \emph on
-inner sphere condition
+interior sphere condition
 \emph default
  if there is a ball 
 \begin_inset Formula $B\subseteq\Omega$
@@ -15103,7 +15111,7 @@ end{tikzpicture}
 \begin_inset Caption
 
 \begin_layout Plain Layout
-Inner sphere condition
+Interior sphere condition
 \end_layout
 
 \end_inset
@@ -15186,7 +15194,7 @@ roman*)
 \end_layout
 
 \begin_layout Enumerate
-The inner sphere condition is satisfied.
+The interior sphere condition is satisfied.
 \end_layout
 
 \begin_layout Standard
@@ -15239,7 +15247,7 @@ Let
 \begin_inset Formula $B=B_{R}\left(y\right)$
 \end_inset
 
- be the sphere of the inner sphere condition.
+ be the sphere of the interior sphere condition.
 \begin_inset Formula 
 \begin{align*}
 v\left(x\right) & :=e^{-\alpha r^{2}}-e^{-\alpha R^{2}} & r & :=\norm{x-y} & r^{2} & =\left(x-y\right)_{i}\left(x-y\right)^{i}
@@ -15498,6 +15506,1339 @@ Therefore follows:
 \begin_inset Formula 
 \begin{align*}
 \frac{\partial u}{\partial\nu}\left(x_{0}\right) & >0
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%DATE: Mi 29.5.13
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Theorem 
+\series medium
+(Hopf's Maximum Principle)
+\end_layout
+
+\begin_layout Standard
+Assume that 
+\begin_inset Formula $L$
+\end_inset
+
+ is uniformly elliptic with uniformly bounded coefficients and 
+\begin_inset Formula $c=0$
+\end_inset
+
+.
+ Furthermore assume 
+\begin_inset Formula $Lu\ge0$
+\end_inset
+
+ (or 
+\begin_inset Formula $Lu\le0$
+\end_inset
+
+) in 
+\begin_inset Formula $\Omega$
+\end_inset
+
+, but not necessarily bounded.
+ If 
+\begin_inset Formula $u$
+\end_inset
+
+ attains a maximum (respectively minimum) in 
+\begin_inset Formula $\Omega$
+\end_inset
+
+, then 
+\begin_inset Formula $u$
+\end_inset
+
+ is constant.
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $c\le0$
+\end_inset
+
+, the function 
+\begin_inset Formula $u$
+\end_inset
+
+ cannot attain a non-negative maximum (respectively a non-positively minimum)
+ in 
+\begin_inset Formula $\Omega$
+\end_inset
+
+, unless 
+\begin_inset Formula $u$
+\end_inset
+
+ is constant.
+\end_layout
+
+\begin_layout Standard
+This theorem can be viewed as a generalization of Liouville's theorem to
+ 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+There were two important mathematicians Hopf:
+\end_layout
+
+\begin_layout Itemize
+Heinz Hopf (1894-1971): Hopf fibration, Hopf algebra, 
+\begin_inset Formula $\ldots$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Ebehard Hopf (1902-1983): Hopf's maximum principle is named after him.
+\begin_inset Newline newline
+\end_inset
+
+1936 he was Professor in Leipzig, in 1944 he went to Munich as a successor
+ of Caratheodory.
+ After the war, he went to Bloomington in the USA.
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+Assume that 
+\begin_inset Formula $Lu\ge0$
+\end_inset
+
+ and that 
+\begin_inset Formula $u$
+\end_inset
+
+ attains a maximum 
+\begin_inset Formula $M$
+\end_inset
+
+ in 
+\begin_inset Formula $\Omega$
+\end_inset
+
+, but 
+\begin_inset Formula $u$
+\end_inset
+
+ is not constant.
+ Define:
+\begin_inset Formula 
+\begin{align*}
+\Omega^{-} & :=\left\{ x\in\Omega\big|u\left(x\right)<M\right\} \not=\emptyset
+\end{align*}
+
+\end_inset
+
+Since 
+\begin_inset Formula $\Omega^{-}\subsetneq\Omega$
+\end_inset
+
+ is a proper subset, 
+\begin_inset Formula $\partial\Omega^{-}\cap\Omega$
+\end_inset
+
+ is not empty.
+ For 
+\begin_inset Formula $y\in\Omega^{-}$
+\end_inset
+
+ let 
+\begin_inset Formula $B_{R}\left(y\right)$
+\end_inset
+
+ be the largest ball, which does not intersect 
+\begin_inset Formula $\Omega\setminus\Omega^{-}$
+\end_inset
+
+.
+ By choosing a 
+\begin_inset Formula $x_{0}\in\Omega^{-}$
+\end_inset
+
+ sufficiently close to 
+\begin_inset Formula $\partial\Omega^{-}\cap\Omega$
+\end_inset
+
+, one can arrange 
+\begin_inset Formula $B:=B_{R}\left(x_{0}\right)\subseteq\Omega$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (-0.5,2.75) {$
+\backslash
+Omega$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw plot[smooth cycle, tension=0.7] coordinates { (-7,0) (-5,2) (-1,2.5)
+ (3,0.5) (3,-1)  (0,-3) (-2,-3) (-7,-2)};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[red] plot[smooth, tension=0.7] coordinates { (-5,2) (-4,1) (-3,0) (-2,0.5)
+ (0,-2)  (1,-2.5)};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (2,0) {$
+\backslash
+Omega ^-$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (2,-0.5) {$u<M$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (-6,-1) {$
+\backslash
+Omega 
+\backslash
+setminus 
+\backslash
+Omega ^-$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (-6,-1.5) {$u=M$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (-1.5,0) node[right]{$y$} +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (-1.5,0) ++({cos(40)},{sin(40)}) node[right]{$x_0$} circle (1) +(0.1,0.1)
+ -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (-1,1.2) {$B$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $B_{R}\left(x_{0}\right)\subseteq\Omega$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It holds 
+\begin_inset Formula $\overline{B}\cap\partial\Omega^{-}\not=\emptyset$
+\end_inset
+
+, since otherwise the radius would not be maximal.
+ Choose 
+\begin_inset Formula $y\in\overline{B}\cap\partial\Omega^{-}$
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $u\left(y\right)=M$
+\end_inset
+
+.
+ We want to apply the previous Lemma to 
+\begin_inset Formula $\Omega^{-}$
+\end_inset
+
+ and the boundary point 
+\begin_inset Formula $y$
+\end_inset
+
+.
+ We check the conditions:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $u$
+\end_inset
+
+ is continuous in 
+\begin_inset Formula $y$
+\end_inset
+
+, because we have 
+\begin_inset Formula $u\in C^{2}\left(\Omega\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+We have 
+\begin_inset Formula $u\left(y\right)=M$
+\end_inset
+
+, but 
+\begin_inset Formula $u<M$
+\end_inset
+
+ in 
+\begin_inset Formula $\Omega^{-}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+The interior sphere condition holds by construction.
+\end_layout
+
+\begin_layout Standard
+So we get:
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial u}{\partial\nu}\bigg|_{y} & >0
+\end{align*}
+
+\end_inset
+
+On the other hand, 
+\begin_inset Formula $\DD u\big|_{y}$
+\end_inset
+
+ vanishes, because 
+\begin_inset Formula $u$
+\end_inset
+
+ has a maximum at 
+\begin_inset Formula $y$
+\end_inset
+
+.
+ This is a contradiction.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Weak Solutions, Sobolev Spaces
+\end_layout
+
+\begin_layout Standard
+We can write the elliptic operator
+\begin_inset Formula 
+\begin{align*}
+L & =a^{ij}\partial_{ij}+b^{i}\partial_{i}+c
+\end{align*}
+
+\end_inset
+
+in divergence form:
+\begin_inset Formula 
+\begin{align*}
+0 & =Lu=a^{ij}\partial_{ij}u+b^{i}\partial_{i}u+cu=\\
+ & =\partial_{i}\left(a^{ij}\partial_{j}u\right)+\underbrace{\left(-\partial_{i}a^{ij}+b^{j}\right)}_{=:\tilde{b}^{j}}\partial_{j}u+cu=\\
+ & =\partial_{i}\left(a^{ij}\partial_{j}u\right)+\tilde{b}^{j}\partial_{j}u+cu
+\end{align*}
+
+\end_inset
+
+We consider 
+\begin_inset Formula $u\in C^{2}\left(\Omega\right)$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\eta\in C_{0}^{\infty}\left(\Omega\right)$
+\end_inset
+
+ be a 
+\begin_inset Quotes eld
+\end_inset
+
+test function
+\begin_inset Quotes erd
+\end_inset
+
+.
+ We evaluate weakly:
+\begin_inset Formula 
+\begin{align*}
+\int_{\Omega}\left(Lu\right)\eta\dd^{n}x & =\int_{\Omega}\left(\partial_{i}\left(a^{ij}\partial_{j}u\right)+\tilde{b}^{i}\partial_{i}u+cu\right)\eta\dd^{n}x
+\end{align*}
+
+\end_inset
+
+Now we apply Gauß' divergence theorem.
+ The boundary terms vanish due to 
+\begin_inset Formula $\eta\big|_{\partial\Omega}=0$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+\int_{\Omega}\left(Lu\right)\eta\dd^{n}x & =\int_{\Omega}\left(-a^{ij}\left(\partial_{j}u\right)\left(\partial_{i}\eta\right)+\left(\tilde{b}^{i}\partial_{i}u\right)\eta+cu\eta\right)\dd^{n}x
+\end{align*}
+
+\end_inset
+
+Now 
+\begin_inset Formula $Lu=0$
+\end_inset
+
+ is equivalent to 
+\begin_inset Formula $\int_{\Omega}\left(Lu\right)\eta\dd^{n}x=0$
+\end_inset
+
+, since 
+\begin_inset Formula $\left(Lu\right)\eta$
+\end_inset
+
+ is continuous for any 
+\begin_inset Formula $\eta\in C_{0}^{\infty}\left(\Omega\right)$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+0 & =\int_{\Omega}\left(-a^{ij}\left(\partial_{j}u\right)\left(\partial_{i}\eta\right)+\left(\tilde{b}^{i}\partial_{i}u\right)\eta+cu\eta\right)\dd^{n}x
+\end{align*}
+
+\end_inset
+
+This works just as well for 
+\begin_inset Formula $u\in C^{1}\left(\Omega\right)$
+\end_inset
+
+.
+ One can do even better, by only demanding 
+\begin_inset Formula $\partial_{i}u\in L^{1}\left(\Omega\right)$
+\end_inset
+
+.
+ The partial derivative is defined weakly.
+ For 
+\begin_inset Formula $u\in C^{1}\left(\Omega\right)$
+\end_inset
+
+ assume:
+\begin_inset Formula 
+\begin{align*}
+\partial_{i}u & =v
+\end{align*}
+
+\end_inset
+
+Equivalently holds:
+\begin_inset Formula 
+\begin{align*}
+\int_{\Omega}v\eta\dd^{n}x & =\int_{\Omega}\left(\partial_{i}u\right)\eta\dd^{n}x=-\int_{\Omega}u\left(\partial_{i}\eta\right)\dd^{n}x\qquad\fall_{\eta\in C_{0}^{\infty}\left(\Omega\right)}
+\end{align*}
+
+\end_inset
+
+The last condition can be stated for 
+\begin_inset Formula $u\in L^{2}\left(\Omega\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+What are the resulting function spaces?
+\end_layout
+
+\begin_layout Standard
+These are a Sobolov space spaces 
+\begin_inset Formula $H^{n,2}\left(\Omega\right)$
+\end_inset
+
+ (in this case 
+\begin_inset Formula $H^{1,2}\left(\Omega\right)$
+\end_inset
+
+) or the space of 
+\begin_inset Formula $n$
+\end_inset
+
+-times weakly differentiable functions 
+\begin_inset Formula $W^{n,p}\left(\Omega\right)$
+\end_inset
+
+ with 
+\begin_inset Formula $\DD^{\beta}f\in L^{p}$
+\end_inset
+
+ for all multi-indices 
+\begin_inset Formula $\beta$
+\end_inset
+
+ with 
+\begin_inset Formula $\abs{\beta}\le n$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Writing the equation in divergence form is also of advantage for using 
+\emph on
+variational methods
+\emph default
+.
+ For simplicity for 
+\begin_inset Formula $\upDelta u=0$
+\end_inset
+
+ in 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ holds equivalently:
+\begin_inset Formula 
+\begin{align*}
+\int_{\Omega}\left(\partial_{i}u\right)\left(\partial^{i}\eta\right)\dd^{n}x & =0\qquad\fall_{\eta\in C_{0}^{\infty}\left(\Omega\right)}
+\end{align*}
+
+\end_inset
+
+The Dirichlet energy is defined as:
+\begin_inset Formula 
+\begin{align*}
+E\left(u\right) & :=\frac{1}{2}\int_{\Omega}\norm{\nabla u}^{2}\dd^{n}x
+\end{align*}
+
+\end_inset
+
+Minimize 
+\begin_inset Formula $E$
+\end_inset
+
+ in a suitable Sobolev space (
+\begin_inset Formula $H^{1,2}\left(\Omega\right)\cap\ldots$
+\end_inset
+
+).
+ Suppose a minimizer 
+\begin_inset Formula $u$
+\end_inset
+
+ exists.
+\begin_inset Formula 
+\begin{align*}
+E\left(u+\tau\eta\right) & \ge E\left(u\right)\qquad\fall_{\eta\in C_{0}^{\infty}}\fall_{\tau\in\mathbb{R}}
+\end{align*}
+
+\end_inset
+
+If 
+\begin_inset Formula $E\left(u+\tau\eta\right)$
+\end_inset
+
+ is differentiable, now follows:
+\begin_inset Formula 
+\begin{align*}
+0 & =\frac{\dd}{\dd\tau}E\left(u+\tau\eta\right)\bigg|_{\tau=0}
+\end{align*}
+
+\end_inset
+
+For the Dirichlet energy this gives for all 
+\begin_inset Formula $\eta\in C_{0}^{\infty}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+0 & =\frac{\dd}{\dd\tau}\frac{1}{2}\int_{\Omega}\partial_{i}\left(u+\tau\eta\right)\partial^{i}\left(u+\tau\eta\right)\dd^{n}x\bigg|_{\tau=0}=\\
+ & =\int_{\Omega}\partial_{i}\left(u+\tau\eta\right)\partial^{i}\eta\dd^{n}x\bigg|_{\tau=0}=\\
+ & =\int_{\Omega}\left(\partial_{i}u\right)\left(\partial^{i}\eta\right)\dd^{n}x
+\end{align*}
+
+\end_inset
+
+Thus holds 
+\begin_inset Formula $\upDelta u=0$
+\end_inset
+
+ in the weak sense.
+\end_layout
+
+\begin_layout Standard
+With regularity theory one can proof, that 
+\begin_inset Formula $u$
+\end_inset
+
+ is smooth.
+\end_layout
+
+\begin_layout Section
+Hölder Spaces
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\Omega\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ be open.
+\end_layout
+
+\begin_layout Subsection
+Definition 
+\series medium
+(Hölder Continuous)
+\end_layout
+
+\begin_layout Standard
+A function 
+\begin_inset Formula $f:\Omega\to\mathbb{R}^{m}$
+\end_inset
+
+ is called 
+\emph on
+Hölder continuous
+\emph default
+ with exponent 
+\begin_inset Formula $\alpha$
+\end_inset
+
+, if holds:
+\begin_inset Formula 
+\begin{align*}
+\norm u_{C^{0,\alpha}\left(\Omega\right)} & :=\norm u_{C^{0}\left(\Omega\right)}+\sup_{x\not=y\in\Omega}\left(\frac{u\left(x\right)-u\left(y\right)}{\norm{x-y}^{\alpha}}\right)<\infty
+\end{align*}
+
+\end_inset
+
+We often use the short notation:
+\begin_inset Formula 
+\begin{align*}
+\norm ._{C^{0,\alpha}\left(\Omega\right)} & =:\norm ._{0,\alpha}
+\end{align*}
+
+\end_inset
+
+Obviously holds 
+\begin_inset Formula $C^{0,\alpha}\left(\Omega\right)\subseteq C^{0}\left(\Omega\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $C^{0,0}\left(\Omega\right)$
+\end_inset
+
+ are bounded continuous functions.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $C^{0,1}\left(\Omega\right)$
+\end_inset
+
+ are Lipschitz continuous functions.
+\end_layout
+
+\begin_layout Standard
+This can also be defined locally: 
+\begin_inset Formula $f\in C_{\text{loc}}^{0,\alpha}\left(\Omega\right)$
+\end_inset
+
+ means that for all 
+\begin_inset Formula $x\in\Omega$
+\end_inset
+
+ exists a neighborhood 
+\begin_inset Formula $U\subseteq\Omega$
+\end_inset
+
+ such that 
+\begin_inset Formula $f\big|_{U}\in C^{0,\alpha}\left(U\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+A typical example is 
+\begin_inset Formula $u\left(x\right)=\sqrt{\abs x}$
+\end_inset
+
+ on 
+\begin_inset Formula $\left[-1,1\right]$
+\end_inset
+
+ with 
+\begin_inset Formula $f\in C^{0,\frac{1}{2}}\left(\Omega\right)$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+C^{k,\alpha}\left(\Omega\right) & :=\left\{ f\in C^{k}\bigg|\DD^{\beta}f\in C^{0,\alpha}\fall_{\text{multi-index }\beta,\abs{\beta}\le k}\right\} \\
+\norm f_{k,\alpha} & =\sum_{\beta,\abs{\beta}\le k}\norm{\DD^{\beta}f}_{0,\alpha}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Proposition 
+\series medium
+(Hölder Continuous Functions are Complete)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left(C^{k,\alpha}\left(\Omega\right),\norm ._{k,\alpha}\right)$
+\end_inset
+
+ is a Banach space.
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $u_{n}\in C^{k,\alpha}\left(\Omega\right)$
+\end_inset
+
+ be a Cauchy sequence.
+ Then 
+\begin_inset Formula $u_{n}$
+\end_inset
+
+ is also a Cauchy sequence in 
+\begin_inset Formula $C^{k}\left(\Omega\right)$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $C^{k}\left(\Omega\right)$
+\end_inset
+
+ is complete, 
+\begin_inset Formula $\DD^{\beta}u_{n}\rightrightarrows\DD^{\beta}u$
+\end_inset
+
+ converges uniformly for all multi-indices 
+\begin_inset Formula $\beta$
+\end_inset
+
+ with 
+\begin_inset Formula $\abs{\beta}\le k$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Next we have by uniform convergence:
+\begin_inset Formula 
+\begin{align*}
+\frac{\DD^{\beta}u_{n}\left(x\right)-\DD^{\beta}u_{n}\left(y\right)}{\norm{x-y}^{\alpha}} & \to\frac{\DD^{\beta}u\left(x\right)-\DD^{\beta}u\left(y\right)}{\norm{x-y}^{\alpha}}
+\end{align*}
+
+\end_inset
+
+Therefore the Hölder norms also converge.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texorpdfstring{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $L^{p}$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}{Lp}
+\end_layout
+
+\end_inset
+
+-Spaces, Approximate Theorems
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+L^{p}\left(\Omega\right) & =\left\{ f:\Omega\to\mathbb{R}\text{ measurable}\bigg|\int_{\Omega}\abs{f\left(x\right)}^{p}\dd^{n}x<\infty\right\} 
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\norm f_{p} & =\left(\int\abs{f\left(x\right)}^{p}\dd^{n}x\right)^{\frac{1}{p}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Definition 
+\series medium
+(Mollifier)
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\eta\in C_{0}^{\infty}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+, 
+\begin_inset Formula $\eta\left(x\right)\in\mathbb{R}_{\ge0}$
+\end_inset
+
+ and 
+\begin_inset Formula $\int_{\mathbb{R}^{n}}\eta\left(x\right)\dd^{n}x=1$
+\end_inset
+
+.
+ Example:
+\begin_inset Formula 
+\begin{align*}
+\eta\left(x\right) & =\begin{cases}
+ce^{-\frac{1}{\norm x^{2}-1}} & \text{if }\norm x<1\\
+0 & \text{otherwise}
+\end{cases}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+begin{axis}[width=9cm, axis x line=middle, axis y line=middle, ytick={0},
+ xlabel=$x$, ylabel=$
+\backslash
+eta$,xmin=-1.5, xmax=1.5, ymax=0.4 ,samples=300]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+addplot[mark=none,domain=-0.9999:0.9999] {exp(1/(x^2-1))};
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+end{axis}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture} 
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $\eta\left(x\right)$
+\end_inset
+
+ is smooth and has compact support 
+\begin_inset Formula $\left[-1,1\right]$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $u\in L_{\text{loc}}^{1}\left(\Omega\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\varepsilon\in\mathbb{R}_{>0}$
+\end_inset
+
+ set:
+\begin_inset Formula 
+\begin{align*}
+u_{\varepsilon}\left(x\right) & =\int_{\Omega}\underbrace{\frac{1}{\varepsilon^{n}}\eta\left(\frac{x-y}{\varepsilon}\right)}_{=:\eta_{\varepsilon}\left(x-y\right)}u\left(y\right)\dd^{n}y=\left(\eta_{\varepsilon}*u\right)\left(x\right)
+\end{align*}
+
+\end_inset
+
+Now holds 
+\begin_inset Formula $u_{\varepsilon}\in C^{\infty}\left(\Omega'\right)$
+\end_inset
+
+ for every 
+\begin_inset Formula $\Omega'\Subset\Omega$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\frac{u_{\varepsilon}\left(x+he_{i}\right)-u_{\varepsilon}\left(x\right)}{h} & =\int_{\Omega'}\underbrace{\frac{1}{h}\left(\eta_{\varepsilon}\left(x+he_{i}-y\right)-\eta_{\varepsilon}\left(x-y\right)\right)}_{\to\partial_{i}\eta_{\varepsilon}\left(x-y\right)}u\left(y\right)\dd^{n}y
+\end{align*}
+
+\end_inset
+
+The limit 
+\begin_inset Formula $\varepsilon\searrow0$
+\end_inset
+
+ can be taken inside the integral by Lebesgue's dominated convergence theorem.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (-0.5,2.75) {$
+\backslash
+Omega$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw plot[smooth cycle, tension=0.7] coordinates { (-7,0) (-5,2) (-1,2.5)
+ (3,0.5) (3,-1)  (0,-3) (-2,-3) (-7,-2)};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw plot[smooth cycle, tension=0.7,scale=0.5] coordinates { (-10,0) (-5,3)
+ (-1,2) (3,0.5) (3,-1)  (0,-4) (-2,-3) (-7,-2)};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (0,0) {$
+\backslash
+Omega ' 
+\backslash
+Subset 
+\backslash
+Omega$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (-4,0) circle (1.5) +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (-4,0) -- node[above]{$
+\backslash
+varepsilon$} (-2.5,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $\text{supp}\left(\eta_{\varepsilon}\right)\subseteq B_{\varepsilon}\left(0\right)\subseteq\Omega$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The support satisfies 
+\begin_inset Formula $\text{supp}\left(\eta_{\varepsilon}\right)\subseteq B_{\varepsilon}\left(0\right)$
+\end_inset
+
+.
+ Define 
+\begin_inset Formula $\varepsilon_{0}:=\text{dist}\left(\Omega',\partial\Omega\right)>0$
+\end_inset
+
+.
+ For 
+\begin_inset Formula $\varepsilon<\varepsilon_{0}$
+\end_inset
+
+, we have for 
+\begin_inset Formula $x\in\Omega'$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+u_{\varepsilon}\left(x\right) & =\int_{\mathbb{R}^{n}}\eta_{\varepsilon}\left(x-y\right)u\left(y\right)\dd^{n}y
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Lemma
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $u\in C^{0}\left(\Omega\right)$
+\end_inset
+
+ the functions 
+\begin_inset Formula $u_{\varepsilon}\sr{\rightrightarrows}{\text{loc}}{}u$
+\end_inset
+
+ converge locally uniformly.
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+u_{\delta}\left(x\right) & =\frac{1}{\delta^{n}}\int_{\Omega}\eta\left(\frac{x-y}{\delta}\right)u\left(y\right)\dd^{n}y
+\end{align*}
+
+\end_inset
+
+For 
+\begin_inset Formula $x_{0}\in\Omega$
+\end_inset
+
+ we choose 
+\begin_inset Formula $\varrho\in\mathbb{R}_{>0}$
+\end_inset
+
+ such that 
+\begin_inset Formula $B_{2\varrho}\left(x_{0}\right)\subseteq\Omega$
+\end_inset
+
+.
+ Let us show the uniform convergence 
+\begin_inset Formula $u_{\delta}\rightrightarrows u$
+\end_inset
+
+ in 
+\begin_inset Formula $B_{\varrho}\left(x_{0}\right)$
+\end_inset
+
+.
+ We always assume 
+\begin_inset Formula $\delta<\varrho$
+\end_inset
+
+.
+ Then for all 
+\begin_inset Formula $x\in B_{\varrho}\left(x_{0}\right)$
+\end_inset
+
+ holds:
+\begin_inset Formula 
+\begin{align*}
+u_{\delta}\left(x\right) & =\frac{1}{\delta^{n}}\int_{\Omega}\eta\left(\frac{x-y}{\delta}\right)u\left(y\right)\dd^{n}y=\frac{1}{\delta^{n}}\int_{\mathbb{R}^{n}}\eta\left(\frac{x-y}{\delta}\right)u\left(y\right)\dd^{n}y=\\
+ & \sr ={z:=\frac{x-y}{\delta}}{\dd^{n}z=\frac{\dd^{n}y}{\delta^{n}}}\frac{1}{\delta^{n}}\int_{\mathbb{R}^{n}}\eta\left(z\right)u\left(x-\delta z\right)\delta^{n}\dd^{n}z=\\
+ & =\int_{\mathbb{R}^{n}}\eta\left(z\right)u\left(x-\delta z\right)\dd^{n}z
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $u$
+\end_inset
+
+ is uniformly continuous in 
+\begin_inset Formula $\overline{B_{\delta}\left(x\right)}$
+\end_inset
+
+.
+ For all 
+\begin_inset Formula $\varepsilon\in\mathbb{R}_{>0}$
+\end_inset
+
+, there exists a 
+\begin_inset Formula $\delta\in\mathbb{R}_{>0}$
+\end_inset
+
+ such that holds:
+\begin_inset Formula 
+\begin{align*}
+\norm{y-y'}<\delta & \qquad\Rightarrow\qquad\abs{u\left(y\right)-u\left(y'\right)}<\varepsilon
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\Rightarrow\qquad\left(u_{\delta}-u\right)\left(x\right) & =\int_{\mathbb{R}^{n}}\eta\left(z\right)\left(u\left(x-\delta z\right)-u\left(x\right)\right)\dd^{n}z\\
+\abs{\left(u_{\delta}-u\right)\left(x\right)} & \le\int_{\mathbb{R}^{n}}\eta\left(z\right)\abs{u\left(x-\delta z\right)-u\left(x\right)}\dd^{n}z\le\varepsilon\int_{\mathbb{R}^{n}}\eta=\varepsilon
 \end{align*}
 
 \end_inset

@@ -405,6 +405,8 @@ Mathematical Society, 2010; ISBN: 978-0-8218-4974-3\\
 \item \noun{David Gilbarg, Neil S. Trudinger}: \emph{Elliptic Partial Differential
 Equations of second order}; Springer, 2001; ISBN: 3-540-41160-7\\
 (classic textbook, complete treatment)
+\item Adams\\
+(Sobolev spaces)
 \item \noun{Richard Courant, David Hilbert}: \emph{Methods of Mathematical
 Physics: Partial Differential Equations, Volume II}; Wiley, 2008;\\
 ISBN: 978-0471504399; \href{http://dx.doi.org/10.1002/9783527617234}{doi: 10.1002/9783527617234}\\
@@ -3319,10 +3321,10 @@ Consider now the case $n\ge3$: One gets barriers if additional conditions
 are satisfied.
 
 
-\section{Definition \textmd{(Outer Sphere/Cone Condition)}}
+\section{Definition \textmd{(Exterior Sphere/Cone Condition)}}
 
 An open subset $\Omega\subseteq\mathbb{R}^{n}$ satisfies in $\xi\in\partial\Omega$
-the \emph{outer sphere condition} if there is a closed ball $K\subseteq\mathbb{R}^{n}$
+the \emph{exterior sphere condition} if there is a closed ball $K\subseteq\mathbb{R}^{n}$
 with radius $R$ such that $K\cap\overline{\Omega}=\left\{ \xi\right\} $.
 
 \begin{figure}[H]
@@ -3338,7 +3340,7 @@ with radius $R$ such that $K\cap\overline{\Omega}=\left\{ \xi\right\} $.
 \end{tikzpicture}
 \par\end{centering}
 
-\noindent \centering{}\caption{Outer Sphere Condition}
+\noindent \centering{}\caption{Exterior Sphere Condition}
 \end{figure}
 
 
@@ -3350,7 +3352,7 @@ This function is harmonic and non-negative. Furthermore $w\left(x\right)=0$
 implies $x=\xi$. So $w$ is a barrier and we can solve the Dirichlet
 problem.
 
-An improvement is the so called \emph{outer cone condition}.
+An improvement is the so called \emph{exterior cone condition}.
 
 \begin{figure}[H]
 \noindent \begin{centering}
@@ -3369,7 +3371,7 @@ An improvement is the so called \emph{outer cone condition}.
 \end{tikzpicture}
 \par\end{centering}
 
-\noindent \centering{}\caption{Outer Cone Condition}
+\noindent \centering{}\caption{Exterior Cone Condition}
 \end{figure}
 
 
@@ -3707,9 +3709,9 @@ Now we want to show the strong maximum principle, i.e. $u\left(x\right)=\max_{\O
 for $x\in\Omega$ implies that $u$ is constant.
 
 
-\section{Definition \textmd{(Inner Sphere Condition)}}
+\section{Definition \textmd{(Interior Sphere Condition)}}
 
-A boundary point $x_{0}\in\partial\Omega$ satisfies the \emph{inner
+A boundary point $x_{0}\in\partial\Omega$ satisfies the \emph{interior
 sphere condition} if there is a ball $B\subseteq\Omega$ such that
 $x_{0}=\partial B$.
 
@@ -3723,7 +3725,7 @@ $x_{0}=\partial B$.
 \end{tikzpicture}
 \par\end{centering}
 
-\noindent \centering{}\caption{Inner sphere condition}
+\noindent \centering{}\caption{Interior sphere condition}
 \end{figure}
 
 
@@ -3735,7 +3737,7 @@ point $x_{0}\in\partial\Omega$ the following conditions should hold:
 \begin{enumerate}[label=\roman*)]
 \item $u$ is continuous at $x_{0}$.
 \item $u\left(x_{0}\right)>u\left(x\right)$ for all $x\in\Omega$.
-\item The inner sphere condition is satisfied.
+\item The interior sphere condition is satisfied.
 \end{enumerate}
 Then the normal derivative of $u$ at $x_{0}$, if it exists, satisfies
 the inequality:
@@ -3750,7 +3752,8 @@ is obvious. The point is to prove the \emph{strict} inequality.
 
 \subsubsection*{Proof}
 
-Let $B=B_{R}\left(y\right)$ be the sphere of the inner sphere condition.
+Let $B=B_{R}\left(y\right)$ be the sphere of the interior sphere
+condition.
 \begin{align*}
 v\left(x\right) & :=e^{-\alpha r^{2}}-e^{-\alpha R^{2}} & r & :=\norm{x-y} & r^{2} & =\left(x-y\right)_{i}\left(x-y\right)^{i}
 \end{align*}
@@ -3814,6 +3817,317 @@ we compute the normal derivative.
 Therefore follows:
 \begin{align*}
 \frac{\partial u}{\partial\nu}\left(x_{0}\right) & >0
+\end{align*}
+\qqed
+
+%DATE: Mi 29.5.13
+
+
+\section{Theorem \textmd{(Hopf's Maximum Principle)}}
+
+Assume that $L$ is uniformly elliptic with uniformly bounded coefficients
+and $c=0$. Furthermore assume $Lu\ge0$ (or $Lu\le0$) in $\Omega$,
+but not necessarily bounded. If $u$ attains a maximum (respectively
+minimum) in $\Omega$, then $u$ is constant.
+
+For $c\le0$, the function $u$ cannot attain a non-negative maximum
+(respectively a non-positively minimum) in $\Omega$, unless $u$
+is constant.
+
+This theorem can be viewed as a generalization of Liouville's theorem
+to $\mathbb{R}^{n}$.
+
+There were two important mathematicians Hopf:
+\begin{itemize}
+\item Heinz Hopf (1894-1971): Hopf fibration, Hopf algebra, $\ldots$
+\item Ebehard Hopf (1902-1983): Hopf's maximum principle is named after
+him.\\
+1936 he was Professor in Leipzig, in 1944 he went to Munich as a successor
+of Caratheodory. After the war, he went to Bloomington in the USA.
+\end{itemize}
+
+\subsubsection*{Proof}
+
+Assume that $Lu\ge0$ and that $u$ attains a maximum $M$ in $\Omega$,
+but $u$ is not constant. Define:
+\begin{align*}
+\Omega^{-} & :=\left\{ x\in\Omega\big|u\left(x\right)<M\right\} \not=\emptyset
+\end{align*}
+Since $\Omega^{-}\subsetneq\Omega$ is a proper subset, $\partial\Omega^{-}\cap\Omega$
+is not empty. For $y\in\Omega^{-}$ let $B_{R}\left(y\right)$ be
+the largest ball, which does not intersect $\Omega\setminus\Omega^{-}$.
+By choosing a $x_{0}\in\Omega^{-}$ sufficiently close to $\partial\Omega^{-}\cap\Omega$,
+one can arrange $B:=B_{R}\left(x_{0}\right)\subseteq\Omega$.
+
+\begin{figure}[H]
+\noindent \begin{centering}
+\begin{tikzpicture}
+  \node at (-0.5,2.75) {$\Omega$};
+  \draw plot[smooth cycle, tension=0.7] coordinates { (-7,0) (-5,2) (-1,2.5) (3,0.5) (3,-1)  (0,-3) (-2,-3) (-7,-2)};
+  \draw[red] plot[smooth, tension=0.7] coordinates { (-5,2) (-4,1) (-3,0) (-2,0.5) (0,-2)  (1,-2.5)};
+  \node at (2,0) {$\Omega ^-$};
+  \node at (2,-0.5) {$u<M$};
+  \node at (-6,-1) {$\Omega \setminus \Omega ^-$};
+  \node at (-6,-1.5) {$u=M$};
+  \draw (-1.5,0) node[right]{$y$} +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+  \draw (-1.5,0) ++({cos(40)},{sin(40)}) node[right]{$x_0$} circle (1) +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+  \node at (-1,1.2) {$B$};
+\end{tikzpicture}
+\par\end{centering}
+
+\noindent \centering{}\caption{$B_{R}\left(x_{0}\right)\subseteq\Omega$}
+\end{figure}
+
+
+It holds $\overline{B}\cap\partial\Omega^{-}\not=\emptyset$, since
+otherwise the radius would not be maximal. Choose $y\in\overline{B}\cap\partial\Omega^{-}$,
+i.e. $u\left(y\right)=M$. We want to apply the previous Lemma to
+$\Omega^{-}$ and the boundary point $y$. We check the conditions:
+\begin{enumerate}
+\item $u$ is continuous in $y$, because we have $u\in C^{2}\left(\Omega\right)$.
+\item We have $u\left(y\right)=M$, but $u<M$ in $\Omega^{-}$.
+\item The interior sphere condition holds by construction.
+\end{enumerate}
+So we get:
+\begin{align*}
+\frac{\partial u}{\partial\nu}\bigg|_{y} & >0
+\end{align*}
+On the other hand, $\DD u\big|_{y}$ vanishes, because $u$ has a
+maximum at $y$. This is a contradiction.\qqed
+
+
+\chapter{Weak Solutions, Sobolev Spaces}
+
+We can write the elliptic operator
+\begin{align*}
+L & =a^{ij}\partial_{ij}+b^{i}\partial_{i}+c
+\end{align*}
+in divergence form:
+\begin{align*}
+0 & =Lu=a^{ij}\partial_{ij}u+b^{i}\partial_{i}u+cu=\\
+ & =\partial_{i}\left(a^{ij}\partial_{j}u\right)+\underbrace{\left(-\partial_{i}a^{ij}+b^{j}\right)}_{=:\tilde{b}^{j}}\partial_{j}u+cu=\\
+ & =\partial_{i}\left(a^{ij}\partial_{j}u\right)+\tilde{b}^{j}\partial_{j}u+cu
+\end{align*}
+We consider $u\in C^{2}\left(\Omega\right)$. Let $\eta\in C_{0}^{\infty}\left(\Omega\right)$
+be a ``test function''. We evaluate weakly:
+\begin{align*}
+\int_{\Omega}\left(Lu\right)\eta\dd^{n}x & =\int_{\Omega}\left(\partial_{i}\left(a^{ij}\partial_{j}u\right)+\tilde{b}^{i}\partial_{i}u+cu\right)\eta\dd^{n}x
+\end{align*}
+Now we apply Gauß' divergence theorem. The boundary terms vanish due
+to $\eta\big|_{\partial\Omega}=0$.
+\begin{align*}
+\int_{\Omega}\left(Lu\right)\eta\dd^{n}x & =\int_{\Omega}\left(-a^{ij}\left(\partial_{j}u\right)\left(\partial_{i}\eta\right)+\left(\tilde{b}^{i}\partial_{i}u\right)\eta+cu\eta\right)\dd^{n}x
+\end{align*}
+Now $Lu=0$ is equivalent to $\int_{\Omega}\left(Lu\right)\eta\dd^{n}x=0$,
+since $\left(Lu\right)\eta$ is continuous for any $\eta\in C_{0}^{\infty}\left(\Omega\right)$.
+\begin{align*}
+0 & =\int_{\Omega}\left(-a^{ij}\left(\partial_{j}u\right)\left(\partial_{i}\eta\right)+\left(\tilde{b}^{i}\partial_{i}u\right)\eta+cu\eta\right)\dd^{n}x
+\end{align*}
+This works just as well for $u\in C^{1}\left(\Omega\right)$. One
+can do even better, by only demanding $\partial_{i}u\in L^{1}\left(\Omega\right)$.
+The partial derivative is defined weakly. For $u\in C^{1}\left(\Omega\right)$
+assume:
+\begin{align*}
+\partial_{i}u & =v
+\end{align*}
+Equivalently holds:
+\begin{align*}
+\int_{\Omega}v\eta\dd^{n}x & =\int_{\Omega}\left(\partial_{i}u\right)\eta\dd^{n}x=-\int_{\Omega}u\left(\partial_{i}\eta\right)\dd^{n}x\qquad\fall_{\eta\in C_{0}^{\infty}\left(\Omega\right)}
+\end{align*}
+The last condition can be stated for $u\in L^{2}\left(\Omega\right)$.
+
+What are the resulting function spaces?
+
+These are a Sobolov space spaces $H^{n,2}\left(\Omega\right)$ (in
+this case $H^{1,2}\left(\Omega\right)$) or the space of $n$-times
+weakly differentiable functions $W^{n,p}\left(\Omega\right)$ with
+$\DD^{\beta}f\in L^{p}$ for all multi-indices $\beta$ with $\abs{\beta}\le n$.
+
+Writing the equation in divergence form is also of advantage for using
+\emph{variational methods}. For simplicity for $\upDelta u=0$ in
+$\Omega$ holds equivalently:
+\begin{align*}
+\int_{\Omega}\left(\partial_{i}u\right)\left(\partial^{i}\eta\right)\dd^{n}x & =0\qquad\fall_{\eta\in C_{0}^{\infty}\left(\Omega\right)}
+\end{align*}
+The Dirichlet energy is defined as:
+\begin{align*}
+E\left(u\right) & :=\frac{1}{2}\int_{\Omega}\norm{\nabla u}^{2}\dd^{n}x
+\end{align*}
+Minimize $E$ in a suitable Sobolev space ($H^{1,2}\left(\Omega\right)\cap\ldots$).
+Suppose a minimizer $u$ exists.
+\begin{align*}
+E\left(u+\tau\eta\right) & \ge E\left(u\right)\qquad\fall_{\eta\in C_{0}^{\infty}}\fall_{\tau\in\mathbb{R}}
+\end{align*}
+If $E\left(u+\tau\eta\right)$ is differentiable, now follows:
+\begin{align*}
+0 & =\frac{\dd}{\dd\tau}E\left(u+\tau\eta\right)\bigg|_{\tau=0}
+\end{align*}
+For the Dirichlet energy this gives for all $\eta\in C_{0}^{\infty}$:
+\begin{align*}
+0 & =\frac{\dd}{\dd\tau}\frac{1}{2}\int_{\Omega}\partial_{i}\left(u+\tau\eta\right)\partial^{i}\left(u+\tau\eta\right)\dd^{n}x\bigg|_{\tau=0}=\\
+ & =\int_{\Omega}\partial_{i}\left(u+\tau\eta\right)\partial^{i}\eta\dd^{n}x\bigg|_{\tau=0}=\\
+ & =\int_{\Omega}\left(\partial_{i}u\right)\left(\partial^{i}\eta\right)\dd^{n}x
+\end{align*}
+Thus holds $\upDelta u=0$ in the weak sense.
+
+With regularity theory one can proof, that $u$ is smooth.
+
+
+\section{Hölder Spaces}
+
+Let $\Omega\subseteq\mathbb{R}^{n}$ be open.
+
+
+\subsection{Definition \textmd{(Hölder Continuous)}}
+
+A function $f:\Omega\to\mathbb{R}^{m}$ is called \emph{Hölder continuous}
+with exponent $\alpha$, if holds:
+\begin{align*}
+\norm u_{C^{0,\alpha}\left(\Omega\right)} & :=\norm u_{C^{0}\left(\Omega\right)}+\sup_{x\not=y\in\Omega}\left(\frac{u\left(x\right)-u\left(y\right)}{\norm{x-y}^{\alpha}}\right)<\infty
+\end{align*}
+We often use the short notation:
+\begin{align*}
+\norm ._{C^{0,\alpha}\left(\Omega\right)} & =:\norm ._{0,\alpha}
+\end{align*}
+Obviously holds $C^{0,\alpha}\left(\Omega\right)\subseteq C^{0}\left(\Omega\right)$.
+
+$C^{0,0}\left(\Omega\right)$ are bounded continuous functions.
+
+$C^{0,1}\left(\Omega\right)$ are Lipschitz continuous functions.
+
+This can also be defined locally: $f\in C_{\text{loc}}^{0,\alpha}\left(\Omega\right)$
+means that for all $x\in\Omega$ exists a neighborhood $U\subseteq\Omega$
+such that $f\big|_{U}\in C^{0,\alpha}\left(U\right)$.
+
+A typical example is $u\left(x\right)=\sqrt{\abs x}$ on $\left[-1,1\right]$
+with $f\in C^{0,\frac{1}{2}}\left(\Omega\right)$.
+\begin{align*}
+C^{k,\alpha}\left(\Omega\right) & :=\left\{ f\in C^{k}\bigg|\DD^{\beta}f\in C^{0,\alpha}\fall_{\text{multi-index }\beta,\abs{\beta}\le k}\right\} \\
+\norm f_{k,\alpha} & =\sum_{\beta,\abs{\beta}\le k}\norm{\DD^{\beta}f}_{0,\alpha}
+\end{align*}
+
+
+
+\subsection{Proposition \textmd{(Hölder Continuous Functions are Complete)}}
+
+$\left(C^{k,\alpha}\left(\Omega\right),\norm ._{k,\alpha}\right)$
+is a Banach space.
+
+
+\subsubsection*{Proof}
+
+Let $u_{n}\in C^{k,\alpha}\left(\Omega\right)$ be a Cauchy sequence.
+Then $u_{n}$ is also a Cauchy sequence in $C^{k}\left(\Omega\right)$.
+Since $C^{k}\left(\Omega\right)$ is complete, $\DD^{\beta}u_{n}\rightrightarrows\DD^{\beta}u$
+converges uniformly for all multi-indices $\beta$ with $\abs{\beta}\le k$.
+
+Next we have by uniform convergence:
+\begin{align*}
+\frac{\DD^{\beta}u_{n}\left(x\right)-\DD^{\beta}u_{n}\left(y\right)}{\norm{x-y}^{\alpha}} & \to\frac{\DD^{\beta}u\left(x\right)-\DD^{\beta}u\left(y\right)}{\norm{x-y}^{\alpha}}
+\end{align*}
+Therefore the Hölder norms also converge.\qqed
+
+
+\section{\texorpdfstring{$L^{p}$}{Lp}-Spaces, Approximate Theorems}
+
+\begin{align*}
+L^{p}\left(\Omega\right) & =\left\{ f:\Omega\to\mathbb{R}\text{ measurable}\bigg|\int_{\Omega}\abs{f\left(x\right)}^{p}\dd^{n}x<\infty\right\} 
+\end{align*}
+\begin{align*}
+\norm f_{p} & =\left(\int\abs{f\left(x\right)}^{p}\dd^{n}x\right)^{\frac{1}{p}}
+\end{align*}
+
+
+
+\subsection{Definition \textmd{(Mollifier)}}
+
+Let $\eta\in C_{0}^{\infty}\left(\mathbb{R}^{n}\right)$, $\eta\left(x\right)\in\mathbb{R}_{\ge0}$
+and $\int_{\mathbb{R}^{n}}\eta\left(x\right)\dd^{n}x=1$. Example:
+\begin{align*}
+\eta\left(x\right) & =\begin{cases}
+ce^{-\frac{1}{\norm x^{2}-1}} & \text{if }\norm x<1\\
+0 & \text{otherwise}
+\end{cases}
+\end{align*}
+
+
+\begin{figure}[H]
+\noindent \centering{}\begin{tikzpicture}
+ \begin{axis}[width=9cm, axis x line=middle, axis y line=middle, ytick={0}, xlabel=$x$, ylabel=$\eta$,xmin=-1.5, xmax=1.5, ymax=0.4 ,samples=300]
+  \addplot[mark=none,domain=-0.9999:0.9999] {exp(1/(x^2-1))};
+ \end{axis}
+\end{tikzpicture} \caption{$\eta\left(x\right)$ is smooth and has compact support $\left[-1,1\right]$.}
+\end{figure}
+
+
+For $u\in L_{\text{loc}}^{1}\left(\Omega\right)$ and $\varepsilon\in\mathbb{R}_{>0}$
+set:
+\begin{align*}
+u_{\varepsilon}\left(x\right) & =\int_{\Omega}\underbrace{\frac{1}{\varepsilon^{n}}\eta\left(\frac{x-y}{\varepsilon}\right)}_{=:\eta_{\varepsilon}\left(x-y\right)}u\left(y\right)\dd^{n}y=\left(\eta_{\varepsilon}*u\right)\left(x\right)
+\end{align*}
+Now holds $u_{\varepsilon}\in C^{\infty}\left(\Omega'\right)$ for
+every $\Omega'\Subset\Omega$.
+
+
+\subsubsection*{Proof}
+
+\begin{align*}
+\frac{u_{\varepsilon}\left(x+he_{i}\right)-u_{\varepsilon}\left(x\right)}{h} & =\int_{\Omega'}\underbrace{\frac{1}{h}\left(\eta_{\varepsilon}\left(x+he_{i}-y\right)-\eta_{\varepsilon}\left(x-y\right)\right)}_{\to\partial_{i}\eta_{\varepsilon}\left(x-y\right)}u\left(y\right)\dd^{n}y
+\end{align*}
+The limit $\varepsilon\searrow0$ can be taken inside the integral
+by Lebesgue's dominated convergence theorem.
+
+\begin{figure}[H]
+\noindent \centering{}\begin{tikzpicture}
+  \node at (-0.5,2.75) {$\Omega$};
+  \draw plot[smooth cycle, tension=0.7] coordinates { (-7,0) (-5,2) (-1,2.5) (3,0.5) (3,-1)  (0,-3) (-2,-3) (-7,-2)};
+  \draw plot[smooth cycle, tension=0.7,scale=0.5] coordinates { (-10,0) (-5,3) (-1,2) (3,0.5) (3,-1)  (0,-4) (-2,-3) (-7,-2)};
+  \node at (0,0) {$\Omega ' \Subset \Omega$};
+  \draw (-4,0) circle (1.5) +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+  \draw (-4,0) -- node[above]{$\varepsilon$} (-2.5,0);
+\end{tikzpicture}\caption{$\text{supp}\left(\eta_{\varepsilon}\right)\subseteq B_{\varepsilon}\left(0\right)\subseteq\Omega$}
+\end{figure}
+
+
+The support satisfies $\text{supp}\left(\eta_{\varepsilon}\right)\subseteq B_{\varepsilon}\left(0\right)$.
+Define $\varepsilon_{0}:=\text{dist}\left(\Omega',\partial\Omega\right)>0$.
+For $\varepsilon<\varepsilon_{0}$, we have for $x\in\Omega'$:
+\begin{align*}
+u_{\varepsilon}\left(x\right) & =\int_{\mathbb{R}^{n}}\eta_{\varepsilon}\left(x-y\right)u\left(y\right)\dd^{n}y
+\end{align*}
+\qqed
+
+
+\subsection{Lemma}
+
+For $u\in C^{0}\left(\Omega\right)$ the functions $u_{\varepsilon}\sr{\rightrightarrows}{\text{loc}}{}u$
+converge locally uniformly.
+
+
+\subsubsection*{Proof}
+
+\begin{align*}
+u_{\delta}\left(x\right) & =\frac{1}{\delta^{n}}\int_{\Omega}\eta\left(\frac{x-y}{\delta}\right)u\left(y\right)\dd^{n}y
+\end{align*}
+For $x_{0}\in\Omega$ we choose $\varrho\in\mathbb{R}_{>0}$ such
+that $B_{2\varrho}\left(x_{0}\right)\subseteq\Omega$. Let us show
+the uniform convergence $u_{\delta}\rightrightarrows u$ in $B_{\varrho}\left(x_{0}\right)$.
+We always assume $\delta<\varrho$. Then for all $x\in B_{\varrho}\left(x_{0}\right)$
+holds:
+\begin{align*}
+u_{\delta}\left(x\right) & =\frac{1}{\delta^{n}}\int_{\Omega}\eta\left(\frac{x-y}{\delta}\right)u\left(y\right)\dd^{n}y=\frac{1}{\delta^{n}}\int_{\mathbb{R}^{n}}\eta\left(\frac{x-y}{\delta}\right)u\left(y\right)\dd^{n}y=\\
+ & \sr ={z:=\frac{x-y}{\delta}}{\dd^{n}z=\frac{\dd^{n}y}{\delta^{n}}}\frac{1}{\delta^{n}}\int_{\mathbb{R}^{n}}\eta\left(z\right)u\left(x-\delta z\right)\delta^{n}\dd^{n}z=\\
+ & =\int_{\mathbb{R}^{n}}\eta\left(z\right)u\left(x-\delta z\right)\dd^{n}z
+\end{align*}
+$u$ is uniformly continuous in $\overline{B_{\delta}\left(x\right)}$.
+For all $\varepsilon\in\mathbb{R}_{>0}$, there exists a $\delta\in\mathbb{R}_{>0}$
+such that holds:
+\begin{align*}
+\norm{y-y'}<\delta & \qquad\Rightarrow\qquad\abs{u\left(y\right)-u\left(y'\right)}<\varepsilon
+\end{align*}
+\begin{align*}
+\Rightarrow\qquad\left(u_{\delta}-u\right)\left(x\right) & =\int_{\mathbb{R}^{n}}\eta\left(z\right)\left(u\left(x-\delta z\right)-u\left(x\right)\right)\dd^{n}z\\
+\abs{\left(u_{\delta}-u\right)\left(x\right)} & \le\int_{\mathbb{R}^{n}}\eta\left(z\right)\abs{u\left(x-\delta z\right)-u\left(x\right)}\dd^{n}z\le\varepsilon\int_{\mathbb{R}^{n}}\eta=\varepsilon
 \end{align*}
 \qqed
 
