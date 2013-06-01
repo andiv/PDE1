@@ -396,7 +396,7 @@ from:
 Elliptic and parabolic partial differential equations:
 \begin{itemize}
 \item \noun{Jürgen Jost}: \emph{Partial Differential Equations}; Springer,
-2007\\
+2007;\\
 ISBN: 978-0-387-49318-3; \href{http://dx.doi.org/10.1007/978-0-387-49319-0}{doi: 10.1007/978-0-387-49319-0}\\
 (good book, but not all details, small errors)
 \item \noun{Lawrence C. Evans}: \emph{Partial Differential Equations}; American
@@ -405,12 +405,17 @@ Mathematical Society, 2010; ISBN: 978-0-8218-4974-3\\
 \item \noun{David Gilbarg, Neil S. Trudinger}: \emph{Elliptic Partial Differential
 Equations of second order}; Springer, 2001; ISBN: 3-540-41160-7\\
 (classic textbook, complete treatment)
-\item Adams\\
-(Sobolev spaces)
+\item \noun{Robert A. Adams, John J. F. Fournier}: \emph{Sobolev Spaces};
+Acadademic Press, 2009;\\
+ISBN: 978-0-12-044143-3
 \item \noun{Richard Courant, David Hilbert}: \emph{Methods of Mathematical
 Physics: Partial Differential Equations, Volume II}; Wiley, 2008;\\
 ISBN: 978-0471504399; \href{http://dx.doi.org/10.1002/9783527617234}{doi: 10.1002/9783527617234}\\
 (Lebesgue spine)
+\item \noun{Walter Rudin}: \emph{Real and Complex Analysis}; McGraw-Hill,
+2009;\\
+ISBN: 978-0-07-054234-1\\
+(Urysohn's Lemma)
 \end{itemize}
 Hyperbolic partial differential equations (for the lecture ``Partial
 Differential Equations II''):
@@ -2768,9 +2773,10 @@ Subsolution)}}
 A function $u\in C^{0}\left(\Omega\right)$ is called \emph{subharmonic}
 (\emph{superharmonic}) in $\Omega$, if for every ball $B\Subset\Omega$
 (\emph{compactly contained} in $\Omega$, i.e. $\overline{B}\subseteq\Omega$)
-and every harmonic function $h\in C^{0}\left(\overline{B}\right)$
-with $u\le h$ (respectively $u\ge h$) in $\partial B$ follows $u\le h$
-(respectively $u\ge h$) in all of $B$.
+and every harmonic function $h\in C^{0}\left(\overline{B}\right)$,
+$h\big|_{B}\in C^{2}\left(B\right)$ with $u\le h$ (respectively
+$u\ge h$) in $\partial B$ follows $u\le h$ (respectively $u\ge h$)
+in all of $B$.
 
 \begin{figure}[H]
 \noindent \centering{}\begin{tikzpicture}
@@ -3978,12 +3984,17 @@ With regularity theory one can proof, that $u$ is smooth.
 Let $\Omega\subseteq\mathbb{R}^{n}$ be open.
 
 
-\subsection{Definition \textmd{(Hölder Continuous)}}
+\subsection{Definition \textmd{(Hölder Continuous, Hölder Norm)}}
 
 A function $f:\Omega\to\mathbb{R}^{m}$ is called \emph{Hölder continuous}
-with exponent $\alpha$, if holds:
+with exponent $\alpha\in\mathbb{R}_{\ge0}$, if the \emph{Hölder norm}
+is finite:
 \begin{align*}
 \norm u_{C^{0,\alpha}\left(\Omega\right)} & :=\norm u_{C^{0}\left(\Omega\right)}+\sup_{x\not=y\in\Omega}\left(\frac{u\left(x\right)-u\left(y\right)}{\norm{x-y}^{\alpha}}\right)<\infty
+\end{align*}
+This implies:
+\begin{align*}
+\norm{u\left(x\right)-u\left(y\right)} & \le\sup_{x\not=y\in\Omega}\left(\frac{u\left(x\right)-u\left(y\right)}{\norm{x-y}^{\alpha}}\right)\cdot\norm{x-y}^{\alpha}
 \end{align*}
 We often use the short notation:
 \begin{align*}
@@ -3993,7 +4004,7 @@ Obviously holds $C^{0,\alpha}\left(\Omega\right)\subseteq C^{0}\left(\Omega\righ
 
 $C^{0,0}\left(\Omega\right)$ are bounded continuous functions.
 
-$C^{0,1}\left(\Omega\right)$ are Lipschitz continuous functions.
+$C^{0,1}\left(\Omega\right)$ are bounded, Lipschitz continuous functions.
 
 This can also be defined locally: $f\in C_{\text{loc}}^{0,\alpha}\left(\Omega\right)$
 means that for all $x\in\Omega$ exists a neighborhood $U\subseteq\Omega$
@@ -4023,7 +4034,7 @@ converges uniformly for all multi-indices $\beta$ with $\abs{\beta}\le k$.
 
 Next we have by uniform convergence:
 \begin{align*}
-\frac{\DD^{\beta}u_{n}\left(x\right)-\DD^{\beta}u_{n}\left(y\right)}{\norm{x-y}^{\alpha}} & \to\frac{\DD^{\beta}u\left(x\right)-\DD^{\beta}u\left(y\right)}{\norm{x-y}^{\alpha}}
+\frac{\DD^{\beta}u_{n}\left(x\right)-\DD^{\beta}u_{n}\left(y\right)}{\norm{x-y}^{\alpha}} & \xrightarrow{n\to\infty}\frac{\DD^{\beta}u\left(x\right)-\DD^{\beta}u\left(y\right)}{\norm{x-y}^{\alpha}}
 \end{align*}
 Therefore the Hölder norms also converge.\qqed
 
@@ -4031,18 +4042,19 @@ Therefore the Hölder norms also converge.\qqed
 \section{\texorpdfstring{$L^{p}$}{Lp}-Spaces, Approximate Theorems}
 
 \begin{align*}
-L^{p}\left(\Omega\right) & =\left\{ f:\Omega\to\mathbb{R}\text{ measurable}\bigg|\int_{\Omega}\abs{f\left(x\right)}^{p}\dd^{n}x<\infty\right\} 
+L^{p}\left(\Omega\right) & :=\left\{ f:\Omega\to\mathbb{R}\text{ measurable}\bigg|\int_{\Omega}\abs{f\left(x\right)}^{p}\dd^{n}x<\infty\right\} 
 \end{align*}
 \begin{align*}
-\norm f_{p} & =\left(\int\abs{f\left(x\right)}^{p}\dd^{n}x\right)^{\frac{1}{p}}
+\norm f_{p} & :=\left(\int\abs{f\left(x\right)}^{p}\dd^{n}x\right)^{\frac{1}{p}}
 \end{align*}
 
 
 
-\subsection{Definition \textmd{(Mollifier)}}
+\subsection{Definition and Lemma \textmd{(Mollifier)}}
 
-Let $\eta\in C_{0}^{\infty}\left(\mathbb{R}^{n}\right)$, $\eta\left(x\right)\in\mathbb{R}_{\ge0}$
-and $\int_{\mathbb{R}^{n}}\eta\left(x\right)\dd^{n}x=1$. Example:
+A \emph{mollifier} is a function $\eta\in C_{0}^{\infty}\left(\mathbb{R}^{n}\right)$
+with $\eta\left(x\right)\in\mathbb{R}_{\ge0}$ and $\int_{\mathbb{R}^{n}}\eta\left(x\right)\dd^{n}x=1$.
+Example:
 \begin{align*}
 \eta\left(x\right) & =\begin{cases}
 ce^{-\frac{1}{\norm x^{2}-1}} & \text{if }\norm x<1\\
@@ -4061,7 +4073,7 @@ ce^{-\frac{1}{\norm x^{2}-1}} & \text{if }\norm x<1\\
 
 
 For $u\in L_{\text{loc}}^{1}\left(\Omega\right)$ and $\varepsilon\in\mathbb{R}_{>0}$
-set:
+define the mollified function as:
 \begin{align*}
 u_{\varepsilon}\left(x\right) & =\int_{\Omega}\underbrace{\frac{1}{\varepsilon^{n}}\eta\left(\frac{x-y}{\varepsilon}\right)}_{=:\eta_{\varepsilon}\left(x-y\right)}u\left(y\right)\dd^{n}y=\left(\eta_{\varepsilon}*u\right)\left(x\right)
 \end{align*}
@@ -4071,12 +4083,12 @@ every $\Omega'\Subset\Omega$.
 
 \subsubsection*{Proof}
 
+The support satisfies $\text{supp}\left(\eta_{\varepsilon}\right)\subseteq B_{\varepsilon}\left(0\right)$.
+Define $\varepsilon_{0}:=\text{dist}\left(\Omega',\partial\Omega\right)>0$.
+For $\varepsilon<\varepsilon_{0}$, we have for $x\in\Omega'$:
 \begin{align*}
-\frac{u_{\varepsilon}\left(x+he_{i}\right)-u_{\varepsilon}\left(x\right)}{h} & =\int_{\Omega'}\underbrace{\frac{1}{h}\left(\eta_{\varepsilon}\left(x+he_{i}-y\right)-\eta_{\varepsilon}\left(x-y\right)\right)}_{\to\partial_{i}\eta_{\varepsilon}\left(x-y\right)}u\left(y\right)\dd^{n}y
+u_{\varepsilon}\left(x\right) & =\int_{\Omega'}\eta_{\varepsilon}\left(x-y\right)u\left(y\right)\dd^{n}y
 \end{align*}
-The limit $\varepsilon\searrow0$ can be taken inside the integral
-by Lebesgue's dominated convergence theorem.
-
 \begin{figure}[H]
 \noindent \centering{}\begin{tikzpicture}
   \node at (-0.5,2.75) {$\Omega$};
@@ -4089,16 +4101,15 @@ by Lebesgue's dominated convergence theorem.
 \end{figure}
 
 
-The support satisfies $\text{supp}\left(\eta_{\varepsilon}\right)\subseteq B_{\varepsilon}\left(0\right)$.
-Define $\varepsilon_{0}:=\text{dist}\left(\Omega',\partial\Omega\right)>0$.
-For $\varepsilon<\varepsilon_{0}$, we have for $x\in\Omega'$:
 \begin{align*}
-u_{\varepsilon}\left(x\right) & =\int_{\mathbb{R}^{n}}\eta_{\varepsilon}\left(x-y\right)u\left(y\right)\dd^{n}y
+\frac{u_{\varepsilon}\left(x+he_{i}\right)-u_{\varepsilon}\left(x\right)}{h} & =\int_{\Omega'}\underbrace{\frac{1}{h}\left(\eta_{\varepsilon}\left(x+he_{i}-y\right)-\eta_{\varepsilon}\left(x-y\right)\right)}_{\xrightarrow{h\to0}\partial_{i}\eta_{\varepsilon}\left(x-y\right)}u\left(y\right)\dd^{n}y
 \end{align*}
-\qqed
+The limit $h\searrow0$ can be taken inside the integral by Lebesgue's
+dominated convergence theorem, since both $\abs u$ and $\eta_{\varepsilon}$
+are integrable.\qqed
 
 
-\subsection{Lemma}
+\subsection{Lemma \textmd{(Mollified Function Converges Locally Uniformly)}\label{sub:Lem-local-convergence}}
 
 For $u\in C^{0}\left(\Omega\right)$ the functions $u_{\varepsilon}\sr{\rightrightarrows}{\text{loc}}{}u$
 converge locally uniformly.
@@ -4119,9 +4130,9 @@ u_{\delta}\left(x\right) & =\frac{1}{\delta^{n}}\int_{\Omega}\eta\left(\frac{x-y
  & \sr ={z:=\frac{x-y}{\delta}}{\dd^{n}z=\frac{\dd^{n}y}{\delta^{n}}}\frac{1}{\delta^{n}}\int_{\mathbb{R}^{n}}\eta\left(z\right)u\left(x-\delta z\right)\delta^{n}\dd^{n}z=\\
  & =\int_{\mathbb{R}^{n}}\eta\left(z\right)u\left(x-\delta z\right)\dd^{n}z
 \end{align*}
-$u$ is uniformly continuous in $\overline{B_{\delta}\left(x\right)}$.
+$u$ is uniformly continuous on the compact set $\overline{B_{\delta}\left(x\right)}$.
 For all $\varepsilon\in\mathbb{R}_{>0}$, there exists a $\delta\in\mathbb{R}_{>0}$
-such that holds:
+such that for all $y,y'\in\overline{B_{\delta}\left(x\right)}$ holds:
 \begin{align*}
 \norm{y-y'}<\delta & \qquad\Rightarrow\qquad\abs{u\left(y\right)-u\left(y'\right)}<\varepsilon
 \end{align*}
@@ -4131,6 +4142,373 @@ such that holds:
 \end{align*}
 \qqed
 
+%DATE: Fr 31.5.13
+
+
+\subsection{Lemma \textmd{(Mollified Function Converges)\label{sub:Lem-Mollified-Function-Converges}}}
+
+For $u\in L_{\text{loc}}^{p}\left(\Omega\right)$ (or $u\in L^{p}\left(\Omega\right)$)
+converges $u_{\varepsilon}\xrightarrow{\varepsilon\to0}u$ in $L_{\text{loc}}^{p}\left(\Omega\right)$
+(respectively in $L^{p}\left(\Omega\right)$).
+
+
+\subsubsection*{Proof}
+
+For $\Omega'\Subset\Omega$ holds for small enough $\varepsilon\in\mathbb{R}_{>0}$:
+\begin{align*}
+\text{dist}\left(\Omega',\partial\Omega\right) & >2\varepsilon
+\end{align*}
+The definition of $u_{\varepsilon}\left(x\right)$ for $x\in\Omega'$
+is:
+\begin{align*}
+u_{\varepsilon}\left(x\right) & =\int_{\Omega}\frac{1}{\varepsilon^{n}}\eta\left(\frac{x-y}{\varepsilon}\right)u\left(y\right)\dd^{n}y
+\end{align*}
+By a variable transformation $z:=\frac{x-y}{\varepsilon}$ follows
+due to $\text{supp}\left(\eta\right)=B_{1}\left(0\right)$:
+\begin{align*}
+u_{\varepsilon}\left(x\right) & =\int_{\norm z\le1}\eta\left(z\right)u\left(y+\varepsilon z\right)\dd^{n}z
+\end{align*}
+Now define the measure $\dd\varrho:=\eta\left(z\right)\dd z$ and
+apply Hölder's inequality:
+\begin{align*}
+\abs{u_{\varepsilon}\left(x\right)} & =\abs{\int_{\norm z\le1}u\left(x+\varepsilon z\right)\dd\varrho}\sr{\le}{\text{Hölder}}{}\underbrace{\left(\int_{\norm z\le1}1\dd\varrho\right)^{\frac{1}{q}}}_{=1}\left(\int_{\norm z\le1}\abs u^{p}\left(x+\varepsilon z\right)\dd\varrho\right)^{\frac{1}{p}}
+\end{align*}
+This implies:
+\begin{align*}
+\abs{u_{\varepsilon}\left(x\right)}^{p} & \le\int_{\norm z\le1}\abs u^{p}\left(x+\varepsilon z\right)\eta\left(z\right)\dd z
+\end{align*}
+Integrating over $x$ yields:
+\begin{align*}
+\int_{\Omega'}\abs{u_{\varepsilon}\left(x\right)}^{p}\dd x & \le\int_{\Omega'}\dd x\int_{\norm z\le1}\abs u^{p}\left(x+\varepsilon z\right)\eta\left(z\right)\dd z=\\
+ & \sr ={\text{Fubini}}{}\int_{\norm z\le1}\dd z\eta\left(z\right)\int_{\Omega'}\dd x\abs u^{p}\left(x+\varepsilon z\right)\le\\
+ & \le\underbrace{\int_{\norm z\le1}\dd z\eta\left(z\right)}_{=1}\int_{\Omega''}\dd x\abs u^{p}\left(x\right)=\int_{\Omega''}\dd x\abs u^{p}\left(x\right)
+\end{align*}
+
+
+\begin{figure}[H]
+\noindent \centering{}\begin{tikzpicture}
+  \draw plot[smooth cycle, xshift=-2.5cm,yshift=2cm] coordinates {(0,0) (1,1) (4,1) (5,0) (5,-3) (4,-5) (1,-4) };
+  \node at (0,3.3){$\Omega$};
+  \draw[rotate=30] (0,0) circle (1 and 1.5);
+  \node at (0,0){$\Omega '$};
+  \draw[rotate=30,dashed,scale=1.3] (0,0) circle (1 and 1.5);
+  \node at (0,2){$\Omega ''$};
+  \draw (0.75,-1.3) -- node[above right=-2pt]{$\varepsilon$} +(0.21,-0.37) ;
+\end{tikzpicture}\caption{$\Omega'':=\left\{ x+\varepsilon z\big|x\in\Omega',\norm z\le1\right\} $}
+\end{figure}
+
+
+This means:
+\begin{align*}
+\norm{u_{\varepsilon}}_{L^{p}\left(\Omega'\right)} & \le\norm u_{L^{p}\left(\Omega''\right)}
+\end{align*}
+We want to apply the Lemma \ref{sub:Lem-local-convergence}. For $u\in L_{\text{loc}}^{p}\left(\Omega\right)$
+and $\varepsilon\in\mathbb{R}_{>0}$ choose $\omega\in C^{0}\left(\Omega\right)$
+with:
+\begin{align*}
+\norm{u-\omega}_{L^{p}\left(\Omega''\right)} & \le\varepsilon
+\end{align*}
+This is possible after Urysohn's lemma (cf. the book of Rudin). With
+\begin{align*}
+\norm{\omega_{\varepsilon}-u_{\varepsilon}}_{L^{p}\left(\Omega'\right)} & \le\norm{\omega-u}_{L^{p}\left(\Omega''\right)}\le\varepsilon
+\end{align*}
+this gives:
+\begin{align*}
+\norm{u-u_{\varepsilon}}_{L^{p}\left(\Omega'\right)} & \le\norm{u-\omega}_{L^{p}\left(\Omega'\right)}+\norm{\omega-\omega_{\varepsilon}}_{L^{p}\left(\Omega'\right)}+\norm{\omega_{\varepsilon}-u_{\varepsilon}}_{L^{p}\left(\Omega'\right)}\le\\
+ & \le\norm{u-\omega}_{L^{p}\left(\Omega''\right)}+\norm{\omega-\omega_{\varepsilon}}_{L^{p}\left(\Omega'\right)}+\norm{\omega-u}_{L^{p}\left(\Omega''\right)}\le\\
+ & \le2\norm{u-\omega}_{L^{p}\left(\Omega''\right)}+\norm{\omega-\omega_{\varepsilon}}_{L^{p}\left(\Omega'\right)}\le\\
+ & \le2\varepsilon+\norm{\omega-\omega_{\varepsilon}}_{L^{p}\left(\Omega'\right)}
+\end{align*}
+By Lemma \ref{sub:Lem-local-convergence} holds, since $\omega$ is
+continuous:
+\begin{align*}
+\norm{\omega-\omega_{\varepsilon}}_{L^{p}\left(\Omega'\right)} & \xrightarrow{\varepsilon\to0}0
+\end{align*}
+Therefore converges $u_{\varepsilon}\to u$ in $L_{\text{loc}}^{p}\left(\Omega\right)$.
+
+To get the statement without ``loc'', extend $u$ by 0 to all of
+$\mathbb{R}^{n}$. If $\Omega$ is bounded, $u_{\varepsilon}\to u$
+converges in $L^{p}\left(\Omega\right)$ as above, as $\overline{\Omega}$
+is compact, so $\overline{\Omega}\Subset\mathbb{R}^{n}$. If $\Omega$
+is not bounded, we choose a ball $B_{R}\left(0\right)$ such that
+$\norm u_{L^{p}\left(\Omega\setminus B_{R}\left(0\right)\right)}\le\varepsilon$.{
+This is possible, since $u$ is integrable on $\Omega$}.\qqed
+
+
+\subsection{Corollary \textmd{(Dense Subsets of Integrable Functions)}}
+
+$C^{\infty}\left(\Omega\right)$ and $C^{k,\alpha}\left(\Omega\right)$
+are dense in $L_{\text{loc}}^{p}\left(\Omega\right)$ and $C_{0}^{\infty}\left(\Omega\right)$
+is dense in $L^{p}\left(\Omega\right)$ for $1\le p<\infty$.
+
+
+\section{Sobolev Spaces}
+
+
+\subsection{Definition \textmd{(Weak Derivative)}}
+
+Consider $u,v\in L_{\text{loc}}^{1}\left(\Omega\right)$ and a multi-index
+$\alpha$. The function $u$ is the $\alpha$-th \emph{weak derivative}
+of $ $$v$ if and only if for all test functions $\eta\in C_{0}^{\infty}\left(\Omega\right)$
+holds:
+\begin{align*}
+\int_{\Omega}v\left(x\right)\left(-1\right)^{\abs{\alpha}}\DD^{\alpha}\eta\left(x\right)\dd x & =\int_{\Omega}u\left(x\right)\eta\left(x\right)\dd x
+\end{align*}
+This reminds of the definition of the distributional derivative $T_{u}=\DD^{\alpha}T_{v}$
+by
+\begin{align*}
+T_{u}\left(\eta\right) & =\left(\DD^{\alpha}T_{v}\right)\left(\eta\right):=\left(-1\right)^{\abs{\alpha}}T_{v}\left(\DD^{\alpha}\eta\right)
+\end{align*}
+for all Schwartz functions $\eta$.
+
+Here it is more general, because we have less test functions $\eta\in C_{0}^{\infty}$,
+but on the other hand less general due to $v\in L_{1}^{\text{loc}}$,
+so $T_{v}$ is a kind of ``regular distribution''.
+
+
+\subsection{Definition \textmd{(Sobolev Space)}}
+
+The \emph{Sobolev space} $H^{k,p}\left(\Omega\right)$ for $k\in\mathbb{N}_{\ge0}$
+and $1\le p\le\infty$ consists of $L_{\text{loc}}^{1}$ functions
+$u:\Omega\to\mathbb{C}$ such that for all multi-indices $\alpha$
+with $\abs{\alpha}\le k$, the weak derivative $\DD^{\alpha}u$ exists
+and is in $L^{p}\left(\Omega\right)$.
+\begin{align*}
+\norm u_{H^{k,p}\left(\Omega\right)} & :=\left(\sum_{\abs{\alpha}\le k}\int_{\Omega}\abs{\DD^{\alpha}u}^{p}\right)^{\frac{1}{p}}
+\end{align*}
+A special case of interest is $p=2$, where we have an associated
+scalar product.
+\begin{align*}
+\left\langle u,v\right\rangle _{H^{k,2}\left(\Omega\right)} & :=\sum_{\abs{\alpha}\le k}\int_{\Omega}\overline{\DD^{\alpha}u}\cdot\DD^{\alpha}v\dd x
+\end{align*}
+
+
+
+\subsection{Theorem \textmd{(Sobolev Spaces are Complete)\label{sub:Thm-Sobolev-Spaces-Complete}}}
+
+The spaces $H^{k,p}\left(\Omega\right)$ are Banach spaces and Hilbert
+spaces for $p=2$.
+
+
+\subsubsection*{Proof}
+
+We have to show completeness. Let $u_{n}$ be a Cauchy sequence in
+$H^{k,p}\left(\Omega\right)$. Completeness of $L^{p}\left(\Omega\right)$
+implies that $u_{n}^{\alpha}:=\DD^{\alpha}u_{n}\xrightarrow{n\to\infty}v^{\alpha}$
+converges in $L^{p}\left(\Omega\right)$. Then holds
+\begin{align*}
+v & :=\lim_{n\to\infty}u_{n}\in H^{k,p}\left(\Omega\right)
+\end{align*}
+and $\partial^{\alpha}v=v^{\alpha}$, because for all $\eta\in C_{0}^{\infty}\left(\Omega\right)$
+holds:
+\begin{align*}
+\int_{\text{supp}\left(\eta\right)}v\left(-1\right)^{\abs{\alpha}}\DD^{\alpha}\eta\dd x\leftarrow\int u_{n}\left(-1\right)^{\abs{\alpha}}\DD^{\alpha}\eta\dd x & =\int u_{n}^{\alpha}\eta\dd x\to\int_{\text{supp}\left(\eta\right)}v^{\alpha}\eta\dd x
+\end{align*}
+This is true, because convergence in $L^{p}$ implies convergence
+in $L_{\text{loc}}^{1}$.\qqed
+
+What is the relation between the weak derivative and mollifying?
+
+
+\subsection{Lemma \textmd{(Weak Derivative and Mollifying Commute)\label{sub:Lemma-Weak-Derivative-Mollifying-Commute}}}
+
+Let $u\in L_{\text{loc}}^{1}\left(\Omega\right)$ be $\alpha$-times
+\emph{weakly differentiable}, i.e. $\DD^{\alpha}u$ exists for the
+multi-index $\alpha$. Let $\Omega'\Subset\Omega$ be a compact subset
+with $\text{dist}\left(\Omega',\partial\Omega\right)>\varepsilon\in\mathbb{R}_{>0}$.
+Then holds:
+\begin{align*}
+\left(\DD^{\alpha}u\right)_{\varepsilon} & =\DD^{\alpha}u_{\varepsilon}
+\end{align*}
+
+
+
+\subsubsection*{Proof}
+
+\begin{align*}
+\DD^{\alpha}u_{\varepsilon}\left(x\right) & =\int_{\mathbb{R}^{n}}\DD_{x}^{\alpha}\eta_{\varepsilon}\left(x-y\right)u\left(y\right)=\int_{\mathbb{R}^{n}}\left(-1\right)^{\abs{\alpha}}\DD_{y}^{\alpha}\eta_{\varepsilon}\left(x-y\right)u\left(y\right)\dd y=\\
+ & \sr ={\text{integration}}{\text{by parts}}\int_{\mathbb{R}^{n}}\eta_{\varepsilon}\left(x-y\right)\DD^{\alpha}u\left(y\right)\dd y=\left(\DD^{\alpha}u\right)_{\varepsilon}
+\end{align*}
+\qqed
+
+
+\subsection{Theorem \textmd{(Dense Subset of Sobolev Space)}}
+
+$C^{\infty}\left(\Omega\right)\cap H^{k,p}\left(\Omega\right)$ is
+dense in $H^{k,p}\left(\Omega\right)$.
+
+
+\subsubsection*{Proof}
+
+Let $\left(\Omega_{n}\right)_{n\in\mathbb{N}}$ be an exhaustion of
+$\Omega$ by relatively compact sets $\Omega_{n}$, i.e. $\Omega_{n}\Subset\Omega_{n+1}\Subset\Omega$
+and $\bigcup_{n\in\mathbb{N}}\Omega_{n}=\Omega$, with $\Omega_{0}\not=\emptyset$.
+Define $A_{n}:=\Omega_{n+1}\setminus\overline{\Omega}_{n}$. The $A_{n}$
+form a locally finite open covering.
+
+\begin{figure}[H]
+\noindent \centering{}\begin{tikzpicture}
+  \draw plot[smooth cycle] coordinates {(0,0) (1,1) (4,1) (5,0) (5,-3) (4,-5) (1,-4) };
+  \node at (1,0.25){$\Omega_3 $};
+  \draw plot[smooth cycle,scale=0.7,xshift=1cm,yshift=-1cm] coordinates {(0,-0.5) (1,1) (3,1) (5,1.5) (5,-3.5) (4,-4.5) (1,-4) };
+  \node at (2,-0.25){$\Omega_2 $};
+  \node at (3.5,-3.6){$A_1 $};
+  \draw plot[smooth cycle,scale=0.5,xshift=2.5cm,yshift=-2.5cm] coordinates {(0,-1) (1,0) (3,0.5) (5,1) (5,-3.5) (4,-3) (1,-4) };
+  \node at (2.5,-2){$\Omega_1 $};
+  \node at (4.3,-4.1){$A_2 $};
+\path[even odd rule] plot[smooth cycle,scale=0.7,xshift=1cm,yshift=-1cm] coordinates {(0,-0.5) (1,1) (3,1) (5,1.5) (5,-3.5) (4,-4.5) (1,-4) }
+plot[smooth cycle,scale=0.5,xshift=2.5cm,yshift=-2.5cm] coordinates {(0,-1) (1,0) (3,0.5) (5,1) (5,-3.5) (4,-3) (1,-4) }
+[path picture={
+  \foreach \x in {-5,-4,...,5}
+    \draw (0,\x) -- (5,{\x +1});
+}];
+\path[even odd rule] plot[smooth cycle,scale=0.7,xshift=1cm,yshift=-1cm] coordinates {(0,-0.5) (1,1) (3,1) (5,1.5) (5,-3.5) (4,-4.5) (1,-4) }
+plot[smooth cycle] coordinates {(0,0) (1,1) (4,1) (5,0) (5,-3) (4,-5) (1,-4) }
+[path picture={
+  \foreach \x in {-5,-4,...,5}
+    \draw (-1,\x) -- (6,{\x -1});
+}];
+\end{tikzpicture}\caption{$A_{n}$ form locally finite open covering}
+\end{figure}
+
+
+Let $\left(\varphi_{n}\right)_{n\in\mathbb{N}}$ be a subordinate
+partition of unity, i.e. $\varphi_{n}\in C_{0}^{\infty}\left(A_{n}\right)$
+and $\sum_{n}\varphi_{n}=1$. For $u\in H^{k,p}\left(\Omega\right)$
+holds $\varphi_{n}u\in H^{k,p}\left(A_{n}\right)$.
+
+Now $\left(\varphi_{n}u\right)_{\varepsilon_{n}}\xrightarrow{\varepsilon_{n}\to0}\varphi_{n}u$
+converges in $L^{p}\left(A_{n}\right)$ after Lemma \ref{sub:Lem-Mollified-Function-Converges}
+due to $\varphi_{n}u\in L^{p}\left(A_{n}\right)$. Since weak derivative
+and mollifying commute (Lemma \ref{sub:Lemma-Weak-Derivative-Mollifying-Commute}),
+follows in $L^{p}\left(A_{n}\right)$:
+\begin{align*}
+\DD^{\alpha}\left(\left(\varphi_{n}u\right)_{\varepsilon_{n}}\right) & =\left(\DD^{\alpha}\varphi_{n}u\right)_{\varepsilon_{n}}\xrightarrow{\varepsilon_{n}\to0}\DD^{\alpha}\varphi_{n}u
+\end{align*}
+So $\left(\varphi_{n}u\right)_{\varepsilon_{n}}\xrightarrow{\varepsilon_{n}\to0}\varphi_{n}u$
+converges in $H^{k,p}\left(\Omega\right)$. Therefore one can choose
+$\varepsilon_{n}\in\mathbb{R}_{>0}$ such that for every $\delta\in\mathbb{R}_{>0}$
+holds:
+\begin{align*}
+\norm{\left(\varphi_{n}u\right)_{\varepsilon_{n}}-\varphi_{n}u}_{H^{k,p}\left(\Omega\right)} & \le\frac{\delta}{2^{n}}
+\end{align*}
+Define:
+\begin{align*}
+\tilde{u} & =\sum_{n=1}^{\infty}\left(\varphi_{n}u\right)_{\varepsilon_{n}}\in C^{\infty}\left(\Omega\right)
+\end{align*}
+This $\tilde{u}$ is smooth, because the sum is locally finite and
+the $\left(\varphi_{n}u\right)_{\varepsilon_{n}}$ are smooth. So
+we get:
+\begin{align*}
+\norm{u-\tilde{u}}_{H^{k,p}\left(\Omega\right)} & \le\sum_{n=1}^{\infty}\frac{\delta}{2^{n}}=\delta
+\end{align*}
+\qqed
+
+Warning: $C_{0}^{\infty}\left(\Omega\right)$ is in general \emph{not}
+dense in $H^{k,p}\left(\Omega\right)$. This motivates the following
+definition:
+
+
+\subsection{Definition \textmd{(Sobolev Spaces for Dirichlet Boundary)}}
+
+The \emph{Sobolev spaces for Dirichlet boundary} condition are defined
+as:
+\begin{align*}
+H_{0}^{k,p}\left(\Omega\right) & :=\overline{C_{0}^{\infty}\left(\Omega\right)}^{k,p}
+\end{align*}
+We have:
+\begin{align*}
+C^{\infty}\left(\Omega\right)\cap H^{k,p}\left(\Omega\right) & \sr{\subseteq}{\text{dense}}{}H^{k,p}\left(\Omega\right)\subseteq L^{p}\left(\Omega\right)\\
+\overset{\Rotate{\subseteq}}{C_{0}^{\infty\vphantom{k}}\left(\Omega\right)} & \sr{\subseteq}{\text{dense}}{}\overset{\Rotate{\subseteq}}{H_{0}^{k,p}\left(\Omega\right)}\overset{\left(\text{in general not dense}\right)}{\vphantom{\bigg|}}
+\end{align*}
+Is $C^{\infty}\left(\overline{\Omega}\right)\cap H^{k,p}\left(\Omega\right)$
+dense in $H_{0}^{k,p}\left(\Omega\right)$? In general it is not,
+but for smooth boundary of $\Omega$, it is.
+
+
+\subsection{Theorem \textmd{(Elementary Properties of Sobolev Functions)}}
+\begin{enumerate}[label=\roman*)]
+\item For $u\in H^{k,p}\left(\Omega\right)$ holds $\DD^{\alpha}u\in H^{k-\abs{\alpha},p}\left(\Omega\right)$.
+\item For $\Omega'\subseteq\Omega$ holds $H^{k,p}\left(\Omega\right)\subseteq H^{k,p}\left(\Omega'\right)$.
+\item Leibniz rule: For $u\in H^{k,p}\left(\Omega\right)$, $v\in C_{0}^{\infty}$
+and $\abs{\alpha}\le k$ holds:
+\begin{align*}
+vu & \in H^{k,p}
+\end{align*}
+\begin{align*}
+\DD^{\alpha}\left(vu\right) & =\sum_{\beta\le\alpha}\left(\begin{array}{c}
+\alpha\\
+\beta
+\end{array}\right)\DD^{\beta}v\DD^{\alpha-\beta}u
+\end{align*}
+For multi-indices $\alpha=\left(i_{1},\ldots,i_{r}\right)$ and $\beta=\left(j_{1},\ldots,j_{s}\right)$
+with $i_{l},j_{l}\in\left\{ 1,\ldots,n\right\} $ let $\alpha_{m}$
+be the number indices $i_{l}=m$ and analog $\beta_{m}$. The Binomial
+coefficient is defined as follows: 
+\begin{align*}
+\left(\begin{array}{c}
+\alpha\\
+\beta
+\end{array}\right) & :=\left(\begin{array}{c}
+\alpha_{1}\\
+\beta_{1}
+\end{array}\right)\cdot\left(\begin{array}{c}
+\alpha_{2}\\
+\beta_{2}
+\end{array}\right)\cdot\ldots\cdot\left(\begin{array}{c}
+\alpha_{n}\\
+\beta_{n}
+\end{array}\right)
+\end{align*}
+
+\item Chain rule: For $f\in C^{1}$, $f'\in L^{\infty}$ and $u$ weakly
+differentiable holds:
+\begin{align*}
+\DD\left(f\circ u\right) & =f'\left(u\right)\DD u
+\end{align*}
+
+\end{enumerate}
+
+\subsubsection*{Proof}
+
+i) and ii) are obvious.
+\begin{enumerate}
+\item [iii)]For brevity consider the first derivatives only.
+\begin{align*}
+\int\left(vu\right)\left(-1\right)\left(\DD\eta\right)\dd x & \sr ={\text{Leibniz}}{\text{for }C^{\infty}}\int u\left(-1\right)\left(\DD\left(\eta v\right)-\eta\left(\DD v\right)\right)\dd x=\\
+ & \sr ={\text{integtation}}{\text{by parts}}\int\left(\left(\DD u\right)\eta v+u\eta\DD v\right)\dd x=\int\left(v\DD u+u\DD v\right)\eta\dd x\\
+\Rightarrow\qquad\DD\left(uv\right) & =\left(\DD u\right)v+u\left(\DD v\right)
+\end{align*}
+Be careful: A product of two $H^{k,p}$ functions need not be in $H^{k,p}$
+in general!
+\item [iv)]We use an approximation argument: Consider $\Omega'\Subset\Omega$,
+$u_{n}\in C^{\infty}\left(\Omega'\right)$ with $u_{n}\to u$ and
+$\DD u_{n}\to\DD u$ converging in $L^{1}\left(\Omega'\right)$. The
+chain rule in $C^{1}$ gives $\DD\left(f\circ u_{n}\right)=f'\left(u_{n}\right)\DD u_{n}$.
+Now evaluate in the weak sense with a test function $\eta\in C_{0}^{\infty}\left(\Omega\right)$:
+\begin{align*}
+\int\left(f\circ u_{n}\right)\left(-\DD\eta\right)\dd x & =\int f'\left(u_{n}\right)\left(\DD u_{n}\right)\eta\dd x
+\end{align*}
+We have to show, that we can take the limit on both sides.
+\begin{align*}
+\int_{\Omega'}\abs{f\left(u_{n}\right)-f\left(u\right)}\abs{\DD\eta}\dd x & \le\sup\abs{\DD\eta}\sup\abs{f'}\int_{\Omega'}\left(u_{n}-u\right)\dd x\xrightarrow{n\to\infty}0
+\end{align*}
+The general technique
+\begin{align*}
+\abs{a_{n}b_{n}-ab} & =\abs{a_{n}b_{n}-ab_{n}+ab_{n}-ab}\le\abs{a_{n}-a}\abs{b_{n}}+\abs a\abs{b_{n}-b}
+\end{align*}
+gives for the other side:
+\begin{align*}
+ & \abs{\int_{\Omega'}f'\left(u_{n}\right)\DD u_{n}-f'\left(u\right)\left(\DD u\right)\eta\dd x}\le\\
+ & \qquad\qquad\le\int_{\Omega'}\abs{f'\left(u_{n}\right)-f'\left(u\right)}\abs{\DD u}\abs{\eta}\dd x+\sup\abs{f'}\cdot\int_{\Omega'}\abs{\DD u_{n}-\DD u}\abs{\eta}\dd x
+\end{align*}
+The second term converges to zero, because $\DD u_{n}\to\DD u$ converges
+in $L^{1}\left(\Omega'\right)$.\\
+The first term converges to zero, because as $u_{n}\to u$ converges
+almost everywhere, $f'\left(u_{n}\right)\to f'\left(u_{n}\right)$
+converges almost everywhere and due to$f'\in C^{0}$ we can apply
+the dominated convergence theorem to take the limit under the integral.\qqed
+\end{enumerate}
 
 \part*{Appendix\thispagestyle{empty}}
 

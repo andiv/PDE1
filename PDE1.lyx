@@ -1684,7 +1684,7 @@ Jürgen Jost
 \emph on
 Partial Differential Equations
 \emph default
-; Springer, 2007
+; Springer, 2007;
 \begin_inset Newline newline
 \end_inset
 
@@ -1738,11 +1738,22 @@ Elliptic Partial Differential Equations of second order
 \end_layout
 
 \begin_layout Itemize
-Adams
+
+\noun on
+Robert A.
+ Adams, John J.
+ F.
+ Fournier
+\noun default
+: 
+\emph on
+Sobolev Spaces
+\emph default
+; Acadademic Press, 2009;
 \begin_inset Newline newline
 \end_inset
 
-(Sobolev spaces)
+ISBN: 978-0-12-044143-3
 \end_layout
 
 \begin_layout Itemize
@@ -1772,6 +1783,26 @@ target "http://dx.doi.org/10.1002/9783527617234"
 \end_inset
 
 (Lebesgue spine)
+\end_layout
+
+\begin_layout Itemize
+
+\noun on
+Walter Rudin
+\noun default
+: 
+\emph on
+Real and Complex Analysis
+\emph default
+; McGraw-Hill, 2009;
+\begin_inset Newline newline
+\end_inset
+
+ISBN: 978-0-07-054234-1
+\begin_inset Newline newline
+\end_inset
+
+(Urysohn's Lemma)
 \end_layout
 
 \begin_layout Standard
@@ -10540,6 +10571,10 @@ compactly contained
 \begin_inset Formula $h\in C^{0}\left(\overline{B}\right)$
 \end_inset
 
+, 
+\begin_inset Formula $h\big|_{B}\in C^{2}\left(B\right)$
+\end_inset
+
  with 
 \begin_inset Formula $u\le h$
 \end_inset
@@ -16212,7 +16247,7 @@ Let
 \begin_layout Subsection
 Definition 
 \series medium
-(Hölder Continuous)
+(Hölder Continuous, Hölder Norm)
 \end_layout
 
 \begin_layout Standard
@@ -16225,13 +16260,25 @@ A function
 Hölder continuous
 \emph default
  with exponent 
-\begin_inset Formula $\alpha$
+\begin_inset Formula $\alpha\in\mathbb{R}_{\ge0}$
 \end_inset
 
-, if holds:
+, if the 
+\emph on
+Hölder norm
+\emph default
+ is finite:
 \begin_inset Formula 
 \begin{align*}
 \norm u_{C^{0,\alpha}\left(\Omega\right)} & :=\norm u_{C^{0}\left(\Omega\right)}+\sup_{x\not=y\in\Omega}\left(\frac{u\left(x\right)-u\left(y\right)}{\norm{x-y}^{\alpha}}\right)<\infty
+\end{align*}
+
+\end_inset
+
+This implies:
+\begin_inset Formula 
+\begin{align*}
+\norm{u\left(x\right)-u\left(y\right)} & \le\sup_{x\not=y\in\Omega}\left(\frac{u\left(x\right)-u\left(y\right)}{\norm{x-y}^{\alpha}}\right)\cdot\norm{x-y}^{\alpha}
 \end{align*}
 
 \end_inset
@@ -16262,7 +16309,7 @@ Obviously holds
 \begin_inset Formula $C^{0,1}\left(\Omega\right)$
 \end_inset
 
- are Lipschitz continuous functions.
+ are bounded, Lipschitz continuous functions.
 \end_layout
 
 \begin_layout Standard
@@ -16365,7 +16412,7 @@ Let
 Next we have by uniform convergence:
 \begin_inset Formula 
 \begin{align*}
-\frac{\DD^{\beta}u_{n}\left(x\right)-\DD^{\beta}u_{n}\left(y\right)}{\norm{x-y}^{\alpha}} & \to\frac{\DD^{\beta}u\left(x\right)-\DD^{\beta}u\left(y\right)}{\norm{x-y}^{\alpha}}
+\frac{\DD^{\beta}u_{n}\left(x\right)-\DD^{\beta}u_{n}\left(y\right)}{\norm{x-y}^{\alpha}} & \xrightarrow{n\to\infty}\frac{\DD^{\beta}u\left(x\right)-\DD^{\beta}u\left(y\right)}{\norm{x-y}^{\alpha}}
 \end{align*}
 
 \end_inset
@@ -16420,7 +16467,7 @@ status open
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
-L^{p}\left(\Omega\right) & =\left\{ f:\Omega\to\mathbb{R}\text{ measurable}\bigg|\int_{\Omega}\abs{f\left(x\right)}^{p}\dd^{n}x<\infty\right\} 
+L^{p}\left(\Omega\right) & :=\left\{ f:\Omega\to\mathbb{R}\text{ measurable}\bigg|\int_{\Omega}\abs{f\left(x\right)}^{p}\dd^{n}x<\infty\right\} 
 \end{align*}
 
 \end_inset
@@ -16428,7 +16475,7 @@ L^{p}\left(\Omega\right) & =\left\{ f:\Omega\to\mathbb{R}\text{ measurable}\bigg
 
 \begin_inset Formula 
 \begin{align*}
-\norm f_{p} & =\left(\int\abs{f\left(x\right)}^{p}\dd^{n}x\right)^{\frac{1}{p}}
+\norm f_{p} & :=\left(\int\abs{f\left(x\right)}^{p}\dd^{n}x\right)^{\frac{1}{p}}
 \end{align*}
 
 \end_inset
@@ -16437,17 +16484,21 @@ L^{p}\left(\Omega\right) & =\left\{ f:\Omega\to\mathbb{R}\text{ measurable}\bigg
 \end_layout
 
 \begin_layout Subsection
-Definition 
+Definition and Lemma 
 \series medium
 (Mollifier)
 \end_layout
 
 \begin_layout Standard
-Let 
+A 
+\emph on
+mollifier
+\emph default
+ is a function 
 \begin_inset Formula $\eta\in C_{0}^{\infty}\left(\mathbb{R}^{n}\right)$
 \end_inset
 
-, 
+ with 
 \begin_inset Formula $\eta\left(x\right)\in\mathbb{R}_{\ge0}$
 \end_inset
 
@@ -16556,7 +16607,7 @@ For
 \begin_inset Formula $\varepsilon\in\mathbb{R}_{>0}$
 \end_inset
 
- set:
+ define the mollified function as:
 \begin_inset Formula 
 \begin{align*}
 u_{\varepsilon}\left(x\right) & =\int_{\Omega}\underbrace{\frac{1}{\varepsilon^{n}}\eta\left(\frac{x-y}{\varepsilon}\right)}_{=:\eta_{\varepsilon}\left(x-y\right)}u\left(y\right)\dd^{n}y=\left(\eta_{\varepsilon}*u\right)\left(x\right)
@@ -16580,21 +16631,33 @@ Proof
 \end_layout
 
 \begin_layout Standard
+The support satisfies 
+\begin_inset Formula $\text{supp}\left(\eta_{\varepsilon}\right)\subseteq B_{\varepsilon}\left(0\right)$
+\end_inset
+
+.
+ Define 
+\begin_inset Formula $\varepsilon_{0}:=\text{dist}\left(\Omega',\partial\Omega\right)>0$
+\end_inset
+
+.
+ For 
+\begin_inset Formula $\varepsilon<\varepsilon_{0}$
+\end_inset
+
+, we have for 
+\begin_inset Formula $x\in\Omega'$
+\end_inset
+
+:
 \begin_inset Formula 
 \begin{align*}
-\frac{u_{\varepsilon}\left(x+he_{i}\right)-u_{\varepsilon}\left(x\right)}{h} & =\int_{\Omega'}\underbrace{\frac{1}{h}\left(\eta_{\varepsilon}\left(x+he_{i}-y\right)-\eta_{\varepsilon}\left(x-y\right)\right)}_{\to\partial_{i}\eta_{\varepsilon}\left(x-y\right)}u\left(y\right)\dd^{n}y
+u_{\varepsilon}\left(x\right) & =\int_{\Omega'}\eta_{\varepsilon}\left(x-y\right)u\left(y\right)\dd^{n}y
 \end{align*}
 
 \end_inset
 
-The limit 
-\begin_inset Formula $\varepsilon\searrow0$
-\end_inset
 
- can be taken inside the integral by Lebesgue's dominated convergence theorem.
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
 placement H
 wide false
@@ -16698,33 +16761,27 @@ end{tikzpicture}
 \end_layout
 
 \begin_layout Standard
-The support satisfies 
-\begin_inset Formula $\text{supp}\left(\eta_{\varepsilon}\right)\subseteq B_{\varepsilon}\left(0\right)$
-\end_inset
-
-.
- Define 
-\begin_inset Formula $\varepsilon_{0}:=\text{dist}\left(\Omega',\partial\Omega\right)>0$
-\end_inset
-
-.
- For 
-\begin_inset Formula $\varepsilon<\varepsilon_{0}$
-\end_inset
-
-, we have for 
-\begin_inset Formula $x\in\Omega'$
-\end_inset
-
-:
 \begin_inset Formula 
 \begin{align*}
-u_{\varepsilon}\left(x\right) & =\int_{\mathbb{R}^{n}}\eta_{\varepsilon}\left(x-y\right)u\left(y\right)\dd^{n}y
+\frac{u_{\varepsilon}\left(x+he_{i}\right)-u_{\varepsilon}\left(x\right)}{h} & =\int_{\Omega'}\underbrace{\frac{1}{h}\left(\eta_{\varepsilon}\left(x+he_{i}-y\right)-\eta_{\varepsilon}\left(x-y\right)\right)}_{\xrightarrow{h\to0}\partial_{i}\eta_{\varepsilon}\left(x-y\right)}u\left(y\right)\dd^{n}y
 \end{align*}
 
 \end_inset
 
+The limit 
+\begin_inset Formula $h\searrow0$
+\end_inset
 
+ can be taken inside the integral by Lebesgue's dominated convergence theorem,
+ since both 
+\begin_inset Formula $\abs u$
+\end_inset
+
+ and 
+\begin_inset Formula $\eta_{\varepsilon}$
+\end_inset
+
+ are integrable.
 \begin_inset ERT
 status open
 
@@ -16741,7 +16798,18 @@ qqed
 \end_layout
 
 \begin_layout Subsection
-Lemma
+Lemma 
+\series medium
+(Mollified Function Converges Locally Uniformly)
+\series default
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Lem-local-convergence"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -16813,7 +16881,7 @@ u_{\delta}\left(x\right) & =\frac{1}{\delta^{n}}\int_{\Omega}\eta\left(\frac{x-y
 \begin_inset Formula $u$
 \end_inset
 
- is uniformly continuous in 
+ is uniformly continuous on the compact set 
 \begin_inset Formula $\overline{B_{\delta}\left(x\right)}$
 \end_inset
 
@@ -16826,7 +16894,11 @@ u_{\delta}\left(x\right) & =\frac{1}{\delta^{n}}\int_{\Omega}\eta\left(\frac{x-y
 \begin_inset Formula $\delta\in\mathbb{R}_{>0}$
 \end_inset
 
- such that holds:
+ such that for all 
+\begin_inset Formula $y,y'\in\overline{B_{\delta}\left(x\right)}$
+\end_inset
+
+ holds:
 \begin_inset Formula 
 \begin{align*}
 \norm{y-y'}<\delta & \qquad\Rightarrow\qquad\abs{u\left(y\right)-u\left(y'\right)}<\varepsilon
@@ -16844,6 +16916,1577 @@ u_{\delta}\left(x\right) & =\frac{1}{\delta^{n}}\int_{\Omega}\eta\left(\frac{x-y
 \end_inset
 
 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%DATE: Fr 31.5.13
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Lemma 
+\series medium
+(Mollified Function Converges)
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Lem-Mollified-Function-Converges"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $u\in L_{\text{loc}}^{p}\left(\Omega\right)$
+\end_inset
+
+ (or 
+\begin_inset Formula $u\in L^{p}\left(\Omega\right)$
+\end_inset
+
+) converges 
+\begin_inset Formula $u_{\varepsilon}\xrightarrow{\varepsilon\to0}u$
+\end_inset
+
+ in 
+\begin_inset Formula $L_{\text{loc}}^{p}\left(\Omega\right)$
+\end_inset
+
+ (respectively in 
+\begin_inset Formula $L^{p}\left(\Omega\right)$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $\Omega'\Subset\Omega$
+\end_inset
+
+ holds for small enough 
+\begin_inset Formula $\varepsilon\in\mathbb{R}_{>0}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\text{dist}\left(\Omega',\partial\Omega\right) & >2\varepsilon
+\end{align*}
+
+\end_inset
+
+The definition of 
+\begin_inset Formula $u_{\varepsilon}\left(x\right)$
+\end_inset
+
+ for 
+\begin_inset Formula $x\in\Omega'$
+\end_inset
+
+ is:
+\begin_inset Formula 
+\begin{align*}
+u_{\varepsilon}\left(x\right) & =\int_{\Omega}\frac{1}{\varepsilon^{n}}\eta\left(\frac{x-y}{\varepsilon}\right)u\left(y\right)\dd^{n}y
+\end{align*}
+
+\end_inset
+
+By a variable transformation 
+\begin_inset Formula $z:=\frac{x-y}{\varepsilon}$
+\end_inset
+
+ follows due to 
+\begin_inset Formula $\text{supp}\left(\eta\right)=B_{1}\left(0\right)$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+u_{\varepsilon}\left(x\right) & =\int_{\norm z\le1}\eta\left(z\right)u\left(y+\varepsilon z\right)\dd^{n}z
+\end{align*}
+
+\end_inset
+
+Now define the measure 
+\begin_inset Formula $\dd\varrho:=\eta\left(z\right)\dd z$
+\end_inset
+
+ and apply Hölder's inequality:
+\begin_inset Formula 
+\begin{align*}
+\abs{u_{\varepsilon}\left(x\right)} & =\abs{\int_{\norm z\le1}u\left(x+\varepsilon z\right)\dd\varrho}\sr{\le}{\text{Hölder}}{}\underbrace{\left(\int_{\norm z\le1}1\dd\varrho\right)^{\frac{1}{q}}}_{=1}\left(\int_{\norm z\le1}\abs u^{p}\left(x+\varepsilon z\right)\dd\varrho\right)^{\frac{1}{p}}
+\end{align*}
+
+\end_inset
+
+This implies:
+\begin_inset Formula 
+\begin{align*}
+\abs{u_{\varepsilon}\left(x\right)}^{p} & \le\int_{\norm z\le1}\abs u^{p}\left(x+\varepsilon z\right)\eta\left(z\right)\dd z
+\end{align*}
+
+\end_inset
+
+Integrating over 
+\begin_inset Formula $x$
+\end_inset
+
+ yields:
+\begin_inset Formula 
+\begin{align*}
+\int_{\Omega'}\abs{u_{\varepsilon}\left(x\right)}^{p}\dd x & \le\int_{\Omega'}\dd x\int_{\norm z\le1}\abs u^{p}\left(x+\varepsilon z\right)\eta\left(z\right)\dd z=\\
+ & \sr ={\text{Fubini}}{}\int_{\norm z\le1}\dd z\eta\left(z\right)\int_{\Omega'}\dd x\abs u^{p}\left(x+\varepsilon z\right)\le\\
+ & \le\underbrace{\int_{\norm z\le1}\dd z\eta\left(z\right)}_{=1}\int_{\Omega''}\dd x\abs u^{p}\left(x\right)=\int_{\Omega''}\dd x\abs u^{p}\left(x\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw plot[smooth cycle, xshift=-2.5cm,yshift=2cm] coordinates {(0,0) (1,1)
+ (4,1) (5,0) (5,-3) (4,-5) (1,-4) };
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (0,3.3){$
+\backslash
+Omega$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[rotate=30] (0,0) circle (1 and 1.5);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (0,0){$
+\backslash
+Omega '$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[rotate=30,dashed,scale=1.3] (0,0) circle (1 and 1.5);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (0,2){$
+\backslash
+Omega ''$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (0.75,-1.3) -- node[above right=-2pt]{$
+\backslash
+varepsilon$} +(0.21,-0.37) ;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Omega'':=\left\{ x+\varepsilon z\big|x\in\Omega',\norm z\le1\right\} $
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This means:
+\begin_inset Formula 
+\begin{align*}
+\norm{u_{\varepsilon}}_{L^{p}\left(\Omega'\right)} & \le\norm u_{L^{p}\left(\Omega''\right)}
+\end{align*}
+
+\end_inset
+
+We want to apply the Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Lem-local-convergence"
+
+\end_inset
+
+.
+ For 
+\begin_inset Formula $u\in L_{\text{loc}}^{p}\left(\Omega\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\varepsilon\in\mathbb{R}_{>0}$
+\end_inset
+
+ choose 
+\begin_inset Formula $\omega\in C^{0}\left(\Omega\right)$
+\end_inset
+
+ with:
+\begin_inset Formula 
+\begin{align*}
+\norm{u-\omega}_{L^{p}\left(\Omega''\right)} & \le\varepsilon
+\end{align*}
+
+\end_inset
+
+This is possible after Urysohn's lemma (cf.
+ the book of Rudin).
+ With
+\begin_inset Formula 
+\begin{align*}
+\norm{\omega_{\varepsilon}-u_{\varepsilon}}_{L^{p}\left(\Omega'\right)} & \le\norm{\omega-u}_{L^{p}\left(\Omega''\right)}\le\varepsilon
+\end{align*}
+
+\end_inset
+
+this gives:
+\begin_inset Formula 
+\begin{align*}
+\norm{u-u_{\varepsilon}}_{L^{p}\left(\Omega'\right)} & \le\norm{u-\omega}_{L^{p}\left(\Omega'\right)}+\norm{\omega-\omega_{\varepsilon}}_{L^{p}\left(\Omega'\right)}+\norm{\omega_{\varepsilon}-u_{\varepsilon}}_{L^{p}\left(\Omega'\right)}\le\\
+ & \le\norm{u-\omega}_{L^{p}\left(\Omega''\right)}+\norm{\omega-\omega_{\varepsilon}}_{L^{p}\left(\Omega'\right)}+\norm{\omega-u}_{L^{p}\left(\Omega''\right)}\le\\
+ & \le2\norm{u-\omega}_{L^{p}\left(\Omega''\right)}+\norm{\omega-\omega_{\varepsilon}}_{L^{p}\left(\Omega'\right)}\le\\
+ & \le2\varepsilon+\norm{\omega-\omega_{\varepsilon}}_{L^{p}\left(\Omega'\right)}
+\end{align*}
+
+\end_inset
+
+By Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Lem-local-convergence"
+
+\end_inset
+
+ holds, since 
+\begin_inset Formula $\omega$
+\end_inset
+
+ is continuous:
+\begin_inset Formula 
+\begin{align*}
+\norm{\omega-\omega_{\varepsilon}}_{L^{p}\left(\Omega'\right)} & \xrightarrow{\varepsilon\to0}0
+\end{align*}
+
+\end_inset
+
+Therefore converges 
+\begin_inset Formula $u_{\varepsilon}\to u$
+\end_inset
+
+ in 
+\begin_inset Formula $L_{\text{loc}}^{p}\left(\Omega\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+To get the statement without 
+\begin_inset Quotes eld
+\end_inset
+
+loc
+\begin_inset Quotes erd
+\end_inset
+
+, extend 
+\begin_inset Formula $u$
+\end_inset
+
+ by 0 to all of 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ is bounded, 
+\begin_inset Formula $u_{\varepsilon}\to u$
+\end_inset
+
+ converges in 
+\begin_inset Formula $L^{p}\left(\Omega\right)$
+\end_inset
+
+ as above, as 
+\begin_inset Formula $\overline{\Omega}$
+\end_inset
+
+ is compact, so 
+\begin_inset Formula $\overline{\Omega}\Subset\mathbb{R}^{n}$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ is not bounded, we choose a ball 
+\begin_inset Formula $B_{R}\left(0\right)$
+\end_inset
+
+ such that 
+\begin_inset Formula $\norm u_{L^{p}\left(\Omega\setminus B_{R}\left(0\right)\right)}\le\varepsilon$
+\end_inset
+
+.
+
+ This is possible, since 
+\begin_inset Formula $u$
+\end_inset
+
+ is integrable on 
+\begin_inset Formula $\Omega$
+\end_inset
+
+
+\lang english
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Corollary 
+\series medium
+(Dense Subsets of Integrable Functions)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $C^{\infty}\left(\Omega\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $C^{k,\alpha}\left(\Omega\right)$
+\end_inset
+
+ are dense in 
+\begin_inset Formula $L_{\text{loc}}^{p}\left(\Omega\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $C_{0}^{\infty}\left(\Omega\right)$
+\end_inset
+
+ is dense in 
+\begin_inset Formula $L^{p}\left(\Omega\right)$
+\end_inset
+
+ for 
+\begin_inset Formula $1\le p<\infty$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Sobolev Spaces
+\end_layout
+
+\begin_layout Subsection
+Definition 
+\series medium
+(Weak Derivative)
+\end_layout
+
+\begin_layout Standard
+Consider 
+\begin_inset Formula $u,v\in L_{\text{loc}}^{1}\left(\Omega\right)$
+\end_inset
+
+ and a multi-index 
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+ The function 
+\begin_inset Formula $u$
+\end_inset
+
+ is the 
+\begin_inset Formula $\alpha$
+\end_inset
+
+-th 
+\emph on
+weak derivative
+\emph default
+ of 
+\begin_inset Formula $ $
+\end_inset
+
+
+\begin_inset Formula $v$
+\end_inset
+
+ if and only if for all test functions 
+\begin_inset Formula $\eta\in C_{0}^{\infty}\left(\Omega\right)$
+\end_inset
+
+ holds:
+\begin_inset Formula 
+\begin{align*}
+\int_{\Omega}v\left(x\right)\left(-1\right)^{\abs{\alpha}}\DD^{\alpha}\eta\left(x\right)\dd x & =\int_{\Omega}u\left(x\right)\eta\left(x\right)\dd x
+\end{align*}
+
+\end_inset
+
+This reminds of the definition of the distributional derivative 
+\begin_inset Formula $T_{u}=\DD^{\alpha}T_{v}$
+\end_inset
+
+ by
+\begin_inset Formula 
+\begin{align*}
+T_{u}\left(\eta\right) & =\left(\DD^{\alpha}T_{v}\right)\left(\eta\right):=\left(-1\right)^{\abs{\alpha}}T_{v}\left(\DD^{\alpha}\eta\right)
+\end{align*}
+
+\end_inset
+
+for all Schwartz functions 
+\begin_inset Formula $\eta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Here it is more general, because we have less test functions 
+\begin_inset Formula $\eta\in C_{0}^{\infty}$
+\end_inset
+
+, but on the other hand less general due to 
+\begin_inset Formula $v\in L_{1}^{\text{loc}}$
+\end_inset
+
+, so 
+\begin_inset Formula $T_{v}$
+\end_inset
+
+ is a kind of 
+\begin_inset Quotes eld
+\end_inset
+
+regular distribution
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Definition 
+\series medium
+(Sobolev Space)
+\end_layout
+
+\begin_layout Standard
+The 
+\emph on
+Sobolev space
+\emph default
+ 
+\begin_inset Formula $H^{k,p}\left(\Omega\right)$
+\end_inset
+
+ for 
+\begin_inset Formula $k\in\mathbb{N}_{\ge0}$
+\end_inset
+
+ and 
+\begin_inset Formula $1\le p\le\infty$
+\end_inset
+
+ consists of 
+\begin_inset Formula $L_{\text{loc}}^{1}$
+\end_inset
+
+ functions 
+\begin_inset Formula $u:\Omega\to\mathbb{C}$
+\end_inset
+
+ such that for all multi-indices 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ with 
+\begin_inset Formula $\abs{\alpha}\le k$
+\end_inset
+
+, the weak derivative 
+\begin_inset Formula $\DD^{\alpha}u$
+\end_inset
+
+ exists and is in 
+\begin_inset Formula $L^{p}\left(\Omega\right)$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+\norm u_{H^{k,p}\left(\Omega\right)} & :=\left(\sum_{\abs{\alpha}\le k}\int_{\Omega}\abs{\DD^{\alpha}u}^{p}\right)^{\frac{1}{p}}
+\end{align*}
+
+\end_inset
+
+A special case of interest is 
+\begin_inset Formula $p=2$
+\end_inset
+
+, where we have an associated scalar product.
+\begin_inset Formula 
+\begin{align*}
+\left\langle u,v\right\rangle _{H^{k,2}\left(\Omega\right)} & :=\sum_{\abs{\alpha}\le k}\int_{\Omega}\overline{\DD^{\alpha}u}\cdot\DD^{\alpha}v\dd x
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Theorem 
+\series medium
+(Sobolev Spaces are Complete)
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Thm-Sobolev-Spaces-Complete"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The spaces 
+\begin_inset Formula $H^{k,p}\left(\Omega\right)$
+\end_inset
+
+ are Banach spaces and Hilbert spaces for 
+\begin_inset Formula $p=2$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+We have to show completeness.
+ Let 
+\begin_inset Formula $u_{n}$
+\end_inset
+
+ be a Cauchy sequence in 
+\begin_inset Formula $H^{k,p}\left(\Omega\right)$
+\end_inset
+
+.
+ Completeness of 
+\begin_inset Formula $L^{p}\left(\Omega\right)$
+\end_inset
+
+ implies that 
+\begin_inset Formula $u_{n}^{\alpha}:=\DD^{\alpha}u_{n}\xrightarrow{n\to\infty}v^{\alpha}$
+\end_inset
+
+ converges in 
+\begin_inset Formula $L^{p}\left(\Omega\right)$
+\end_inset
+
+.
+ Then holds
+\begin_inset Formula 
+\begin{align*}
+v & :=\lim_{n\to\infty}u_{n}\in H^{k,p}\left(\Omega\right)
+\end{align*}
+
+\end_inset
+
+and 
+\begin_inset Formula $\partial^{\alpha}v=v^{\alpha}$
+\end_inset
+
+, because for all 
+\begin_inset Formula $\eta\in C_{0}^{\infty}\left(\Omega\right)$
+\end_inset
+
+ holds:
+\begin_inset Formula 
+\begin{align*}
+\int_{\text{supp}\left(\eta\right)}v\left(-1\right)^{\abs{\alpha}}\DD^{\alpha}\eta\dd x\leftarrow\int u_{n}\left(-1\right)^{\abs{\alpha}}\DD^{\alpha}\eta\dd x & =\int u_{n}^{\alpha}\eta\dd x\to\int_{\text{supp}\left(\eta\right)}v^{\alpha}\eta\dd x
+\end{align*}
+
+\end_inset
+
+This is true, because convergence in 
+\begin_inset Formula $L^{p}$
+\end_inset
+
+ implies convergence in 
+\begin_inset Formula $L_{\text{loc}}^{1}$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+What is the relation between the weak derivative and mollifying?
+\end_layout
+
+\begin_layout Subsection
+Lemma 
+\series medium
+(Weak Derivative and Mollifying Commute)
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Lemma-Weak-Derivative-Mollifying-Commute"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $u\in L_{\text{loc}}^{1}\left(\Omega\right)$
+\end_inset
+
+ be 
+\begin_inset Formula $\alpha$
+\end_inset
+
+-times 
+\emph on
+weakly differentiable
+\emph default
+, i.e.
+ 
+\begin_inset Formula $\DD^{\alpha}u$
+\end_inset
+
+ exists for the multi-index 
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\Omega'\Subset\Omega$
+\end_inset
+
+ be a compact subset with 
+\begin_inset Formula $\text{dist}\left(\Omega',\partial\Omega\right)>\varepsilon\in\mathbb{R}_{>0}$
+\end_inset
+
+.
+ Then holds:
+\begin_inset Formula 
+\begin{align*}
+\left(\DD^{\alpha}u\right)_{\varepsilon} & =\DD^{\alpha}u_{\varepsilon}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\DD^{\alpha}u_{\varepsilon}\left(x\right) & =\int_{\mathbb{R}^{n}}\DD_{x}^{\alpha}\eta_{\varepsilon}\left(x-y\right)u\left(y\right)=\int_{\mathbb{R}^{n}}\left(-1\right)^{\abs{\alpha}}\DD_{y}^{\alpha}\eta_{\varepsilon}\left(x-y\right)u\left(y\right)\dd y=\\
+ & \sr ={\text{integration}}{\text{by parts}}\int_{\mathbb{R}^{n}}\eta_{\varepsilon}\left(x-y\right)\DD^{\alpha}u\left(y\right)\dd y=\left(\DD^{\alpha}u\right)_{\varepsilon}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Theorem 
+\series medium
+(Dense Subset of Sobolev Space)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $C^{\infty}\left(\Omega\right)\cap H^{k,p}\left(\Omega\right)$
+\end_inset
+
+ is dense in 
+\begin_inset Formula $H^{k,p}\left(\Omega\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\left(\Omega_{n}\right)_{n\in\mathbb{N}}$
+\end_inset
+
+ be an exhaustion of 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ by relatively compact sets 
+\begin_inset Formula $\Omega_{n}$
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $\Omega_{n}\Subset\Omega_{n+1}\Subset\Omega$
+\end_inset
+
+ and 
+\begin_inset Formula $\bigcup_{n\in\mathbb{N}}\Omega_{n}=\Omega$
+\end_inset
+
+, with 
+\begin_inset Formula $\Omega_{0}\not=\emptyset$
+\end_inset
+
+.
+ Define 
+\begin_inset Formula $A_{n}:=\Omega_{n+1}\setminus\overline{\Omega}_{n}$
+\end_inset
+
+.
+ The 
+\begin_inset Formula $A_{n}$
+\end_inset
+
+ form a locally finite open covering.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw plot[smooth cycle] coordinates {(0,0) (1,1) (4,1) (5,0) (5,-3) (4,-5)
+ (1,-4) };
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (1,0.25){$
+\backslash
+Omega_3 $};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw plot[smooth cycle,scale=0.7,xshift=1cm,yshift=-1cm] coordinates {(0,-0.5)
+ (1,1) (3,1) (5,1.5) (5,-3.5) (4,-4.5) (1,-4) };
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (2,-0.25){$
+\backslash
+Omega_2 $};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (3.5,-3.6){$A_1 $};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw plot[smooth cycle,scale=0.5,xshift=2.5cm,yshift=-2.5cm] coordinates {(0,-1)
+ (1,0) (3,0.5) (5,1) (5,-3.5) (4,-3) (1,-4) };
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (2.5,-2){$
+\backslash
+Omega_1 $};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (4.3,-4.1){$A_2 $};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+path[even odd rule] plot[smooth cycle,scale=0.7,xshift=1cm,yshift=-1cm] coordinat
+es {(0,-0.5) (1,1) (3,1) (5,1.5) (5,-3.5) (4,-4.5) (1,-4) }
+\end_layout
+
+\begin_layout Plain Layout
+
+plot[smooth cycle,scale=0.5,xshift=2.5cm,yshift=-2.5cm] coordinates {(0,-1)
+ (1,0) (3,0.5) (5,1) (5,-3.5) (4,-3) (1,-4) }
+\end_layout
+
+\begin_layout Plain Layout
+
+[path picture={
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+foreach 
+\backslash
+x in {-5,-4,...,5}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (0,
+\backslash
+x) -- (5,{
+\backslash
+x +1});
+\end_layout
+
+\begin_layout Plain Layout
+
+}];
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+path[even odd rule] plot[smooth cycle,scale=0.7,xshift=1cm,yshift=-1cm] coordinat
+es {(0,-0.5) (1,1) (3,1) (5,1.5) (5,-3.5) (4,-4.5) (1,-4) }
+\end_layout
+
+\begin_layout Plain Layout
+
+plot[smooth cycle] coordinates {(0,0) (1,1) (4,1) (5,0) (5,-3) (4,-5) (1,-4)
+ }
+\end_layout
+
+\begin_layout Plain Layout
+
+[path picture={
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+foreach 
+\backslash
+x in {-5,-4,...,5}
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw (-1,
+\backslash
+x) -- (6,{
+\backslash
+x -1});
+\end_layout
+
+\begin_layout Plain Layout
+
+}];
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $A_{n}$
+\end_inset
+
+ form locally finite open covering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\left(\varphi_{n}\right)_{n\in\mathbb{N}}$
+\end_inset
+
+ be a subordinate partition of unity, i.e.
+ 
+\begin_inset Formula $\varphi_{n}\in C_{0}^{\infty}\left(A_{n}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\sum_{n}\varphi_{n}=1$
+\end_inset
+
+.
+ For 
+\begin_inset Formula $u\in H^{k,p}\left(\Omega\right)$
+\end_inset
+
+ holds 
+\begin_inset Formula $\varphi_{n}u\in H^{k,p}\left(A_{n}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Now 
+\begin_inset Formula $\left(\varphi_{n}u\right)_{\varepsilon_{n}}\xrightarrow{\varepsilon_{n}\to0}\varphi_{n}u$
+\end_inset
+
+ converges in 
+\begin_inset Formula $L^{p}\left(A_{n}\right)$
+\end_inset
+
+ after Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Lem-Mollified-Function-Converges"
+
+\end_inset
+
+ due to 
+\begin_inset Formula $\varphi_{n}u\in L^{p}\left(A_{n}\right)$
+\end_inset
+
+.
+ Since weak derivative and mollifying commute (Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Lemma-Weak-Derivative-Mollifying-Commute"
+
+\end_inset
+
+), follows in 
+\begin_inset Formula $L^{p}\left(A_{n}\right)$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\DD^{\alpha}\left(\left(\varphi_{n}u\right)_{\varepsilon_{n}}\right) & =\left(\DD^{\alpha}\varphi_{n}u\right)_{\varepsilon_{n}}\xrightarrow{\varepsilon_{n}\to0}\DD^{\alpha}\varphi_{n}u
+\end{align*}
+
+\end_inset
+
+So 
+\begin_inset Formula $\left(\varphi_{n}u\right)_{\varepsilon_{n}}\xrightarrow{\varepsilon_{n}\to0}\varphi_{n}u$
+\end_inset
+
+ converges in 
+\begin_inset Formula $H^{k,p}\left(\Omega\right)$
+\end_inset
+
+.
+ Therefore one can choose 
+\begin_inset Formula $\varepsilon_{n}\in\mathbb{R}_{>0}$
+\end_inset
+
+ such that for every 
+\begin_inset Formula $\delta\in\mathbb{R}_{>0}$
+\end_inset
+
+ holds:
+\begin_inset Formula 
+\begin{align*}
+\norm{\left(\varphi_{n}u\right)_{\varepsilon_{n}}-\varphi_{n}u}_{H^{k,p}\left(\Omega\right)} & \le\frac{\delta}{2^{n}}
+\end{align*}
+
+\end_inset
+
+Define:
+\begin_inset Formula 
+\begin{align*}
+\tilde{u} & =\sum_{n=1}^{\infty}\left(\varphi_{n}u\right)_{\varepsilon_{n}}\in C^{\infty}\left(\Omega\right)
+\end{align*}
+
+\end_inset
+
+This 
+\begin_inset Formula $\tilde{u}$
+\end_inset
+
+ is smooth, because the sum is locally finite and the 
+\begin_inset Formula $\left(\varphi_{n}u\right)_{\varepsilon_{n}}$
+\end_inset
+
+ are smooth.
+ So we get:
+\begin_inset Formula 
+\begin{align*}
+\norm{u-\tilde{u}}_{H^{k,p}\left(\Omega\right)} & \le\sum_{n=1}^{\infty}\frac{\delta}{2^{n}}=\delta
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Warning: 
+\begin_inset Formula $C_{0}^{\infty}\left(\Omega\right)$
+\end_inset
+
+ is in general 
+\emph on
+not
+\emph default
+ dense in 
+\begin_inset Formula $H^{k,p}\left(\Omega\right)$
+\end_inset
+
+.
+ This motivates the following definition:
+\end_layout
+
+\begin_layout Subsection
+Definition 
+\series medium
+(Sobolev Spaces for Dirichlet Boundary)
+\end_layout
+
+\begin_layout Standard
+The 
+\emph on
+Sobolev spaces for Dirichlet boundary
+\emph default
+ condition are defined as:
+\begin_inset Formula 
+\begin{align*}
+H_{0}^{k,p}\left(\Omega\right) & :=\overline{C_{0}^{\infty}\left(\Omega\right)}^{k,p}
+\end{align*}
+
+\end_inset
+
+We have:
+\begin_inset Formula 
+\begin{align*}
+C^{\infty}\left(\Omega\right)\cap H^{k,p}\left(\Omega\right) & \sr{\subseteq}{\text{dense}}{}H^{k,p}\left(\Omega\right)\subseteq L^{p}\left(\Omega\right)\\
+\overset{\Rotate{\subseteq}}{C_{0}^{\infty\vphantom{k}}\left(\Omega\right)} & \sr{\subseteq}{\text{dense}}{}\overset{\Rotate{\subseteq}}{H_{0}^{k,p}\left(\Omega\right)}\overset{\left(\text{in general not dense}\right)}{\vphantom{\bigg|}}
+\end{align*}
+
+\end_inset
+
+Is 
+\begin_inset Formula $C^{\infty}\left(\overline{\Omega}\right)\cap H^{k,p}\left(\Omega\right)$
+\end_inset
+
+ dense in 
+\begin_inset Formula $H_{0}^{k,p}\left(\Omega\right)$
+\end_inset
+
+? In general it is not, but for smooth boundary of 
+\begin_inset Formula $\Omega$
+\end_inset
+
+, it is.
+\end_layout
+
+\begin_layout Subsection
+Theorem 
+\series medium
+(Elementary Properties of Sobolev Functions)
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+roman*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+For 
+\begin_inset Formula $u\in H^{k,p}\left(\Omega\right)$
+\end_inset
+
+ holds 
+\begin_inset Formula $\DD^{\alpha}u\in H^{k-\abs{\alpha},p}\left(\Omega\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+For 
+\begin_inset Formula $\Omega'\subseteq\Omega$
+\end_inset
+
+ holds 
+\begin_inset Formula $H^{k,p}\left(\Omega\right)\subseteq H^{k,p}\left(\Omega'\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Leibniz rule: For 
+\begin_inset Formula $u\in H^{k,p}\left(\Omega\right)$
+\end_inset
+
+, 
+\begin_inset Formula $v\in C_{0}^{\infty}$
+\end_inset
+
+ and 
+\begin_inset Formula $\abs{\alpha}\le k$
+\end_inset
+
+ holds:
+\begin_inset Formula 
+\begin{align*}
+vu & \in H^{k,p}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\DD^{\alpha}\left(vu\right) & =\sum_{\beta\le\alpha}\left(\begin{array}{c}
+\alpha\\
+\beta
+\end{array}\right)\DD^{\beta}v\DD^{\alpha-\beta}u
+\end{align*}
+
+\end_inset
+
+For multi-indices 
+\begin_inset Formula $\alpha=\left(i_{1},\ldots,i_{r}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\beta=\left(j_{1},\ldots,j_{s}\right)$
+\end_inset
+
+ with 
+\begin_inset Formula $i_{l},j_{l}\in\left\{ 1,\ldots,n\right\} $
+\end_inset
+
+ let 
+\begin_inset Formula $\alpha_{m}$
+\end_inset
+
+ be the number indices 
+\begin_inset Formula $i_{l}=m$
+\end_inset
+
+ and analog 
+\begin_inset Formula $\beta_{m}$
+\end_inset
+
+.
+ The Binomial coefficient is defined as follows: 
+\begin_inset Formula 
+\begin{align*}
+\left(\begin{array}{c}
+\alpha\\
+\beta
+\end{array}\right) & :=\left(\begin{array}{c}
+\alpha_{1}\\
+\beta_{1}
+\end{array}\right)\cdot\left(\begin{array}{c}
+\alpha_{2}\\
+\beta_{2}
+\end{array}\right)\cdot\ldots\cdot\left(\begin{array}{c}
+\alpha_{n}\\
+\beta_{n}
+\end{array}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Chain rule: For 
+\begin_inset Formula $f\in C^{1}$
+\end_inset
+
+, 
+\begin_inset Formula $f'\in L^{\infty}$
+\end_inset
+
+ and 
+\begin_inset Formula $u$
+\end_inset
+
+ weakly differentiable holds:
+\begin_inset Formula 
+\begin{align*}
+\DD\left(f\circ u\right) & =f'\left(u\right)\DD u
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+i) and ii) are obvious.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[iii)]
+\end_layout
+
+\end_inset
+
+For brevity consider the first derivatives only.
+\begin_inset Formula 
+\begin{align*}
+\int\left(vu\right)\left(-1\right)\left(\DD\eta\right)\dd x & \sr ={\text{Leibniz}}{\text{for }C^{\infty}}\int u\left(-1\right)\left(\DD\left(\eta v\right)-\eta\left(\DD v\right)\right)\dd x=\\
+ & \sr ={\text{integtation}}{\text{by parts}}\int\left(\left(\DD u\right)\eta v+u\eta\DD v\right)\dd x=\int\left(v\DD u+u\DD v\right)\eta\dd x\\
+\Rightarrow\qquad\DD\left(uv\right) & =\left(\DD u\right)v+u\left(\DD v\right)
+\end{align*}
+
+\end_inset
+
+Be careful: A product of two 
+\begin_inset Formula $H^{k,p}$
+\end_inset
+
+ functions need not be in 
+\begin_inset Formula $H^{k,p}$
+\end_inset
+
+ in general!
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+[iv)]
+\end_layout
+
+\end_inset
+
+We use an approximation argument: Consider 
+\begin_inset Formula $\Omega'\Subset\Omega$
+\end_inset
+
+, 
+\begin_inset Formula $u_{n}\in C^{\infty}\left(\Omega'\right)$
+\end_inset
+
+ with 
+\begin_inset Formula $u_{n}\to u$
+\end_inset
+
+ and 
+\begin_inset Formula $\DD u_{n}\to\DD u$
+\end_inset
+
+ converging in 
+\begin_inset Formula $L^{1}\left(\Omega'\right)$
+\end_inset
+
+.
+ The chain rule in 
+\begin_inset Formula $C^{1}$
+\end_inset
+
+ gives 
+\begin_inset Formula $\DD\left(f\circ u_{n}\right)=f'\left(u_{n}\right)\DD u_{n}$
+\end_inset
+
+.
+ Now evaluate in the weak sense with a test function 
+\begin_inset Formula $\eta\in C_{0}^{\infty}\left(\Omega\right)$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\int\left(f\circ u_{n}\right)\left(-\DD\eta\right)\dd x & =\int f'\left(u_{n}\right)\left(\DD u_{n}\right)\eta\dd x
+\end{align*}
+
+\end_inset
+
+We have to show, that we can take the limit on both sides.
+\begin_inset Formula 
+\begin{align*}
+\int_{\Omega'}\abs{f\left(u_{n}\right)-f\left(u\right)}\abs{\DD\eta}\dd x & \le\sup\abs{\DD\eta}\sup\abs{f'}\int_{\Omega'}\left(u_{n}-u\right)\dd x\xrightarrow{n\to\infty}0
+\end{align*}
+
+\end_inset
+
+The general technique
+\begin_inset Formula 
+\begin{align*}
+\abs{a_{n}b_{n}-ab} & =\abs{a_{n}b_{n}-ab_{n}+ab_{n}-ab}\le\abs{a_{n}-a}\abs{b_{n}}+\abs a\abs{b_{n}-b}
+\end{align*}
+
+\end_inset
+
+gives for the other side:
+\begin_inset Formula 
+\begin{align*}
+ & \abs{\int_{\Omega'}f'\left(u_{n}\right)\DD u_{n}-f'\left(u\right)\left(\DD u\right)\eta\dd x}\le\\
+ & \qquad\qquad\le\int_{\Omega'}\abs{f'\left(u_{n}\right)-f'\left(u\right)}\abs{\DD u}\abs{\eta}\dd x+\sup\abs{f'}\cdot\int_{\Omega'}\abs{\DD u_{n}-\DD u}\abs{\eta}\dd x
+\end{align*}
+
+\end_inset
+
+The second term converges to zero, because 
+\begin_inset Formula $\DD u_{n}\to\DD u$
+\end_inset
+
+ converges in 
+\begin_inset Formula $L^{1}\left(\Omega'\right)$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+The first term converges to zero, because as 
+\begin_inset Formula $u_{n}\to u$
+\end_inset
+
+ converges almost everywhere, 
+\begin_inset Formula $f'\left(u_{n}\right)\to f'\left(u_{n}\right)$
+\end_inset
+
+ converges almost everywhere and due to
+\begin_inset Formula $f'\in C^{0}$
+\end_inset
+
+ we can apply the dominated convergence theorem to take the limit under
+ the integral.
 \begin_inset ERT
 status open
 
