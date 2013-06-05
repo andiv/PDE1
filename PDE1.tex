@@ -3944,10 +3944,11 @@ The last condition can be stated for $u\in L^{2}\left(\Omega\right)$.
 
 What are the resulting function spaces?
 
-These are a Sobolov space spaces $H^{n,2}\left(\Omega\right)$ (in
-this case $H^{1,2}\left(\Omega\right)$) or the space of $n$-times
-weakly differentiable functions $W^{n,p}\left(\Omega\right)$ with
-$\DD^{\beta}f\in L^{p}$ for all multi-indices $\beta$ with $\abs{\beta}\le n$.
+These are Sobolov space spaces $H^{n,2}\left(\Omega\right)=W^{n,2}\left(\Omega\right)$
+(Hilbert spaces, in this case $H^{1,2}\left(\Omega\right)$) or more
+general the Sobolov spaces of $n$-times weakly differentiable functions
+$W^{n,p}\left(\Omega\right)$ with $\DD^{\beta}f\in L^{p}$ for all
+multi-indices $\beta$ with $\abs{\beta}\le n$ (Banach spaces).
 
 Writing the equation in divergence form is also of advantage for using
 \emph{variational methods}. For simplicity for $\upDelta u=0$ in
@@ -4231,8 +4232,8 @@ $\mathbb{R}^{n}$. If $\Omega$ is bounded, $u_{\varepsilon}\to u$
 converges in $L^{p}\left(\Omega\right)$ as above, as $\overline{\Omega}$
 is compact, so $\overline{\Omega}\Subset\mathbb{R}^{n}$. If $\Omega$
 is not bounded, we choose a ball $B_{R}\left(0\right)$ such that
-$\norm u_{L^{p}\left(\Omega\setminus B_{R}\left(0\right)\right)}\le\varepsilon$.{
-This is possible, since $u$ is integrable on $\Omega$}.\qqed
+$\norm u_{L^{p}\left(\Omega\setminus B_{R}\left(0\right)\right)}\le\varepsilon$.
+This is possible, since $u$ is integrable on $\Omega$.\qqed
 
 
 \subsection{Corollary \textmd{(Dense Subsets of Integrable Functions)}}
@@ -4414,7 +4415,7 @@ definition:
 The \emph{Sobolev spaces for Dirichlet boundary} condition are defined
 as:
 \begin{align*}
-H_{0}^{k,p}\left(\Omega\right) & :=\overline{C_{0}^{\infty}\left(\Omega\right)}^{k,p}
+H_{0}^{k,p}\left(\Omega\right) & :=\overline{C_{0}^{\infty}\left(\Omega\right)}^{H^{k,p}}\subseteq H^{k,p}
 \end{align*}
 We have:
 \begin{align*}
@@ -4509,6 +4510,265 @@ almost everywhere, $f'\left(u_{n}\right)\to f'\left(u_{n}\right)$
 converges almost everywhere and due to$f'\in C^{0}$ we can apply
 the dominated convergence theorem to take the limit under the integral.\qqed
 \end{enumerate}
+%DATE: Mi 5.6.13
+
+
+\section{Traces of Sobolev Functions at the Boundary}
+
+Note: These traces have nothing to do with traces in linear algebra.
+
+Consider $u\in H^{k,p}\left(\Omega\right)$.
+
+Questions: What is $u\big|_{\partial\Omega}$? In which space is it?
+
+Assume for simplicity that $\partial\Omega$ is $C^{1}$, i.e. $\overline{\Omega}$
+is a manifold with $C^{1}$-boundary $\partial\Omega$.
+
+\begin{figure}[H]
+\noindent \centering{}\begin{tikzpicture}
+  \draw plot[smooth cycle] coordinates {(2,0) (1.5,1) (0,1.5) (-2,1) (-1,-2) (1,-1)};
+  \node at (0,1) {$\Omega$};
+  \draw (0.5,0) +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+  \draw (0.5,0) circle (0.5);
+  \draw[thick,->] (0.95,0.45) .. controls +(1,1) and +(-1,0.5) .. (4.7,1);
+  \draw (5.5,0.5) +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+  \draw (5.5,0.5) circle (0.5);
+  \node at (5.5,1.25) {$\mathbb{R}^n$};
+  \draw (0.5,-1.35) +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+  \draw (0.5,-1.35) +({0.5*cos(35)},{0.5*sin(35)}) arc (35:215:0.5);
+  \draw[thick,red] (0.5,-1.35) +({0.5*cos(35)},{0.5*sin(35)}) -- +({-0.5*cos(35)},{-0.5*sin(35)});
+  \draw[thick,->] (0.7,-1.5) .. controls +(1,-0.6) and +(-1,0) .. (4,-2);
+  \draw[->] (4.5,-2) -- (6.5,-2) node[right]{$\mathbb{R}$};
+  \draw[->] (5.5,-3) -- (5.5,-1) node[above]{$\mathbb{R}^{n-1}$};
+  \draw (5.5,-1.5) arc (90:-90:0.5);
+  \draw (5.5,-2) +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+  \foreach \x in {-2,-1,...,2}     \draw (5.5,{0.3*\x - 2}) -- (6.25,{0.3*\x+0.2 -2});
+  \draw[very thick,red] (5.5,-2.5) -- (5.5,-1.5);
+\end{tikzpicture}\caption{$\Omega$ is a manifold with $C^{1}$-boundary.}
+\end{figure}
+
+
+Thus for every $p\in\partial\Omega$ exists a neighborhood $p\in U\subseteq\overline{\Omega}$
+open in the relative topology and a mapping
+\begin{align*}
+\varphi:U & \to\mathbb{R}^{n}
+\end{align*}
+with $\varphi\left(U\right)\subseteq\mathbb{R}_{+}^{n}\left\{ x\in\mathbb{R}^{n}\big|x^{n}\ge0\right\} $
+and $\varphi\left({\color{red}\partial\Omega\cap U}\right)\subseteq\left\{ x\in\mathbb{R}^{n}\big|x^{n}=0\right\} $
+such that the mapping $\varphi:U\to\varphi\left(U\right)$ is a $C^{1}$-Diffeomorphism.
+
+Moreover we assume that $\Omega$ is bounded. Thus $\partial\Omega$
+is compact and therefore we can work with a finite number of charts
+$\left(\varphi_{i},U_{i}\right)$ with $i\in\left\{ 1,\ldots,N\right\} $
+and $\partial\Omega\subseteq\bigcup_{i=1}^{N}U_{i}$.
+
+
+\subsection{Theorem and Definition \textmd{(Trace)}}
+
+Let $\Omega\subseteq\mathbb{R}^{n}$ be a bounded domain with $C^{1}$-boundary.
+Then there is a unique bounded operator $T:H^{1,p}\left(\Omega\right)\to L^{p}\left(\partial\Omega\right)$,
+called \emph{trace}, such that for all $u\in H^{1,p}\left(\Omega\right)\cap C^{0}\left(\overline{\Omega}\right)$
+holds for all $x\in\partial\Omega$:
+\begin{align*}
+\left(Tu\right)\left(x\right) & =u\left(x\right)
+\end{align*}
+
+
+
+\subsubsection*{Proof}
+
+First consider $u\in C^{1}\left(\overline{\Omega}\right)$. ($C^{1}\left(\overline{\Omega}\right)\subseteq H^{1,p}\left(\Omega\right)$
+holds, because $\Omega$ is bounded.) We show that $T$ is bounded,
+i.e.
+\begin{align*}
+\norm{Tu}_{L^{p}\left(\partial\Omega\right)}\le & K\norm u_{H^{1,p}\left(\Omega\right)}
+\end{align*}
+with a $C\in\mathbb{R}_{>0}$ independent of $u$. Then $T$ has a
+unique continuation to $\overline{C^{1}\left(\overline{\Omega}\right)}^{H^{1,p}}=H^{1,p}\left(\Omega\right)$,
+because $C^{1}$ is dense in $H^{1,p}$.
+\begin{enumerate}
+\item Let $u\in C^{1}\left(\overline{\Omega}\right)$, $y\in\partial\Omega$
+and assume that $\partial\Omega$ is flat in a neighborhood $U$ of
+$y$, i.e. a hyperplane. By a rotation in $\mathbb{R}^{n}$, we can
+arrange that $U\cap\Omega=U\cap\mathbb{R}_{+}^{n}$. Set $\tilde{x}=\left(x^{1},\ldots,x^{n-1}\right)$.\\
+\begin{figure}[H]
+\noindent \centering{}\begin{tikzpicture}[scale=2]
+  \draw[->] (0,0) -- (3,0) node[right]{$\tilde x=(x^1,\ldots , x^{n-1})$};
+  \draw[->] (0,0) -- (0,1.5) node[above]{$x^n$};
+  \draw[scale=0.5] (3,0) +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+  \draw (1.5,0) node[below]{$y$} +(1,0) arc (0:180:1);
+  \node at (1,1.2) {$U$};
+  \draw[red] (1.5,0) +(0.8,0) arc (0:180:0.8);
+  \draw[red] (1.5,0) -- node[left=-2pt]{$2r$} +({0.8*cos(60)},{0.8*sin(60)});
+\end{tikzpicture}\caption{$U\cap\Omega=U\cap\mathbb{R}_{+}^{n}$}
+\end{figure}
+Choose $r\in\mathbb{R}_{>0}$ with $B_{2r}\left(y\right)\cap\mathbb{R}_{+}^{n}\subseteq U$
+and $\eta\in C_{0}^{\infty}\left(B_{2r}\left(y\right)\right)$ with
+$\eta\big|_{B_{r}\left(y\right)}=1$ and $\eta\ge0$. Define $\Gamma:=B_{r}\left(y\right)\cap\partial\Omega$.
+\begin{align*}
+\int_{\Gamma}\abs{u\left(\tilde{x},0\right)}^{p}\dd^{n-1}\tilde{x} & \le\int_{\mathbb{R}^{n-1}}\underbrace{\eta\left(\tilde{x},0\right)\abs{u\left(\tilde{x},0\right)}^{p}}_{\ge0}\dd^{n-1}\tilde{x}=\\
+ & =\int_{\mathbb{R}^{n-1}}\left(\int_{0}^{\infty}-\frac{\partial}{\partial x^{n}}\left(\eta\left(x\right)\abs{u\left(x\right)}^{p}\right)\dd x^{n}\right)\dd^{n-1}\tilde{x}=\\
+ & \sr ={\text{Fubini}}{}-\int_{\mathbb{R}_{+}^{n}}\frac{\partial}{\partial x^{n}}\left(\eta\left(x\right)\abs{u\left(x\right)}^{p}\right)\dd^{n}x=\\
+ & =\int_{\mathbb{R}_{+}^{n}}-\frac{\partial\eta}{\partial x^{n}}\abs{u\left(x\right)}^{p}-\text{sgn}\left(u\left(x\right)\right)\eta pu^{p-1}\left(\frac{\partial}{\partial x^{n}}u\right)\dd^{n}x
+\end{align*}
+The derivative of $\abs{u\left(x\right)}^{p}$ does not exist for
+$p=1$ and $u=0$, but any point with $u=0$ does not contribute to
+the original integral. We estimate:
+\begin{align*}
+\int_{\Gamma}\abs{u\left(\tilde{x},0\right)}^{p}\dd^{n-1}\tilde{x} & \le\abs{\frac{\partial\eta}{\partial x^{n}}}_{C^{0}}\int_{\mathbb{R}_{+}^{n}\cap\Omega}\abs u^{p}\dd^{n}x+\abs{\eta}_{C^{0}}p\cdot\int_{\mathbb{R}_{+}^{n}\cap\Omega}\abs u^{p-1}\abs{\partial_{n}u}\dd^{n}x
+\end{align*}
+Now we use Young's inequality for $1\le p\le\infty$ with $\frac{1}{p}+\frac{1}{q}=1$:
+\begin{align*}
+ab & \le\frac{a^{p}}{p}+\frac{b^{q}}{q}
+\end{align*}
+This yields for $q=\frac{1}{1-\frac{1}{p}}=\frac{p}{p-1}$:
+\begin{align*}
+\abs{\partial_{n}u}\abs u^{p-1} & \le\frac{\abs{\partial_{n}u}^{p}}{p}+\frac{\abs u^{q\left(p-1\right)}}{q}=\frac{\abs{\partial_{n}u}^{p}}{p}+\frac{\abs u^{p}}{q}
+\end{align*}
+So we get:
+\begin{align*}
+\int_{\Gamma}\abs{u\left(\tilde{x},0\right)}^{p}\dd^{n-1}\tilde{x} & \le\abs{\frac{\partial\eta}{\partial x^{n}}}_{C^{0}}\int_{\mathbb{R}_{+}^{n}\cap\Omega}\abs u^{p}\dd^{n}x+\abs{\eta}_{C^{0}}p\cdot\int_{\mathbb{R}_{+}^{n}\cap\Omega}\left(\frac{\abs{\partial_{n}u}^{p}}{p}+\frac{\abs u^{p}}{q}\right)\dd^{n}x\le\\
+ & \le\abs{\frac{\partial\eta}{\partial x^{n}}}_{C^{0}}\int_{\mathbb{R}_{+}^{n}\cap\Omega}\left(\abs u^{p}+\abs{\partial_{n}u}^{p}\right)\dd^{n}x+\\
+ & \qquad+\abs{\eta}_{C^{0}}\left(1+\frac{p}{q}\right)\int_{\mathbb{R}_{+}^{n}\cap\Omega}\left(\abs{\partial_{n}u}^{p}+\abs u^{p}\right)\dd^{n}x=\\
+ & =\left(\abs{\frac{\partial\eta}{\partial x^{n}}}_{C^{0}}+\abs{\eta}_{C^{0}}\left(1+\frac{p}{q}\right)\right)\int_{\mathbb{R}_{+}^{n}\cap\Omega}\left(\abs u^{p}+\abs{\partial_{n}u}^{p}\right)\dd^{n}x\le\\
+ & \le C\norm u_{H^{1,p}\left(\Omega\right)}^{p}
+\end{align*}
+All in all follows:
+\begin{align*}
+\norm{Tu}_{L^{p}\left(\Gamma\right)} & \le C^{\frac{1}{p}}\norm u_{H^{1,p}\left(\Omega\right)}
+\end{align*}
+
+\item Now consider a general $\Omega$. We cover the boundary by a finite
+number $N\in\mathbb{N}$ of balls with charts $\left(\varphi_{i},U_{i}\right)$.
+Let $\eta_{i}\left(\tilde{x}\right)$ be a subordinate partition of
+unity to get:
+\begin{align*}
+\int_{\partial\Omega}\abs u^{p}\dd\mu_{\partial\Omega} & =\sum_{i=1}^{N}\int_{\varphi_{i}\left(U_{i}\right)}\underbrace{\eta_{i}\left(\tilde{x}\right)}_{\le C\left(\Omega\right)}\underbrace{\abs{\left(u\circ\varphi_{i}^{-1}\right)\left(\tilde{x}\right)}^{p}}_{=\abs{u\left(\tilde{y}\right)}^{p}}\underbrace{\abs{\det\left(\frac{\partial\varphi}{\partial\tilde{x}}\right)}\dd^{n-1}\tilde{x}}_{=\dd^{n-1}\tilde{y}}\le\\
+ & \le C\left(\Omega\right)\sum_{i=1}^{N}\int_{\Gamma_{i}}\abs{u\left(\tilde{y}\right)}^{p}\dd^{n-1}\tilde{y}
+\end{align*}
+With the first step follows:
+\begin{align*}
+\int_{\partial\Omega}\abs u^{p}\dd\mu_{\partial\Omega} & \le C\left(\Omega\right)\sum_{i=1}^{N}\int_{\Gamma_{i}}\left(\abs u^{p}+\abs{\partial^{n}u}^{p}\right)\dd^{n-1}\tilde{x}\le\\
+ & \le\tilde{C}\left(\Omega\right)\int_{\Omega}\left(\abs u^{p}+\abs{\partial^{n}u}^{p}\right)\dd^{n}x
+\end{align*}
+This gives for all $u\in C^{1}\left(\overline{\Omega}\right)$:
+\begin{align*}
+\norm{u|_{\partial\Omega}}_{L^{p}\left(\partial\Omega\right)} & \le\underbrace{\left(\tilde{C}\left(\Omega\right)\right)^{\frac{1}{p}}}_{=:K}\norm u_{H^{1,p}}
+\end{align*}
+
+\item Now we use an approximation argument for $u\in H^{1,p}\left(\Omega\right)$.
+Since $C^{1}\left(\overline{\Omega}\right)$ is dense in $H^{1,p}\left(\Omega\right)$,
+we can take a sequence $u_{n}\in C^{1}\left(\overline{\Omega}\right)$
+with $u_{n}\to u$ converging in $H^{1,p}\left(\Omega\right)$. Thus
+holds:
+\begin{align*}
+\norm{T\left(u_{n}-u_{m}\right)}_{L^{p}\left(\partial\Omega\right)} & =\norm{u_{n}\big|_{\partial\Omega}-u_{m}\big|_{\partial\Omega}}_{L^{p}\left(\partial\Omega\right)}\le K\norm{u_{n}-u_{m}}_{H^{1,p}\left(\Omega\right)}\xrightarrow{n,m\to\infty}0
+\end{align*}
+Thus $Tu_{n}$ converges in $L^{p}\left(\partial\Omega\right)$. So
+we define:
+\begin{align*}
+Tu & :=\lim_{n\to\infty}Tu_{n}
+\end{align*}
+This is determined uniquely by the demand that $T$ be continuous.
+Then the inequality also holds in the limit:
+\begin{align*}
+\norm{Tu}_{L^{p}\left(\partial\Omega\right)}\leftarrow\norm{Tu_{n}}_{L^{p}\left(\partial\Omega\right)} & \le K\norm{u_{n}}_{H^{1,p}\left(\Omega\right)}\to K\norm u_{H^{1,p}\left(\Omega\right)}
+\end{align*}
+\qqed
+\end{enumerate}
+
+\subsection{Theorem}
+
+Let $\Omega\subseteq\mathbb{R}^{n}$ be a bounded domain, $1\le p<\infty$.
+Then for every $u\in H^{1,p}\left(\Omega\right)$ holds $u\in H_{0}^{1,p}\left(\Omega\right)$
+if and only if $T\left(u\right)=0$.
+
+
+\subsubsection*{Proof}
+
+``$\Rightarrow$'': For $u\in H_{0}^{1,p}\left(\Omega\right)=\overline{C_{0}^{\infty}\left(\Omega\right)}^{H^{1,p}\left(\Omega\right)}$
+exists a sequence $u_{n}\in C_{0}^{\infty}\left(\Omega\right)$ with
+$u_{n}\to u$ in $H^{1,p}$ and $Tu_{n}=0$. So we get:
+\begin{align*}
+0 & =Tu_{n}\to Tu
+\end{align*}
+''$\Leftarrow$'': The proof is quite technical and can be found
+in the book of Evans.\qqed
+
+
+\section{The Gagliando-Nirenberg Inequalities}
+
+Question: Consider $u\in C_{0}^{1}\left(\mathbb{R}^{n}\right)$. For
+which $p$ and $q$ does the inequality
+\begin{align*}
+\norm u_{L^{q}\left(\mathbb{R}^{n}\right)} & \le C\norm{\DD u}_{L^{p}\left(\mathbb{R}^{n}\right)}\qquad\fall_{u\in C_{0}^{1}\left(\mathbb{R}^{n}\right)}
+\end{align*}
+hold? This inequality does not holds for $u\in C^{1}\left(\mathbb{R}^{n}\right)$,
+because $u$ can be an arbitrarily large constant with vanishing derivative.
+
+We consider the scaling behavior, i.e. the behavior under the substitution
+$x\leadsto\lambda x$ with $\lambda\in\mathbb{R}_{>0}$.
+\begin{align*}
+u_{\lambda}\left(x\right) & :=u\left(\lambda x\right) & \DD u_{\lambda}\left(x\right) & =\lambda\DD u\big|_{\lambda x}
+\end{align*}
+\begin{align*}
+\norm{\DD u_{\lambda}}_{L^{p}\left(\mathbb{R}^{n}\right)} & =\left(\int_{\mathbb{R}^{n}}\norm{\DD u_{\lambda}}^{p}\dd^{n}x\right)^{\frac{1}{p}}=\left(\int_{\mathbb{R}^{n}}\norm{\lambda\DD u\big|_{\lambda x}}^{p}\dd^{n}x\right)^{\frac{1}{p}}=\lambda\left(\int_{\mathbb{R}^{n}}\norm{\DD u\big|_{\lambda x}}^{p}\dd^{n}x\right)^{\frac{1}{p}}=\\
+ & \sr ={y:=\lambda x}{\dd^{n}y=\lambda^{n}\dd^{n}x}\lambda\left(\int_{\mathbb{R}^{n}}\norm{\DD u\left(y\right)}^{p}\frac{\dd^{n}y}{\lambda^{n}}\right)^{\frac{1}{p}}=\lambda^{1-\frac{n}{p}}\norm{\DD u}_{L^{p}\left(\mathbb{R}^{n}\right)}
+\end{align*}
+\begin{align*}
+\norm{u_{\lambda}}_{L^{q}\left(\mathbb{R}^{n}\right)} & =\left(\int\abs{u\left(\lambda x\right)}^{q}\dd^{n}x\right)^{\frac{1}{q}}\sr ={y=\lambda x}{}\left(\int\abs{u\left(x\right)}^{q}\frac{\dd^{n}y}{\lambda^{n}}\right)^{\frac{1}{q}}=\lambda^{-\frac{n}{q}}\norm u_{L^{q}\left(\mathbb{R}^{n}\right)}
+\end{align*}
+The inequality can only be true, if both scalings are the same:
+\begin{align*}
+1-\frac{n}{p} & \sr =!{}-\frac{n}{q}\\
+\frac{1}{q} & =\frac{1}{p}-\frac{1}{n}\\
+q & =\frac{np}{n-p}
+\end{align*}
+$q$ is called the \emph{Sobolev conjugate}, usually denoted by $p^{*}$.
+
+
+\subsection{Theorem \textmd{(Gagliando-Nirenberg-Sobolev Inequality)}}
+
+For $1\le p<n$ there is a constant $C\in\mathbb{R}_{>0}$ such that
+holds:
+\begin{align*}
+\norm u_{L^{p^{*}}\left(\Omega\right)} & \le C\norm{\DD u}_{L^{p}\left(\Omega\right)}\qquad\fall_{u\in C_{0}^{1}\left(\mathbb{R}^{n}\right)}
+\end{align*}
+One can choose:
+\begin{align*}
+C & =\frac{p\left(n-1\right)}{n-p}
+\end{align*}
+
+
+
+\subsection{Lemma \textmd{(Generalized Hölder Inequalities)}}
+
+Consider $1\le p_{1},\ldots,p_{m}<\infty$ with:
+\begin{align*}
+\frac{1}{p_{1}}+\frac{1}{p_{2}}+\ldots+\frac{1}{p_{n}} & =1
+\end{align*}
+Then for any $u_{i}\in L^{p_{i}}\left(\Omega\right)$ holds:
+\begin{align*}
+\int_{\Omega}\abs{u_{1}\cdots u_{m}}\dd^{n}x & \le\norm{u_{1}}_{L^{p_{1}}\left(\Omega\right)}\cdots\norm{u_{m}}_{L^{p_{m}}\left(\Omega\right)}
+\end{align*}
+
+
+
+\subsubsection*{Proof}
+
+We proceed inductively: $\frac{1}{p_{1}}+\frac{1}{q_{1}}=1$
+\begin{align*}
+\int\abs{u_{1}}\cdot\abs{u_{2}\cdots u_{m}}\dd^{n}x & \le\norm u_{p_{1}}\cdot\left(\int\abs{u_{2}\cdots u_{m}}^{q_{1}}\dd^{n}x\right)^{\frac{1}{q_{1}}}\le\\
+ & \le\norm u_{p_{1}}\cdot\left(\int\abs{u_{2}}^{q_{1}}\abs{u_{3}\cdots u_{m}}^{q_{1}}\dd^{n}x\right)^{\frac{1}{q_{1}}}
+\end{align*}
+Applying Hölder's inequality with exponents $r,s$ with $\frac{1}{r}+\frac{1}{s}=1$
+such that $rq_{1}=p_{2}$ gives:
+\begin{align*}
+\int\abs{u_{2}}^{q_{1}}\abs{u_{3}\cdots u_{m}}^{q_{1}}\dd^{n}x & \le\underbrace{\norm{u_{2}^{q_{1}}}_{r}}_{=\norm{u_{2}}_{rq_{1}}^{q_{1}}}\cdot\left(\int\abs{u_{3}}^{q_{1}s}\abs{u_{4}\cdots u_{m}}^{q_{1}s}\dd^{n}x\right)^{\frac{1}{s}}\\
+\int\abs{u_{1}}\cdot\abs{u_{2}\cdots u_{m}}\dd^{n}x & \le\norm u_{p_{1}}\cdot\norm{u_{2}}_{p_{2}}\left(\int\abs{u_{3}}^{q_{1}s}\abs{u_{4}\cdots u_{m}}^{q_{1}s}\dd^{n}x\right)^{\frac{1}{q_{1}s}}
+\end{align*}
+Iteratively this gives the the generalized Hölder Inequality.\qqed
+
 
 \part*{Appendix\thispagestyle{empty}}
 

@@ -16109,15 +16109,15 @@ What are the resulting function spaces?
 \end_layout
 
 \begin_layout Standard
-These are a Sobolov space spaces 
-\begin_inset Formula $H^{n,2}\left(\Omega\right)$
+These are Sobolov space spaces 
+\begin_inset Formula $H^{n,2}\left(\Omega\right)=W^{n,2}\left(\Omega\right)$
 \end_inset
 
- (in this case 
+ (Hilbert spaces, in this case 
 \begin_inset Formula $H^{1,2}\left(\Omega\right)$
 \end_inset
 
-) or the space of 
+) or more general the Sobolov spaces of 
 \begin_inset Formula $n$
 \end_inset
 
@@ -16137,7 +16137,7 @@ These are a Sobolov space spaces
 \begin_inset Formula $\abs{\beta}\le n$
 \end_inset
 
-.
+ (Banach spaces).
 \end_layout
 
 \begin_layout Standard
@@ -17319,7 +17319,6 @@ loc
 \end_inset
 
 .
-
  This is possible, since 
 \begin_inset Formula $u$
 \end_inset
@@ -17328,8 +17327,6 @@ loc
 \begin_inset Formula $\Omega$
 \end_inset
 
-
-\lang english
 .
 \begin_inset ERT
 status open
@@ -18159,7 +18156,7 @@ Sobolev spaces for Dirichlet boundary
  condition are defined as:
 \begin_inset Formula 
 \begin{align*}
-H_{0}^{k,p}\left(\Omega\right) & :=\overline{C_{0}^{\infty}\left(\Omega\right)}^{k,p}
+H_{0}^{k,p}\left(\Omega\right) & :=\overline{C_{0}^{\infty}\left(\Omega\right)}^{H^{k,p}}\subseteq H^{k,p}
 \end{align*}
 
 \end_inset
@@ -18487,6 +18484,1138 @@ The first term converges to zero, because as
 
  we can apply the dominated convergence theorem to take the limit under
  the integral.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%DATE: Mi 5.6.13
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Traces of Sobolev Functions at the Boundary
+\end_layout
+
+\begin_layout Standard
+Note: These traces have nothing to do with traces in linear algebra.
+\end_layout
+
+\begin_layout Standard
+Consider 
+\begin_inset Formula $u\in H^{k,p}\left(\Omega\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Questions: What is 
+\begin_inset Formula $u\big|_{\partial\Omega}$
+\end_inset
+
+? In which space is it?
+\end_layout
+
+\begin_layout Standard
+Assume for simplicity that 
+\begin_inset Formula $\partial\Omega$
+\end_inset
+
+ is 
+\begin_inset Formula $C^{1}$
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $\overline{\Omega}$
+\end_inset
+
+ is a manifold with 
+\begin_inset Formula $C^{1}$
+\end_inset
+
+-boundary 
+\begin_inset Formula $\partial\Omega$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw plot[smooth cycle] coordinates {(2,0) (1.5,1) (0,1.5) (-2,1) (-1,-2)
+ (1,-1)};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (0,1) {$
+\backslash
+Omega$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (0.5,0) +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (0.5,0) circle (0.5);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[thick,->] (0.95,0.45) ..
+ controls +(1,1) and +(-1,0.5) ..
+ (4.7,1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (5.5,0.5) +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (5.5,0.5) circle (0.5);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (5.5,1.25) {$
+\backslash
+mathbb{R}^n$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (0.5,-1.35) +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (0.5,-1.35) +({0.5*cos(35)},{0.5*sin(35)}) arc (35:215:0.5);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[thick,red] (0.5,-1.35) +({0.5*cos(35)},{0.5*sin(35)}) -- +({-0.5*cos(35)},{-0.5*s
+in(35)});
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[thick,->] (0.7,-1.5) ..
+ controls +(1,-0.6) and +(-1,0) ..
+ (4,-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[->] (4.5,-2) -- (6.5,-2) node[right]{$
+\backslash
+mathbb{R}$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[->] (5.5,-3) -- (5.5,-1) node[above]{$
+\backslash
+mathbb{R}^{n-1}$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (5.5,-1.5) arc (90:-90:0.5);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (5.5,-2) +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+foreach 
+\backslash
+x in {-2,-1,...,2}     
+\backslash
+draw (5.5,{0.3*
+\backslash
+x - 2}) -- (6.25,{0.3*
+\backslash
+x+0.2 -2});
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[very thick,red] (5.5,-2.5) -- (5.5,-1.5);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Omega$
+\end_inset
+
+ is a manifold with 
+\begin_inset Formula $C^{1}$
+\end_inset
+
+-boundary.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Thus for every 
+\begin_inset Formula $p\in\partial\Omega$
+\end_inset
+
+ exists a neighborhood 
+\begin_inset Formula $p\in U\subseteq\overline{\Omega}$
+\end_inset
+
+ open in the relative topology and a mapping
+\begin_inset Formula 
+\begin{align*}
+\varphi:U & \to\mathbb{R}^{n}
+\end{align*}
+
+\end_inset
+
+with 
+\begin_inset Formula $\varphi\left(U\right)\subseteq\mathbb{R}_{+}^{n}\left\{ x\in\mathbb{R}^{n}\big|x^{n}\ge0\right\} $
+\end_inset
+
+ and 
+\begin_inset Formula $\varphi\left({\color{red}\partial\Omega\cap U}\right)\subseteq\left\{ x\in\mathbb{R}^{n}\big|x^{n}=0\right\} $
+\end_inset
+
+ such that the mapping 
+\begin_inset Formula $\varphi:U\to\varphi\left(U\right)$
+\end_inset
+
+ is a 
+\begin_inset Formula $C^{1}$
+\end_inset
+
+-Diffeomorphism.
+\end_layout
+
+\begin_layout Standard
+Moreover we assume that 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ is bounded.
+ Thus 
+\begin_inset Formula $\partial\Omega$
+\end_inset
+
+ is compact and therefore we can work with a finite number of charts 
+\begin_inset Formula $\left(\varphi_{i},U_{i}\right)$
+\end_inset
+
+ with 
+\begin_inset Formula $i\in\left\{ 1,\ldots,N\right\} $
+\end_inset
+
+ and 
+\begin_inset Formula $\partial\Omega\subseteq\bigcup_{i=1}^{N}U_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Theorem and Definition 
+\series medium
+(Trace)
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\Omega\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ be a bounded domain with 
+\begin_inset Formula $C^{1}$
+\end_inset
+
+-boundary.
+ Then there is a unique bounded operator 
+\begin_inset Formula $T:H^{1,p}\left(\Omega\right)\to L^{p}\left(\partial\Omega\right)$
+\end_inset
+
+, called 
+\emph on
+trace
+\emph default
+, such that for all 
+\begin_inset Formula $u\in H^{1,p}\left(\Omega\right)\cap C^{0}\left(\overline{\Omega}\right)$
+\end_inset
+
+ holds for all 
+\begin_inset Formula $x\in\partial\Omega$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\left(Tu\right)\left(x\right) & =u\left(x\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+First consider 
+\begin_inset Formula $u\in C^{1}\left(\overline{\Omega}\right)$
+\end_inset
+
+.
+ (
+\begin_inset Formula $C^{1}\left(\overline{\Omega}\right)\subseteq H^{1,p}\left(\Omega\right)$
+\end_inset
+
+ holds, because 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ is bounded.) We show that 
+\begin_inset Formula $T$
+\end_inset
+
+ is bounded, i.e.
+\begin_inset Formula 
+\begin{align*}
+\norm{Tu}_{L^{p}\left(\partial\Omega\right)}\le & K\norm u_{H^{1,p}\left(\Omega\right)}
+\end{align*}
+
+\end_inset
+
+with a 
+\begin_inset Formula $C\in\mathbb{R}_{>0}$
+\end_inset
+
+ independent of 
+\begin_inset Formula $u$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $T$
+\end_inset
+
+ has a unique continuation to 
+\begin_inset Formula $\overline{C^{1}\left(\overline{\Omega}\right)}^{H^{1,p}}=H^{1,p}\left(\Omega\right)$
+\end_inset
+
+, because 
+\begin_inset Formula $C^{1}$
+\end_inset
+
+ is dense in 
+\begin_inset Formula $H^{1,p}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Let 
+\begin_inset Formula $u\in C^{1}\left(\overline{\Omega}\right)$
+\end_inset
+
+, 
+\begin_inset Formula $y\in\partial\Omega$
+\end_inset
+
+ and assume that 
+\begin_inset Formula $\partial\Omega$
+\end_inset
+
+ is flat in a neighborhood 
+\begin_inset Formula $U$
+\end_inset
+
+ of 
+\begin_inset Formula $y$
+\end_inset
+
+, i.e.
+ a hyperplane.
+ By a rotation in 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+, we can arrange that 
+\begin_inset Formula $U\cap\Omega=U\cap\mathbb{R}_{+}^{n}$
+\end_inset
+
+.
+ Set 
+\begin_inset Formula $\tilde{x}=\left(x^{1},\ldots,x^{n-1}\right)$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[scale=2]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[->] (0,0) -- (3,0) node[right]{$
+\backslash
+tilde x=(x^1,
+\backslash
+ldots , x^{n-1})$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[->] (0,0) -- (0,1.5) node[above]{$x^n$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[scale=0.5] (3,0) +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (1.5,0) node[below]{$y$} +(1,0) arc (0:180:1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (1,1.2) {$U$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[red] (1.5,0) +(0.8,0) arc (0:180:0.8);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[red] (1.5,0) -- node[left=-2pt]{$2r$} +({0.8*cos(60)},{0.8*sin(60)});
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $U\cap\Omega=U\cap\mathbb{R}_{+}^{n}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Choose 
+\begin_inset Formula $r\in\mathbb{R}_{>0}$
+\end_inset
+
+ with 
+\begin_inset Formula $B_{2r}\left(y\right)\cap\mathbb{R}_{+}^{n}\subseteq U$
+\end_inset
+
+ and 
+\begin_inset Formula $\eta\in C_{0}^{\infty}\left(B_{2r}\left(y\right)\right)$
+\end_inset
+
+ with 
+\begin_inset Formula $\eta\big|_{B_{r}\left(y\right)}=1$
+\end_inset
+
+ and 
+\begin_inset Formula $\eta\ge0$
+\end_inset
+
+.
+ Define 
+\begin_inset Formula $\Gamma:=B_{r}\left(y\right)\cap\partial\Omega$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+\int_{\Gamma}\abs{u\left(\tilde{x},0\right)}^{p}\dd^{n-1}\tilde{x} & \le\int_{\mathbb{R}^{n-1}}\underbrace{\eta\left(\tilde{x},0\right)\abs{u\left(\tilde{x},0\right)}^{p}}_{\ge0}\dd^{n-1}\tilde{x}=\\
+ & =\int_{\mathbb{R}^{n-1}}\left(\int_{0}^{\infty}-\frac{\partial}{\partial x^{n}}\left(\eta\left(x\right)\abs{u\left(x\right)}^{p}\right)\dd x^{n}\right)\dd^{n-1}\tilde{x}=\\
+ & \sr ={\text{Fubini}}{}-\int_{\mathbb{R}_{+}^{n}}\frac{\partial}{\partial x^{n}}\left(\eta\left(x\right)\abs{u\left(x\right)}^{p}\right)\dd^{n}x=\\
+ & =\int_{\mathbb{R}_{+}^{n}}-\frac{\partial\eta}{\partial x^{n}}\abs{u\left(x\right)}^{p}-\text{sgn}\left(u\left(x\right)\right)\eta pu^{p-1}\left(\frac{\partial}{\partial x^{n}}u\right)\dd^{n}x
+\end{align*}
+
+\end_inset
+
+The derivative of 
+\begin_inset Formula $\abs{u\left(x\right)}^{p}$
+\end_inset
+
+ does not exist for 
+\begin_inset Formula $p=1$
+\end_inset
+
+ and 
+\begin_inset Formula $u=0$
+\end_inset
+
+, but any point with 
+\begin_inset Formula $u=0$
+\end_inset
+
+ does not contribute to the original integral.
+ We estimate:
+\begin_inset Formula 
+\begin{align*}
+\int_{\Gamma}\abs{u\left(\tilde{x},0\right)}^{p}\dd^{n-1}\tilde{x} & \le\abs{\frac{\partial\eta}{\partial x^{n}}}_{C^{0}}\int_{\mathbb{R}_{+}^{n}\cap\Omega}\abs u^{p}\dd^{n}x+\abs{\eta}_{C^{0}}p\cdot\int_{\mathbb{R}_{+}^{n}\cap\Omega}\abs u^{p-1}\abs{\partial_{n}u}\dd^{n}x
+\end{align*}
+
+\end_inset
+
+Now we use Young's inequality for 
+\begin_inset Formula $1\le p\le\infty$
+\end_inset
+
+ with 
+\begin_inset Formula $\frac{1}{p}+\frac{1}{q}=1$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+ab & \le\frac{a^{p}}{p}+\frac{b^{q}}{q}
+\end{align*}
+
+\end_inset
+
+This yields for 
+\begin_inset Formula $q=\frac{1}{1-\frac{1}{p}}=\frac{p}{p-1}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\abs{\partial_{n}u}\abs u^{p-1} & \le\frac{\abs{\partial_{n}u}^{p}}{p}+\frac{\abs u^{q\left(p-1\right)}}{q}=\frac{\abs{\partial_{n}u}^{p}}{p}+\frac{\abs u^{p}}{q}
+\end{align*}
+
+\end_inset
+
+So we get:
+\begin_inset Formula 
+\begin{align*}
+\int_{\Gamma}\abs{u\left(\tilde{x},0\right)}^{p}\dd^{n-1}\tilde{x} & \le\abs{\frac{\partial\eta}{\partial x^{n}}}_{C^{0}}\int_{\mathbb{R}_{+}^{n}\cap\Omega}\abs u^{p}\dd^{n}x+\abs{\eta}_{C^{0}}p\cdot\int_{\mathbb{R}_{+}^{n}\cap\Omega}\left(\frac{\abs{\partial_{n}u}^{p}}{p}+\frac{\abs u^{p}}{q}\right)\dd^{n}x\le\\
+ & \le\abs{\frac{\partial\eta}{\partial x^{n}}}_{C^{0}}\int_{\mathbb{R}_{+}^{n}\cap\Omega}\left(\abs u^{p}+\abs{\partial_{n}u}^{p}\right)\dd^{n}x+\\
+ & \qquad+\abs{\eta}_{C^{0}}\left(1+\frac{p}{q}\right)\int_{\mathbb{R}_{+}^{n}\cap\Omega}\left(\abs{\partial_{n}u}^{p}+\abs u^{p}\right)\dd^{n}x=\\
+ & =\left(\abs{\frac{\partial\eta}{\partial x^{n}}}_{C^{0}}+\abs{\eta}_{C^{0}}\left(1+\frac{p}{q}\right)\right)\int_{\mathbb{R}_{+}^{n}\cap\Omega}\left(\abs u^{p}+\abs{\partial_{n}u}^{p}\right)\dd^{n}x\le\\
+ & \le C\norm u_{H^{1,p}\left(\Omega\right)}^{p}
+\end{align*}
+
+\end_inset
+
+All in all follows:
+\begin_inset Formula 
+\begin{align*}
+\norm{Tu}_{L^{p}\left(\Gamma\right)} & \le C^{\frac{1}{p}}\norm u_{H^{1,p}\left(\Omega\right)}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Now consider a general 
+\begin_inset Formula $\Omega$
+\end_inset
+
+.
+ We cover the boundary by a finite number 
+\begin_inset Formula $N\in\mathbb{N}$
+\end_inset
+
+ of balls with charts 
+\begin_inset Formula $\left(\varphi_{i},U_{i}\right)$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\eta_{i}\left(\tilde{x}\right)$
+\end_inset
+
+ be a subordinate partition of unity to get:
+\begin_inset Formula 
+\begin{align*}
+\int_{\partial\Omega}\abs u^{p}\dd\mu_{\partial\Omega} & =\sum_{i=1}^{N}\int_{\varphi_{i}\left(U_{i}\right)}\underbrace{\eta_{i}\left(\tilde{x}\right)}_{\le C\left(\Omega\right)}\underbrace{\abs{\left(u\circ\varphi_{i}^{-1}\right)\left(\tilde{x}\right)}^{p}}_{=\abs{u\left(\tilde{y}\right)}^{p}}\underbrace{\abs{\det\left(\frac{\partial\varphi}{\partial\tilde{x}}\right)}\dd^{n-1}\tilde{x}}_{=\dd^{n-1}\tilde{y}}\le\\
+ & \le C\left(\Omega\right)\sum_{i=1}^{N}\int_{\Gamma_{i}}\abs{u\left(\tilde{y}\right)}^{p}\dd^{n-1}\tilde{y}
+\end{align*}
+
+\end_inset
+
+With the first step follows:
+\begin_inset Formula 
+\begin{align*}
+\int_{\partial\Omega}\abs u^{p}\dd\mu_{\partial\Omega} & \le C\left(\Omega\right)\sum_{i=1}^{N}\int_{\Gamma_{i}}\left(\abs u^{p}+\abs{\partial^{n}u}^{p}\right)\dd^{n-1}\tilde{x}\le\\
+ & \le\tilde{C}\left(\Omega\right)\int_{\Omega}\left(\abs u^{p}+\abs{\partial^{n}u}^{p}\right)\dd^{n}x
+\end{align*}
+
+\end_inset
+
+This gives for all 
+\begin_inset Formula $u\in C^{1}\left(\overline{\Omega}\right)$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\norm{u|_{\partial\Omega}}_{L^{p}\left(\partial\Omega\right)} & \le\underbrace{\left(\tilde{C}\left(\Omega\right)\right)^{\frac{1}{p}}}_{=:K}\norm u_{H^{1,p}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Now we use an approximation argument for 
+\begin_inset Formula $u\in H^{1,p}\left(\Omega\right)$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $C^{1}\left(\overline{\Omega}\right)$
+\end_inset
+
+ is dense in 
+\begin_inset Formula $H^{1,p}\left(\Omega\right)$
+\end_inset
+
+, we can take a sequence 
+\begin_inset Formula $u_{n}\in C^{1}\left(\overline{\Omega}\right)$
+\end_inset
+
+ with 
+\begin_inset Formula $u_{n}\to u$
+\end_inset
+
+ converging in 
+\begin_inset Formula $H^{1,p}\left(\Omega\right)$
+\end_inset
+
+.
+ Thus holds:
+\begin_inset Formula 
+\begin{align*}
+\norm{T\left(u_{n}-u_{m}\right)}_{L^{p}\left(\partial\Omega\right)} & =\norm{u_{n}\big|_{\partial\Omega}-u_{m}\big|_{\partial\Omega}}_{L^{p}\left(\partial\Omega\right)}\le K\norm{u_{n}-u_{m}}_{H^{1,p}\left(\Omega\right)}\xrightarrow{n,m\to\infty}0
+\end{align*}
+
+\end_inset
+
+Thus 
+\begin_inset Formula $Tu_{n}$
+\end_inset
+
+ converges in 
+\begin_inset Formula $L^{p}\left(\partial\Omega\right)$
+\end_inset
+
+.
+ So we define:
+\begin_inset Formula 
+\begin{align*}
+Tu & :=\lim_{n\to\infty}Tu_{n}
+\end{align*}
+
+\end_inset
+
+This is determined uniquely by the demand that 
+\begin_inset Formula $T$
+\end_inset
+
+ be continuous.
+ Then the inequality also holds in the limit:
+\begin_inset Formula 
+\begin{align*}
+\norm{Tu}_{L^{p}\left(\partial\Omega\right)}\leftarrow\norm{Tu_{n}}_{L^{p}\left(\partial\Omega\right)} & \le K\norm{u_{n}}_{H^{1,p}\left(\Omega\right)}\to K\norm u_{H^{1,p}\left(\Omega\right)}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Theorem
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\Omega\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ be a bounded domain, 
+\begin_inset Formula $1\le p<\infty$
+\end_inset
+
+.
+ Then for every 
+\begin_inset Formula $u\in H^{1,p}\left(\Omega\right)$
+\end_inset
+
+ holds 
+\begin_inset Formula $u\in H_{0}^{1,p}\left(\Omega\right)$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $T\left(u\right)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+: For 
+\begin_inset Formula $u\in H_{0}^{1,p}\left(\Omega\right)=\overline{C_{0}^{\infty}\left(\Omega\right)}^{H^{1,p}\left(\Omega\right)}$
+\end_inset
+
+ exists a sequence 
+\begin_inset Formula $u_{n}\in C_{0}^{\infty}\left(\Omega\right)$
+\end_inset
+
+ with 
+\begin_inset Formula $u_{n}\to u$
+\end_inset
+
+ in 
+\begin_inset Formula $H^{1,p}$
+\end_inset
+
+ and 
+\begin_inset Formula $Tu_{n}=0$
+\end_inset
+
+.
+ So we get:
+\begin_inset Formula 
+\begin{align*}
+0 & =Tu_{n}\to Tu
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+: The proof is quite technical and can be found in the book of Evans.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+The Gagliando-Nirenberg Inequalities
+\end_layout
+
+\begin_layout Standard
+Question: Consider 
+\begin_inset Formula $u\in C_{0}^{1}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+.
+ For which 
+\begin_inset Formula $p$
+\end_inset
+
+ and 
+\begin_inset Formula $q$
+\end_inset
+
+ does the inequality
+\begin_inset Formula 
+\begin{align*}
+\norm u_{L^{q}\left(\mathbb{R}^{n}\right)} & \le C\norm{\DD u}_{L^{p}\left(\mathbb{R}^{n}\right)}\qquad\fall_{u\in C_{0}^{1}\left(\mathbb{R}^{n}\right)}
+\end{align*}
+
+\end_inset
+
+hold? This inequality does not holds for 
+\begin_inset Formula $u\in C^{1}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+, because 
+\begin_inset Formula $u$
+\end_inset
+
+ can be an arbitrarily large constant with vanishing derivative.
+\end_layout
+
+\begin_layout Standard
+We consider the scaling behavior, i.e.
+ the behavior under the substitution 
+\begin_inset Formula $x\leadsto\lambda x$
+\end_inset
+
+ with 
+\begin_inset Formula $\lambda\in\mathbb{R}_{>0}$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+u_{\lambda}\left(x\right) & :=u\left(\lambda x\right) & \DD u_{\lambda}\left(x\right) & =\lambda\DD u\big|_{\lambda x}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\norm{\DD u_{\lambda}}_{L^{p}\left(\mathbb{R}^{n}\right)} & =\left(\int_{\mathbb{R}^{n}}\norm{\DD u_{\lambda}}^{p}\dd^{n}x\right)^{\frac{1}{p}}=\left(\int_{\mathbb{R}^{n}}\norm{\lambda\DD u\big|_{\lambda x}}^{p}\dd^{n}x\right)^{\frac{1}{p}}=\lambda\left(\int_{\mathbb{R}^{n}}\norm{\DD u\big|_{\lambda x}}^{p}\dd^{n}x\right)^{\frac{1}{p}}=\\
+ & \sr ={y:=\lambda x}{\dd^{n}y=\lambda^{n}\dd^{n}x}\lambda\left(\int_{\mathbb{R}^{n}}\norm{\DD u\left(y\right)}^{p}\frac{\dd^{n}y}{\lambda^{n}}\right)^{\frac{1}{p}}=\lambda^{1-\frac{n}{p}}\norm{\DD u}_{L^{p}\left(\mathbb{R}^{n}\right)}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\norm{u_{\lambda}}_{L^{q}\left(\mathbb{R}^{n}\right)} & =\left(\int\abs{u\left(\lambda x\right)}^{q}\dd^{n}x\right)^{\frac{1}{q}}\sr ={y=\lambda x}{}\left(\int\abs{u\left(x\right)}^{q}\frac{\dd^{n}y}{\lambda^{n}}\right)^{\frac{1}{q}}=\lambda^{-\frac{n}{q}}\norm u_{L^{q}\left(\mathbb{R}^{n}\right)}
+\end{align*}
+
+\end_inset
+
+The inequality can only be true, if both scalings are the same:
+\begin_inset Formula 
+\begin{align*}
+1-\frac{n}{p} & \sr =!{}-\frac{n}{q}\\
+\frac{1}{q} & =\frac{1}{p}-\frac{1}{n}\\
+q & =\frac{np}{n-p}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $q$
+\end_inset
+
+ is called the 
+\emph on
+Sobolev conjugate
+\emph default
+, usually denoted by 
+\begin_inset Formula $p^{*}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Theorem 
+\series medium
+(Gagliando-Nirenberg-Sobolev Inequality)
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $1\le p<n$
+\end_inset
+
+ there is a constant 
+\begin_inset Formula $C\in\mathbb{R}_{>0}$
+\end_inset
+
+ such that holds:
+\begin_inset Formula 
+\begin{align*}
+\norm u_{L^{p^{*}}\left(\Omega\right)} & \le C\norm{\DD u}_{L^{p}\left(\Omega\right)}\qquad\fall_{u\in C_{0}^{1}\left(\mathbb{R}^{n}\right)}
+\end{align*}
+
+\end_inset
+
+One can choose:
+\begin_inset Formula 
+\begin{align*}
+C & =\frac{p\left(n-1\right)}{n-p}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Lemma 
+\series medium
+(Generalized Hölder Inequalities)
+\end_layout
+
+\begin_layout Standard
+Consider 
+\begin_inset Formula $1\le p_{1},\ldots,p_{m}<\infty$
+\end_inset
+
+ with:
+\begin_inset Formula 
+\begin{align*}
+\frac{1}{p_{1}}+\frac{1}{p_{2}}+\ldots+\frac{1}{p_{n}} & =1
+\end{align*}
+
+\end_inset
+
+Then for any 
+\begin_inset Formula $u_{i}\in L^{p_{i}}\left(\Omega\right)$
+\end_inset
+
+ holds:
+\begin_inset Formula 
+\begin{align*}
+\int_{\Omega}\abs{u_{1}\cdots u_{m}}\dd^{n}x & \le\norm{u_{1}}_{L^{p_{1}}\left(\Omega\right)}\cdots\norm{u_{m}}_{L^{p_{m}}\left(\Omega\right)}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+We proceed inductively: 
+\begin_inset Formula $\frac{1}{p_{1}}+\frac{1}{q_{1}}=1$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\int\abs{u_{1}}\cdot\abs{u_{2}\cdots u_{m}}\dd^{n}x & \le\norm u_{p_{1}}\cdot\left(\int\abs{u_{2}\cdots u_{m}}^{q_{1}}\dd^{n}x\right)^{\frac{1}{q_{1}}}\le\\
+ & \le\norm u_{p_{1}}\cdot\left(\int\abs{u_{2}}^{q_{1}}\abs{u_{3}\cdots u_{m}}^{q_{1}}\dd^{n}x\right)^{\frac{1}{q_{1}}}
+\end{align*}
+
+\end_inset
+
+Applying Hölder's inequality with exponents 
+\begin_inset Formula $r,s$
+\end_inset
+
+ with 
+\begin_inset Formula $\frac{1}{r}+\frac{1}{s}=1$
+\end_inset
+
+ such that 
+\begin_inset Formula $rq_{1}=p_{2}$
+\end_inset
+
+ gives:
+\begin_inset Formula 
+\begin{align*}
+\int\abs{u_{2}}^{q_{1}}\abs{u_{3}\cdots u_{m}}^{q_{1}}\dd^{n}x & \le\underbrace{\norm{u_{2}^{q_{1}}}_{r}}_{=\norm{u_{2}}_{rq_{1}}^{q_{1}}}\cdot\left(\int\abs{u_{3}}^{q_{1}s}\abs{u_{4}\cdots u_{m}}^{q_{1}s}\dd^{n}x\right)^{\frac{1}{s}}\\
+\int\abs{u_{1}}\cdot\abs{u_{2}\cdots u_{m}}\dd^{n}x & \le\norm u_{p_{1}}\cdot\norm{u_{2}}_{p_{2}}\left(\int\abs{u_{3}}^{q_{1}s}\abs{u_{4}\cdots u_{m}}^{q_{1}s}\dd^{n}x\right)^{\frac{1}{q_{1}s}}
+\end{align*}
+
+\end_inset
+
+Iteratively this gives the the generalized Hölder Inequality.
 \begin_inset ERT
 status open
 
