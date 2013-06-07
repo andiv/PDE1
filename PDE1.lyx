@@ -16252,7 +16252,7 @@ Definition
 
 \begin_layout Standard
 A function 
-\begin_inset Formula $f:\Omega\to\mathbb{R}^{m}$
+\begin_inset Formula $u:\Omega\to\mathbb{R}^{m}$
 \end_inset
 
  is called 
@@ -16270,7 +16270,7 @@ Hölder norm
  is finite:
 \begin_inset Formula 
 \begin{align*}
-\norm u_{C^{0,\alpha}\left(\Omega\right)} & :=\norm u_{C^{0}\left(\Omega\right)}+\sup_{x\not=y\in\Omega}\left(\frac{u\left(x\right)-u\left(y\right)}{\norm{x-y}^{\alpha}}\right)<\infty
+\norm u_{C^{0,\alpha}\left(\Omega\right)} & :=\norm u_{C^{0}\left(\Omega\right)}+\sup_{x\not=y\in\Omega}\left(\frac{\norm{u\left(x\right)-u\left(y\right)}}{\norm{x-y}^{\alpha}}\right)<\infty
 \end{align*}
 
 \end_inset
@@ -16278,7 +16278,7 @@ Hölder norm
 This implies:
 \begin_inset Formula 
 \begin{align*}
-\norm{u\left(x\right)-u\left(y\right)} & \le\sup_{x\not=y\in\Omega}\left(\frac{u\left(x\right)-u\left(y\right)}{\norm{x-y}^{\alpha}}\right)\cdot\norm{x-y}^{\alpha}
+\norm{u\left(x\right)-u\left(y\right)} & \le\sup_{x\not=y\in\Omega}\left(\frac{\norm{u\left(x\right)-u\left(y\right)}}{\norm{x-y}^{\alpha}}\right)\cdot\norm{x-y}^{\alpha}
 \end{align*}
 
 \end_inset
@@ -17521,7 +17521,7 @@ Sobolev space
 .
 \begin_inset Formula 
 \begin{align*}
-\norm u_{H^{k,p}\left(\Omega\right)} & :=\left(\sum_{\abs{\alpha}\le k}\int_{\Omega}\abs{\DD^{\alpha}u}^{p}\right)^{\frac{1}{p}}
+\norm u_{H^{k,p}\left(\Omega\right)} & :=\left(\sum_{\abs{\alpha}\le k}\int_{\Omega}\abs{\DD^{\alpha}u}^{p}\dd x\right)^{\frac{1}{p}}
 \end{align*}
 
 \end_inset
@@ -19432,7 +19432,7 @@ Question: Consider
  does the inequality
 \begin_inset Formula 
 \begin{align*}
-\norm u_{L^{q}\left(\mathbb{R}^{n}\right)} & \le C\norm{\DD u}_{L^{p}\left(\mathbb{R}^{n}\right)}\qquad\fall_{u\in C_{0}^{1}\left(\mathbb{R}^{n}\right)}
+\norm u_{L^{q}\left(\mathbb{R}^{n}\right)} & \le c\norm{\DD u}_{L^{p}\left(\mathbb{R}^{n}\right)}\qquad\fall_{u\in C_{0}^{1}\left(\mathbb{R}^{n}\right)}
 \end{align*}
 
 \end_inset
@@ -19512,6 +19512,13 @@ Sobolev conjugate
 Theorem 
 \series medium
 (Gagliando-Nirenberg-Sobolev Inequality)
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Thm-Gagliando-Nirenberg"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -19520,13 +19527,13 @@ For
 \end_inset
 
  there is a constant 
-\begin_inset Formula $C\in\mathbb{R}_{>0}$
+\begin_inset Formula $c\in\mathbb{R}_{>0}$
 \end_inset
 
  such that holds:
 \begin_inset Formula 
 \begin{align*}
-\norm u_{L^{p^{*}}\left(\Omega\right)} & \le C\norm{\DD u}_{L^{p}\left(\Omega\right)}\qquad\fall_{u\in C_{0}^{1}\left(\mathbb{R}^{n}\right)}
+\norm u_{L^{p^{*}}\left(\mathbb{R}^{n}\right)} & \le c\norm{\DD u}_{L^{p}\left(\mathbb{R}^{n}\right)}\qquad\fall_{u\in C_{0}^{1}\left(\mathbb{R}^{n}\right)}
 \end{align*}
 
 \end_inset
@@ -19534,7 +19541,7 @@ For
 One can choose:
 \begin_inset Formula 
 \begin{align*}
-C & =\frac{p\left(n-1\right)}{n-p}
+c & =\frac{p\left(n-1\right)}{n-p}
 \end{align*}
 
 \end_inset
@@ -19616,6 +19623,714 @@ Applying Hölder's inequality with exponents
 \end_inset
 
 Iteratively this gives the the generalized Hölder Inequality.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%DATE: Fr 7.6.13
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Proof of Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Thm-Gagliando-Nirenberg"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We need to find a constant 
+\begin_inset Formula $c\in\mathbb{R}_{>0}$
+\end_inset
+
+ such that for 
+\begin_inset Formula $u\in C_{0}^{1}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ holds:
+\begin_inset Formula 
+\begin{align*}
+\norm u_{L^{p^{*}}\left(\mathbb{R}^{n}\right)} & \le c\norm{\DD u}_{L^{p}\left(\mathbb{R}^{n}\right)}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Consider the case 
+\begin_inset Formula $p=1$
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $p^{*}=\frac{n\cdot1}{n-1}$
+\end_inset
+
+.
+ We have to show:
+\begin_inset Formula 
+\begin{align*}
+\norm u_{L^{\frac{n}{n-1}}} & \le\norm{\DD u}_{L^{1}}
+\end{align*}
+
+\end_inset
+
+For any 
+\begin_inset Formula $i\in\left\{ 1,\ldots,n\right\} $
+\end_inset
+
+ the fundamental theorem of calculus yields:
+\begin_inset Formula 
+\begin{align*}
+u\left(x\right) & =\int_{-\infty}^{x_{i}}\frac{\partial}{\partial x_{i}}u\left(x_{1},\ldots,x_{i-1},y_{i},x_{i+1}\ldots,x_{n}\right)\dd y_{i}\\
+\abs{u\left(x\right)} & \le\int_{-\infty}^{\infty}\norm{\DD u\left(x_{1},\ldots,y_{i},\ldots,x_{n}\right)}\dd y_{i}\\
+\abs{u\left(x\right)}^{\frac{n}{n-1}} & \le\prod_{i=1}^{n}\left(\int_{-\infty}^{\infty}\norm{\DD u\left(x_{1},\ldots,y_{i},\ldots,x_{n}\right)}\dd y_{i}\right)^{\frac{1}{n-1}}
+\end{align*}
+
+\end_inset
+
+We proceed inductively.
+ First we integrate over 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\int_{-\infty}^{\infty}\abs{u\left(x\right)}^{\frac{n}{n-1}}\dd x_{1} & \le\int_{-\infty}^{\infty}\prod_{i=1}^{n}\left(\int_{-\infty}^{\infty}\norm{\DD u\left(x_{1},\ldots,y_{i},\ldots,x_{n}\right)}\dd y_{i}\right)^{\frac{1}{n-1}}\dd x_{1}=\\
+ & =\underbrace{\left(\int_{-\infty}^{\infty}\norm{\DD u\left(y_{1},x_{2},\ldots,x_{n}\right)}\dd y_{i}\right)^{\frac{1}{n-1}}}_{\text{independent of }x_{1}}\cdot\\
+ & \qquad\cdot\int_{-\infty}^{\infty}\prod_{i=2}^{n}\left(\int_{-\infty}^{\infty}\norm{\DD u\left(x_{1},\ldots,y_{i},\ldots,x_{n}\right)}\dd y_{i}\right)^{\frac{1}{n-1}}\dd x_{1}
+\end{align*}
+
+\end_inset
+
+The generalized Hölder's inequality for the 
+\begin_inset Formula $n-1$
+\end_inset
+
+ exponents
+\begin_inset Formula 
+\begin{align*}
+p_{2}=\ldots=p_{n} & =n-1\\
+\Rightarrow\qquad\frac{1}{p_{2}}+\ldots+\frac{1}{p_{n}} & =1
+\end{align*}
+
+\end_inset
+
+gives:
+\begin_inset Formula 
+\begin{align*}
+\int_{-\infty}^{\infty}\abs{u\left(x\right)}^{\frac{n}{n-1}}\dd x_{1} & \le\left(\int_{-\infty}^{\infty}\norm{\DD u\left(y_{1},x_{2},\ldots,x_{n}\right)}\dd y_{i}\right)^{\frac{1}{n-1}}\cdot\\
+ & \qquad\cdot\prod_{i=2}^{n}\left(\int_{-\infty}^{\infty}\dd x_{1}\int_{-\infty}^{\infty}\dd y_{i}\norm{\DD u\left(x_{1},\ldots,y_{i},\ldots,x_{n}\right)}\right)^{\frac{1}{n-1}}
+\end{align*}
+
+\end_inset
+
+Next, we integrate over 
+\begin_inset Formula $x_{2}$
+\end_inset
+
+ (and don't write the boundary of the integral any more):
+\begin_inset Formula 
+\begin{align*}
+\int\abs{u\left(x\right)}^{\frac{n}{n-1}}\dd x_{1}\dd x_{2} & \le\underbrace{\left(\int\dd x_{1}\int\dd y_{i}\norm{\DD u\left(x_{1},y_{2},x_{3},\ldots,x_{n}\right)}\right)^{\frac{1}{n-1}}}_{\text{independent of }x_{2}}\cdot\\
+ & \qquad\cdot\int\dd x_{2}\left(\int\dd y_{i}\norm{\DD u\left(y_{1},x_{2},\ldots,x_{n}\right)}\right)^{\frac{1}{n-1}}\cdot\\
+ & \qquad\cdot\prod_{i=3}^{n}\left(\int\dd x_{1}\int\dd y_{i}\norm{\DD u\left(x_{1},\ldots,y_{i},\ldots,x_{n}\right)}\right)
+\end{align*}
+
+\end_inset
+
+We again have 
+\begin_inset Formula $n-1$
+\end_inset
+
+ factors, so we can apply the generalized Hölder inequality with exponents
+ 
+\begin_inset Formula $n-1$
+\end_inset
+
+ to get:
+\begin_inset Formula 
+\begin{align*}
+\int\abs{u\left(x\right)}^{\frac{n}{n-1}}\dd x_{1}\dd x_{2} & \le\left(\int\dd x_{1}\int\dd y_{i}\norm{\DD u\left(x_{1},y_{2},x_{3},\ldots,x_{n}\right)}\right)^{\frac{1}{n-1}}\cdot\\
+ & \qquad\cdot\left(\int\dd x_{2}\int\dd y_{i}\norm{\DD u\left(y_{1},x_{2},\ldots,x_{n}\right)}\right)^{\frac{1}{n-1}}\cdot\\
+ & \qquad\cdot\prod_{i=3}^{n}\left(\int\dd x_{2}\int\dd x_{1}\int\dd y_{i}\norm{\DD u\left(x_{1},\ldots,y_{i},\ldots,x_{n}\right)}\right)^{\frac{1}{n-1}}
+\end{align*}
+
+\end_inset
+
+After also integrating over 
+\begin_inset Formula $x_{3},\ldots,x_{n}$
+\end_inset
+
+ and then renaming 
+\begin_inset Formula $y_{i}\to x_{i}$
+\end_inset
+
+ we get:
+\begin_inset Formula 
+\begin{align*}
+\int_{\mathbb{R}^{n}}\abs{u\left(x\right)}^{\frac{n}{n-1}}\dd^{n}x & \le\prod_{i=1}^{n}\left(\int_{\mathbb{R}^{n}}\dd^{n}x\norm{\DD u\left(x\right)}\right)^{\frac{1}{n-1}}=\left(\int_{\mathbb{R}^{n}}\dd^{n}x\norm{\DD u\left(x\right)}\right)^{\frac{n}{n-1}}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\norm u_{L^{\frac{n}{n-1}}}=\left(\int_{\mathbb{R}^{n}}\abs{u\left(x\right)}^{\frac{n}{n-1}}\dd^{n}x\right)^{\frac{n-1}{n}} & \le\int_{\mathbb{R}^{n}}\dd^{n}x\norm{\DD u\left(x\right)}=\norm{\DD u}_{L^{1}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+The general case 
+\begin_inset Formula $1<p<n$
+\end_inset
+
+ follows from the first case by using Hölder's inequality:
+\begin_inset Newline newline
+\end_inset
+
+We have to prove for 
+\begin_inset Formula $p^{*}=\frac{np}{n-p}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\norm u_{L^{p^{*}}\left(\mathbb{R}^{n}\right)}=\left(\int_{\mathbb{R}^{n}}\abs{u\left(x\right)}^{p^{*}}\dd x\right)^{\frac{1}{p^{*}}} & \le c\left(\int_{\mathbb{R}^{n}}\abs{\DD u\left(x\right)}^{p}\dd x\right)^{\frac{1}{p}}=c\norm{\DD u}_{L^{p}\left(\mathbb{R}^{n}\right)}
+\end{align*}
+
+\end_inset
+
+Now introduce 
+\begin_inset Formula $v:=\abs u^{c}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\abs u^{p^{*}}=v^{\frac{n}{n-1}}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+c\frac{n}{n-1} & =p^{*}=\frac{np}{n-p}\\
+\Rightarrow\qquad c & =\frac{\left(n-1\right)p}{n-p}
+\end{align*}
+
+\end_inset
+
+Now follows:
+\begin_inset Formula 
+\begin{align*}
+\left(\int\abs u^{p^{*}}\dd^{n}x\right)^{\frac{n-1}{n}} & =\left(\int v^{\frac{n}{n-1}}\dd^{n}x\right)^{\frac{n-1}{n}}=\norm v_{L^{\frac{n}{n-1}}}\le\\
+ & \sr{\le}{\text{1.}}{}\int\abs{\DD v}\dd^{n}x\le c\int\abs u^{c-1}\abs{\DD u}\dd^{n}x
+\end{align*}
+
+\end_inset
+
+Applying Hölder's inequality with 
+\begin_inset Formula $\tilde{q}$
+\end_inset
+
+ and 
+\begin_inset Formula $\tilde{p}$
+\end_inset
+
+ gives:
+\begin_inset Formula 
+\begin{align*}
+\left(\int\abs u^{p^{*}}\dd^{n}x\right)^{\frac{n-1}{n}} & \le c\left(\int\abs u^{\tilde{q}\left(c-1\right)}\dd^{n}x\right)^{\frac{1}{\tilde{q}}}\left(\int\abs{\DD u}^{\tilde{p}}\dd^{n}x\right)^{\frac{1}{\tilde{p}}}
+\end{align*}
+
+\end_inset
+
+We choose 
+\begin_inset Formula $\tilde{q}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\tilde{q}\left(c-1\right)=p^{*}$
+\end_inset
+
+ holds.
+\begin_inset Formula 
+\begin{align*}
+\tilde{q} & =\frac{p^{*}}{c-1}=\frac{\frac{np}{n-p}}{\frac{\left(n-1\right)p}{n-p}-1}=\frac{np}{\left(n-1\right)p-\left(n-p\right)}=\frac{np}{np-n}=\frac{p}{p-1}\\
+\tilde{p} & =\frac{1}{1-\frac{1}{\tilde{q}}}=\frac{1}{1-\frac{p-1}{p}}=\frac{p}{p-\left(p-1\right)}=p
+\end{align*}
+
+\end_inset
+
+We get:
+\begin_inset Formula 
+\begin{align*}
+\left(\int\abs u^{p^{*}}\dd^{n}x\right)^{\frac{n-1}{n}} & \le c\left(\int\abs u^{p^{*}}\dd^{n}x\right)^{\frac{p-1}{p}}\left(\int\abs{\DD u}^{p}\dd^{n}x\right)^{\frac{1}{p}}\\
+\left(\int\abs u^{p^{*}}\dd^{n}x\right)^{\frac{n-1}{n}-\frac{p-1}{p}} & \le c\norm{\DD u}_{L^{p}\left(\mathbb{R}^{n}\right)}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\frac{n-1}{n}-\frac{p-1}{p} & =\frac{p\left(n-1\right)-n\left(p-1\right)}{np}=\frac{np-p-np+n}{np}=\frac{n-p}{np}=\frac{1}{p^{*}}
+\end{align*}
+
+\end_inset
+
+Finally follows:
+\begin_inset Formula 
+\begin{align*}
+\norm u_{L^{p^{*}}\left(\mathbb{R}^{n}\right)}=\left(\int\abs u^{p^{*}}\dd^{n}x\right)^{\frac{1}{p^{*}}} & \le c\norm{\DD u}_{L^{p}\left(\mathbb{R}^{n}\right)}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Thm-Gagliando-Nirenberg"
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Theorem
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\Omega\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ be an open, bounded domain with 
+\begin_inset Formula $C^{1}$
+\end_inset
+
+-boundary.
+ Then there is a constant 
+\begin_inset Formula $C\in\mathbb{R}_{>0}$
+\end_inset
+
+ such that for all 
+\begin_inset Formula $u\in H^{1,p}\left(\Omega\right)$
+\end_inset
+
+ holds:
+\begin_inset Formula 
+\begin{align*}
+\norm u_{L^{p^{*}}\left(\Omega\right)} & \le C\norm u_{H^{1,p}\left(\Omega\right)}
+\end{align*}
+
+\end_inset
+
+Recall:
+\begin_inset Formula 
+\begin{align*}
+\norm u_{H^{1,p}\left(\Omega\right)} & =\left(\norm u_{L^{p}\left(\Omega\right)}^{p}+\norm{\DD u}_{L^{p}\left(\Omega\right)}^{p}\right)^{\frac{1}{p}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+Consider 
+\begin_inset Formula $u\in H^{1,p}\left(\Omega\right)$
+\end_inset
+
+ and choose 
+\begin_inset Formula $\Omega'$
+\end_inset
+
+ with 
+\begin_inset Formula $\Omega\Subset\Omega'$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $u$
+\end_inset
+
+ can be extended to a function 
+\begin_inset Formula $\overline{u}\in H_{0}^{1,p}\left(\Omega'\right)$
+\end_inset
+
+ with:
+\begin_inset Formula 
+\begin{align*}
+\norm{\overline{u}}_{H^{1,p}\left(\Omega'\right)} & \le\tilde{c}\norm u_{H^{1,p}\left(\Omega\right)}
+\end{align*}
+
+\end_inset
+
+Namely choose 
+\begin_inset Formula $u_{n}\in C^{1}\left(\Omega\right)$
+\end_inset
+
+ with 
+\begin_inset Formula $u_{n}\to u$
+\end_inset
+
+ in 
+\begin_inset Formula $H^{1,p}\left(\Omega\right)$
+\end_inset
+
+ and extend 
+\begin_inset Formula $u_{n}$
+\end_inset
+
+ to 
+\begin_inset Formula $C_{0}^{1}\left(\Omega'\right)$
+\end_inset
+
+ to obtain functions 
+\begin_inset Formula $\overline{u}_{n}$
+\end_inset
+
+ with:
+\begin_inset Formula 
+\begin{align*}
+\norm{\overline{u}_{n}}_{H^{1,p}\left(\Omega'\right)} & \le\tilde{c}\norm{u_{n}}_{H^{1,p}\left(\Omega\right)}
+\end{align*}
+
+\end_inset
+
+A subsequence of the 
+\begin_inset Formula $\overline{u}_{n}$
+\end_inset
+
+ converges to 
+\begin_inset Formula $\overline{u}$
+\end_inset
+
+ in 
+\begin_inset Formula $H_{0}^{1,p}\left(\Omega'\right)$
+\end_inset
+
+.
+ Extending 
+\begin_inset Formula $\overline{u}$
+\end_inset
+
+ by zero to 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+ we get:
+\begin_inset Formula 
+\begin{align*}
+\norm{\overline{u}}_{H^{1,p}\left(\mathbb{R}^{n}\right)} & \le\tilde{c}\norm u_{H^{1,p}\left(\Omega\right)}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\norm u_{L^{p^{*}}\left(\Omega\right)} & \le\norm{\overline{u}}_{L^{p^{*}}\left(\mathbb{R}^{n}\right)}\sr{\le}{\ref{sub:Thm-Gagliando-Nirenberg}}{}c\norm{\DD\overline{u}}_{L^{p}\left(\mathbb{R}^{n}\right)}\le\\
+ & \le c\norm{\overline{u}}_{H^{1,p}\left(\mathbb{R}^{n}\right)}\le\underbrace{c\tilde{c}}_{=:C}\norm u_{H^{1,p}\left(\Omega\right)}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Theorem 
+\series medium
+(Poincaré's inequality)
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ be a bounded open domain, 
+\begin_inset Formula $1\le p<\infty$
+\end_inset
+
+ and 
+\begin_inset Formula $1\le q\le p^{*}$
+\end_inset
+
+.
+ Then there is a 
+\begin_inset Formula $C\left(\Omega\right)\in\mathbb{R}$
+\end_inset
+
+ such that for all 
+\begin_inset Formula $u\in H_{0}^{1,p}\left(\Omega\right)$
+\end_inset
+
+ holds:
+\begin_inset Formula 
+\begin{align*}
+\norm u_{L^{q}\left(\Omega\right)} & \le C\left(\Omega\right)\norm{\DD u}_{L^{p}\left(\Omega\right)}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Proof
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $u\in H_{0}^{1,p}\left(\Omega\right)$
+\end_inset
+
+ there is by definition a sequence 
+\begin_inset Formula $u_{k}\in C_{0}^{1}\left(\Omega\right)$
+\end_inset
+
+ with 
+\begin_inset Formula $u_{k}\to u$
+\end_inset
+
+ converging in 
+\begin_inset Formula $H_{0}^{1,p}\left(\Omega\right)$
+\end_inset
+
+.
+ We extend 
+\begin_inset Formula $u_{n}$
+\end_inset
+
+ by zero to 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+ and apply the Gagliando-Nirenberg inequality:
+\begin_inset Formula 
+\begin{align*}
+\norm{u_{k}}_{L^{p^{*}}\left(\Omega\right)} & =\norm{u_{k}}_{L^{p^{*}}\left(\mathbb{R}^{n}\right)}\le c\norm{\DD u_{k}}_{L^{p}\left(\mathbb{R}^{n}\right)}=c\norm{\DD u_{k}}_{L^{p}\left(\Omega\right)}\xrightarrow{k\to\infty}c\norm{\DD u}_{L^{p}\left(\Omega\right)}
+\end{align*}
+
+\end_inset
+
+For the left sides holds:
+\begin_inset Formula 
+\begin{align*}
+\norm{u_{k}-u_{l}}_{L^{p^{*}}\left(\Omega\right)} & \le c\norm{\DD\left(u_{k}-u_{l}\right)}_{L^{p}\left(\mathbb{R}^{n}\right)}\le c\norm{u_{k}-u_{l}}_{H^{1,p}\left(\Omega\right)}\xrightarrow{k,l\to\infty}0
+\end{align*}
+
+\end_inset
+
+Therefore 
+\begin_inset Formula $u_{k}\to u$
+\end_inset
+
+ converges in 
+\begin_inset Formula $L^{p^{*}}$
+\end_inset
+
+.
+ In the limit we get:
+\begin_inset Formula 
+\begin{align*}
+\norm u_{L^{p^{*}}\left(\Omega\right)} & \le c\norm{\DD u}_{L^{p}\left(\Omega\right)}
+\end{align*}
+
+\end_inset
+
+Now we have:
+\begin_inset Formula 
+\begin{align*}
+\norm u_{L^{q}\left(\Omega\right)} & =\left(\int1\cdot\abs u^{q}\dd^{n}x\right)^{\frac{1}{q}}
+\end{align*}
+
+\end_inset
+
+Finally, we choose Hölder exponents 
+\begin_inset Formula $r,s$
+\end_inset
+
+ with
+\begin_inset Formula 
+\begin{align*}
+sq & =p^{*}\\
+s & =\frac{p^{*}}{q}\ge1
+\end{align*}
+
+\end_inset
+
+to get:
+\begin_inset Formula 
+\begin{align*}
+\norm u_{L^{q}\left(\Omega\right)} & \le\left(\mu\left(\Omega\right)\right)^{\frac{1}{r}}\norm u_{L^{p^{*}}\left(\Omega\right)}\le\underbrace{c\left(\mu\left(\Omega\right)\right)^{\frac{1}{r}}}_{=:C\left(\Omega\right)}\norm{\DD u}_{L^{p}\left(\Omega\right)}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Corollary
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\Omega\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ be a bounded domain and 
+\begin_inset Formula $1\le p<n$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\norm{\DD u}_{L^{p}\left(\Omega\right)}$
+\end_inset
+
+ is a norm on 
+\begin_inset Formula $H_{0}^{1,p}\left(\Omega\right)$
+\end_inset
+
+ which is equivalent to the 
+\begin_inset Formula $H^{1,p}$
+\end_inset
+
+-norm.
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+The 
+\begin_inset Formula $H^{1,p}$
+\end_inset
+
+-norm
+\begin_inset Formula 
+\begin{align*}
+\norm u_{H^{1,p}} & =\left(\norm u_{L^{p}}^{p}+\norm{\DD u}_{L^{p}}^{p}\right)^{\frac{1}{p}}
+\end{align*}
+
+\end_inset
+
+is equivalent to:
+\begin_inset Formula 
+\begin{align*}
+\norm u_{L^{p}\left(\Omega\right)}+\norm{\DD u}_{L^{p}\left(\Omega\right)}
+\end{align*}
+
+\end_inset
+
+It holds:
+\begin_inset Formula 
+\begin{align*}
+\norm u_{L^{p^{*}}\left(\mathbb{R}^{n}\right)} & \le c\norm{\DD u}_{L^{p}\left(\mathbb{R}^{n}\right)}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\norm{\DD u}_{L^{p}\left(\Omega\right)} & \le\norm u_{L^{p}\left(\Omega\right)}+\norm{\DD u}_{L^{p}\left(\Omega\right)}\sr{\le}{p<p^{*}}{}\tilde{c}\underbrace{\norm u_{L^{p^{*}}\left(\Omega\right)}}_{\le c\norm{\DD u}_{L^{p}\left(\Omega\right)}}+\norm{\DD u}_{L^{p}\left(\Omega\right)}\le\left(1+\tilde{c}c\right)\norm{\DD u}_{L^{p}\left(\Omega\right)}
+\end{align*}
+
+\end_inset
+
+
 \begin_inset ERT
 status open
 

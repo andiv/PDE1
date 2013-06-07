@@ -3987,15 +3987,15 @@ Let $\Omega\subseteq\mathbb{R}^{n}$ be open.
 
 \subsection{Definition \textmd{(Hölder Continuous, Hölder Norm)}}
 
-A function $f:\Omega\to\mathbb{R}^{m}$ is called \emph{Hölder continuous}
+A function $u:\Omega\to\mathbb{R}^{m}$ is called \emph{Hölder continuous}
 with exponent $\alpha\in\mathbb{R}_{\ge0}$, if the \emph{Hölder norm}
 is finite:
 \begin{align*}
-\norm u_{C^{0,\alpha}\left(\Omega\right)} & :=\norm u_{C^{0}\left(\Omega\right)}+\sup_{x\not=y\in\Omega}\left(\frac{u\left(x\right)-u\left(y\right)}{\norm{x-y}^{\alpha}}\right)<\infty
+\norm u_{C^{0,\alpha}\left(\Omega\right)} & :=\norm u_{C^{0}\left(\Omega\right)}+\sup_{x\not=y\in\Omega}\left(\frac{\norm{u\left(x\right)-u\left(y\right)}}{\norm{x-y}^{\alpha}}\right)<\infty
 \end{align*}
 This implies:
 \begin{align*}
-\norm{u\left(x\right)-u\left(y\right)} & \le\sup_{x\not=y\in\Omega}\left(\frac{u\left(x\right)-u\left(y\right)}{\norm{x-y}^{\alpha}}\right)\cdot\norm{x-y}^{\alpha}
+\norm{u\left(x\right)-u\left(y\right)} & \le\sup_{x\not=y\in\Omega}\left(\frac{\norm{u\left(x\right)-u\left(y\right)}}{\norm{x-y}^{\alpha}}\right)\cdot\norm{x-y}^{\alpha}
 \end{align*}
 We often use the short notation:
 \begin{align*}
@@ -4275,7 +4275,7 @@ $u:\Omega\to\mathbb{C}$ such that for all multi-indices $\alpha$
 with $\abs{\alpha}\le k$, the weak derivative $\DD^{\alpha}u$ exists
 and is in $L^{p}\left(\Omega\right)$.
 \begin{align*}
-\norm u_{H^{k,p}\left(\Omega\right)} & :=\left(\sum_{\abs{\alpha}\le k}\int_{\Omega}\abs{\DD^{\alpha}u}^{p}\right)^{\frac{1}{p}}
+\norm u_{H^{k,p}\left(\Omega\right)} & :=\left(\sum_{\abs{\alpha}\le k}\int_{\Omega}\abs{\DD^{\alpha}u}^{p}\dd x\right)^{\frac{1}{p}}
 \end{align*}
 A special case of interest is $p=2$, where we have an associated
 scalar product.
@@ -4701,7 +4701,7 @@ in the book of Evans.\qqed
 Question: Consider $u\in C_{0}^{1}\left(\mathbb{R}^{n}\right)$. For
 which $p$ and $q$ does the inequality
 \begin{align*}
-\norm u_{L^{q}\left(\mathbb{R}^{n}\right)} & \le C\norm{\DD u}_{L^{p}\left(\mathbb{R}^{n}\right)}\qquad\fall_{u\in C_{0}^{1}\left(\mathbb{R}^{n}\right)}
+\norm u_{L^{q}\left(\mathbb{R}^{n}\right)} & \le c\norm{\DD u}_{L^{p}\left(\mathbb{R}^{n}\right)}\qquad\fall_{u\in C_{0}^{1}\left(\mathbb{R}^{n}\right)}
 \end{align*}
 hold? This inequality does not holds for $u\in C^{1}\left(\mathbb{R}^{n}\right)$,
 because $u$ can be an arbitrarily large constant with vanishing derivative.
@@ -4727,16 +4727,16 @@ q & =\frac{np}{n-p}
 $q$ is called the \emph{Sobolev conjugate}, usually denoted by $p^{*}$.
 
 
-\subsection{Theorem \textmd{(Gagliando-Nirenberg-Sobolev Inequality)}}
+\subsection{Theorem \textmd{(Gagliando-Nirenberg-Sobolev Inequality)\label{sub:Thm-Gagliando-Nirenberg}}}
 
-For $1\le p<n$ there is a constant $C\in\mathbb{R}_{>0}$ such that
+For $1\le p<n$ there is a constant $c\in\mathbb{R}_{>0}$ such that
 holds:
 \begin{align*}
-\norm u_{L^{p^{*}}\left(\Omega\right)} & \le C\norm{\DD u}_{L^{p}\left(\Omega\right)}\qquad\fall_{u\in C_{0}^{1}\left(\mathbb{R}^{n}\right)}
+\norm u_{L^{p^{*}}\left(\mathbb{R}^{n}\right)} & \le c\norm{\DD u}_{L^{p}\left(\mathbb{R}^{n}\right)}\qquad\fall_{u\in C_{0}^{1}\left(\mathbb{R}^{n}\right)}
 \end{align*}
 One can choose:
 \begin{align*}
-C & =\frac{p\left(n-1\right)}{n-p}
+c & =\frac{p\left(n-1\right)}{n-p}
 \end{align*}
 
 
@@ -4768,6 +4768,223 @@ such that $rq_{1}=p_{2}$ gives:
 \int\abs{u_{1}}\cdot\abs{u_{2}\cdots u_{m}}\dd^{n}x & \le\norm u_{p_{1}}\cdot\norm{u_{2}}_{p_{2}}\left(\int\abs{u_{3}}^{q_{1}s}\abs{u_{4}\cdots u_{m}}^{q_{1}s}\dd^{n}x\right)^{\frac{1}{q_{1}s}}
 \end{align*}
 Iteratively this gives the the generalized Hölder Inequality.\qqed
+
+%DATE: Fr 7.6.13
+
+
+\subsubsection*{Proof of Theorem \ref{sub:Thm-Gagliando-Nirenberg}}
+
+We need to find a constant $c\in\mathbb{R}_{>0}$ such that for $u\in C_{0}^{1}\left(\mathbb{R}^{n}\right)$
+holds:
+\begin{align*}
+\norm u_{L^{p^{*}}\left(\mathbb{R}^{n}\right)} & \le c\norm{\DD u}_{L^{p}\left(\mathbb{R}^{n}\right)}
+\end{align*}
+
+\begin{enumerate}
+\item Consider the case $p=1$, i.e. $p^{*}=\frac{n\cdot1}{n-1}$. We have
+to show:
+\begin{align*}
+\norm u_{L^{\frac{n}{n-1}}} & \le\norm{\DD u}_{L^{1}}
+\end{align*}
+For any $i\in\left\{ 1,\ldots,n\right\} $ the fundamental theorem
+of calculus yields:
+\begin{align*}
+u\left(x\right) & =\int_{-\infty}^{x_{i}}\frac{\partial}{\partial x_{i}}u\left(x_{1},\ldots,x_{i-1},y_{i},x_{i+1}\ldots,x_{n}\right)\dd y_{i}\\
+\abs{u\left(x\right)} & \le\int_{-\infty}^{\infty}\norm{\DD u\left(x_{1},\ldots,y_{i},\ldots,x_{n}\right)}\dd y_{i}\\
+\abs{u\left(x\right)}^{\frac{n}{n-1}} & \le\prod_{i=1}^{n}\left(\int_{-\infty}^{\infty}\norm{\DD u\left(x_{1},\ldots,y_{i},\ldots,x_{n}\right)}\dd y_{i}\right)^{\frac{1}{n-1}}
+\end{align*}
+We proceed inductively. First we integrate over $x_{1}$:
+\begin{align*}
+\int_{-\infty}^{\infty}\abs{u\left(x\right)}^{\frac{n}{n-1}}\dd x_{1} & \le\int_{-\infty}^{\infty}\prod_{i=1}^{n}\left(\int_{-\infty}^{\infty}\norm{\DD u\left(x_{1},\ldots,y_{i},\ldots,x_{n}\right)}\dd y_{i}\right)^{\frac{1}{n-1}}\dd x_{1}=\\
+ & =\underbrace{\left(\int_{-\infty}^{\infty}\norm{\DD u\left(y_{1},x_{2},\ldots,x_{n}\right)}\dd y_{i}\right)^{\frac{1}{n-1}}}_{\text{independent of }x_{1}}\cdot\\
+ & \qquad\cdot\int_{-\infty}^{\infty}\prod_{i=2}^{n}\left(\int_{-\infty}^{\infty}\norm{\DD u\left(x_{1},\ldots,y_{i},\ldots,x_{n}\right)}\dd y_{i}\right)^{\frac{1}{n-1}}\dd x_{1}
+\end{align*}
+The generalized Hölder's inequality for the $n-1$ exponents
+\begin{align*}
+p_{2}=\ldots=p_{n} & =n-1\\
+\Rightarrow\qquad\frac{1}{p_{2}}+\ldots+\frac{1}{p_{n}} & =1
+\end{align*}
+gives:
+\begin{align*}
+\int_{-\infty}^{\infty}\abs{u\left(x\right)}^{\frac{n}{n-1}}\dd x_{1} & \le\left(\int_{-\infty}^{\infty}\norm{\DD u\left(y_{1},x_{2},\ldots,x_{n}\right)}\dd y_{i}\right)^{\frac{1}{n-1}}\cdot\\
+ & \qquad\cdot\prod_{i=2}^{n}\left(\int_{-\infty}^{\infty}\dd x_{1}\int_{-\infty}^{\infty}\dd y_{i}\norm{\DD u\left(x_{1},\ldots,y_{i},\ldots,x_{n}\right)}\right)^{\frac{1}{n-1}}
+\end{align*}
+Next, we integrate over $x_{2}$ (and don't write the boundary of
+the integral any more):
+\begin{align*}
+\int\abs{u\left(x\right)}^{\frac{n}{n-1}}\dd x_{1}\dd x_{2} & \le\underbrace{\left(\int\dd x_{1}\int\dd y_{i}\norm{\DD u\left(x_{1},y_{2},x_{3},\ldots,x_{n}\right)}\right)^{\frac{1}{n-1}}}_{\text{independent of }x_{2}}\cdot\\
+ & \qquad\cdot\int\dd x_{2}\left(\int\dd y_{i}\norm{\DD u\left(y_{1},x_{2},\ldots,x_{n}\right)}\right)^{\frac{1}{n-1}}\cdot\\
+ & \qquad\cdot\prod_{i=3}^{n}\left(\int\dd x_{1}\int\dd y_{i}\norm{\DD u\left(x_{1},\ldots,y_{i},\ldots,x_{n}\right)}\right)
+\end{align*}
+We again have $n-1$ factors, so we can apply the generalized Hölder
+inequality with exponents $n-1$ to get:
+\begin{align*}
+\int\abs{u\left(x\right)}^{\frac{n}{n-1}}\dd x_{1}\dd x_{2} & \le\left(\int\dd x_{1}\int\dd y_{i}\norm{\DD u\left(x_{1},y_{2},x_{3},\ldots,x_{n}\right)}\right)^{\frac{1}{n-1}}\cdot\\
+ & \qquad\cdot\left(\int\dd x_{2}\int\dd y_{i}\norm{\DD u\left(y_{1},x_{2},\ldots,x_{n}\right)}\right)^{\frac{1}{n-1}}\cdot\\
+ & \qquad\cdot\prod_{i=3}^{n}\left(\int\dd x_{2}\int\dd x_{1}\int\dd y_{i}\norm{\DD u\left(x_{1},\ldots,y_{i},\ldots,x_{n}\right)}\right)^{\frac{1}{n-1}}
+\end{align*}
+After also integrating over $x_{3},\ldots,x_{n}$ and then renaming
+$y_{i}\to x_{i}$ we get:
+\begin{align*}
+\int_{\mathbb{R}^{n}}\abs{u\left(x\right)}^{\frac{n}{n-1}}\dd^{n}x & \le\prod_{i=1}^{n}\left(\int_{\mathbb{R}^{n}}\dd^{n}x\norm{\DD u\left(x\right)}\right)^{\frac{1}{n-1}}=\left(\int_{\mathbb{R}^{n}}\dd^{n}x\norm{\DD u\left(x\right)}\right)^{\frac{n}{n-1}}
+\end{align*}
+\begin{align*}
+\norm u_{L^{\frac{n}{n-1}}}=\left(\int_{\mathbb{R}^{n}}\abs{u\left(x\right)}^{\frac{n}{n-1}}\dd^{n}x\right)^{\frac{n-1}{n}} & \le\int_{\mathbb{R}^{n}}\dd^{n}x\norm{\DD u\left(x\right)}=\norm{\DD u}_{L^{1}}
+\end{align*}
+
+\item The general case $1<p<n$ follows from the first case by using Hölder's
+inequality:\\
+We have to prove for $p^{*}=\frac{np}{n-p}$:
+\begin{align*}
+\norm u_{L^{p^{*}}\left(\mathbb{R}^{n}\right)}=\left(\int_{\mathbb{R}^{n}}\abs{u\left(x\right)}^{p^{*}}\dd x\right)^{\frac{1}{p^{*}}} & \le c\left(\int_{\mathbb{R}^{n}}\abs{\DD u\left(x\right)}^{p}\dd x\right)^{\frac{1}{p}}=c\norm{\DD u}_{L^{p}\left(\mathbb{R}^{n}\right)}
+\end{align*}
+Now introduce $v:=\abs u^{c}$ such that $\abs u^{p^{*}}=v^{\frac{n}{n-1}}$:
+\begin{align*}
+c\frac{n}{n-1} & =p^{*}=\frac{np}{n-p}\\
+\Rightarrow\qquad c & =\frac{\left(n-1\right)p}{n-p}
+\end{align*}
+Now follows:
+\begin{align*}
+\left(\int\abs u^{p^{*}}\dd^{n}x\right)^{\frac{n-1}{n}} & =\left(\int v^{\frac{n}{n-1}}\dd^{n}x\right)^{\frac{n-1}{n}}=\norm v_{L^{\frac{n}{n-1}}}\le\\
+ & \sr{\le}{\text{1.}}{}\int\abs{\DD v}\dd^{n}x\le c\int\abs u^{c-1}\abs{\DD u}\dd^{n}x
+\end{align*}
+Applying Hölder's inequality with $\tilde{q}$ and $\tilde{p}$ gives:
+\begin{align*}
+\left(\int\abs u^{p^{*}}\dd^{n}x\right)^{\frac{n-1}{n}} & \le c\left(\int\abs u^{\tilde{q}\left(c-1\right)}\dd^{n}x\right)^{\frac{1}{\tilde{q}}}\left(\int\abs{\DD u}^{\tilde{p}}\dd^{n}x\right)^{\frac{1}{\tilde{p}}}
+\end{align*}
+We choose $\tilde{q}$ such that $\tilde{q}\left(c-1\right)=p^{*}$
+holds.
+\begin{align*}
+\tilde{q} & =\frac{p^{*}}{c-1}=\frac{\frac{np}{n-p}}{\frac{\left(n-1\right)p}{n-p}-1}=\frac{np}{\left(n-1\right)p-\left(n-p\right)}=\frac{np}{np-n}=\frac{p}{p-1}\\
+\tilde{p} & =\frac{1}{1-\frac{1}{\tilde{q}}}=\frac{1}{1-\frac{p-1}{p}}=\frac{p}{p-\left(p-1\right)}=p
+\end{align*}
+We get:
+\begin{align*}
+\left(\int\abs u^{p^{*}}\dd^{n}x\right)^{\frac{n-1}{n}} & \le c\left(\int\abs u^{p^{*}}\dd^{n}x\right)^{\frac{p-1}{p}}\left(\int\abs{\DD u}^{p}\dd^{n}x\right)^{\frac{1}{p}}\\
+\left(\int\abs u^{p^{*}}\dd^{n}x\right)^{\frac{n-1}{n}-\frac{p-1}{p}} & \le c\norm{\DD u}_{L^{p}\left(\mathbb{R}^{n}\right)}
+\end{align*}
+\begin{align*}
+\frac{n-1}{n}-\frac{p-1}{p} & =\frac{p\left(n-1\right)-n\left(p-1\right)}{np}=\frac{np-p-np+n}{np}=\frac{n-p}{np}=\frac{1}{p^{*}}
+\end{align*}
+Finally follows:
+\begin{align*}
+\norm u_{L^{p^{*}}\left(\mathbb{R}^{n}\right)}=\left(\int\abs u^{p^{*}}\dd^{n}x\right)^{\frac{1}{p^{*}}} & \le c\norm{\DD u}_{L^{p}\left(\mathbb{R}^{n}\right)}
+\end{align*}
+\qqed[\ref{sub:Thm-Gagliando-Nirenberg}]
+\end{enumerate}
+
+\subsection{Theorem}
+
+Let $\Omega\subseteq\mathbb{R}^{n}$ be an open, bounded domain with
+$C^{1}$-boundary. Then there is a constant $C\in\mathbb{R}_{>0}$
+such that for all $u\in H^{1,p}\left(\Omega\right)$ holds:
+\begin{align*}
+\norm u_{L^{p^{*}}\left(\Omega\right)} & \le C\norm u_{H^{1,p}\left(\Omega\right)}
+\end{align*}
+Recall:
+\begin{align*}
+\norm u_{H^{1,p}\left(\Omega\right)} & =\left(\norm u_{L^{p}\left(\Omega\right)}^{p}+\norm{\DD u}_{L^{p}\left(\Omega\right)}^{p}\right)^{\frac{1}{p}}
+\end{align*}
+
+
+
+\subsubsection*{Proof}
+
+Consider $u\in H^{1,p}\left(\Omega\right)$ and choose $\Omega'$
+with $\Omega\Subset\Omega'$. Then $u$ can be extended to a function
+$\overline{u}\in H_{0}^{1,p}\left(\Omega'\right)$ with:
+\begin{align*}
+\norm{\overline{u}}_{H^{1,p}\left(\Omega'\right)} & \le\tilde{c}\norm u_{H^{1,p}\left(\Omega\right)}
+\end{align*}
+Namely choose $u_{n}\in C^{1}\left(\Omega\right)$ with $u_{n}\to u$
+in $H^{1,p}\left(\Omega\right)$ and extend $u_{n}$ to $C_{0}^{1}\left(\Omega'\right)$
+to obtain functions $\overline{u}_{n}$ with:
+\begin{align*}
+\norm{\overline{u}_{n}}_{H^{1,p}\left(\Omega'\right)} & \le\tilde{c}\norm{u_{n}}_{H^{1,p}\left(\Omega\right)}
+\end{align*}
+A subsequence of the $\overline{u}_{n}$ converges to $\overline{u}$
+in $H_{0}^{1,p}\left(\Omega'\right)$. Extending $\overline{u}$ by
+zero to $\mathbb{R}^{n}$ we get:
+\begin{align*}
+\norm{\overline{u}}_{H^{1,p}\left(\mathbb{R}^{n}\right)} & \le\tilde{c}\norm u_{H^{1,p}\left(\Omega\right)}
+\end{align*}
+\begin{align*}
+\norm u_{L^{p^{*}}\left(\Omega\right)} & \le\norm{\overline{u}}_{L^{p^{*}}\left(\mathbb{R}^{n}\right)}\sr{\le}{\ref{sub:Thm-Gagliando-Nirenberg}}{}c\norm{\DD\overline{u}}_{L^{p}\left(\mathbb{R}^{n}\right)}\le\\
+ & \le c\norm{\overline{u}}_{H^{1,p}\left(\mathbb{R}^{n}\right)}\le\underbrace{c\tilde{c}}_{=:C}\norm u_{H^{1,p}\left(\Omega\right)}
+\end{align*}
+\qqed
+
+
+\subsection{Theorem \textmd{(Poincaré's inequality)}}
+
+Let $\Omega$ be a bounded open domain, $1\le p<\infty$ and $1\le q\le p^{*}$.
+Then there is a $C\left(\Omega\right)\in\mathbb{R}$ such that for
+all $u\in H_{0}^{1,p}\left(\Omega\right)$ holds:
+\begin{align*}
+\norm u_{L^{q}\left(\Omega\right)} & \le C\left(\Omega\right)\norm{\DD u}_{L^{p}\left(\Omega\right)}
+\end{align*}
+
+
+
+\subsubsection{Proof}
+
+For $u\in H_{0}^{1,p}\left(\Omega\right)$ there is by definition
+a sequence $u_{k}\in C_{0}^{1}\left(\Omega\right)$ with $u_{k}\to u$
+converging in $H_{0}^{1,p}\left(\Omega\right)$. We extend $u_{n}$
+by zero to $\mathbb{R}^{n}$ and apply the Gagliando-Nirenberg inequality:
+\begin{align*}
+\norm{u_{k}}_{L^{p^{*}}\left(\Omega\right)} & =\norm{u_{k}}_{L^{p^{*}}\left(\mathbb{R}^{n}\right)}\le c\norm{\DD u_{k}}_{L^{p}\left(\mathbb{R}^{n}\right)}=c\norm{\DD u_{k}}_{L^{p}\left(\Omega\right)}\xrightarrow{k\to\infty}c\norm{\DD u}_{L^{p}\left(\Omega\right)}
+\end{align*}
+For the left sides holds:
+\begin{align*}
+\norm{u_{k}-u_{l}}_{L^{p^{*}}\left(\Omega\right)} & \le c\norm{\DD\left(u_{k}-u_{l}\right)}_{L^{p}\left(\mathbb{R}^{n}\right)}\le c\norm{u_{k}-u_{l}}_{H^{1,p}\left(\Omega\right)}\xrightarrow{k,l\to\infty}0
+\end{align*}
+Therefore $u_{k}\to u$ converges in $L^{p^{*}}$. In the limit we
+get:
+\begin{align*}
+\norm u_{L^{p^{*}}\left(\Omega\right)} & \le c\norm{\DD u}_{L^{p}\left(\Omega\right)}
+\end{align*}
+Now we have:
+\begin{align*}
+\norm u_{L^{q}\left(\Omega\right)} & =\left(\int1\cdot\abs u^{q}\dd^{n}x\right)^{\frac{1}{q}}
+\end{align*}
+Finally, we choose Hölder exponents $r,s$ with
+\begin{align*}
+sq & =p^{*}\\
+s & =\frac{p^{*}}{q}\ge1
+\end{align*}
+to get:
+\begin{align*}
+\norm u_{L^{q}\left(\Omega\right)} & \le\left(\mu\left(\Omega\right)\right)^{\frac{1}{r}}\norm u_{L^{p^{*}}\left(\Omega\right)}\le\underbrace{c\left(\mu\left(\Omega\right)\right)^{\frac{1}{r}}}_{=:C\left(\Omega\right)}\norm{\DD u}_{L^{p}\left(\Omega\right)}
+\end{align*}
+\qqed
+
+
+\subsection{Corollary}
+
+Let $\Omega\subseteq\mathbb{R}^{n}$ be a bounded domain and $1\le p<n$.
+Then $\norm{\DD u}_{L^{p}\left(\Omega\right)}$ is a norm on $H_{0}^{1,p}\left(\Omega\right)$
+which is equivalent to the $H^{1,p}$-norm.
+
+
+\subsubsection*{Proof}
+
+The $H^{1,p}$-norm
+\begin{align*}
+\norm u_{H^{1,p}} & =\left(\norm u_{L^{p}}^{p}+\norm{\DD u}_{L^{p}}^{p}\right)^{\frac{1}{p}}
+\end{align*}
+is equivalent to:
+\begin{align*}
+\norm u_{L^{p}\left(\Omega\right)}+\norm{\DD u}_{L^{p}\left(\Omega\right)}
+\end{align*}
+It holds:
+\begin{align*}
+\norm u_{L^{p^{*}}\left(\mathbb{R}^{n}\right)} & \le c\norm{\DD u}_{L^{p}\left(\mathbb{R}^{n}\right)}
+\end{align*}
+\begin{align*}
+\norm{\DD u}_{L^{p}\left(\Omega\right)} & \le\norm u_{L^{p}\left(\Omega\right)}+\norm{\DD u}_{L^{p}\left(\Omega\right)}\sr{\le}{p<p^{*}}{}\tilde{c}\underbrace{\norm u_{L^{p^{*}}\left(\Omega\right)}}_{\le c\norm{\DD u}_{L^{p}\left(\Omega\right)}}+\norm{\DD u}_{L^{p}\left(\Omega\right)}\le\left(1+\tilde{c}c\right)\norm{\DD u}_{L^{p}\left(\Omega\right)}
+\end{align*}
+\qqed
 
 
 \part*{Appendix\thispagestyle{empty}}
