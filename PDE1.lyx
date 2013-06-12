@@ -19954,6 +19954,13 @@ status open
 
 \begin_layout Subsection
 Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Thm-Proof-with-extension"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -20072,7 +20079,31 @@ A subsequence of the
 \end_inset
 
 .
- Extending 
+ The constant 
+\begin_inset Formula $\tilde{c}$
+\end_inset
+
+ can be chosen independently of 
+\begin_inset Formula $u$
+\end_inset
+
+, because one can construct a linear mapping
+\begin_inset Formula 
+\begin{align*}
+A:C^{1}\left(\Omega\right) & \to C_{0}^{1}\left(\Omega'\right)
+\end{align*}
+
+\end_inset
+
+with:
+\begin_inset Formula 
+\begin{align*}
+\norm{Au}_{H^{1,p}\left(\Omega'\right)} & \le c\norm u_{H^{1,p}\left(\Omega\right)}\qquad\fall_{u\in C^{1}\left(\Omega\right)}
+\end{align*}
+
+\end_inset
+
+Extending 
 \begin_inset Formula $\overline{u}$
 \end_inset
 
@@ -20088,7 +20119,7 @@ A subsequence of the
 
 \end_inset
 
-
+Now follows:
 \begin_inset Formula 
 \begin{align*}
 \norm u_{L^{p^{*}}\left(\Omega\right)} & \le\norm{\overline{u}}_{L^{p^{*}}\left(\mathbb{R}^{n}\right)}\sr{\le}{\ref{sub:Thm-Gagliando-Nirenberg}}{}c\norm{\DD\overline{u}}_{L^{p}\left(\mathbb{R}^{n}\right)}\le\\
@@ -20344,6 +20375,1050 @@ qqed
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%DATE: Mi 12.6.13
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+The Morrey Inequalities
+\end_layout
+
+\begin_layout Standard
+This traces back to Charles Morrey (1907-1984).
+\end_layout
+
+\begin_layout Subsection
+Theorem 
+\series medium
+(Morrey Inequalities)
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Thm-Morrey-Inequalities"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $n<p\le\infty$
+\end_inset
+
+ exists a constant 
+\begin_inset Formula $C\in\mathbb{R}_{>0}$
+\end_inset
+
+ (depending only on 
+\begin_inset Formula $n$
+\end_inset
+
+ and 
+\begin_inset Formula $p$
+\end_inset
+
+), such that for 
+\begin_inset Formula $u\in C^{1}\left(\mathbb{R}^{n}\right)\cap L^{p}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\gamma:=1-\frac{n}{p}$
+\end_inset
+
+ holds:
+\begin_inset Formula 
+\begin{align*}
+\norm u_{C^{0,\gamma}\left(\mathbb{R}^{n}\right)} & \le C\norm u_{H^{1,p}\left(\mathbb{R}^{n}\right)}
+\end{align*}
+
+\end_inset
+
+The exponent 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ can be found with a scaling argument.
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+We define:
+\begin_inset Formula 
+\begin{align*}
+\fint_{U}f\left(y\right)\dd^{n}y & :=\frac{1}{\mu\left(U\right)}\int_{U}f\left(y\right)\dd^{n}y
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+Claim: 
+\begin_inset Formula 
+\begin{align*}
+\fint_{B_{r}\left(x\right)}\abs{u\left(x\right)-u\left(y\right)}\dd^{n}y & \le C_{1}\left(n\right)\cdot\int\frac{\norm{\DD u\left(y\right)}}{\norm{x-y}^{n-1}}\dd^{n}y
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Proof: Choose 
+\begin_inset Formula $B_{r}\left(x\right)$
+\end_inset
+
+, 
+\begin_inset Formula $s\in\left(0,r\right)$
+\end_inset
+
+ and a unit vector 
+\begin_inset Formula $w\in\partial B_{1}\left(0\right)$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (0,0) +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (0,0) circle (2) circle (3.5);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[->] (0,0) -- node[below]{$s$} ({2*cos(160)},{2*sin(160)}) node[left]{$x+sw$
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (0,0) -- node[left]{$r$} ({3.5*cos(60)},{3.5*sin(60)});
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $x+sw\in B_{r}\left(x\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\abs{u\left(x+sw\right)-u\left(x\right)} & =\abs{\int_{0}^{s}\frac{\dd}{\dd t}u\left(x+tw\right)\dd t}\le\int_{0}^{s}\norm{\DD u\left(x+tw\right)}\cdot\underbrace{\norm w}_{=1}\dd t
+\end{align*}
+
+\end_inset
+
+Integration gives:
+\begin_inset Formula 
+\begin{align*}
+ & \int_{\partial B_{1}\left(0\right)}\abs{u\left(x+sw\right)-u\left(x\right)}\dd\mu_{\partial B_{1}\left(0\right)}\left(w\right)\le\\
+ & \qquad\qquad\qquad\qquad\le\int_{0}^{s}\dd t\int_{\partial B_{1}\left(0\right)}\norm{\DD u\left(x+tw\right)}\dd\mu_{\partial B_{1}\left(0\right)}\left(w\right)=\\
+ & \qquad\qquad\qquad\qquad\sr ={z:=x+tw}{}\int_{0}^{s}\frac{\dd t}{t^{n-1}}\int_{\partial B_{t}\left(x\right)}\norm{\DD u\left(z\right)}\dd\mu_{\partial B_{t}\left(x\right)}\left(z\right)=\\
+ & \qquad\qquad\qquad\qquad\sr ={t=\norm{x-z}}{}\int_{0}^{s}\dd t\int_{\partial B_{t}\left(x\right)}\frac{\norm{\DD u\left(z\right)}}{\norm{x-z}^{n-1}}\dd\mu_{\partial B_{t}\left(x\right)}\left(z\right)=\\
+ & \qquad\qquad\qquad\qquad\sr ={\text{Fubini}}{}\int_{B_{s}\left(x\right)}\frac{\norm{\DD u\left(y\right)}}{\norm{x-y}^{n-1}}\dd\mu_{B_{s}\left(x\right)}\left(y\right)\le\int_{B_{r}\left(x\right)}\frac{\norm{\DD u\left(y\right)}}{\norm{x-y}^{n-1}}\dd^{n}y
+\end{align*}
+
+\end_inset
+
+Multiplying by 
+\begin_inset Formula $s^{n-1}$
+\end_inset
+
+ and integrating over 
+\begin_inset Formula $s$
+\end_inset
+
+ gives:
+\begin_inset Formula 
+\begin{align*}
+\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\int_{0}^{r}\dd s\cdot s^{n-1}\int_{\partial B_{1}\left(0\right)}\abs{u\left(x+sw\right)-u\left(x\right)}\dd\mu_{\partial B_{1}\left(0\right)}\left(w\right) & \le\int_{0}^{r}\dd s\cdot s^{n-1}\int_{B_{r}\left(x\right)}\frac{\norm{\DD u\left(y\right)}}{\norm{x-y}^{n-1}}\dd^{n}y\\
+\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\sr{\Rightarrow}{\text{Fubini}}{}\qquad\qquad\int_{\partial B_{r}\left(x\right)}\abs{u\left(y\right)-u\left(x\right)}\dd\mu_{B_{r}\left(x\right)}\left(y\right) & \le\frac{r^{n}}{n}\int_{B_{r}\left(x\right)}\frac{\norm{\DD u\left(y\right)}}{\norm{x-y}^{n-1}}\dd^{n}y
+\end{align*}
+
+\end_inset
+
+Dividing by 
+\begin_inset Formula $r^{n}$
+\end_inset
+
+ gives the claim.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[
+\backslash
+arabic{enumi}.]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Now estimate 
+\begin_inset Formula $u$
+\end_inset
+
+ point-wise:
+\begin_inset Formula 
+\begin{align*}
+\abs{u\left(x\right)} & =\abs{u\left(x\right)}\underbrace{\fint_{B_{1}\left(x\right)}\dd^{n}y}_{=1}\le\fint_{B_{1}\left(x\right)}\abs{u\left(x\right)-u\left(y\right)}\dd^{n}y+\fint_{B_{1}\left(x\right)}\abs{u\left(y\right)}\dd^{n}y\le\\
+ & \sr{\le}{\text{1.}}{}C_{1}\cdot\int\frac{\norm{\DD u\left(y\right)}}{\norm{x-y}^{n-1}}\dd^{n}y+\frac{1}{\omega_{n}}\int_{B_{1}\left(x\right)}\abs{u\left(y\right)}\dd^{n}y\le\\
+ & \sr{\le}{\text{Hölder}}{p^{-1}+q^{-1}=1}C_{1}\norm{\DD u}_{L^{q}\left(B_{1}\left(x\right)\right)}\left(\int_{B_{1}\left(x\right)}\left(\frac{1}{\norm{x-y}^{n-1}}\right)^{q}\dd^{n}y\right)^{\frac{1}{q}}+\\
+ & \qquad\qquad\quad+\norm u_{L^{p}\left(B_{1}\left(x\right)\right)}\underbrace{\frac{1}{\omega_{n}}\left(\int_{B_{1}\left(x\right)}1^{q}\dd^{n}y\right)^{\frac{1}{q}}}_{=:C_{2}}\le\\
+ & \le C_{1}\norm{\DD u}_{L^{q}\left(\mathbb{R}^{n}\right)}\left(\int_{B_{1}\left(x\right)}\left(\frac{1}{\norm{x-y}^{n-1}}\right)^{q}\dd^{n}y\right)^{\frac{1}{q}}+C_{2}\norm u_{L^{p}\left(\mathbb{R}^{n}\right)}
+\end{align*}
+
+\end_inset
+
+Is the pole integrable? The order of the pole is:
+\begin_inset Formula 
+\begin{align*}
+\left(n-1\right)q=\left(n-1\right)\frac{p}{p-1} & \sr <?{}n\\
+\left(n-1\right)p & \sr <?{}n\left(p-1\right)\\
+-p & \sr <?{}-n\\
+n & <p
+\end{align*}
+
+\end_inset
+
+This holds by assumption, thus the pole is integrable and we get:
+\begin_inset Formula 
+\begin{align*}
+\abs{\int_{B_{1}\left(x\right)}\frac{1}{\norm{x-y}^{\left(n-1\right)q}}} & \le C_{3}<\infty
+\end{align*}
+
+\end_inset
+
+Thus holds:
+\begin_inset Formula 
+\begin{align*}
+\abs{u\left(x\right)} & \le C_{1}C_{3}\norm{\DD u}_{L^{q}\left(B_{1}\left(x\right)\right)}+C_{2}\norm u_{L^{p}\left(\mathbb{R}^{n}\right)}\le C_{4}\norm u_{H^{1,p}\left(\mathbb{R}^{n}\right)}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Now estimate 
+\begin_inset Formula $\abs{u\left(x\right)-u\left(y\right)}$
+\end_inset
+
+.
+ For 
+\begin_inset Formula $x,y\in\mathbb{R}^{n}$
+\end_inset
+
+ define 
+\begin_inset Formula $r:=\norm{x-y}$
+\end_inset
+
+ and 
+\begin_inset Formula $W:=B_{r}\left(x\right)\cap B_{r}\left(y\right)$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[scale=0.7]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (-2,0) node[left]{$x$} +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (2,0)  node[right]{$y$} +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (0,3) {$W$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (-2,0) circle (4) (2,0) circle (4);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[even odd rule] (-4,-4) rectangle (4,4) (-2,0) circle (4) (2,0) circle
+ (4)
+\end_layout
+
+\begin_layout Plain Layout
+
+  [path picture={
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+foreach 
+\backslash
+x in {-2,-1,...,3}
+\end_layout
+
+\begin_layout Plain Layout
+
+      
+\backslash
+draw (-2,
+\backslash
+x) -- (2,{
+\backslash
+x -0.9});
+\end_layout
+
+\begin_layout Plain Layout
+
+  }];
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Intersection of spheres
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Thus we get:
+\begin_inset Formula 
+\begin{align*}
+\abs{u\left(x\right)-u\left(y\right)} & =\fint_{W}\abs{u\left(x\right)-u\left(y\right)}\dd^{n}z\le\fint_{W}\abs{u\left(x\right)-u\left(z\right)}\dd^{n}z+\fint_{W}\abs{u\left(z\right)-u\left(y\right)}\dd^{n}z
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align}
+\fint_{W}\abs{u\left(x\right)-u\left(z\right)}\dd^{n}z & \le\frac{1}{\mu\left(W\right)}\int_{B_{r}\left(x\right)}\abs{u\left(x\right)-u\left(z\right)}\dd^{n}z=C_{5}\left(n\right)\fint_{B_{r}\left(x\right)}\abs{u\left(x\right)-u\left(z\right)}\dd^{n}z\label{eq:integrals-u}
+\end{align}
+
+\end_inset
+
+The constant
+\begin_inset Formula 
+\begin{align*}
+C_{5}\left(n\right) & =\frac{\mu\left(B_{r}\right)}{\mu\left(W\right)}
+\end{align*}
+
+\end_inset
+
+is independent of 
+\begin_inset Formula $r$
+\end_inset
+
+, due to the proportionalities 
+\begin_inset Formula $\mu\left(B_{r}\right)\sim r^{n}\sim\mu\left(W\right)$
+\end_inset
+
+.
+ With 1.
+ follows:
+\begin_inset Formula 
+\begin{align*}
+\fint_{W}\abs{u\left(x\right)-u\left(z\right)}\dd^{n}z & \le C_{5}\left(n\right)\fint_{B_{r}\left(x\right)}\abs{u\left(x\right)-u\left(z\right)}\dd^{n}z\le\\
+ & \le C_{5}\left(n\right)C_{1}\left(n\right)\cdot\int_{B_{r}\left(x\right)}\frac{\norm{\DD u\left(z\right)}}{\norm{x-z}^{n-1}}\dd^{n}z\le\\
+ & \sr{\le}{\text{Hölder}}{}C_{6}\left(n\right)\norm{\DD u}_{L^{p}\left(B_{r}\left(x\right)\right)}\left(\int_{B_{r}\left(x\right)}\frac{1}{\norm{x-z}^{\left(n-1\right)\frac{p}{p-1}}}\dd^{n}z\right)^{\frac{p-1}{p}}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\int_{B_{r}\left(x\right)}\frac{1}{\norm{x-z}^{\left(n-1\right)\frac{p}{p-1}}}\dd^{n}z & =\int_{0}^{r}\dd s\left(n\omega_{n}\right)s^{n-1}\frac{1}{s^{\left(n-1\right)\frac{p}{p-1}}}=C_{7}\left(n\right)r\cdot r^{n-1}\frac{1}{r^{\left(n-1\right)\frac{p}{p-1}}}=\\
+ & =C_{7}\left(n\right)r^{n-\frac{\left(n-1\right)p}{p-1}}=C_{7}\left(n\right)r^{\frac{np-n-np+p}{p-1}}=C_{7}\left(n\right)r^{\frac{p-n}{p-1}}
+\end{align*}
+
+\end_inset
+
+Thus follows:
+\begin_inset Formula 
+\begin{align*}
+\fint_{W}\abs{u\left(x\right)-u\left(z\right)}\dd^{n}z & \le\underbrace{C_{6}\left(n\right)\left(C_{7}\left(n\right)\right)^{\frac{p-1}{p}}}_{=:C_{8}\left(n\right)}\norm{\DD u}_{L^{p}\left(B_{r}\left(x\right)\right)}r^{\frac{p-n}{p-1}\cdot\frac{p-1}{p}}
+\end{align*}
+
+\end_inset
+
+Estimating the other integral in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:integrals-u"
+
+\end_inset
+
+ in the same way, we obtain:
+\begin_inset Formula 
+\begin{align*}
+\abs{u\left(x\right)-u\left(y\right)} & \le\underbrace{2C_{8}\left(n\right)}_{=:C_{9}\left(n\right)}r^{1-\frac{n}{p}}\norm{\DD u}_{L^{p}\left(\mathbb{R}^{n}\right)}
+\end{align*}
+
+\end_inset
+
+With 
+\begin_inset Formula $\gamma:=1-\frac{n}{p}$
+\end_inset
+
+ follows for all 
+\begin_inset Formula $x,y\in\mathbb{R}^{n}$
+\end_inset
+
+ due to 
+\begin_inset Formula $r=\norm{x-y}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\frac{\abs{u\left(x\right)-u\left(y\right)}}{\norm{x-y}^{\gamma}} & \le C_{9}\left(n\right)\norm{\DD u}_{L^{p}\left(\mathbb{R}^{n}\right)}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Combining 2.
+ and 3., we get:
+\begin_inset Formula 
+\begin{align*}
+\norm u_{C^{0,\gamma}\left(\mathbb{R}^{n}\right)} & =\norm u_{C^{0}\left(\mathbb{R}^{n}\right)}+\sup_{x\not=y\in\mathbb{R}^{n}}\frac{\abs{u\left(x\right)-u\left(y\right)}}{\norm{x-y}^{\gamma}}\le\\
+ & \le C_{4}\left(n\right)\norm u_{H^{1,p}\left(\mathbb{R}^{n}\right)}+C_{9}\left(n\right)\norm{\DD u}_{L^{p}\left(\mathbb{R}^{n}\right)}\le C\norm u_{H^{1,p}\left(\mathbb{R}^{n}\right)}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We use a denseness argument to extend the statement to 
+\begin_inset Formula $H^{1,p}$
+\end_inset
+
+-functions and 
+\begin_inset Formula $C^{0,\alpha}$
+\end_inset
+
+-functions.
+ For 
+\begin_inset Formula $u\in H^{1,p}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+, weak derivatives 
+\begin_inset Formula $\DD^{\left(i\right)}u$
+\end_inset
+
+ exist and are in 
+\begin_inset Formula $L^{p}$
+\end_inset
+
+.
+ Note that 
+\begin_inset Formula $u\in L^{p}$
+\end_inset
+
+ stands for an equivalence class of function which differ on a set of measure
+ zero.
+ The inequality
+\begin_inset Formula 
+\begin{align*}
+\abs{u\left(x\right)} & \le c\norm u_{H^{1,p}\left(\mathbb{R}^{n}\right)}
+\end{align*}
+
+\end_inset
+
+makes no sense on these classes.
+\end_layout
+
+\begin_layout Subsection
+Theorem 
+\series medium
+(Hölder Continuous Representative)
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\Omega\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ be bounded with 
+\begin_inset Formula $C^{1}$
+\end_inset
+
+-boundary.
+ Assume 
+\begin_inset Formula $n<p\le\infty$
+\end_inset
+
+ and 
+\begin_inset Formula $u\in H^{1,p}\left(\Omega\right)$
+\end_inset
+
+.
+ Then there is a representative 
+\begin_inset Formula $u^{*}$
+\end_inset
+
+ of 
+\begin_inset Formula $u$
+\end_inset
+
+ in 
+\begin_inset Formula $H^{1,p}\left(\Omega\right)$
+\end_inset
+
+, which is Hölder continuous 
+\begin_inset Formula $u\in C^{0,\gamma}\left(\overline{\Omega}\right)$
+\end_inset
+
+ with 
+\begin_inset Formula $\gamma=1-\frac{n}{p}$
+\end_inset
+
+ and:
+\begin_inset Formula 
+\begin{align*}
+\norm{u^{*}}_{C^{0,\gamma}} & \le c\norm u_{H^{1,p}\left(\Omega\right)}
+\end{align*}
+
+\end_inset
+
+In what follows, we always choose this representative and omit the star.
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $u\in H^{1,p}\left(\Omega\right)$
+\end_inset
+
+ there are 
+\begin_inset Formula $u_{m}\in C_{0}^{1}\left(\mathbb{R}^{n}\right)$
+\end_inset
+
+ with 
+\begin_inset Formula $u_{m}\big|_{\Omega}\to u$
+\end_inset
+
+ converging in 
+\begin_inset Formula $H^{1,p}\left(\Omega\right)$
+\end_inset
+
+ and
+\begin_inset Formula 
+\begin{align*}
+\norm{u_{m}}_{H^{1,p}\left(\mathbb{R}^{n}\right)} & \le c\norm{u_{m}}_{H^{1,p}\left(\Omega\right)}
+\end{align*}
+
+\end_inset
+
+just as in the proof of Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Thm-Proof-with-extension"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+According to Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Thm-Morrey-Inequalities"
+
+\end_inset
+
+, the Morrey inequalities hold:
+\begin_inset Formula 
+\begin{align*}
+\norm{u_{m}-u_{l}}_{C^{0,\gamma}\left(\mathbb{R}^{n}\right)} & \le C\norm{u_{m}-u_{l}}_{H^{1,p}\left(\mathbb{R}^{n}\right)}\le cC\norm{u_{m}-u_{l}}_{H^{1,p}\left(\Omega\right)}\xrightarrow{m,l\to\infty}0
+\end{align*}
+
+\end_inset
+
+Thus 
+\begin_inset Formula $u_{l}$
+\end_inset
+
+ is a Cauchy sequence in 
+\begin_inset Formula $C^{0,\gamma}\left(\overline{\Omega}\right)$
+\end_inset
+
+.
+ Hence converges 
+\begin_inset Formula $u_{l}\to u^{*}\in C^{0,\gamma}\left(\overline{\Omega}\right)$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+\norm{u^{*}}_{C^{0,\gamma}\left(\overline{\Omega}\right)}\xleftarrow{l\to\infty}\norm{u_{l}}_{C^{0,\gamma}\left(\overline{\Omega}\right)} & \le c\norm{u_{l}}_{H^{1,p}\left(\Omega\right)}\xrightarrow{l\to\infty}c\norm u_{H^{1,p}\left(\Omega\right)}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Construction of Weak Solutions of Linear Elliptic PDEs
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\Omega\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ be a open domain with smooth boundary and 
+\begin_inset Formula $n\in\mathbb{N}_{>2}$
+\end_inset
+
+.
+ Consider the linear partial differential operator in divergence form:
+\begin_inset Formula 
+\begin{align*}
+Lu & =-\frac{\partial}{\partial x^{i}}\left(a^{ij}\left(x\right)\frac{\partial}{\partial x^{j}}u\left(x\right)\right)+c\left(x\right)u\left(x\right)
+\end{align*}
+
+\end_inset
+
+Assume that the 
+\begin_inset Formula $a^{ij}$
+\end_inset
+
+ are uniformly elliptic, i.e.
+ for all 
+\begin_inset Formula $\xi\in\mathbb{R}^{n}$
+\end_inset
+
+ and all 
+\begin_inset Formula $x\in\Omega$
+\end_inset
+
+ holds:
+\begin_inset Formula 
+\begin{align*}
+a^{ij}\left(x\right)\xi_{i}\xi_{j} & \ge c\norm{\xi}^{2}
+\end{align*}
+
+\end_inset
+
+Also assume that the coefficients are smooth and uniformly bounded 
+\begin_inset Formula $\abs{a^{ij}},\abs c\le K$
+\end_inset
+
+.
+ The first order term is missing!
+\end_layout
+
+\begin_layout Standard
+We consider the Dirichlet problem:
+\begin_inset Formula 
+\begin{align*}
+Lu & =f\in C^{\infty}\left(\overline{\Omega}\right)\quad\text{in }\Omega\\
+u\big|_{\partial\Omega} & =u_{0}\in C^{\infty}\left(\partial\Omega\right)
+\end{align*}
+
+\end_inset
+
+Examples:
+\end_layout
+
+\begin_layout Itemize
+Poisson equation in 
+\begin_inset Formula $\Omega\subseteq\mathbb{R}^{n}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Let 
+\begin_inset Formula $\left(M,g\right)$
+\end_inset
+
+ be a Riemannian manifold and 
+\begin_inset Formula $\Omega\subseteq M$
+\end_inset
+
+ be contained in a coordinate chart 
+\begin_inset Formula $\left(x,U\right)$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+usetikzlibrary{decorations.markings}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw plot[smooth cycle] coordinates {(-2,1) (-1,3) (0,3) (0.75,2.25) (3,1)
+ (3.5,0) (3,-1) (-1,-1)};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[rotate=35] (0,1) circle (0.5 and 1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw plot[smooth cycle] coordinates {(1,0.5) (1.5,1) (2.5,0) (1,-0.5)};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (1,1) {$
+\backslash
+Omega $};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[even odd rule] plot[smooth cycle] coordinates {(1,0.5) (1.5,1) (2.5,0)
+ (1,-0.5)}   [path picture={     
+\backslash
+foreach 
+\backslash
+x in {0,1,...,2}       
+\backslash
+draw (0,{0.5*
+\backslash
+x}) -- (3,{0.5*
+\backslash
+x -0.9});   }];
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[dashed] (1.5,0.3) circle (1.2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (1,1.7) {$U$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[thick,decoration={markings,mark=at position 0.9999 with {
+\backslash
+arrow[scale=2]{>}};},postaction={decorate}] (4,1) ..
+ controls +(1,1) and +(-1,1) ..
+ node[above]{$x$} (7,1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (8,-1) rectangle (12,3) node [above right]{$
+\backslash
+mathbb{R}^n$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[dashed] (10,1) circle (1.5);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (9,2.6) {$x(U)$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw plot[smooth cycle] coordinates {(9,0.5) (11,0.3) (11,1.5) (10,1.8)};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (9.5,2) {$x(
+\backslash
+Omega )$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+The chart maps 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ to 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+The Laplace-Beltrami-Operator is:
+\begin_inset Formula 
+\begin{align*}
+\LBO u & =\frac{1}{\sqrt{\det\left(g\right)}}\frac{\partial}{\partial x^{i}}\left(\sqrt{\det\left(g\right)}g^{ij}\frac{\partial}{\partial x^{j}}u\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\LBO u & =f\qquad\Leftrightarrow\qquad\frac{\partial}{\partial x^{i}}\left(\sqrt{\det\left(g\right)}g^{ij}\frac{\partial}{\partial x^{j}}u\right)=\sqrt{\det\left(g\right)}f=\tilde{f}
+\end{align*}
+
+\end_inset
+
+This is in the desired divergence form.
 \end_layout
 
 \begin_layout Part*

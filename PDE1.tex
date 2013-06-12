@@ -4873,7 +4873,7 @@ Finally follows:
 \qqed[\ref{sub:Thm-Gagliando-Nirenberg}]
 \end{enumerate}
 
-\subsection{Theorem}
+\subsection{Theorem\label{sub:Thm-Proof-with-extension}}
 
 Let $\Omega\subseteq\mathbb{R}^{n}$ be an open, bounded domain with
 $C^{1}$-boundary. Then there is a constant $C\in\mathbb{R}_{>0}$
@@ -4903,11 +4903,21 @@ to obtain functions $\overline{u}_{n}$ with:
 \norm{\overline{u}_{n}}_{H^{1,p}\left(\Omega'\right)} & \le\tilde{c}\norm{u_{n}}_{H^{1,p}\left(\Omega\right)}
 \end{align*}
 A subsequence of the $\overline{u}_{n}$ converges to $\overline{u}$
-in $H_{0}^{1,p}\left(\Omega'\right)$. Extending $\overline{u}$ by
-zero to $\mathbb{R}^{n}$ we get:
+in $H_{0}^{1,p}\left(\Omega'\right)$. The constant $\tilde{c}$ can
+be chosen independently of $u$, because one can construct a linear
+mapping
+\begin{align*}
+A:C^{1}\left(\Omega\right) & \to C_{0}^{1}\left(\Omega'\right)
+\end{align*}
+with:
+\begin{align*}
+\norm{Au}_{H^{1,p}\left(\Omega'\right)} & \le c\norm u_{H^{1,p}\left(\Omega\right)}\qquad\fall_{u\in C^{1}\left(\Omega\right)}
+\end{align*}
+Extending $\overline{u}$ by zero to $\mathbb{R}^{n}$ we get:
 \begin{align*}
 \norm{\overline{u}}_{H^{1,p}\left(\mathbb{R}^{n}\right)} & \le\tilde{c}\norm u_{H^{1,p}\left(\Omega\right)}
 \end{align*}
+Now follows:
 \begin{align*}
 \norm u_{L^{p^{*}}\left(\Omega\right)} & \le\norm{\overline{u}}_{L^{p^{*}}\left(\mathbb{R}^{n}\right)}\sr{\le}{\ref{sub:Thm-Gagliando-Nirenberg}}{}c\norm{\DD\overline{u}}_{L^{p}\left(\mathbb{R}^{n}\right)}\le\\
  & \le c\norm{\overline{u}}_{H^{1,p}\left(\mathbb{R}^{n}\right)}\le\underbrace{c\tilde{c}}_{=:C}\norm u_{H^{1,p}\left(\Omega\right)}
@@ -4986,6 +4996,255 @@ It holds:
 \end{align*}
 \qqed
 
+%DATE: Mi 12.6.13
+
+
+\section{The Morrey Inequalities}
+
+This traces back to Charles Morrey (1907-1984).
+
+
+\subsection{Theorem \textmd{(Morrey Inequalities)\label{sub:Thm-Morrey-Inequalities}}}
+
+For $n<p\le\infty$ exists a constant $C\in\mathbb{R}_{>0}$ (depending
+only on $n$ and $p$), such that for $u\in C^{1}\left(\mathbb{R}^{n}\right)\cap L^{p}\left(\mathbb{R}^{n}\right)$
+and $\gamma:=1-\frac{n}{p}$ holds:
+\begin{align*}
+\norm u_{C^{0,\gamma}\left(\mathbb{R}^{n}\right)} & \le C\norm u_{H^{1,p}\left(\mathbb{R}^{n}\right)}
+\end{align*}
+The exponent $\gamma$ can be found with a scaling argument.
+
+
+\subsubsection*{Proof}
+
+We define:
+\begin{align*}
+\fint_{U}f\left(y\right)\dd^{n}y & :=\frac{1}{\mu\left(U\right)}\int_{U}f\left(y\right)\dd^{n}y
+\end{align*}
+
+\begin{enumerate}
+\item  
+
+\begin{description}
+\item [{Claim:}] 
+\begin{align*}
+\fint_{B_{r}\left(x\right)}\abs{u\left(x\right)-u\left(y\right)}\dd^{n}y & \le C_{1}\left(n\right)\cdot\int\frac{\norm{\DD u\left(y\right)}}{\norm{x-y}^{n-1}}\dd^{n}y
+\end{align*}
+
+\item [{Proof:}] Choose $B_{r}\left(x\right)$, $s\in\left(0,r\right)$
+and a unit vector $w\in\partial B_{1}\left(0\right)$.\\
+\begin{figure}[H]
+\noindent \centering{}\begin{tikzpicture}
+  \draw (0,0) +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+  \draw (0,0) circle (2) circle (3.5);
+  \draw[->] (0,0) -- node[below]{$s$} ({2*cos(160)},{2*sin(160)}) node[left]{$x+sw$};
+  \draw (0,0) -- node[left]{$r$} ({3.5*cos(60)},{3.5*sin(60)});
+\end{tikzpicture}\caption{$x+sw\in B_{r}\left(x\right)$}
+\end{figure}
+\begin{align*}
+\abs{u\left(x+sw\right)-u\left(x\right)} & =\abs{\int_{0}^{s}\frac{\dd}{\dd t}u\left(x+tw\right)\dd t}\le\int_{0}^{s}\norm{\DD u\left(x+tw\right)}\cdot\underbrace{\norm w}_{=1}\dd t
+\end{align*}
+Integration gives:
+\begin{align*}
+ & \int_{\partial B_{1}\left(0\right)}\abs{u\left(x+sw\right)-u\left(x\right)}\dd\mu_{\partial B_{1}\left(0\right)}\left(w\right)\le\\
+ & \qquad\qquad\qquad\qquad\le\int_{0}^{s}\dd t\int_{\partial B_{1}\left(0\right)}\norm{\DD u\left(x+tw\right)}\dd\mu_{\partial B_{1}\left(0\right)}\left(w\right)=\\
+ & \qquad\qquad\qquad\qquad\sr ={z:=x+tw}{}\int_{0}^{s}\frac{\dd t}{t^{n-1}}\int_{\partial B_{t}\left(x\right)}\norm{\DD u\left(z\right)}\dd\mu_{\partial B_{t}\left(x\right)}\left(z\right)=\\
+ & \qquad\qquad\qquad\qquad\sr ={t=\norm{x-z}}{}\int_{0}^{s}\dd t\int_{\partial B_{t}\left(x\right)}\frac{\norm{\DD u\left(z\right)}}{\norm{x-z}^{n-1}}\dd\mu_{\partial B_{t}\left(x\right)}\left(z\right)=\\
+ & \qquad\qquad\qquad\qquad\sr ={\text{Fubini}}{}\int_{B_{s}\left(x\right)}\frac{\norm{\DD u\left(y\right)}}{\norm{x-y}^{n-1}}\dd\mu_{B_{s}\left(x\right)}\left(y\right)\le\int_{B_{r}\left(x\right)}\frac{\norm{\DD u\left(y\right)}}{\norm{x-y}^{n-1}}\dd^{n}y
+\end{align*}
+Multiplying by $s^{n-1}$ and integrating over $s$ gives:
+\begin{align*}
+\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\int_{0}^{r}\dd s\cdot s^{n-1}\int_{\partial B_{1}\left(0\right)}\abs{u\left(x+sw\right)-u\left(x\right)}\dd\mu_{\partial B_{1}\left(0\right)}\left(w\right) & \le\int_{0}^{r}\dd s\cdot s^{n-1}\int_{B_{r}\left(x\right)}\frac{\norm{\DD u\left(y\right)}}{\norm{x-y}^{n-1}}\dd^{n}y\\
+\negthickspace\negthickspace\negthickspace\negthickspace\negthickspace\sr{\Rightarrow}{\text{Fubini}}{}\qquad\qquad\int_{\partial B_{r}\left(x\right)}\abs{u\left(y\right)-u\left(x\right)}\dd\mu_{B_{r}\left(x\right)}\left(y\right) & \le\frac{r^{n}}{n}\int_{B_{r}\left(x\right)}\frac{\norm{\DD u\left(y\right)}}{\norm{x-y}^{n-1}}\dd^{n}y
+\end{align*}
+Dividing by $r^{n}$ gives the claim.\qqed[\arabic{enumi}.]
+\end{description}
+\item Now estimate $u$ point-wise:
+\begin{align*}
+\abs{u\left(x\right)} & =\abs{u\left(x\right)}\underbrace{\fint_{B_{1}\left(x\right)}\dd^{n}y}_{=1}\le\fint_{B_{1}\left(x\right)}\abs{u\left(x\right)-u\left(y\right)}\dd^{n}y+\fint_{B_{1}\left(x\right)}\abs{u\left(y\right)}\dd^{n}y\le\\
+ & \sr{\le}{\text{1.}}{}C_{1}\cdot\int\frac{\norm{\DD u\left(y\right)}}{\norm{x-y}^{n-1}}\dd^{n}y+\frac{1}{\omega_{n}}\int_{B_{1}\left(x\right)}\abs{u\left(y\right)}\dd^{n}y\le\\
+ & \sr{\le}{\text{Hölder}}{p^{-1}+q^{-1}=1}C_{1}\norm{\DD u}_{L^{q}\left(B_{1}\left(x\right)\right)}\left(\int_{B_{1}\left(x\right)}\left(\frac{1}{\norm{x-y}^{n-1}}\right)^{q}\dd^{n}y\right)^{\frac{1}{q}}+\\
+ & \qquad\qquad\quad+\norm u_{L^{p}\left(B_{1}\left(x\right)\right)}\underbrace{\frac{1}{\omega_{n}}\left(\int_{B_{1}\left(x\right)}1^{q}\dd^{n}y\right)^{\frac{1}{q}}}_{=:C_{2}}\le\\
+ & \le C_{1}\norm{\DD u}_{L^{q}\left(\mathbb{R}^{n}\right)}\left(\int_{B_{1}\left(x\right)}\left(\frac{1}{\norm{x-y}^{n-1}}\right)^{q}\dd^{n}y\right)^{\frac{1}{q}}+C_{2}\norm u_{L^{p}\left(\mathbb{R}^{n}\right)}
+\end{align*}
+Is the pole integrable? The order of the pole is:
+\begin{align*}
+\left(n-1\right)q=\left(n-1\right)\frac{p}{p-1} & \sr <?{}n\\
+\left(n-1\right)p & \sr <?{}n\left(p-1\right)\\
+-p & \sr <?{}-n\\
+n & <p
+\end{align*}
+This holds by assumption, thus the pole is integrable and we get:
+\begin{align*}
+\abs{\int_{B_{1}\left(x\right)}\frac{1}{\norm{x-y}^{\left(n-1\right)q}}} & \le C_{3}<\infty
+\end{align*}
+Thus holds:
+\begin{align*}
+\abs{u\left(x\right)} & \le C_{1}C_{3}\norm{\DD u}_{L^{q}\left(B_{1}\left(x\right)\right)}+C_{2}\norm u_{L^{p}\left(\mathbb{R}^{n}\right)}\le C_{4}\norm u_{H^{1,p}\left(\mathbb{R}^{n}\right)}
+\end{align*}
+
+\item Now estimate $\abs{u\left(x\right)-u\left(y\right)}$. For $x,y\in\mathbb{R}^{n}$
+define $r:=\norm{x-y}$ and $W:=B_{r}\left(x\right)\cap B_{r}\left(y\right)$.\\
+\begin{figure}[H]
+\noindent \centering{}\begin{tikzpicture}[scale=0.7]
+  \draw (-2,0) node[left]{$x$} +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+  \draw (2,0)  node[right]{$y$} +(0.1,0.1) -- +(-0.1,-0.1) +(0.1,-0.1) -- +(-0.1,0.1);
+  \node at (0,3) {$W$};
+  \draw (-2,0) circle (4) (2,0) circle (4);
+  \path[even odd rule] (-4,-4) rectangle (4,4) (-2,0) circle (4) (2,0) circle (4)
+  [path picture={
+    \foreach \x in {-2,-1,...,3}
+      \draw (-2,\x) -- (2,{\x -0.9});
+  }];
+\end{tikzpicture}\caption{Intersection of spheres}
+\end{figure}
+Thus we get:
+\begin{align*}
+\abs{u\left(x\right)-u\left(y\right)} & =\fint_{W}\abs{u\left(x\right)-u\left(y\right)}\dd^{n}z\le\fint_{W}\abs{u\left(x\right)-u\left(z\right)}\dd^{n}z+\fint_{W}\abs{u\left(z\right)-u\left(y\right)}\dd^{n}z
+\end{align*}
+\begin{align}
+\fint_{W}\abs{u\left(x\right)-u\left(z\right)}\dd^{n}z & \le\frac{1}{\mu\left(W\right)}\int_{B_{r}\left(x\right)}\abs{u\left(x\right)-u\left(z\right)}\dd^{n}z=C_{5}\left(n\right)\fint_{B_{r}\left(x\right)}\abs{u\left(x\right)-u\left(z\right)}\dd^{n}z\label{eq:integrals-u}
+\end{align}
+The constant
+\begin{align*}
+C_{5}\left(n\right) & =\frac{\mu\left(B_{r}\right)}{\mu\left(W\right)}
+\end{align*}
+is independent of $r$, due to the proportionalities $\mu\left(B_{r}\right)\sim r^{n}\sim\mu\left(W\right)$.
+With 1. follows:
+\begin{align*}
+\fint_{W}\abs{u\left(x\right)-u\left(z\right)}\dd^{n}z & \le C_{5}\left(n\right)\fint_{B_{r}\left(x\right)}\abs{u\left(x\right)-u\left(z\right)}\dd^{n}z\le\\
+ & \le C_{5}\left(n\right)C_{1}\left(n\right)\cdot\int_{B_{r}\left(x\right)}\frac{\norm{\DD u\left(z\right)}}{\norm{x-z}^{n-1}}\dd^{n}z\le\\
+ & \sr{\le}{\text{Hölder}}{}C_{6}\left(n\right)\norm{\DD u}_{L^{p}\left(B_{r}\left(x\right)\right)}\left(\int_{B_{r}\left(x\right)}\frac{1}{\norm{x-z}^{\left(n-1\right)\frac{p}{p-1}}}\dd^{n}z\right)^{\frac{p-1}{p}}
+\end{align*}
+\begin{align*}
+\int_{B_{r}\left(x\right)}\frac{1}{\norm{x-z}^{\left(n-1\right)\frac{p}{p-1}}}\dd^{n}z & =\int_{0}^{r}\dd s\left(n\omega_{n}\right)s^{n-1}\frac{1}{s^{\left(n-1\right)\frac{p}{p-1}}}=C_{7}\left(n\right)r\cdot r^{n-1}\frac{1}{r^{\left(n-1\right)\frac{p}{p-1}}}=\\
+ & =C_{7}\left(n\right)r^{n-\frac{\left(n-1\right)p}{p-1}}=C_{7}\left(n\right)r^{\frac{np-n-np+p}{p-1}}=C_{7}\left(n\right)r^{\frac{p-n}{p-1}}
+\end{align*}
+Thus follows:
+\begin{align*}
+\fint_{W}\abs{u\left(x\right)-u\left(z\right)}\dd^{n}z & \le\underbrace{C_{6}\left(n\right)\left(C_{7}\left(n\right)\right)^{\frac{p-1}{p}}}_{=:C_{8}\left(n\right)}\norm{\DD u}_{L^{p}\left(B_{r}\left(x\right)\right)}r^{\frac{p-n}{p-1}\cdot\frac{p-1}{p}}
+\end{align*}
+Estimating the other integral in (\ref{eq:integrals-u}) in the same
+way, we obtain:
+\begin{align*}
+\abs{u\left(x\right)-u\left(y\right)} & \le\underbrace{2C_{8}\left(n\right)}_{=:C_{9}\left(n\right)}r^{1-\frac{n}{p}}\norm{\DD u}_{L^{p}\left(\mathbb{R}^{n}\right)}
+\end{align*}
+With $\gamma:=1-\frac{n}{p}$ follows for all $x,y\in\mathbb{R}^{n}$
+due to $r=\norm{x-y}$:
+\begin{align*}
+\frac{\abs{u\left(x\right)-u\left(y\right)}}{\norm{x-y}^{\gamma}} & \le C_{9}\left(n\right)\norm{\DD u}_{L^{p}\left(\mathbb{R}^{n}\right)}
+\end{align*}
+
+\item Combining 2. and 3., we get:
+\begin{align*}
+\norm u_{C^{0,\gamma}\left(\mathbb{R}^{n}\right)} & =\norm u_{C^{0}\left(\mathbb{R}^{n}\right)}+\sup_{x\not=y\in\mathbb{R}^{n}}\frac{\abs{u\left(x\right)-u\left(y\right)}}{\norm{x-y}^{\gamma}}\le\\
+ & \le C_{4}\left(n\right)\norm u_{H^{1,p}\left(\mathbb{R}^{n}\right)}+C_{9}\left(n\right)\norm{\DD u}_{L^{p}\left(\mathbb{R}^{n}\right)}\le C\norm u_{H^{1,p}\left(\mathbb{R}^{n}\right)}
+\end{align*}
+
+\end{enumerate}
+\qqed
+
+We use a denseness argument to extend the statement to $H^{1,p}$-functions
+and $C^{0,\alpha}$-functions. For $u\in H^{1,p}\left(\mathbb{R}^{n}\right)$,
+weak derivatives $\DD^{\left(i\right)}u$ exist and are in $L^{p}$.
+Note that $u\in L^{p}$ stands for an equivalence class of function
+which differ on a set of measure zero. The inequality
+\begin{align*}
+\abs{u\left(x\right)} & \le c\norm u_{H^{1,p}\left(\mathbb{R}^{n}\right)}
+\end{align*}
+makes no sense on these classes.
+
+
+\subsection{Theorem \textmd{(Hölder Continuous Representative)}}
+
+Let $\Omega\subseteq\mathbb{R}^{n}$ be bounded with $C^{1}$-boundary.
+Assume $n<p\le\infty$ and $u\in H^{1,p}\left(\Omega\right)$. Then
+there is a representative $u^{*}$ of $u$ in $H^{1,p}\left(\Omega\right)$,
+which is Hölder continuous $u\in C^{0,\gamma}\left(\overline{\Omega}\right)$
+with $\gamma=1-\frac{n}{p}$ and:
+\begin{align*}
+\norm{u^{*}}_{C^{0,\gamma}} & \le c\norm u_{H^{1,p}\left(\Omega\right)}
+\end{align*}
+In what follows, we always choose this representative and omit the
+star.
+
+
+\subsubsection*{Proof}
+
+For $u\in H^{1,p}\left(\Omega\right)$ there are $u_{m}\in C_{0}^{1}\left(\mathbb{R}^{n}\right)$
+with $u_{m}\big|_{\Omega}\to u$ converging in $H^{1,p}\left(\Omega\right)$
+and
+\begin{align*}
+\norm{u_{m}}_{H^{1,p}\left(\mathbb{R}^{n}\right)} & \le c\norm{u_{m}}_{H^{1,p}\left(\Omega\right)}
+\end{align*}
+just as in the proof of Theorem \ref{sub:Thm-Proof-with-extension}.
+
+According to Theorem \ref{sub:Thm-Morrey-Inequalities}, the Morrey
+inequalities hold:
+\begin{align*}
+\norm{u_{m}-u_{l}}_{C^{0,\gamma}\left(\mathbb{R}^{n}\right)} & \le C\norm{u_{m}-u_{l}}_{H^{1,p}\left(\mathbb{R}^{n}\right)}\le cC\norm{u_{m}-u_{l}}_{H^{1,p}\left(\Omega\right)}\xrightarrow{m,l\to\infty}0
+\end{align*}
+Thus $u_{l}$ is a Cauchy sequence in $C^{0,\gamma}\left(\overline{\Omega}\right)$.
+Hence converges $u_{l}\to u^{*}\in C^{0,\gamma}\left(\overline{\Omega}\right)$.
+\begin{align*}
+\norm{u^{*}}_{C^{0,\gamma}\left(\overline{\Omega}\right)}\xleftarrow{l\to\infty}\norm{u_{l}}_{C^{0,\gamma}\left(\overline{\Omega}\right)} & \le c\norm{u_{l}}_{H^{1,p}\left(\Omega\right)}\xrightarrow{l\to\infty}c\norm u_{H^{1,p}\left(\Omega\right)}
+\end{align*}
+\qqed
+
+
+\chapter{Construction of Weak Solutions of Linear Elliptic PDEs}
+
+Let $\Omega\subseteq\mathbb{R}^{n}$ be a open domain with smooth
+boundary and $n\in\mathbb{N}_{>2}$. Consider the linear partial differential
+operator in divergence form:
+\begin{align*}
+Lu & =-\frac{\partial}{\partial x^{i}}\left(a^{ij}\left(x\right)\frac{\partial}{\partial x^{j}}u\left(x\right)\right)+c\left(x\right)u\left(x\right)
+\end{align*}
+Assume that the $a^{ij}$ are uniformly elliptic, i.e. for all $\xi\in\mathbb{R}^{n}$
+and all $x\in\Omega$ holds:
+\begin{align*}
+a^{ij}\left(x\right)\xi_{i}\xi_{j} & \ge c\norm{\xi}^{2}
+\end{align*}
+Also assume that the coefficients are smooth and uniformly bounded
+$\abs{a^{ij}},\abs c\le K$. The first order term is missing!
+
+We consider the Dirichlet problem:
+\begin{align*}
+Lu & =f\in C^{\infty}\left(\overline{\Omega}\right)\quad\text{in }\Omega\\
+u\big|_{\partial\Omega} & =u_{0}\in C^{\infty}\left(\partial\Omega\right)
+\end{align*}
+Examples:
+\begin{itemize}
+\item Poisson equation in $\Omega\subseteq\mathbb{R}^{n}$
+\item Let $\left(M,g\right)$ be a Riemannian manifold and $\Omega\subseteq M$
+be contained in a coordinate chart $\left(x,U\right)$.\\
+\begin{figure}[H]
+\noindent \centering{}\usetikzlibrary{decorations.markings}
+\begin{tikzpicture}
+  \draw plot[smooth cycle] coordinates {(-2,1) (-1,3) (0,3) (0.75,2.25) (3,1) (3.5,0) (3,-1) (-1,-1)};
+  \draw[rotate=35] (0,1) circle (0.5 and 1);
+  \draw plot[smooth cycle] coordinates {(1,0.5) (1.5,1) (2.5,0) (1,-0.5)};
+  \node at (1,1) {$\Omega $};
+  \path[even odd rule] plot[smooth cycle] coordinates {(1,0.5) (1.5,1) (2.5,0) (1,-0.5)}   [path picture={     \foreach \x in {0,1,...,2}       \draw (0,{0.5*\x}) -- (3,{0.5*\x -0.9});   }];
+  \draw[dashed] (1.5,0.3) circle (1.2);
+  \node at (1,1.7) {$U$};
+  \draw[thick,decoration={markings,mark=at position 0.9999 with {\arrow[scale=2]{>}};},postaction={decorate}] (4,1) .. controls +(1,1) and +(-1,1) .. node[above]{$x$} (7,1);
+  \draw (8,-1) rectangle (12,3) node [above right]{$\mathbb{R}^n$};
+  \draw[dashed] (10,1) circle (1.5);
+  \node at (9,2.6) {$x(U)$};
+  \draw plot[smooth cycle] coordinates {(9,0.5) (11,0.3) (11,1.5) (10,1.8)};
+  \node at (9.5,2) {$x(\Omega )$};
+\end{tikzpicture}\caption{The chart maps $\Omega$ to $\mathbb{R}^{n}$.}
+\end{figure}
+The Laplace-Beltrami-Operator is:
+\begin{align*}
+\LBO u & =\frac{1}{\sqrt{\det\left(g\right)}}\frac{\partial}{\partial x^{i}}\left(\sqrt{\det\left(g\right)}g^{ij}\frac{\partial}{\partial x^{j}}u\right)
+\end{align*}
+\begin{align*}
+\LBO u & =f\qquad\Leftrightarrow\qquad\frac{\partial}{\partial x^{i}}\left(\sqrt{\det\left(g\right)}g^{ij}\frac{\partial}{\partial x^{j}}u\right)=\sqrt{\det\left(g\right)}f=\tilde{f}
+\end{align*}
+This is in the desired divergence form.
+\end{itemize}
 
 \part*{Appendix\thispagestyle{empty}}
 
