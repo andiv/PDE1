@@ -5245,6 +5245,271 @@ The Laplace-Beltrami-Operator is:
 \end{align*}
 This is in the desired divergence form.
 \end{itemize}
+%DATE: Fr 14.6.13
+
+Reduction to the case $u_{0}=0$: Let $v\in C^{\infty}\left(\overline{\Omega}\right)$
+with $v\big|_{\partial\Omega}=u_{0}$. Set $\tilde{u}:=u-v$.
+\begin{align*}
+L\tilde{u} & =f-Lv=:\tilde{f}\\
+\tilde{u}\big|_{\partial\Omega} & =0
+\end{align*}
+A solution $\tilde{u}$ of this Dirichlet problem yields a solution
+$u=\tilde{u}+v$ of the original problem.
+
+Therefore, from now on we consider the problem:
+\begin{align*}
+Lu & =f\\
+u\big|_{\partial\Omega} & =0
+\end{align*}
+
+
+
+\section{The Dirichlet Principle}
+
+Define the \emph{action}:
+\begin{align*}
+S & :=\int\left(a^{ij}\left(x\right)\left(\frac{\partial}{\partial x^{i}}u\left(x\right)\right)\left(\frac{\partial}{\partial x^{j}}u\left(x\right)\right)+c\left(x\right)u^{2}\left(x\right)-2f\left(x\right)u\left(x\right)\right)\dd^{n}x
+\end{align*}
+Suppose $u$ is a critical point (for example a minimizer), then holds
+for $\eta\in C_{0}^{\infty}\left(\Omega\right)$ formally:
+\begin{align*}
+0 & =\frac{\dd}{\dd t}S\left(u+\tau\eta\right)\big|_{\tau=0}=\\
+ & =\int_{\Omega}\left(2a^{ij}\left(x\right)\left(\frac{\partial}{\partial x^{i}}u\left(x\right)\right)\left(\frac{\partial}{\partial x^{j}}\eta\left(x\right)\right)+2c\left(x\right)u\left(x\right)\eta\left(x\right)-2f\left(x\right)\eta\left(x\right)\right)\dd^{n}x=\\
+ & \sr ={\text{integration}}{\text{by parts}}2\int_{\Omega}\eta\left(x\right)\underbrace{\left(-\frac{\partial}{\partial x^{j}}\left(a^{ij}\left(x\right)\left(\frac{\partial}{\partial x^{i}}u\left(x\right)\right)\right)+c\left(x\right)u\left(x\right)-f\left(x\right)\right)}_{=Lu-f}\dd^{n}x
+\end{align*}
+This has to hold for any $\eta$ and thus follows $Lu-f=0$.
+
+Assume $u\in H^{1,2}\left(\Omega\right)$ for the integral over the
+two partial derivatives in the action being well defined. To ensure
+the boundary value $u\big|_{\partial\Omega}=0$ we assume even $u\in H_{0}^{1,2}\left(\Omega\right)$.
+Then holds:
+\begin{align*}
+\int_{\Omega}\underbrace{a^{ij}\left(\partial_{i}u\right)\left(\partial_{j}u\right)}_{\ge0}\dd^{n}x & \le\sup_{\Omega}\left(\abs{a^{ij}}\right)\int_{\Omega}\norm{\DD u}^{2}\dd^{n}x\le\sup_{\Omega}\left(\abs{a^{ij}}\right)\norm u_{H_{0}^{1,2}\left(\Omega\right)}^{2}<\infty\\
+\int_{\Omega}\abs{c\left(x\right)u^{2}\left(x\right)}\dd^{n}x & \le\sup_{\Omega}\left(\abs c\right)\int_{\Omega}u^{2}\left(x\right)\dd^{n}x\le\sup_{\Omega}\left(\abs c\right)\norm u_{H_{0}^{1,2}\left(\Omega\right)}^{2}<\infty\\
+\int_{\Omega}2\abs{f\left(x\right)u\left(x\right)}\dd^{n}x & \le2\norm f_{L^{2}\left(\Omega\right)}\norm u_{L^{2}\left(\Omega\right)}\le2\norm f_{L^{2}\left(\Omega\right)}\norm u_{H_{0}^{1,2}\left(\Omega\right)}<\infty
+\end{align*}
+We always assume that $\Omega$ is bounded. Then $f\in C^{\infty}\left(\overline{\Omega}\right)$
+implies $f\in L^{2}\left(\Omega\right)$.
+
+Furthermore, we know from the Gagliando-Nirenberg estimate
+\begin{align*}
+H_{0}^{1,2}\left(\Omega\right) & \hookrightarrow L^{p^{*}}\left(\Omega\right)
+\end{align*}
+with $p=2$ and:
+\begin{align*}
+\frac{1}{p^{*}} & =\frac{1}{2}-\frac{1}{n}<\frac{1}{2}\\
+p^{*} & =\frac{2n}{n-2}>2
+\end{align*}
+This is an \emph{imbedding} (\emph{embedding}), i.e. an injective
+mapping.
+
+If $\Omega$ has finite volume, which it has in our case, since we
+assume that $\Omega$ is bounded, it follows:
+\begin{align*}
+\norm u_{L^{2}\left(\Omega\right)} & =\left(\int_{\Omega}u^{2}\left(x\right)\dd^{n}x\right)^{\frac{1}{2}}\le\left(\int_{\Omega}u^{2\tilde{p}}\left(x\right)\dd^{n}x\right)^{\frac{1}{2\tilde{p}}}\left(\mu\left(\Omega\right)\right)^{\frac{1}{2\tilde{q}}}\le\tilde{c}\norm u_{L^{2\tilde{p}}\left(\Omega\right)}
+\end{align*}
+We chose $\tilde{p}$ such that $2\tilde{p}=p^{*}$ and use Poincaré's
+inequality:
+\begin{align*}
+\norm u_{L^{2}\left(\Omega\right)} & \le\tilde{c}\norm u_{L^{p^{*}}\left(\Omega\right)}\le\underbrace{\tilde{c}C}_{=:c}\norm{\DD u}_{L^{2}\left(\Omega\right)}
+\end{align*}
+Thus the action can be viewed as a mapping:
+\begin{align*}
+S:H_{0}^{1,2}\left(\Omega\right) & \to\mathbb{R}
+\end{align*}
+
+
+
+\subsection{Theorem \textmd{(Action Bounded from Below)}}
+
+$S$ is bounded from below, i.e. $S\left(u\right)\ge-K\in\mathbb{R}_{\le0}$
+for all $u\in H_{0}^{1,2}\left(\Omega\right)$.
+
+
+\subsubsection*{Proof}
+
+The uniform ellipticity means:
+\begin{align*}
+a^{ij}\left(\partial_{i}u\right)\left(\partial_{j}u\right) & \ge\underbrace{\lambda}_{>0}\norm{\DD u}^{2}
+\end{align*}
+Moreover holds $C\left(x\right)\ge0$. Therefore follows:
+\begin{align*}
+S\left(u\right) & \ge\int_{\Omega}\lambda\norm{\DD u}^{2}\dd^{n}x-\norm f_{L^{2}\left(\Omega\right)}\cdot\norm u_{L^{2}\left(\Omega\right)}\ge\\
+ & \sr{\ge}{\text{Poincaré}}{}\frac{\lambda}{c^{2}}\norm u_{L^{2}\left(\Omega\right)}^{2}-\norm f_{L^{2}\left(\Omega\right)}\norm u_{L^{2}\left(\Omega\right)}=\\
+ & =\frac{\lambda}{c^{2}}\left(\norm u_{L^{2}\left(\Omega\right)}-\frac{c^{2}}{2\lambda}\norm f_{L^{2}\left(\Omega\right)}\right)^{2}-\frac{c^{2}}{4\lambda}\norm f_{L^{2}\left(\Omega\right)}^{2}\ge\\
+ & \ge-\frac{c^{2}}{4\lambda}\norm f_{L^{2}\left(\Omega\right)}^{2}=:-K
+\end{align*}
+\qqed
+
+We now choose a \emph{minimizing sequence} (Minimalfolge), i.e. a
+sequence $u_{n}\in H_{0}^{1,2}\left(\Omega\right)$ with:
+\begin{align*}
+S\left(u_{n}\right) & \to\inf_{H_{0}^{1,2}\left(\Omega\right)}\left(S\right)
+\end{align*}
+Hope:
+\begin{itemize}
+\item A subsequence of the $u_{n}$ converges (weakly?) in $H_{0}^{1,2}\left(\Omega\right)$
+to $u\in H_{0}^{1,2}\left(\Omega\right)$.
+\item ${\displaystyle S\left(u\right)=\lim_{n\to\infty}S\left(u_{n}\right)=\inf_{H_{0}^{1,2}\left(\Omega\right)}S}$
+\end{itemize}
+Such a minimizer satisfies the following Euler-Lagrange equation:
+
+
+\subsection{Theorem \textmd{(Euler-Lagrange equation)}}
+
+If $u\in H^{1,2}\left(\Omega\right)$ satisfies $S\left(u\right)=\inf_{H_{0}^{1,2}\left(\Omega\right)}\left(S\right)$,
+then holds for all $\eta\in C_{0}^{\infty}\left(\Omega\right)$:
+\begin{align*}
+\int_{\Omega}\left(u\left(-\frac{\partial}{\partial x^{i}}a^{ij}\frac{\partial}{\partial x^{j}}\eta+c\eta\right)-f\eta\right)\dd^{n}x & =0
+\end{align*}
+Thus $u$ is a weak solution of the equation $Lu=f$.
+
+For $u\in C^{2}\left(\Omega\right)$, we can integrate by parts twice,
+which would give:
+\begin{align*}
+\int\left(Lu-f\right)\eta\dd^{n}x & =0
+\end{align*}
+
+
+
+\subsubsection*{Proof}
+
+\begin{align*}
+S\left(u+\tau\eta\right) & =\int_{\Omega}a^{ij}\left(\partial_{i}\left(u+\tau\eta\right)\right)\left(\partial_{j}\left(u+\tau\eta\right)\right)+c\left(u+\tau\eta\right)^{2}-2f\left(u+\tau\eta\right)\dd^{n}x=\\
+ & =\tau^{2}\int_{\Omega}\left(a^{ij}\left(\partial_{i}\eta\right)\left(\partial_{j}\eta\right)+c\eta^{2}\right)\dd^{n}x+2\tau\int_{\Omega}\left(a^{ij}\left(\partial_{i}u\right)\left(\partial_{j}\eta\right)+cu\eta-f\eta\right)\dd^{n}x+\\
+ & \qquad+\int_{\Omega}\left(a^{ij}\left(\partial_{i}u\right)\left(\partial_{j}u\right)+cu^{2}-2fu\right)\dd^{n}x
+\end{align*}
+$S\left(\tau\right)$ has a minimum at $\tau=0$. Therefore holds:
+\begin{align*}
+0 & =\frac{\dd}{\dd\tau}S\left(u+\tau\eta\right)\big|_{\tau=0}=2\int_{\Omega}\left(a^{ij}\left(\partial_{i}u\right)\left(\partial_{j}\eta\right)+cu\eta-f\eta\right)\dd^{n}x\\
+0 & =\int_{\Omega}\left(u\partial_{i}\left(-a^{ij}\left(\partial_{j}\eta\right)\right)+cu\eta-f\eta\right)\dd^{n}x
+\end{align*}
+\qqed
+
+
+\section{Existence of Minimizers}
+
+Let $\left(u_{n}\right)$ be a minimizing sequence. To show is $u_{n}\to u$
+and:
+\begin{align*}
+S\left(u\right) & =\kappa:=\inf_{H_{0}^{1,2}\left(\Omega\right)}\left(S\right)
+\end{align*}
+
+
+More generally, let $\mathcal{H}$ be a Hilbert space. (In our case
+we have $\mathcal{H}=H_{0}^{1,2}\left(\Omega\right)$.)
+\begin{align*}
+A\left(u,v\right) & :=\int_{\Omega}\left(a^{ij}\left(\partial_{i}u\right)\left(\partial_{j}v\right)+cuv\right)\dd^{n}x\\
+l\left(u\right) & :=-2\int_{\Omega}fu\dd^{n}x\\
+S\left(u\right) & =A\left(u,u\right)+l\left(u\right)
+\end{align*}
+The bilinear map $A:\mathcal{H}\times\mathcal{H}\to\mathbb{R}$ and
+the linear map $l:\mathcal{H}\to\mathbb{R}$ are continuous:
+\begin{align*}
+\abs{A\left(u,v\right)} & \le\opnorm A\norm u\cdot\norm v\\
+\abs{l\left(u\right)} & \le\opnorm l\norm u
+\end{align*}
+Moreover $A$ is symmetric:
+\begin{align*}
+A\left(u,v\right) & =A\left(v,u\right)
+\end{align*}
+
+
+
+\subsection{Definition \textmd{(Coercive)}}
+
+$A$ is called coercive (\foreignlanguage{ngerman}{koerziv, manchmal
+auch elliptisch}) if there is a $\lambda\in\mathbb{R}_{>0}$ such
+that for all $u\in\mathcal{H}$ holds:
+\begin{align*}
+A\left(u,u\right) & \ge\lambda\norm u_{\mathcal{H}}^{2}
+\end{align*}
+In our problem, this condition is fulfilled due to the uniform ellipticity:
+\begin{align*}
+A\left(u,u\right) & =\int_{\Omega}a^{ij}\left(\partial_{i}u\right)\left(\partial_{j}u\right)\dd^{n}x\sr{\ge}{\text{uniform}}{\text{ellipticity}}\lambda\int\norm{\DD u}^{2}\dd^{n}x\ge\\
+ & \sr{\ge}{\text{Poincaré}}{}\frac{\lambda}{2}\int\norm{\DD u}^{2}\dd^{n}x+\frac{\lambda}{2c^{2}}\int\norm u^{2}\dd^{n}x\ge\tilde{c}\norm u_{H_{0}^{1,2}\left(\Omega\right)}^{2}
+\end{align*}
+
+
+
+\subsection{Theorem \textmd{(Unique Minimizer)}\label{sub:Thm-minimizer}}
+
+Let $\left(\mathcal{H},\left\langle .,.\right\rangle \right)$ be
+a Hilbert space with norm $\norm ._{\mathcal{H}}$, $V\subseteq\mathcal{H}$
+closed and convex,
+\begin{align*}
+A:\mathcal{H}\times\mathcal{H} & \to\mathbb{R}
+\end{align*}
+bilinear, symmetric, continuous and coercive and
+\begin{align*}
+l:\mathcal{H} & \to\mathbb{R}
+\end{align*}
+linear and continuous.
+
+Then the action $S\left(u\right):=A\left(u,u\right)+l\left(u\right)$
+has a unique minimizer in $V$.
+
+
+\subsubsection*{Proof}
+
+The action is bounded from below:
+\begin{align*}
+S\left(v\right) & \ge\lambda\norm v_{\mathcal{H}}^{2}-\opnorm l\norm v_{\mathcal{H}}\sr{\ge}{\text{completing}}{\text{the square}}-\frac{\opnorm l^{2}}{2\lambda}
+\end{align*}
+Let $\kappa:=\inf_{V}\left(S\right)$. We choose a minimizing sequence
+$u_{n}\in V$ with $S\left(u_{n}\right)\to\kappa$. We want to show
+$u_{n}\to u$. Then by continuity follows:
+\begin{align*}
+S\left(u\right) & =\lim_{n\to\infty}\left(S\left(u_{n}\right)\right)=\kappa
+\end{align*}
+Since $\mathcal{H}$ is a Hilbert space and thus complete and $V$
+is closed, we only have to verify the Cauchy condition, to show the
+existence. Because $V$ is convex holds $\frac{1}{2}\left(u_{n}+u_{m}\right)\in V$
+. So we get:
+\begin{align*}
+\kappa & =\inf_{V}\left(S\right)\le S\left(\frac{u_{n}+u_{m}}{2}\right)=A\left(\frac{u_{n}+u_{m}}{2},\frac{u_{n}+u_{m}}{2}\right)+l\left(\frac{u_{n}+u_{m}}{2}\right)=\\
+ & =\frac{1}{4}A\left(u_{n},u_{n}\right)+\frac{1}{4}A\left(u_{m},u_{m}\right)+\frac{1}{2}A\left(u_{n},u_{m}\right)+\frac{1}{2}l\left(u_{n}\right)+\frac{1}{2}l\left(u_{m}\right)=\\
+ & =\frac{1}{2}S\left(u_{n}\right)+\frac{1}{2}S\left(u_{m}\right)-\frac{1}{4}A\left(u_{n},u_{n}\right)-\frac{1}{4}A\left(u_{m},u_{m}\right)+\frac{1}{2}A\left(u_{n},u_{m}\right)=\\
+ & =\underbrace{\frac{1}{2}S\left(u_{n}\right)}_{\to\frac{\kappa}{2}}+\underbrace{\frac{1}{2}S\left(u_{m}\right)}_{\to\frac{\kappa}{2}}\underbrace{-\frac{1}{4}A\left(u_{n}-u_{m},u_{n}-u_{m}\right)}_{\le0}
+\end{align*}
+Thus converges $A\left(u_{n}-u_{m},u_{n}-u_{m}\right)\xrightarrow{n,m\to\infty}0$.
+\begin{align*}
+\norm{u_{n}-u_{m}}^{2} & \le\frac{1}{\lambda}A\left(u_{n}-u_{m},u_{n}-u_{m}\right)\xrightarrow{n,m\to\infty}0
+\end{align*}
+Hence $\left(u_{n}\right)$ is a Cauchy sequence and $u_{n}\to u$.
+
+\emph{Uniqueness}: Let $u_{1},u_{2}$ be minimizers, i.e. $S\left(u_{1}\right)=\kappa=S\left(u_{2}\right)$.
+Then holds:
+\begin{align*}
+\kappa & \le S\left(\frac{u_{1}+u_{2}}{2}\right)=\underbrace{\frac{1}{2}S\left(u_{1}\right)+\frac{1}{2}S\left(u_{2}\right)}_{=\kappa}\underbrace{-\frac{1}{4}A\left(u_{1}-u_{2},u_{1}-u_{2}\right)}_{\le0}
+\end{align*}
+\begin{align*}
+\Rightarrow\quad A\left(u_{1}-u_{2},u_{1}-u_{2}\right) & =0\\
+\Rightarrow\qquad u_{1} & =u_{2}
+\end{align*}
+\qqed
+
+
+\subsection{Corollary}
+
+Under the conditions of Theorem \ref{sub:Thm-minimizer} and if in
+addition $V$ is a closed linear subspace of $\mathcal{H}$, there
+is a unique $u\in V$ such that for all $\varphi\in V$ holds:
+\begin{align*}
+2A\left(u,\varphi\right)+l\left(\varphi\right) & =0
+\end{align*}
+
+
+
+\subsubsection{Proof}
+
+For a minimizer $u$, $S\left(u+\tau v\right)$ is minimal at $\tau=0$.
+This is a polynomial in $\tau$ and thus holds:
+\begin{align*}
+0 & =\frac{\dd}{\dd\tau}S\left(u+\tau v\right)\big|_{\tau=0}=\frac{\dd}{\dd\tau}\left(A\left(u+\tau v,u+\tau v\right)+l\left(u+\tau v\right)\right)\big|_{\tau=0}=2A\left(u,v\right)+l\left(v\right)
+\end{align*}
+\qqed
+
 
 \part*{Appendix\thispagestyle{empty}}
 

@@ -21421,6 +21421,857 @@ The Laplace-Beltrami-Operator is:
 This is in the desired divergence form.
 \end_layout
 
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%DATE: Fr 14.6.13
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Reduction to the case 
+\begin_inset Formula $u_{0}=0$
+\end_inset
+
+: Let 
+\begin_inset Formula $v\in C^{\infty}\left(\overline{\Omega}\right)$
+\end_inset
+
+ with 
+\begin_inset Formula $v\big|_{\partial\Omega}=u_{0}$
+\end_inset
+
+.
+ Set 
+\begin_inset Formula $\tilde{u}:=u-v$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+L\tilde{u} & =f-Lv=:\tilde{f}\\
+\tilde{u}\big|_{\partial\Omega} & =0
+\end{align*}
+
+\end_inset
+
+A solution 
+\begin_inset Formula $\tilde{u}$
+\end_inset
+
+ of this Dirichlet problem yields a solution 
+\begin_inset Formula $u=\tilde{u}+v$
+\end_inset
+
+ of the original problem.
+\end_layout
+
+\begin_layout Standard
+Therefore, from now on we consider the problem:
+\begin_inset Formula 
+\begin{align*}
+Lu & =f\\
+u\big|_{\partial\Omega} & =0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+The Dirichlet Principle
+\end_layout
+
+\begin_layout Standard
+Define the 
+\emph on
+action
+\emph default
+:
+\begin_inset Formula 
+\begin{align*}
+S & :=\int\left(a^{ij}\left(x\right)\left(\frac{\partial}{\partial x^{i}}u\left(x\right)\right)\left(\frac{\partial}{\partial x^{j}}u\left(x\right)\right)+c\left(x\right)u^{2}\left(x\right)-2f\left(x\right)u\left(x\right)\right)\dd^{n}x
+\end{align*}
+
+\end_inset
+
+Suppose 
+\begin_inset Formula $u$
+\end_inset
+
+ is a critical point (for example a minimizer), then holds for 
+\begin_inset Formula $\eta\in C_{0}^{\infty}\left(\Omega\right)$
+\end_inset
+
+ formally:
+\begin_inset Formula 
+\begin{align*}
+0 & =\frac{\dd}{\dd t}S\left(u+\tau\eta\right)\big|_{\tau=0}=\\
+ & =\int_{\Omega}\left(2a^{ij}\left(x\right)\left(\frac{\partial}{\partial x^{i}}u\left(x\right)\right)\left(\frac{\partial}{\partial x^{j}}\eta\left(x\right)\right)+2c\left(x\right)u\left(x\right)\eta\left(x\right)-2f\left(x\right)\eta\left(x\right)\right)\dd^{n}x=\\
+ & \sr ={\text{integration}}{\text{by parts}}2\int_{\Omega}\eta\left(x\right)\underbrace{\left(-\frac{\partial}{\partial x^{j}}\left(a^{ij}\left(x\right)\left(\frac{\partial}{\partial x^{i}}u\left(x\right)\right)\right)+c\left(x\right)u\left(x\right)-f\left(x\right)\right)}_{=Lu-f}\dd^{n}x
+\end{align*}
+
+\end_inset
+
+This has to hold for any 
+\begin_inset Formula $\eta$
+\end_inset
+
+ and thus follows 
+\begin_inset Formula $Lu-f=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Assume 
+\begin_inset Formula $u\in H^{1,2}\left(\Omega\right)$
+\end_inset
+
+ for the integral over the two partial derivatives in the action being well
+ defined.
+ To ensure the boundary value 
+\begin_inset Formula $u\big|_{\partial\Omega}=0$
+\end_inset
+
+ we assume even 
+\begin_inset Formula $u\in H_{0}^{1,2}\left(\Omega\right)$
+\end_inset
+
+.
+ Then holds:
+\begin_inset Formula 
+\begin{align*}
+\int_{\Omega}\underbrace{a^{ij}\left(\partial_{i}u\right)\left(\partial_{j}u\right)}_{\ge0}\dd^{n}x & \le\sup_{\Omega}\left(\abs{a^{ij}}\right)\int_{\Omega}\norm{\DD u}^{2}\dd^{n}x\le\sup_{\Omega}\left(\abs{a^{ij}}\right)\norm u_{H_{0}^{1,2}\left(\Omega\right)}^{2}<\infty\\
+\int_{\Omega}\abs{c\left(x\right)u^{2}\left(x\right)}\dd^{n}x & \le\sup_{\Omega}\left(\abs c\right)\int_{\Omega}u^{2}\left(x\right)\dd^{n}x\le\sup_{\Omega}\left(\abs c\right)\norm u_{H_{0}^{1,2}\left(\Omega\right)}^{2}<\infty\\
+\int_{\Omega}2\abs{f\left(x\right)u\left(x\right)}\dd^{n}x & \le2\norm f_{L^{2}\left(\Omega\right)}\norm u_{L^{2}\left(\Omega\right)}\le2\norm f_{L^{2}\left(\Omega\right)}\norm u_{H_{0}^{1,2}\left(\Omega\right)}<\infty
+\end{align*}
+
+\end_inset
+
+We always assume that 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ is bounded.
+ Then 
+\begin_inset Formula $f\in C^{\infty}\left(\overline{\Omega}\right)$
+\end_inset
+
+ implies 
+\begin_inset Formula $f\in L^{2}\left(\Omega\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Furthermore, we know from the Gagliando-Nirenberg estimate
+\begin_inset Formula 
+\begin{align*}
+H_{0}^{1,2}\left(\Omega\right) & \hookrightarrow L^{p^{*}}\left(\Omega\right)
+\end{align*}
+
+\end_inset
+
+with 
+\begin_inset Formula $p=2$
+\end_inset
+
+ and:
+\begin_inset Formula 
+\begin{align*}
+\frac{1}{p^{*}} & =\frac{1}{2}-\frac{1}{n}<\frac{1}{2}\\
+p^{*} & =\frac{2n}{n-2}>2
+\end{align*}
+
+\end_inset
+
+This is an 
+\emph on
+imbedding
+\emph default
+ (
+\emph on
+embedding
+\emph default
+), i.e.
+ an injective mapping.
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ has finite volume, which it has in our case, since we assume that 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ is bounded, it follows:
+\begin_inset Formula 
+\begin{align*}
+\norm u_{L^{2}\left(\Omega\right)} & =\left(\int_{\Omega}u^{2}\left(x\right)\dd^{n}x\right)^{\frac{1}{2}}\le\left(\int_{\Omega}u^{2\tilde{p}}\left(x\right)\dd^{n}x\right)^{\frac{1}{2\tilde{p}}}\left(\mu\left(\Omega\right)\right)^{\frac{1}{2\tilde{q}}}\le\tilde{c}\norm u_{L^{2\tilde{p}}\left(\Omega\right)}
+\end{align*}
+
+\end_inset
+
+We chose 
+\begin_inset Formula $\tilde{p}$
+\end_inset
+
+ such that 
+\begin_inset Formula $2\tilde{p}=p^{*}$
+\end_inset
+
+ and use Poincaré's inequality:
+\begin_inset Formula 
+\begin{align*}
+\norm u_{L^{2}\left(\Omega\right)} & \le\tilde{c}\norm u_{L^{p^{*}}\left(\Omega\right)}\le\underbrace{\tilde{c}C}_{=:c}\norm{\DD u}_{L^{2}\left(\Omega\right)}
+\end{align*}
+
+\end_inset
+
+Thus the action can be viewed as a mapping:
+\begin_inset Formula 
+\begin{align*}
+S:H_{0}^{1,2}\left(\Omega\right) & \to\mathbb{R}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Theorem 
+\series medium
+(Action Bounded from Below)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $S$
+\end_inset
+
+ is bounded from below, i.e.
+ 
+\begin_inset Formula $S\left(u\right)\ge-K\in\mathbb{R}_{\le0}$
+\end_inset
+
+ for all 
+\begin_inset Formula $u\in H_{0}^{1,2}\left(\Omega\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+The uniform ellipticity means:
+\begin_inset Formula 
+\begin{align*}
+a^{ij}\left(\partial_{i}u\right)\left(\partial_{j}u\right) & \ge\underbrace{\lambda}_{>0}\norm{\DD u}^{2}
+\end{align*}
+
+\end_inset
+
+Moreover holds 
+\begin_inset Formula $C\left(x\right)\ge0$
+\end_inset
+
+.
+ Therefore follows:
+\begin_inset Formula 
+\begin{align*}
+S\left(u\right) & \ge\int_{\Omega}\lambda\norm{\DD u}^{2}\dd^{n}x-\norm f_{L^{2}\left(\Omega\right)}\cdot\norm u_{L^{2}\left(\Omega\right)}\ge\\
+ & \sr{\ge}{\text{Poincaré}}{}\frac{\lambda}{c^{2}}\norm u_{L^{2}\left(\Omega\right)}^{2}-\norm f_{L^{2}\left(\Omega\right)}\norm u_{L^{2}\left(\Omega\right)}=\\
+ & =\frac{\lambda}{c^{2}}\left(\norm u_{L^{2}\left(\Omega\right)}-\frac{c^{2}}{2\lambda}\norm f_{L^{2}\left(\Omega\right)}\right)^{2}-\frac{c^{2}}{4\lambda}\norm f_{L^{2}\left(\Omega\right)}^{2}\ge\\
+ & \ge-\frac{c^{2}}{4\lambda}\norm f_{L^{2}\left(\Omega\right)}^{2}=:-K
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We now choose a 
+\emph on
+minimizing sequence
+\emph default
+ (Minimalfolge), i.e.
+ a sequence 
+\begin_inset Formula $u_{n}\in H_{0}^{1,2}\left(\Omega\right)$
+\end_inset
+
+ with:
+\begin_inset Formula 
+\begin{align*}
+S\left(u_{n}\right) & \to\inf_{H_{0}^{1,2}\left(\Omega\right)}\left(S\right)
+\end{align*}
+
+\end_inset
+
+Hope:
+\end_layout
+
+\begin_layout Itemize
+A subsequence of the 
+\begin_inset Formula $u_{n}$
+\end_inset
+
+ converges (weakly?) in 
+\begin_inset Formula $H_{0}^{1,2}\left(\Omega\right)$
+\end_inset
+
+ to 
+\begin_inset Formula $u\in H_{0}^{1,2}\left(\Omega\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula ${\displaystyle S\left(u\right)=\lim_{n\to\infty}S\left(u_{n}\right)=\inf_{H_{0}^{1,2}\left(\Omega\right)}S}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Such a minimizer satisfies the following Euler-Lagrange equation:
+\end_layout
+
+\begin_layout Subsection
+Theorem 
+\series medium
+(Euler-Lagrange equation)
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $u\in H^{1,2}\left(\Omega\right)$
+\end_inset
+
+ satisfies 
+\begin_inset Formula $S\left(u\right)=\inf_{H_{0}^{1,2}\left(\Omega\right)}\left(S\right)$
+\end_inset
+
+, then holds for all 
+\begin_inset Formula $\eta\in C_{0}^{\infty}\left(\Omega\right)$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\int_{\Omega}\left(u\left(-\frac{\partial}{\partial x^{i}}a^{ij}\frac{\partial}{\partial x^{j}}\eta+c\eta\right)-f\eta\right)\dd^{n}x & =0
+\end{align*}
+
+\end_inset
+
+Thus 
+\begin_inset Formula $u$
+\end_inset
+
+ is a weak solution of the equation 
+\begin_inset Formula $Lu=f$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $u\in C^{2}\left(\Omega\right)$
+\end_inset
+
+, we can integrate by parts twice, which would give:
+\begin_inset Formula 
+\begin{align*}
+\int\left(Lu-f\right)\eta\dd^{n}x & =0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+S\left(u+\tau\eta\right) & =\int_{\Omega}a^{ij}\left(\partial_{i}\left(u+\tau\eta\right)\right)\left(\partial_{j}\left(u+\tau\eta\right)\right)+c\left(u+\tau\eta\right)^{2}-2f\left(u+\tau\eta\right)\dd^{n}x=\\
+ & =\tau^{2}\int_{\Omega}\left(a^{ij}\left(\partial_{i}\eta\right)\left(\partial_{j}\eta\right)+c\eta^{2}\right)\dd^{n}x+2\tau\int_{\Omega}\left(a^{ij}\left(\partial_{i}u\right)\left(\partial_{j}\eta\right)+cu\eta-f\eta\right)\dd^{n}x+\\
+ & \qquad+\int_{\Omega}\left(a^{ij}\left(\partial_{i}u\right)\left(\partial_{j}u\right)+cu^{2}-2fu\right)\dd^{n}x
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $S\left(\tau\right)$
+\end_inset
+
+ has a minimum at 
+\begin_inset Formula $\tau=0$
+\end_inset
+
+.
+ Therefore holds:
+\begin_inset Formula 
+\begin{align*}
+0 & =\frac{\dd}{\dd\tau}S\left(u+\tau\eta\right)\big|_{\tau=0}=2\int_{\Omega}\left(a^{ij}\left(\partial_{i}u\right)\left(\partial_{j}\eta\right)+cu\eta-f\eta\right)\dd^{n}x\\
+0 & =\int_{\Omega}\left(u\partial_{i}\left(-a^{ij}\left(\partial_{j}\eta\right)\right)+cu\eta-f\eta\right)\dd^{n}x
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Existence of Minimizers
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\left(u_{n}\right)$
+\end_inset
+
+ be a minimizing sequence.
+ To show is 
+\begin_inset Formula $u_{n}\to u$
+\end_inset
+
+ and:
+\begin_inset Formula 
+\begin{align*}
+S\left(u\right) & =\kappa:=\inf_{H_{0}^{1,2}\left(\Omega\right)}\left(S\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+More generally, let 
+\begin_inset Formula $\mathcal{H}$
+\end_inset
+
+ be a Hilbert space.
+ (In our case we have 
+\begin_inset Formula $\mathcal{H}=H_{0}^{1,2}\left(\Omega\right)$
+\end_inset
+
+.)
+\begin_inset Formula 
+\begin{align*}
+A\left(u,v\right) & :=\int_{\Omega}\left(a^{ij}\left(\partial_{i}u\right)\left(\partial_{j}v\right)+cuv\right)\dd^{n}x\\
+l\left(u\right) & :=-2\int_{\Omega}fu\dd^{n}x\\
+S\left(u\right) & =A\left(u,u\right)+l\left(u\right)
+\end{align*}
+
+\end_inset
+
+The bilinear map 
+\begin_inset Formula $A:\mathcal{H}\times\mathcal{H}\to\mathbb{R}$
+\end_inset
+
+ and the linear map 
+\begin_inset Formula $l:\mathcal{H}\to\mathbb{R}$
+\end_inset
+
+ are continuous:
+\begin_inset Formula 
+\begin{align*}
+\abs{A\left(u,v\right)} & \le\opnorm A\norm u\cdot\norm v\\
+\abs{l\left(u\right)} & \le\opnorm l\norm u
+\end{align*}
+
+\end_inset
+
+Moreover 
+\begin_inset Formula $A$
+\end_inset
+
+ is symmetric:
+\begin_inset Formula 
+\begin{align*}
+A\left(u,v\right) & =A\left(v,u\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Definition 
+\series medium
+(Coercive)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A$
+\end_inset
+
+ is called coercive (
+\lang ngerman
+koerziv, manchmal auch elliptisch
+\lang english
+) if there is a 
+\begin_inset Formula $\lambda\in\mathbb{R}_{>0}$
+\end_inset
+
+ such that for all 
+\begin_inset Formula $u\in\mathcal{H}$
+\end_inset
+
+ holds:
+\begin_inset Formula 
+\begin{align*}
+A\left(u,u\right) & \ge\lambda\norm u_{\mathcal{H}}^{2}
+\end{align*}
+
+\end_inset
+
+In our problem, this condition is fulfilled due to the uniform ellipticity:
+\begin_inset Formula 
+\begin{align*}
+A\left(u,u\right) & =\int_{\Omega}a^{ij}\left(\partial_{i}u\right)\left(\partial_{j}u\right)\dd^{n}x\sr{\ge}{\text{uniform}}{\text{ellipticity}}\lambda\int\norm{\DD u}^{2}\dd^{n}x\ge\\
+ & \sr{\ge}{\text{Poincaré}}{}\frac{\lambda}{2}\int\norm{\DD u}^{2}\dd^{n}x+\frac{\lambda}{2c^{2}}\int\norm u^{2}\dd^{n}x\ge\tilde{c}\norm u_{H_{0}^{1,2}\left(\Omega\right)}^{2}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Theorem 
+\series medium
+(Unique Minimizer)
+\series default
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Thm-minimizer"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\left(\mathcal{H},\left\langle .,.\right\rangle \right)$
+\end_inset
+
+ be a Hilbert space with norm 
+\begin_inset Formula $\norm ._{\mathcal{H}}$
+\end_inset
+
+, 
+\begin_inset Formula $V\subseteq\mathcal{H}$
+\end_inset
+
+ closed and convex,
+\begin_inset Formula 
+\begin{align*}
+A:\mathcal{H}\times\mathcal{H} & \to\mathbb{R}
+\end{align*}
+
+\end_inset
+
+bilinear, symmetric, continuous and coercive and
+\begin_inset Formula 
+\begin{align*}
+l:\mathcal{H} & \to\mathbb{R}
+\end{align*}
+
+\end_inset
+
+linear and continuous.
+\end_layout
+
+\begin_layout Standard
+Then the action 
+\begin_inset Formula $S\left(u\right):=A\left(u,u\right)+l\left(u\right)$
+\end_inset
+
+ has a unique minimizer in 
+\begin_inset Formula $V$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+The action is bounded from below:
+\begin_inset Formula 
+\begin{align*}
+S\left(v\right) & \ge\lambda\norm v_{\mathcal{H}}^{2}-\opnorm l\norm v_{\mathcal{H}}\sr{\ge}{\text{completing}}{\text{the square}}-\frac{\opnorm l^{2}}{2\lambda}
+\end{align*}
+
+\end_inset
+
+Let 
+\begin_inset Formula $\kappa:=\inf_{V}\left(S\right)$
+\end_inset
+
+.
+ We choose a minimizing sequence 
+\begin_inset Formula $u_{n}\in V$
+\end_inset
+
+ with 
+\begin_inset Formula $S\left(u_{n}\right)\to\kappa$
+\end_inset
+
+.
+ We want to show 
+\begin_inset Formula $u_{n}\to u$
+\end_inset
+
+.
+ Then by continuity follows:
+\begin_inset Formula 
+\begin{align*}
+S\left(u\right) & =\lim_{n\to\infty}\left(S\left(u_{n}\right)\right)=\kappa
+\end{align*}
+
+\end_inset
+
+Since 
+\begin_inset Formula $\mathcal{H}$
+\end_inset
+
+ is a Hilbert space and thus complete and 
+\begin_inset Formula $V$
+\end_inset
+
+ is closed, we only have to verify the Cauchy condition, to show the existence.
+ Because 
+\begin_inset Formula $V$
+\end_inset
+
+ is convex holds 
+\begin_inset Formula $\frac{1}{2}\left(u_{n}+u_{m}\right)\in V$
+\end_inset
+
+ .
+ So we get:
+\begin_inset Formula 
+\begin{align*}
+\kappa & =\inf_{V}\left(S\right)\le S\left(\frac{u_{n}+u_{m}}{2}\right)=A\left(\frac{u_{n}+u_{m}}{2},\frac{u_{n}+u_{m}}{2}\right)+l\left(\frac{u_{n}+u_{m}}{2}\right)=\\
+ & =\frac{1}{4}A\left(u_{n},u_{n}\right)+\frac{1}{4}A\left(u_{m},u_{m}\right)+\frac{1}{2}A\left(u_{n},u_{m}\right)+\frac{1}{2}l\left(u_{n}\right)+\frac{1}{2}l\left(u_{m}\right)=\\
+ & =\frac{1}{2}S\left(u_{n}\right)+\frac{1}{2}S\left(u_{m}\right)-\frac{1}{4}A\left(u_{n},u_{n}\right)-\frac{1}{4}A\left(u_{m},u_{m}\right)+\frac{1}{2}A\left(u_{n},u_{m}\right)=\\
+ & =\underbrace{\frac{1}{2}S\left(u_{n}\right)}_{\to\frac{\kappa}{2}}+\underbrace{\frac{1}{2}S\left(u_{m}\right)}_{\to\frac{\kappa}{2}}\underbrace{-\frac{1}{4}A\left(u_{n}-u_{m},u_{n}-u_{m}\right)}_{\le0}
+\end{align*}
+
+\end_inset
+
+Thus converges 
+\begin_inset Formula $A\left(u_{n}-u_{m},u_{n}-u_{m}\right)\xrightarrow{n,m\to\infty}0$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+\norm{u_{n}-u_{m}}^{2} & \le\frac{1}{\lambda}A\left(u_{n}-u_{m},u_{n}-u_{m}\right)\xrightarrow{n,m\to\infty}0
+\end{align*}
+
+\end_inset
+
+Hence 
+\begin_inset Formula $\left(u_{n}\right)$
+\end_inset
+
+ is a Cauchy sequence and 
+\begin_inset Formula $u_{n}\to u$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Uniqueness
+\emph default
+: Let 
+\begin_inset Formula $u_{1},u_{2}$
+\end_inset
+
+ be minimizers, i.e.
+ 
+\begin_inset Formula $S\left(u_{1}\right)=\kappa=S\left(u_{2}\right)$
+\end_inset
+
+.
+ Then holds:
+\begin_inset Formula 
+\begin{align*}
+\kappa & \le S\left(\frac{u_{1}+u_{2}}{2}\right)=\underbrace{\frac{1}{2}S\left(u_{1}\right)+\frac{1}{2}S\left(u_{2}\right)}_{=\kappa}\underbrace{-\frac{1}{4}A\left(u_{1}-u_{2},u_{1}-u_{2}\right)}_{\le0}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\Rightarrow\quad A\left(u_{1}-u_{2},u_{1}-u_{2}\right) & =0\\
+\Rightarrow\qquad u_{1} & =u_{2}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Corollary
+\end_layout
+
+\begin_layout Standard
+Under the conditions of Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Thm-minimizer"
+
+\end_inset
+
+ and if in addition 
+\begin_inset Formula $V$
+\end_inset
+
+ is a closed linear subspace of 
+\begin_inset Formula $\mathcal{H}$
+\end_inset
+
+, there is a unique 
+\begin_inset Formula $u\in V$
+\end_inset
+
+ such that for all 
+\begin_inset Formula $\varphi\in V$
+\end_inset
+
+ holds:
+\begin_inset Formula 
+\begin{align*}
+2A\left(u,\varphi\right)+l\left(\varphi\right) & =0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Proof
+\end_layout
+
+\begin_layout Standard
+For a minimizer 
+\begin_inset Formula $u$
+\end_inset
+
+, 
+\begin_inset Formula $S\left(u+\tau v\right)$
+\end_inset
+
+ is minimal at 
+\begin_inset Formula $\tau=0$
+\end_inset
+
+.
+ This is a polynomial in 
+\begin_inset Formula $\tau$
+\end_inset
+
+ and thus holds:
+\begin_inset Formula 
+\begin{align*}
+0 & =\frac{\dd}{\dd\tau}S\left(u+\tau v\right)\big|_{\tau=0}=\frac{\dd}{\dd\tau}\left(A\left(u+\tau v,u+\tau v\right)+l\left(u+\tau v\right)\right)\big|_{\tau=0}=2A\left(u,v\right)+l\left(v\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Part*
 Appendix
 \begin_inset ERT
