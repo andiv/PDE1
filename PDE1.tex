@@ -4430,7 +4430,8 @@ but for smooth boundary of $\Omega$, it is.
 \subsection{Theorem \textmd{(Elementary Properties of Sobolev Functions)}}
 \begin{enumerate}[label=\roman*)]
 \item For $u\in H^{k,p}\left(\Omega\right)$ holds $\DD^{\alpha}u\in H^{k-\abs{\alpha},p}\left(\Omega\right)$.
-\item For $\Omega'\subseteq\Omega$ holds $H^{k,p}\left(\Omega\right)\subseteq H^{k,p}\left(\Omega'\right)$.
+\item For $\Omega'\subseteq\Omega$ and $u\in H^{k,p}\left(\Omega\right)$
+holds $u\big|_{\Omega'}\in H^{k,p}\left(\Omega'\right)$.
 \item Leibniz rule: For $u\in H^{k,p}\left(\Omega\right)$, $v\in C_{0}^{\infty}$
 and $\abs{\alpha}\le k$ holds:
 \begin{align*}
@@ -5219,8 +5220,7 @@ Examples:
 \item Let $\left(M,g\right)$ be a Riemannian manifold and $\Omega\subseteq M$
 be contained in a coordinate chart $\left(x,U\right)$.\\
 \begin{figure}[H]
-\noindent \centering{}\usetikzlibrary{decorations.markings}
-\begin{tikzpicture}
+\noindent \centering{}\begin{tikzpicture}
   \draw plot[smooth cycle] coordinates {(-2,1) (-1,3) (0,3) (0.75,2.25) (3,1) (3.5,0) (3,-1) (-1,-1)};
   \draw[rotate=35] (0,1) circle (0.5 and 1);
   \draw plot[smooth cycle] coordinates {(1,0.5) (1.5,1) (2.5,0) (1,-0.5)};
@@ -5273,7 +5273,7 @@ S & :=\int\left(a^{ij}\left(x\right)\left(\frac{\partial}{\partial x^{i}}u\left(
 Suppose $u$ is a critical point (for example a minimizer), then holds
 for $\eta\in C_{0}^{\infty}\left(\Omega\right)$ formally:
 \begin{align*}
-0 & =\frac{\dd}{\dd t}S\left(u+\tau\eta\right)\big|_{\tau=0}=\\
+0 & =\frac{\dd}{\dd\tau}S\left(u+\tau\eta\right)\big|_{\tau=0}=\\
  & =\int_{\Omega}\left(2a^{ij}\left(x\right)\left(\frac{\partial}{\partial x^{i}}u\left(x\right)\right)\left(\frac{\partial}{\partial x^{j}}\eta\left(x\right)\right)+2c\left(x\right)u\left(x\right)\eta\left(x\right)-2f\left(x\right)\eta\left(x\right)\right)\dd^{n}x=\\
  & \sr ={\text{integration}}{\text{by parts}}2\int_{\Omega}\eta\left(x\right)\underbrace{\left(-\frac{\partial}{\partial x^{j}}\left(a^{ij}\left(x\right)\left(\frac{\partial}{\partial x^{i}}u\left(x\right)\right)\right)+c\left(x\right)u\left(x\right)-f\left(x\right)\right)}_{=Lu-f}\dd^{n}x
 \end{align*}
@@ -5503,12 +5503,361 @@ is a unique $u\in V$ such that for all $\varphi\in V$ holds:
 
 \subsubsection{Proof}
 
-For a minimizer $u$, $S\left(u+\tau v\right)$ is minimal at $\tau=0$.
-This is a polynomial in $\tau$ and thus holds:
+For a minimizer $u$, $S\left(u+\tau\varphi\right)$ is minimal at
+$\tau=0$. This is a polynomial in $\tau$ and thus holds:
 \begin{align*}
-0 & =\frac{\dd}{\dd\tau}S\left(u+\tau v\right)\big|_{\tau=0}=\frac{\dd}{\dd\tau}\left(A\left(u+\tau v,u+\tau v\right)+l\left(u+\tau v\right)\right)\big|_{\tau=0}=2A\left(u,v\right)+l\left(v\right)
+0 & =\frac{\dd}{\dd\tau}S\left(u+\tau\varphi\right)\big|_{\tau=0}=\frac{\dd}{\dd\tau}\left(A\left(u+\tau\varphi,u+\tau\varphi\right)+l\left(u+\tau\varphi\right)\right)\big|_{\tau=0}=2A\left(u,\varphi\right)+l\left(\varphi\right)
 \end{align*}
 \qqed
+
+%DATE: Mi 19.6.13
+
+
+\chapter{Convex Variational Problems}
+
+(cf. \noun{J. Jost}: \emph{Partial Differential Equations,} Section
+8.6)
+
+We consider the action
+\begin{align*}
+S\left(u\right) & :=\int_{\Omega}f\left(x,\DD u\right)\dd^{n}x
+\end{align*}
+for $u\in H_{0}^{1,2}\left(\Omega\right)$. $\Omega\subseteq\mathbb{R}^{n}$
+is assumed to be bounded with smooth boundary.
+
+
+\section{Theorem \textmd{(Existence of Minimizer for \texorpdfstring{$S$}{S})}\label{sec:Thm-S-attains-minimum}}
+
+Let $f:\Omega\times\mathbb{R}^{n}\to\mathbb{R}$ be a function with
+the following properties:
+\begin{enumerate}[label=\roman*)]
+\item $f\left(.,v\right):\Omega\to\mathbb{R}$ is measurable for any $v\in\mathbb{R}^{n}$.
+\item $f\left(x,.\right):\mathbb{R}^{n}\to\mathbb{R}$ is convex for all
+$x\in\Omega$, i.e. for all $v,w\in\mathbb{R}^{n}$ and $\tau\in\left[0,1\right]$
+holds:
+\begin{align*}
+f\left(x,\tau v+\left(1-\tau\right)w\right) & \le\tau f\left(x,v\right)+\left(1-\tau\right)f\left(x,w\right)
+\end{align*}
+
+\item Coercivity: There is a constant $\kappa\in\mathbb{R}_{>0}$ and an
+integrable function $\gamma\in L^{1}\left(\Omega\right)$ such that
+for all $x\in\Omega$ and $v\in\mathbb{R}^{n}$ holds:
+\begin{align*}
+f\left(x,v\right) & \ge-\gamma\left(x\right)+\kappa\norm v^{2}
+\end{align*}
+
+\end{enumerate}
+Then $S$ attains its minimum, i.e. there is a $u_{0}\in H_{0}^{1,2}\left(\Omega\right)$
+with:
+\begin{align*}
+S\left(u_{0}\right) & =\inf_{u\in H_{0}^{1,2}\left(\Omega\right)}\left(S\left(u\right)\right)
+\end{align*}
+Convexity is crucial for uniqueness.
+
+\begin{figure}[H]
+\noindent \centering{}\hfill{}\subfloat[convex: unique minimum]{\begin{tikzpicture}
+ \begin{axis}[width=8cm, axis x line=middle, axis y line=middle, xtick={0}, ytick={0}, xlabel=$u$, ylabel=$S$, domain=-3:3,samples=300, ymin=0]
+  \addplot[mark=none] {x^2+1};
+ \end{axis}
+\end{tikzpicture}}\hfill{}\subfloat[not convex: two minima]{\begin{tikzpicture}
+ \begin{axis}[width=8cm, axis x line=middle, axis y line=middle, xtick={0}, ytick={0}, xlabel=$u$, ylabel=$S$, domain=-3:3,samples=300, ymin=0]
+  \addplot[mark=none] {0.2*x^4-x^2+2};
+ \end{axis}
+\end{tikzpicture}}\hfill{}\caption{one-dimensional analogon}
+\end{figure}
+
+
+Convexity and coercivity are also essential for proving existence.
+\begin{align*}
+S:H_{0}^{1,2}\left(\Omega\right) & \to\mathbb{R}\cup\left\{ \infty\right\} \\
+u & \mapsto\int_{\Omega}f\left(x,\DD u\right)\dd^{n}x=\underbrace{\int_{\Omega}\underbrace{\left(f\left(x,\DD u\right)+\gamma\right)}_{\ge0}\dd^{n}x}_{\text{could be }\infty}-\int_{\Omega}\underbrace{\gamma}_{\in L^{1}}\dd^{n}x
+\end{align*}
+
+
+
+\section{Lemma \textmd{(Lower Semi-Continuous)}\label{sec:Lem-J-low-sem-cont}}
+
+The functional
+\begin{align*}
+J\left(v\right) & =\int_{\Omega}f\left(x,v\left(x\right)\right)\dd^{n}x
+\end{align*}
+for $v\in L^{2}\left(\Omega,\mathbb{R}^{n}\right)$ is lower semi-continuous,
+i.e. if $v_{k}\to v$ converges in $L^{2}\left(\Omega,\mathbb{R}^{n}\right)$,
+then holds:
+\begin{align*}
+J\left(v\right) & \le\liminf_{k\to\infty}J\left(v_{k}\right)
+\end{align*}
+
+
+
+\subsubsection*{Proof}
+
+The function $v\in L^{2}\left(\Omega\right)$ is clearly measurable,
+and since $f\left(x,.\right)$ is continuous (every convex function
+is continuous) and $f\left(.,v\right)$ is measurable, it follows
+that $f\left(x,v\left(x\right)\right)$ is measurable.
+
+In more detail: Introduce a new function:
+\begin{align*}
+g:\Omega\times\Omega & \to\mathbb{R}\\
+g\left(x,y\right) & =f\left(x,v\left(y\right)\right)
+\end{align*}
+$g\left(x,.\right)$ is measurable, because $f\left(x,.\right)$ is
+measurable, and $g\left(.,y\right)$ is measurable as a composition
+of a measurable function with a continuous function. Let
+\begin{align*}
+\iota:\Omega & \to\Omega\times\Omega\\
+x & \mapsto\left(x,x\right)
+\end{align*}
+be the natural injection, which is continuous. So the composition
+$f\left(x,v\left(x\right)\right)=g\left(\iota\left(x\right)\right)$
+is measurable, because $g$ is measurable and $\iota$ continuous.
+
+Let $v_{n}\to v$ converge in $L^{2}\left(\Omega,\mathbb{R}^{n}\right)$,
+then $v_{k}\left(x\right)\to v\left(x\right)$ converges for almost
+all $x\in\Omega$. Since $f\left(x,.\right)$ and $\norm .$ are continuous,
+it holds: 
+\begin{align*}
+f\left(x,v_{k}\left(x\right)\right)-\kappa\norm{v_{k}\left(x\right)}^{2} & \to\underbrace{f\left(x,v\left(x\right)\right)-\kappa\norm{v\left(x\right)}}_{\ge-\gamma\left(x\right)\in L^{1}\left(\Omega\right)}
+\end{align*}
+Question:
+\begin{align*}
+\lim_{k\to\infty}\int f\left(x,v_{k}\left(x\right)\right)-\kappa\norm{v\left(x\right)}^{2}\dd^{n}x & \sr =?{}\int f\left(x,v\left(x\right)\right)-\kappa\norm{v\left(x\right)}^{2}\dd^{n}x
+\end{align*}
+In general this is wrong, because the integrand is not necessarily
+bounded from above. But Fatou's lemma yields:
+\begin{align*}
+\liminf_{k\to\infty}\int f\left(x,v_{k}\left(x\right)\right)-\kappa\norm{v_{k}\left(x\right)}^{2}\dd^{n}x & \ge\int f\left(x,v\left(x\right)\right)-\kappa\norm{v\left(x\right)}^{2}\dd^{n}x
+\end{align*}
+Example to illuminate Fatou's Lemma:
+\begin{align*}
+g_{k}\left(x\right) & =\sqrt{k}e^{-kx^{2}}
+\end{align*}
+
+
+\begin{figure}[H]
+\noindent \centering{}\begin{tikzpicture}
+ \begin{axis}[width=12cm, axis x line=middle, axis y line=middle, xtick={0}, ytick={0}, xlabel=$x$,  domain=-3:3, samples=300, ymin=0, ymax=2.1]
+  \addplot[mark=none] {exp(-x^2)};
+  \addlegendentry{$g_1$}
+  \addplot[blue, dashed,mark=none] {exp(-4*x^2)*2};
+  \addlegendentry{$g_4$}
+ \end{axis}
+\end{tikzpicture}\caption{Example for Fatou's Lemma}
+\end{figure}
+
+
+$g_{k}\left(x\right)\to0$ converges almost everywhere, but the integral
+does not converge to zero:
+\begin{align*}
+\int g_{k}\left(x\right)\dd^{n}x & =c>0=\int0\dd^{n}x
+\end{align*}
+Fatou's Lemma yields:
+\begin{align*}
+\liminf_{k\to\infty}\left(J\left(v_{k}\right)-\kappa\int_{\Omega}\norm{v_{k}}^{2}\dd^{n}x\right) & \ge J\left(v\right)-\kappa\int_{\Omega}\norm{v\left(x\right)}^{2}\dd^{n}x
+\end{align*}
+Since $v_{k}\to v$ converges in $L^{2}\left(\Omega\right)$, also
+$\int_{\Omega}\norm{v_{k}}^{2}\dd^{n}x\to\int_{\Omega}\norm v^{2}\dd^{n}x$
+converges and thus follows:
+\begin{align*}
+\liminf_{k\to\infty}J\left(v_{k}\right) & \ge J\left(v\right)
+\end{align*}
+\qqed
+
+
+\section{Lemma \textmd{(Convex)}\label{sec:Lem-J-convex}}
+
+$J$ is convex.
+
+
+\subsubsection*{Proof}
+
+\begin{align*}
+J\left(\tau v+\left(1-\tau\right)w\right) & =\int_{\Omega}f\left(x,\tau v\left(x\right)+\left(1-\tau\right)w\left(x\right)\right)\dd^{n}x\le\\
+ & \le\int_{\Omega}\tau f\left(x,v\left(x\right)\right)+\left(1-\tau\right)f\left(x,w\left(x\right)\right)\dd^{n}x=\\
+ & =\tau J\left(v\right)+\left(1-\tau\right)J\left(w\right)
+\end{align*}
+\qqed
+
+To summarize:
+
+
+\section{Lemma}
+
+The functional
+\begin{align*}
+S\left(u\right) & =\int_{\Omega}f\left(x,\DD u\right)\dd^{n}x=J\left(\DD u\right)
+\end{align*}
+is convex and lower semi-continuous on $H_{0}^{1,2}\left(\Omega\right)$.
+
+
+\subsubsection*{Proof}
+
+For $u\in H_{0}^{1,2}\left(\Omega\right)$ follows $\DD u\in L^{2}\left(\Omega\right)$
+and the claim follows from the Lemmata \ref{sec:Lem-J-low-sem-cont}
+and \ref{sec:Lem-J-convex}.\qqed
+
+
+\section{Theorem \textmd{(Existence of Minimizer for \texorpdfstring{$S_{\lambda}$}{Sλ})}\label{sec:Thm-S_lambda-minimizer}}
+
+Let $\left(\mathcal{H},\left\langle .,.\right\rangle \right)$ be
+a Hilbert space and
+\begin{align*}
+S:\mathcal{H} & \to\mathbb{R}\cup\left\{ \infty\right\} 
+\end{align*}
+be a functional which is bounded from below and $S\not=\infty$. For
+every $\lambda\in\mathbb{R}_{>0}$ and $u\in\mathcal{H}$, the functional
+\begin{align*}
+S_{\lambda}\left(y\right) & :=S\left(y\right)+\lambda\norm{u-y}^{2}
+\end{align*}
+has a unique minimizer $u_{\lambda}\in\mathcal{H}$, i.e.:
+\begin{align*}
+S\left(u_{\lambda}\right)+\lambda\norm{u-u_{\lambda}}^{2} & =\inf_{y\in\mathcal{H}}S_{\lambda}\left(y\right)
+\end{align*}
+If $\norm{u_{\lambda}}$ is bounded in the limit $\lambda\searrow0$,
+then
+\begin{align*}
+\lim_{\lambda\searrow0}u_{\lambda} & :=u_{0}
+\end{align*}
+exists and $u_{0}$ is a minimizer of $S$, i.e.:
+\begin{align*}
+S\left(u_{0}\right) & =\inf_{y\in\mathcal{H}}S\left(y\right)
+\end{align*}
+Note: $u_{0}$ may still depend on $u$, so the uniqueness is unclear
+at the moment. (Later we prove uniqueness.)
+
+Before coming to the proof of the theorem, let us apply it to our
+variational problem.
+
+
+\subsubsection{Proof of Theorem \ref{sec:Thm-S-attains-minimum}}
+
+\begin{align*}
+S\left(y\right) & =\int_{\Omega}f\left(x,\DD y\right)\dd^{n}x
+\end{align*}
+
+
+For $S\not=\infty$ we have nothing to prove, so we assume $S\not=\infty$.
+\begin{enumerate}
+\item $S$ is bounded from below: By coercivity holds:
+\begin{align*}
+S\left(y\right) & \ge\int_{\Omega}\left(-\gamma\left(x\right)+\kappa\norm{\DD y}^{2}\right)\dd^{n}x
+\end{align*}
+Now we use Poincaré's inequality, which holds, since $\Omega$ is
+bounded.
+\begin{align*}
+\norm y_{H_{0}^{1,2}\left(\Omega\right)}^{2} & \le C\left(\Omega\right)\int_{\Omega}\norm{\DD y}^{2}\dd^{n}x\sr{\le}{\kappa>0}{}\frac{C\left(\Omega\right)}{\kappa}\bigg(S\left(y\right)+\underbrace{\int_{\Omega}\gamma\left(x\right)\dd^{n}x}_{=:\tilde{C}<\infty}\bigg)
+\end{align*}
+Thus follows:
+\begin{align*}
+S\left(y\right) & \ge\frac{\kappa}{C\left(\Omega\right)}\norm y_{H_{0}^{1,2}\left(\Omega\right)}-\tilde{C}\ge-\tilde{C}
+\end{align*}
+
+\item $\norm{u_{\lambda}}$ stays bounded for $\lambda\searrow0$:
+\begin{align*}
+\norm{u_{\lambda}}_{H_{0}^{1,2}\left(\Omega\right)}^{2} & \le\frac{C\left(\Omega\right)}{\kappa}\left(S\left(u_{\lambda}\right)+\tilde{C}\right)\le\frac{C\left(\Omega\right)}{\kappa}\Big(\underbrace{S\left(u_{\lambda}\right)+\lambda\norm{u-u_{\lambda}}^{2}}_{=S_{\lambda}\left(u_{\lambda}\right)}+\tilde{C}\Big)\le\\
+ & \sr{\le}{S_{\lambda}\left(u_{\lambda}\right)\le S_{\lambda}\left(u\right)}{}\frac{C\left(\Omega\right)}{\kappa}\left(S\left(u\right)+\lambda\norm{u-u}^{2}+\tilde{C}\right)=\frac{C\left(\Omega\right)}{\kappa}\left(S\left(u\right)+\tilde{C}\right)
+\end{align*}
+This upper bound is uniform in $\lambda$.
+\end{enumerate}
+This completes the proof, assuming that Theorem \ref{sec:Thm-S_lambda-minimizer}
+holds.\qqed[\ref{sec:Thm-S-attains-minimum}]
+
+
+\subsubsection{Proof of Theorem \ref{sec:Thm-S_lambda-minimizer}}
+
+Let $y_{k}$ be a minimizing sequence of the functional $S\left(y\right)+\lambda\norm{u-y}^{2}$.
+Set:
+\begin{align*}
+y_{k,l} & :=\frac{1}{2}\left(y_{k}+y_{l}\right)\\
+s_{\lambda} & :=\inf_{y\in\mathcal{H}}\left(S\left(y\right)+\lambda\norm{u-y}^{2}\right)
+\end{align*}
+Then holds:
+\begin{align*}
+\norm{u-y_{k,l}}^{2} & =\norm{u-\frac{1}{2}\left(y_{k}+y_{l}\right)}^{2}=\norm{\frac{1}{2}\left(u-y_{k}\right)+\frac{1}{2}\left(u-y_{l}\right)}^{2}=\\
+ & =\frac{1}{4}\norm{\left(u-y_{k}\right)+\left(u-y_{l}\right)}^{2}=\\
+ & \sr ={\text{parallelogram}}{\text{law}}-\frac{1}{4}\norm{\left(u-y_{k}\right)-\left(u-y_{l}\right)}^{2}+\frac{1}{2}\norm{u-y_{k}}^{2}+\frac{1}{2}\norm{u-y_{l}}^{2}=\\
+ & =-\frac{1}{4}\norm{y_{l}-y_{k}}^{2}+\frac{1}{2}\norm{u-y_{k}}^{2}+\frac{1}{2}\norm{u-y_{l}}
+\end{align*}
+So we get:
+\begin{align*}
+s_{\lambda} & \le S\left(y_{k,l}\right)+\lambda\norm{u-y_{k,l}}^{2}\le\\
+ & \sr{\le}{S\text{ convex}}{}\frac{1}{2}S\left(y_{k}\right)+\frac{1}{2}S\left(y_{l}\right)+\frac{\lambda}{2}\norm{u-y_{k}}^{2}+\frac{\lambda}{2}\norm{u-y_{l}}^{2}-\frac{\lambda}{4}\norm{y_{k}-y_{l}}^{2}=\\
+ & =\underbrace{\frac{1}{2}\left(S\left(y_{k}\right)+\lambda\norm{u-y_{k}}^{2}\right)}_{\to\frac{1}{2}s_{\lambda}}+\underbrace{\frac{1}{2}\left(S\left(y_{l}\right)+\lambda\norm{u-y_{l}}^{2}\right)}_{\to\frac{1}{2}s_{\lambda}}\underbrace{-\frac{\lambda}{4}\norm{y_{k}-y_{l}}^{2}}_{\le0}
+\end{align*}
+Therefore converges $y_{k}-y_{l}\xrightarrow{k,l\to\infty}0$ and
+thus $y_{k}\to u_{\lambda}$. Now $u_{\lambda}$ is a minimizer, because
+$S$ is lower semi-continuous.
+
+The limit $u_{\lambda}$ is unique, because every minimizing sequence
+converges, so for another minimizer $v_{\lambda}$ we consider the
+sequence $\left(u_{\lambda},v_{\lambda},u_{\lambda},v_{\lambda},\ldots\right)$
+and see $u_{\lambda}=v_{\lambda}$.
+
+For $\lambda_{1},\lambda_{2}\in\mathbb{R}_{>0}$ with $\lambda_{1}<\lambda_{2}$
+holds, because $u_{\lambda_{1}}$ is the minimizer of $S\left(.\right)+\lambda_{1}\norm{u-.}^{2}$.
+\begin{align*}
+S\left(u_{\lambda_{2}}\right)+\lambda_{1}\norm{u_{\lambda_{2}}-u}^{2} & \ge S\left(u_{\lambda_{1}}\right)+\lambda_{1}\norm{u_{\lambda_{1}}-u}\qquad\qquad/+\left(\lambda_{2}-\lambda_{1}\right)\norm{u-u_{\lambda_{2}}}^{2}\\
+S\left(u_{\lambda_{2}}\right)+\lambda_{2}\norm{u-u_{\lambda_{2}}}^{2} & \ge S\left(u_{\lambda_{1}}\right)+\lambda_{2}\norm{u-u_{\lambda_{1}}}^{2}+\left(\lambda_{1}-\lambda_{2}\right)\left(\norm{u-u_{\lambda_{1}}}^{2}-\norm{u-u_{\lambda_{2}}}^{2}\right)
+\end{align*}
+Now holds, because $u_{\lambda_{2}}$ is the minimizer of $S\left(.\right)+\lambda_{2}\norm{u-.}^{2}$.
+\begin{align*}
+S\left(u_{\lambda_{2}}\right)+\lambda_{2}\norm{u-u_{\lambda_{2}}}^{2} & \le S\left(u_{\lambda_{1}}\right)+\lambda_{2}\norm{u-u_{\lambda_{1}}}^{2}
+\end{align*}
+In total we get:
+\begin{align*}
+S\left(u_{\lambda_{1}}\right)+\lambda_{2}\norm{u-u_{\lambda_{1}}}^{2} & \ge S\left(u_{\lambda_{1}}\right)+\lambda_{2}\norm{u-u_{\lambda_{1}}}^{2}+\left(\lambda_{1}-\lambda_{2}\right)\left(\norm{u-u_{\lambda_{1}}}^{2}-\norm{u-u_{\lambda_{2}}}^{2}\right)\\
+0 & \ge\underbrace{\left(\lambda_{1}-\lambda_{2}\right)}_{<0}\left(\norm{u-u_{\lambda_{1}}}^{2}-\norm{u-u_{\lambda_{2}}}^{2}\right)\\
+0 & \le\norm{u-u_{\lambda_{1}}}^{2}-\norm{u-u_{\lambda_{2}}}^{2}\\
+\norm{u-u_{\lambda_{2}}}^{2} & \le\norm{u-u_{\lambda_{1}}}^{2}
+\end{align*}
+Thus $\norm{u-u_{\lambda}}$ is increasing as $\lambda\searrow0$.
+
+By assumption holds uniformly in $\lambda$:
+\begin{align*}
+\norm{u-u_{\lambda}} & \le\norm u+\norm{u_{\lambda}}<C
+\end{align*}
+Thus $\norm{u-u_{\lambda}}$ converges as $\lambda\searrow0$, i.e.
+for all $\varepsilon\in\mathbb{R}_{>0}$ exists a $\lambda_{0}$ such
+that for all $\lambda_{1},\lambda_{2}\in\left(0,\lambda_{0}\right)$
+holds:
+\begin{align*}
+\abs{\norm{u-u_{\lambda_{1}}}^{2}-\norm{u-u_{\lambda_{2}}}^{2}} & <\frac{\varepsilon}{2}
+\end{align*}
+Now again we use the convexity. Define:
+\begin{align*}
+u_{1,2} & :=\frac{1}{2}\left(u_{\lambda_{1}}+u_{\lambda_{2}}\right)
+\end{align*}
+Without loss of generality we assume $S\left(u_{\lambda_{1}}\right)\ge S\left(u_{\lambda_{2}}\right)$
+so we get:
+\begin{align*}
+S\left(u_{1,2}\right) & \le S\left(u_{\lambda_{1}}\right)\\
+0 & \le S\left(u_{\lambda_{1}}\right)-S\left(u_{1,2}\right)
+\end{align*}
+\begin{align*}
+0 & \le S\left(u_{\lambda_{1}}\right)+\lambda_{1}\norm{u-u_{1,2}}^{2}-\left(S\left(u_{1,2}\right)+\lambda_{1}\norm{u-u_{1,2}}^{2}\right)=\\
+ & \sr ={\text{parallelogram}}{\text{law}}S\left(u_{\lambda_{1}}\right)+\lambda_{1}\left(\frac{1}{2}\norm{u-u_{\lambda_{1}}}^{2}+\frac{1}{2}\norm{u-u_{\lambda_{2}}}^{2}-\frac{1}{4}\norm{u_{\lambda_{1}}-u_{\lambda_{2}}}^{2}\right)-S_{\lambda_{1}}\left(u_{1,2}\right)=\\
+ & =S\left(u_{\lambda_{1}}\right)+\lambda_{1}\norm{u-u_{\lambda_{1}}}^{2}+\frac{\lambda_{1}}{2}\left(\norm{u-u_{\lambda_{2}}}^{2}-\norm{u-u_{\lambda_{1}}}^{2}\right)-\frac{\lambda_{1}}{4}\norm{u_{\lambda_{1}}-u_{\lambda_{2}}}^{2}-S_{\lambda_{1}}\left(u_{1,2}\right)\le\\
+ & \le S_{\lambda_{1}}\left(u_{1,2}\right)+\frac{\lambda_{1}}{2}\left(\norm{u-u_{\lambda_{2}}}^{2}-\norm{u-u_{\lambda_{1}}}^{2}\right)-\frac{\lambda_{1}}{4}\norm{u_{\lambda_{1}}-u_{\lambda_{2}}}^{2}-S_{\lambda_{1}}\left(u_{1,2}\right)=\\
+ & =\frac{\lambda_{1}}{2}\left(\norm{u-u_{\lambda_{2}}}^{2}-\norm{u-u_{\lambda_{1}}}^{2}\right)-\frac{\lambda_{1}}{4}\norm{u_{\lambda_{1}}-u_{\lambda_{2}}}^{2}\le\\
+ & \le\frac{\lambda_{1}}{4}\varepsilon-\frac{\lambda_{1}}{4}\norm{u_{\lambda_{1}}-u_{\lambda_{2}}}^{2}
+\end{align*}
+This gives:
+\begin{align*}
+\norm{u_{\lambda_{1}}-u_{\lambda_{2}}}^{2} & \le\varepsilon
+\end{align*}
+Since $\varepsilon$ is arbitrary, we conclude that the limit ${\displaystyle \lim_{\lambda\searrow0}u_{\lambda}}=:u_{0}$
+exists.
+
+By lower semi-continuity of $S$ follows:
+\begin{align*}
+S\left(u_{0}\right) & \le\lim_{\lambda\searrow0}S\left(u_{\lambda}\right)=\inf_{u\in\mathcal{H}}S\left(u\right)
+\end{align*}
+This implies:
+\begin{align*}
+S\left(u_{0}\right) & =\inf_{u\in\mathcal{H}}S\left(u\right)
+\end{align*}
+\qqed[\ref{sec:Thm-S_lambda-minimizer}]
 
 
 \part*{Appendix\thispagestyle{empty}}
