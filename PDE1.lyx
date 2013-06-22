@@ -19416,7 +19416,7 @@ qqed
 \end_layout
 
 \begin_layout Section
-The Gagliando-Nirenberg Inequalities
+The Gagliardo-Nirenberg Inequalities
 \end_layout
 
 \begin_layout Standard
@@ -19515,10 +19515,10 @@ Sobolev conjugate
 \begin_layout Subsection
 Theorem 
 \series medium
-(Gagliando-Nirenberg-Sobolev Inequality)
+(Gagliardo-Nirenberg-Sobolev Inequality)
 \begin_inset CommandInset label
 LatexCommand label
-name "sub:Thm-Gagliando-Nirenberg"
+name "sub:Thm-Gagliardo-Nirenberg"
 
 \end_inset
 
@@ -19660,7 +19660,7 @@ status open
 Proof of Theorem 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:Thm-Gagliando-Nirenberg"
+reference "sub:Thm-Gagliardo-Nirenberg"
 
 \end_inset
 
@@ -19938,7 +19938,7 @@ qqed[
 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sub:Thm-Gagliando-Nirenberg"
+reference "sub:Thm-Gagliardo-Nirenberg"
 
 \end_inset
 
@@ -20126,7 +20126,7 @@ Extending
 Now follows:
 \begin_inset Formula 
 \begin{align*}
-\norm u_{L^{p^{*}}\left(\Omega\right)} & \le\norm{\overline{u}}_{L^{p^{*}}\left(\mathbb{R}^{n}\right)}\sr{\le}{\ref{sub:Thm-Gagliando-Nirenberg}}{}c\norm{\DD\overline{u}}_{L^{p}\left(\mathbb{R}^{n}\right)}\le\\
+\norm u_{L^{p^{*}}\left(\Omega\right)} & \le\norm{\overline{u}}_{L^{p^{*}}\left(\mathbb{R}^{n}\right)}\sr{\le}{\ref{sub:Thm-Gagliardo-Nirenberg}}{}c\norm{\DD\overline{u}}_{L^{p}\left(\mathbb{R}^{n}\right)}\le\\
  & \le c\norm{\overline{u}}_{H^{1,p}\left(\mathbb{R}^{n}\right)}\le\underbrace{c\tilde{c}}_{=:C}\norm u_{H^{1,p}\left(\Omega\right)}
 \end{align*}
 
@@ -20217,7 +20217,7 @@ For
 \begin_inset Formula $\mathbb{R}^{n}$
 \end_inset
 
- and apply the Gagliando-Nirenberg inequality:
+ and apply the Gagliardo-Nirenberg inequality:
 \begin_inset Formula 
 \begin{align*}
 \norm{u_{k}}_{L^{p^{*}}\left(\Omega\right)} & =\norm{u_{k}}_{L^{p^{*}}\left(\mathbb{R}^{n}\right)}\le c\norm{\DD u_{k}}_{L^{p}\left(\mathbb{R}^{n}\right)}=c\norm{\DD u_{k}}_{L^{p}\left(\Omega\right)}\xrightarrow{k\to\infty}c\norm{\DD u}_{L^{p}\left(\Omega\right)}
@@ -20434,7 +20434,7 @@ For
 \end_inset
 
 ), such that for 
-\begin_inset Formula $u\in C^{1}\left(\mathbb{R}^{n}\right)\cap L^{p}\left(\mathbb{R}^{n}\right)$
+\begin_inset Formula $u\in C^{1}\left(\mathbb{R}^{n}\right)\cap H^{1,p}\left(\mathbb{R}^{n}\right)$
 \end_inset
 
  and 
@@ -20491,7 +20491,7 @@ status open
 Claim: 
 \begin_inset Formula 
 \begin{align*}
-\fint_{B_{r}\left(x\right)}\abs{u\left(x\right)-u\left(y\right)}\dd^{n}y & \le C_{1}\left(n\right)\cdot\int\frac{\norm{\DD u\left(y\right)}}{\norm{x-y}^{n-1}}\dd^{n}y
+\fint_{B_{r}\left(x\right)}\abs{u\left(x\right)-u\left(y\right)}\dd^{n}y & \le C_{1}\left(n\right)\cdot\int_{B_{r}\left(x\right)}\frac{\norm{\DD u\left(y\right)}}{\norm{x-y}^{n-1}}\dd^{n}y
 \end{align*}
 
 \end_inset
@@ -20660,7 +20660,7 @@ Now estimate
 \begin_inset Formula 
 \begin{align*}
 \abs{u\left(x\right)} & =\abs{u\left(x\right)}\underbrace{\fint_{B_{1}\left(x\right)}\dd^{n}y}_{=1}\le\fint_{B_{1}\left(x\right)}\abs{u\left(x\right)-u\left(y\right)}\dd^{n}y+\fint_{B_{1}\left(x\right)}\abs{u\left(y\right)}\dd^{n}y\le\\
- & \sr{\le}{\text{1.}}{}C_{1}\cdot\int\frac{\norm{\DD u\left(y\right)}}{\norm{x-y}^{n-1}}\dd^{n}y+\frac{1}{\omega_{n}}\int_{B_{1}\left(x\right)}\abs{u\left(y\right)}\dd^{n}y\le\\
+ & \sr{\le}{\text{1.}}{}C_{1}\cdot\int_{B_{1}\left(x\right)}\frac{\norm{\DD u\left(y\right)}}{\norm{x-y}^{n-1}}\dd^{n}y+\frac{1}{\omega_{n}}\int_{B_{1}\left(x\right)}\abs{u\left(y\right)}\dd^{n}y\le\\
  & \sr{\le}{\text{Hölder}}{p^{-1}+q^{-1}=1}C_{1}\norm{\DD u}_{L^{q}\left(B_{1}\left(x\right)\right)}\left(\int_{B_{1}\left(x\right)}\left(\frac{1}{\norm{x-y}^{n-1}}\right)^{q}\dd^{n}y\right)^{\frac{1}{q}}+\\
  & \qquad\qquad\quad+\norm u_{L^{p}\left(B_{1}\left(x\right)\right)}\underbrace{\frac{1}{\omega_{n}}\left(\int_{B_{1}\left(x\right)}1^{q}\dd^{n}y\right)^{\frac{1}{q}}}_{=:C_{2}}\le\\
  & \le C_{1}\norm{\DD u}_{L^{q}\left(\mathbb{R}^{n}\right)}\left(\int_{B_{1}\left(x\right)}\left(\frac{1}{\norm{x-y}^{n-1}}\right)^{q}\dd^{n}y\right)^{\frac{1}{q}}+C_{2}\norm u_{L^{p}\left(\mathbb{R}^{n}\right)}
@@ -21148,6 +21148,13 @@ qqed
 
 \begin_layout Chapter
 Construction of Weak Solutions of Linear Elliptic PDEs
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Solutions-Linear-Elliptic-PDE"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -21572,7 +21579,7 @@ We always assume that
 \end_layout
 
 \begin_layout Standard
-Furthermore, we know from the Gagliando-Nirenberg estimate
+Furthermore, we know from the Gagliardo-Nirenberg estimate
 \begin_inset Formula 
 \begin{align*}
 H_{0}^{1,2}\left(\Omega\right) & \hookrightarrow L^{p^{*}}\left(\Omega\right)
@@ -22331,7 +22338,6 @@ status open
 
 \begin_layout Plain Layout
 
-\series medium
 
 \backslash
 texorpdfstring{
@@ -22349,7 +22355,6 @@ status open
 
 \begin_layout Plain Layout
 
-\series medium
 }{S}
 \end_layout
 
@@ -22665,7 +22670,11 @@ u & \mapsto\int_{\Omega}f\left(x,\DD u\right)\dd^{n}x=\underbrace{\int_{\Omega}\
 
 \end_inset
 
+Therefore 
+\begin_inset Formula $S$
+\end_inset
 
+ is bounded from below.
 \end_layout
 
 \begin_layout Section
@@ -23125,7 +23134,6 @@ status open
 
 \begin_layout Plain Layout
 
-\series medium
 
 \backslash
 texorpdfstring{
@@ -23143,9 +23151,7 @@ status open
 
 \begin_layout Plain Layout
 
-}{Sλ
-\series medium
-}
+}{Sλ}
 \end_layout
 
 \end_inset
@@ -23697,6 +23703,985 @@ status open
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%DATE: Fr 21.6.13
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+The Finite Element Method
+\end_layout
+
+\begin_layout Standard
+We return to the action of Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Solutions-Linear-Elliptic-PDE"
+
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+S\left(u\right) & =A\left(u,u\right)+l\left(u\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\abs{A\left(u,v\right)}\le\opnorm A\cdot\norm u\cdot\norm v$
+\end_inset
+
+, 
+\begin_inset Formula $A\left(u,u\right)\ge\lambda\norm u^{2}$
+\end_inset
+
+, 
+\begin_inset Formula $\lambda\in\mathbb{R}_{>0}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\abs{l\left(u\right)}\le\opnorm l\cdot\norm u$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We showed that there is a unique minimizer 
+\begin_inset Formula $u\in\mathcal{H}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Question: How can we approximate 
+\begin_inset Formula $u$
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Standard
+To this end, we choose 
+\begin_inset Formula $V\subseteq\mathcal{H}$
+\end_inset
+
+ finite-dimensional (e.g.
+ triangulations, lattice approximations, wavelets).
+ Then we can minimize 
+\begin_inset Formula $S\big|_{V}:V\to\mathbb{R}$
+\end_inset
+
+.
+ The minimizer can be found numerically.
+\end_layout
+
+\begin_layout Standard
+Typically, one considers 
+\begin_inset Formula $V_{1}\subseteq V_{2}\subseteq\ldots\subseteq\mathcal{H}$
+\end_inset
+
+, a 
+\emph on
+filtration
+\emph default
+ (Ausschöpfung) of 
+\begin_inset Formula $\mathcal{H}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Lemma
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $u$
+\end_inset
+
+ be the minimizer of 
+\begin_inset Formula $S$
+\end_inset
+
+ on 
+\begin_inset Formula $\mathcal{H}$
+\end_inset
+
+ (unknown!) and 
+\begin_inset Formula $u_{V}$
+\end_inset
+
+ the minimizer of 
+\begin_inset Formula $S$
+\end_inset
+
+ on 
+\begin_inset Formula $V$
+\end_inset
+
+ (known!).
+ Then holds:
+\begin_inset Formula 
+\begin{align*}
+\norm{u-u_{V}} & \le\frac{\opnorm A}{\lambda}\inf_{v\in V}\norm{u-v}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Proof
+\end_layout
+
+\begin_layout Standard
+The Euler-Lagrange equations for 
+\begin_inset Formula $\varphi\in\mathcal{H}$
+\end_inset
+
+ are:
+\begin_inset Formula 
+\begin{align*}
+2A\left(u,\varphi\right)+l\left(\varphi\right) & =0
+\end{align*}
+
+\end_inset
+
+If we minimize only on the subspace 
+\begin_inset Formula $V$
+\end_inset
+
+, we get for 
+\begin_inset Formula $\varphi\in V$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+2A\left(u_{V},\varphi\right)+l\left(\varphi\right) & =0
+\end{align*}
+
+\end_inset
+
+(We consider only variations 
+\begin_inset Formula $u_{V}+\tau\varphi$
+\end_inset
+
+ with 
+\begin_inset Formula $\varphi\in V$
+\end_inset
+
+.) Taking the difference gives for 
+\begin_inset Formula $\varphi\in V$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+A\left(u-u_{V},\varphi\right) & =0
+\end{align*}
+
+\end_inset
+
+For 
+\begin_inset Formula $v\in V$
+\end_inset
+
+ holds:
+\begin_inset Formula 
+\begin{align*}
+\norm{u-u_{V}}^{2} & \sr{\le}{\text{coercive}}{}\frac{1}{\lambda}A\left(u-u_{V},u-u_{V}\right)=\frac{1}{\lambda}A\left(u-u_{V},u-u_{V}-v+v\right)=\\
+ & \sr ={\text{linearity}}{}\frac{1}{\lambda}A\left(u-u_{V},u-v\right)+\frac{1}{\lambda}\underbrace{A(u-u_{V},\underbrace{v-u_{V}}_{=:\varphi\in V})}_{=0}=\frac{1}{\lambda}A\left(u-u_{V},u-v\right)\le\\
+ & \sr{\le}{\text{boundedness}}{}\frac{\opnorm A}{\lambda}\norm{u-u_{V}}\cdot\norm{u-v}
+\end{align*}
+
+\end_inset
+
+So for all 
+\begin_inset Formula $v\in V$
+\end_inset
+
+ we get:
+\begin_inset Formula 
+\begin{align*}
+\norm{u-u_{V}} & \le\frac{\opnorm A}{\lambda}\norm{u-v}
+\end{align*}
+
+\end_inset
+
+Taking the infimum over 
+\begin_inset Formula $v\in V$
+\end_inset
+
+ gives the result.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For a filtration converges 
+\begin_inset Formula $\inf_{v\in V_{n}}\norm{u-v}\xrightarrow{n\to\infty}0$
+\end_inset
+
+ and thus 
+\begin_inset Formula $u_{V_{n}}\to u$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Chapter
+Imbedding Theorems
+\end_layout
+
+\begin_layout Standard
+Recapitulation: Let 
+\begin_inset Formula $\Omega\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ be bounded with 
+\begin_inset Formula $C^{1}$
+\end_inset
+
+-boundary.
+\end_layout
+
+\begin_layout Itemize
+Gagliardo-Nirenberg inequality for functions 
+\begin_inset Formula $u\in H_{0}^{1,p}\left(\Omega\right)$
+\end_inset
+
+ vanishing on the boundary:
+\begin_inset Formula 
+\begin{align*}
+\norm u_{L^{p^{*}}\left(\Omega\right)} & \le C\left(n\right)\norm{\DD u}_{L^{p}\left(\Omega\right)}\\
+p^{*} & =\frac{np}{n-p}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+On 
+\begin_inset Formula $H^{1,p}\left(\Omega\right)$
+\end_inset
+
+ without zero boundary conditions for 
+\begin_inset Formula $1\le p<n$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\norm u_{L^{p^{*}}\left(\Omega\right)} & \le C\left(\Omega\right)\norm u_{H^{1,p}\left(\Omega\right)}
+\end{align*}
+
+\end_inset
+
+Using Hölder one finds that the inequalities also hold, if the 
+\begin_inset Formula $p^{*}$
+\end_inset
+
+ is replaced by 
+\begin_inset Formula $q<p^{*}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Morrey inequalities for 
+\begin_inset Formula $n<p<\infty$
+\end_inset
+
+ and 
+\begin_inset Formula $u\in H^{1,p}\left(\Omega\right)$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\norm u_{C^{0,\gamma}\left(\overline{\Omega}\right)} & \le c\norm u_{H^{1,p}\left(\Omega\right)}\\
+\gamma & =1-\frac{n}{p}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We have:
+\begin_inset Formula 
+\begin{align*}
+H^{1,p}\left(\Omega\right) & \hookrightarrow\begin{cases}
+L^{p^{*}}\left(\Omega\right) & 1\le p<n\\
+C^{0,\gamma}\left(\overline{\Omega}\right) & n<p\quad\text{(imbedding of equivalence classes)}
+\end{cases}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Question: Are these imbeddings compact?
+\end_layout
+
+\begin_layout Description
+Definition: For Banach spaces 
+\begin_inset Formula $E,F$
+\end_inset
+
+, a linear map 
+\begin_inset Formula $A:E\to F$
+\end_inset
+
+ is called 
+\emph on
+compact
+\emph default
+, if 
+\begin_inset Formula $A$
+\end_inset
+
+ maps bounded sets to relatively compact sets, i.e.
+ sets, whose closure is compact.
+\end_layout
+
+\begin_layout Standard
+One can compose the imbeddings:
+\begin_inset Formula 
+\begin{align*}
+H^{2,p}\left(\Omega\right) & \hookrightarrow H^{1,p^{*}}\left(\Omega\right)\hookrightarrow\begin{cases}
+L^{p^{**}}\left(\Omega\right)\\
+C^{0,\tilde{\gamma}}\left(\Omega\right)
+\end{cases}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Theorem 
+\series medium
+(Generalized Gagliardo-Nirenberg/Morrey)
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\Omega\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ be open and bounded with 
+\begin_inset Formula $C^{k}$
+\end_inset
+
+-boundary and 
+\begin_inset Formula $u\in H^{k,p}\left(\Omega\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+roman*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+For 
+\begin_inset Formula ${\displaystyle k<\frac{n}{p}}$
+\end_inset
+
+ holds 
+\begin_inset Formula $u\in L^{q}\left(\Omega\right)$
+\end_inset
+
+ with 
+\begin_inset Formula ${\displaystyle \frac{1}{q}=\frac{1}{p}-\frac{k}{n}}$
+\end_inset
+
+ and:
+\begin_inset Formula 
+\begin{align*}
+\norm u_{L^{q}\left(\Omega\right)} & \le C\left(\Omega\right)\norm u_{H^{k,p}\left(\Omega\right)}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+For 
+\begin_inset Formula ${\displaystyle k>\frac{n}{p}}$
+\end_inset
+
+ holds 
+\begin_inset Formula $u\in C^{k-\left\lfloor \frac{n}{p}\right\rfloor +1,\gamma}\left(\Omega\right)$
+\end_inset
+
+ with
+\begin_inset Formula 
+\begin{align*}
+\gamma & \begin{cases}
+=\left\lfloor \frac{n}{p}\right\rfloor +1-\frac{n}{p} & \text{if }\frac{n}{p}\not\in\mathbb{N}\\
+\in\left(0,1\right) & \text{if }\frac{n}{p}\in\mathbb{N}
+\end{cases}
+\end{align*}
+
+\end_inset
+
+and:
+\begin_inset Formula 
+\begin{align*}
+\norm u_{H^{k-\left\lfloor \frac{n}{p}\right\rfloor -1,\gamma}\left(\Omega\right)} & \le C\left(\Omega\right)\norm u_{H^{k,p}\left(\Omega\right)}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Proof
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+roman*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Consider 
+\begin_inset Formula $u\in H^{k,p}\left(\Omega\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $k\in\mathbb{N}_{\ge1}$
+\end_inset
+
+.
+ Then for all multi-indices 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ with 
+\begin_inset Formula $\abs{\alpha}\le k$
+\end_inset
+
+ holds 
+\begin_inset Formula $\DD^{\alpha}u\in L^{p}\left(\Omega\right)$
+\end_inset
+
+.
+ The Gagliardo-Nirenberg inequality gives for all multi-indices 
+\begin_inset Formula $\beta$
+\end_inset
+
+ with 
+\begin_inset Formula $\abs{\beta}\le k-1$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\norm{\DD^{\beta}u}_{L^{p^{*}}\left(\Omega\right)} & \le c\norm u_{H^{1,p}\left(\Omega\right)}
+\end{align*}
+
+\end_inset
+
+Therefore holds 
+\begin_inset Formula $u\in H^{k-1,p^{*}}\left(\Omega\right)$
+\end_inset
+
+ and:
+\begin_inset Formula 
+\begin{align*}
+\norm u_{H^{k-1,p^{*}}} & \le C\norm u_{H^{k,p}\left(\Omega\right)}\\
+\frac{1}{p^{*}} & =\frac{1}{p}-\frac{1}{n}
+\end{align*}
+
+\end_inset
+
+Iterating gives 
+\begin_inset Formula $u\in H^{k-2,p^{**}}\left(\Omega\right)$
+\end_inset
+
+ and:
+\begin_inset Formula 
+\begin{align*}
+\norm u_{H^{k-2,p^{**}}\left(\Omega\right)} & \le C\norm u_{H^{k,p}\left(\Omega\right)}\\
+\frac{1}{p^{**}} & =\frac{1}{p*}-\frac{1}{n}=\frac{1}{p}-\frac{2}{n}
+\end{align*}
+
+\end_inset
+
+After 
+\begin_inset Formula $k$
+\end_inset
+
+ steps we get 
+\begin_inset Formula $u\in H^{0,q}\left(\Omega\right)=L^{q}\left(\Omega\right)$
+\end_inset
+
+ and:
+\begin_inset Formula 
+\begin{align*}
+\norm u_{L^{q}\left(\Omega\right)} & \le C\norm u_{H^{k,p}\left(\Omega\right)}\\
+\frac{1}{q} & =\frac{1}{p}-\frac{k}{n}
+\end{align*}
+
+\end_inset
+
+We always need 
+\begin_inset Formula $p<n$
+\end_inset
+
+.
+ Due to 
+\begin_inset Formula $p^{*}>p$
+\end_inset
+
+ this means 
+\begin_inset Formula $\frac{1}{p}-\frac{k-1}{n}>\frac{1}{n}$
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $p^{-1}>\frac{k}{n}$
+\end_inset
+
+, 
+\begin_inset Formula $k<\frac{n}{p}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Case 
+\begin_inset Formula $\frac{n}{p}\not\in\mathbb{N}$
+\end_inset
+
+: Proceed as before
+\begin_inset Formula 
+\begin{align*}
+H^{k,p}\left(\Omega\right) & \hookrightarrow H^{k-1,p^{*}}\left(\Omega\right)\hookrightarrow\ldots\hookrightarrow H^{k-l,r}\left(\Omega\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\frac{1}{r} & =\frac{1}{p}-\frac{l}{n}\\
+r & =\frac{pn}{n-pl}
+\end{align*}
+
+\end_inset
+
+until 
+\begin_inset Formula $r>n$
+\end_inset
+
+.
+ (If this does not happen, we are in case i).)
+\begin_inset Formula 
+\begin{align*}
+r=\frac{pn}{n-pl} & >n\\
+p & >n-pl\\
+l+1 & >\frac{n}{p}
+\end{align*}
+
+\end_inset
+
+We have to choose the smallest 
+\begin_inset Formula $l$
+\end_inset
+
+, since as soon as 
+\begin_inset Formula $r>n$
+\end_inset
+
+ occurs, we cannot continue our iteration.
+ Thus we have:
+\begin_inset Formula 
+\begin{align*}
+l & \le\frac{n}{p}<l+1\\
+\Rightarrow\qquad l & =\left\lfloor\frac{n}{p}\right\rfloor
+\end{align*}
+
+\end_inset
+
+Morrey's inequality yields for all multi-indices 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ with 
+\begin_inset Formula $\abs{\alpha}\le k-l-1$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\DD^{\alpha}u & \in C^{0,1-\frac{n}{r}}\left(\overline{\Omega}\right)
+\end{align*}
+
+\end_inset
+
+(For 
+\begin_inset Formula $k-l=1$
+\end_inset
+
+ we know 
+\begin_inset Formula $u\in H^{1,r}\hookrightarrow C^{0,1-\frac{n}{r}}$
+\end_inset
+
+ and for 
+\begin_inset Formula $k-l>1$
+\end_inset
+
+ holds 
+\begin_inset Formula $\DD^{\alpha}u\in H^{1,r}\hookrightarrow C^{0,1-\frac{n}{r}}$
+\end_inset
+
+ for all multi-indices 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ with 
+\begin_inset Formula $\abs{\alpha}\le k-l-1$
+\end_inset
+
+.)
+\begin_inset Newline newline
+\end_inset
+
+We get 
+\begin_inset Formula $u\in C^{q,1-\frac{n}{r}}\left(\overline{\Omega}\right)$
+\end_inset
+
+ with:
+\begin_inset Formula 
+\begin{align*}
+q & =k-l-1=k-\left\lfloor \frac{n}{p}\right\rfloor -1\\
+1-\frac{n}{r} & =1-\left(\frac{n}{p}-l\right)=1-\frac{n}{p}+\left\lfloor \frac{n}{p}\right\rfloor 
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Case 
+\begin_inset Formula $\frac{n}{p}\in\mathbb{N}$
+\end_inset
+
+: Proceed as in case ii).
+\begin_inset Formula 
+\begin{align*}
+H^{k,p}\left(\Omega\right)\hookrightarrow\ldots\hookrightarrow H^{k-l,r}\left(\Omega\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\frac{1}{r} & =\frac{1}{p}-\frac{l}{n}=\frac{1}{n}\left(\frac{n}{p}-l\right)
+\end{align*}
+
+\end_inset
+
+We proceed until 
+\begin_inset Formula $\frac{n}{p}-l=1$
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $l=\frac{n}{p}-1$
+\end_inset
+
+, 
+\begin_inset Formula $\frac{1}{r}=\frac{1}{n}$
+\end_inset
+
+.
+ Thus holds 
+\begin_inset Formula $u\in H^{k-l,n}\left(\Omega\right)$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Applying the Gagliardo-Nirenberg inequality, we conclude 
+\begin_inset Formula $u\in H^{k-l-1,q}$
+\end_inset
+
+ for all 
+\begin_inset Formula $n\le q<\infty$
+\end_inset
+
+.
+ Thus for all multi-indices 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ with 
+\begin_inset Formula $\abs{\alpha}\le k-l-1=k-\frac{n}{p}$
+\end_inset
+
+ holds 
+\begin_inset Formula $\DD^{\alpha}u\in L^{q}\left(\Omega\right)$
+\end_inset
+
+.
+ Applying Morrey's inequality yields for all 
+\begin_inset Formula $n<q<\infty$
+\end_inset
+
+ and 
+\begin_inset Formula $\abs{\alpha}\le k-\frac{n}{p}-1$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\DD^{\alpha}u & \in C^{0,1-\frac{n}{q}}\left(\overline{\Omega}\right)
+\end{align*}
+
+\end_inset
+
+This implies 
+\begin_inset Formula $u\in C^{k-\frac{n}{p}-1,\gamma}\left(\overline{\Omega}\right)$
+\end_inset
+
+ with 
+\begin_inset Formula $\gamma\in\left(0,1\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Definition 
+\series medium
+(compact imbedding)
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $X,Y$
+\end_inset
+
+ be Banach spaces with an imbedding 
+\begin_inset Formula $X\hookrightarrow Y$
+\end_inset
+
+ (also written as 
+\begin_inset Formula $X\subseteq Y$
+\end_inset
+
+).
+ Then the imbedding is called 
+\emph on
+compact
+\emph default
+ (notation 
+\begin_inset Formula $X\Subset Y$
+\end_inset
+
+) if holds:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+roman*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+For all 
+\begin_inset Formula $u\in X$
+\end_inset
+
+ holds:
+\begin_inset Formula 
+\begin{align*}
+\norm u_{Y} & \le c\norm u_{X}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $X$
+\end_inset
+
+-bounded sequences 
+\begin_inset Formula $\left(u_{n}\right)$
+\end_inset
+
+ (i.e.
+ for all 
+\begin_inset Formula $n$
+\end_inset
+
+ holds 
+\begin_inset Formula $\norm{u_{n}}_{X}\le C$
+\end_inset
+
+) have a convergent subsequence in 
+\begin_inset Formula $Y$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+???
+\end_layout
+
+\begin_layout Section
+Theorem 
+\series medium
+(Rellich-Kondrachov)
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\Omega\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ be open and bounded with 
+\begin_inset Formula $C^{1}$
+\end_inset
+
+-boundary and 
+\begin_inset Formula $1\le p<n$
+\end_inset
+
+.
+ Then the imbedding
+\begin_inset Formula 
+\begin{align*}
+H^{1,p}\left(\Omega\right) & \hookrightarrow L^{q}\left(\Omega\right)
+\end{align*}
+
+\end_inset
+
+is compact for all 
+\begin_inset Formula $q\in[1,p^{*})$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Part*

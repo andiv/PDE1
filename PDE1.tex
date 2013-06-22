@@ -4697,7 +4697,7 @@ $u_{n}\to u$ in $H^{1,p}$ and $Tu_{n}=0$. So we get:
 in the book of Evans.\qqed
 
 
-\section{The Gagliando-Nirenberg Inequalities}
+\section{The Gagliardo-Nirenberg Inequalities}
 
 Question: Consider $u\in C_{0}^{1}\left(\mathbb{R}^{n}\right)$. For
 which $p$ and $q$ does the inequality
@@ -4728,7 +4728,7 @@ q & =\frac{np}{n-p}
 $q$ is called the \emph{Sobolev conjugate}, usually denoted by $p^{*}$.
 
 
-\subsection{Theorem \textmd{(Gagliando-Nirenberg-Sobolev Inequality)\label{sub:Thm-Gagliando-Nirenberg}}}
+\subsection{Theorem \textmd{(Gagliardo-Nirenberg-Sobolev Inequality)\label{sub:Thm-Gagliardo-Nirenberg}}}
 
 For $1\le p<n$ there is a constant $c\in\mathbb{R}_{>0}$ such that
 holds:
@@ -4773,7 +4773,7 @@ Iteratively this gives the the generalized Hölder Inequality.\qqed
 %DATE: Fr 7.6.13
 
 
-\subsubsection*{Proof of Theorem \ref{sub:Thm-Gagliando-Nirenberg}}
+\subsubsection*{Proof of Theorem \ref{sub:Thm-Gagliardo-Nirenberg}}
 
 We need to find a constant $c\in\mathbb{R}_{>0}$ such that for $u\in C_{0}^{1}\left(\mathbb{R}^{n}\right)$
 holds:
@@ -4871,7 +4871,7 @@ Finally follows:
 \begin{align*}
 \norm u_{L^{p^{*}}\left(\mathbb{R}^{n}\right)}=\left(\int\abs u^{p^{*}}\dd^{n}x\right)^{\frac{1}{p^{*}}} & \le c\norm{\DD u}_{L^{p}\left(\mathbb{R}^{n}\right)}
 \end{align*}
-\qqed[\ref{sub:Thm-Gagliando-Nirenberg}]
+\qqed[\ref{sub:Thm-Gagliardo-Nirenberg}]
 \end{enumerate}
 
 \subsection{Theorem\label{sub:Thm-Proof-with-extension}}
@@ -4920,7 +4920,7 @@ Extending $\overline{u}$ by zero to $\mathbb{R}^{n}$ we get:
 \end{align*}
 Now follows:
 \begin{align*}
-\norm u_{L^{p^{*}}\left(\Omega\right)} & \le\norm{\overline{u}}_{L^{p^{*}}\left(\mathbb{R}^{n}\right)}\sr{\le}{\ref{sub:Thm-Gagliando-Nirenberg}}{}c\norm{\DD\overline{u}}_{L^{p}\left(\mathbb{R}^{n}\right)}\le\\
+\norm u_{L^{p^{*}}\left(\Omega\right)} & \le\norm{\overline{u}}_{L^{p^{*}}\left(\mathbb{R}^{n}\right)}\sr{\le}{\ref{sub:Thm-Gagliardo-Nirenberg}}{}c\norm{\DD\overline{u}}_{L^{p}\left(\mathbb{R}^{n}\right)}\le\\
  & \le c\norm{\overline{u}}_{H^{1,p}\left(\mathbb{R}^{n}\right)}\le\underbrace{c\tilde{c}}_{=:C}\norm u_{H^{1,p}\left(\Omega\right)}
 \end{align*}
 \qqed
@@ -4942,7 +4942,7 @@ all $u\in H_{0}^{1,p}\left(\Omega\right)$ holds:
 For $u\in H_{0}^{1,p}\left(\Omega\right)$ there is by definition
 a sequence $u_{k}\in C_{0}^{1}\left(\Omega\right)$ with $u_{k}\to u$
 converging in $H_{0}^{1,p}\left(\Omega\right)$. We extend $u_{n}$
-by zero to $\mathbb{R}^{n}$ and apply the Gagliando-Nirenberg inequality:
+by zero to $\mathbb{R}^{n}$ and apply the Gagliardo-Nirenberg inequality:
 \begin{align*}
 \norm{u_{k}}_{L^{p^{*}}\left(\Omega\right)} & =\norm{u_{k}}_{L^{p^{*}}\left(\mathbb{R}^{n}\right)}\le c\norm{\DD u_{k}}_{L^{p}\left(\mathbb{R}^{n}\right)}=c\norm{\DD u_{k}}_{L^{p}\left(\Omega\right)}\xrightarrow{k\to\infty}c\norm{\DD u}_{L^{p}\left(\Omega\right)}
 \end{align*}
@@ -5008,7 +5008,7 @@ This traces back to Charles Morrey (1907-1984).
 \subsection{Theorem \textmd{(Morrey Inequalities)\label{sub:Thm-Morrey-Inequalities}}}
 
 For $n<p\le\infty$ exists a constant $C\in\mathbb{R}_{>0}$ (depending
-only on $n$ and $p$), such that for $u\in C^{1}\left(\mathbb{R}^{n}\right)\cap L^{p}\left(\mathbb{R}^{n}\right)$
+only on $n$ and $p$), such that for $u\in C^{1}\left(\mathbb{R}^{n}\right)\cap H^{1,p}\left(\mathbb{R}^{n}\right)$
 and $\gamma:=1-\frac{n}{p}$ holds:
 \begin{align*}
 \norm u_{C^{0,\gamma}\left(\mathbb{R}^{n}\right)} & \le C\norm u_{H^{1,p}\left(\mathbb{R}^{n}\right)}
@@ -5029,7 +5029,7 @@ We define:
 \begin{description}
 \item [{Claim:}] 
 \begin{align*}
-\fint_{B_{r}\left(x\right)}\abs{u\left(x\right)-u\left(y\right)}\dd^{n}y & \le C_{1}\left(n\right)\cdot\int\frac{\norm{\DD u\left(y\right)}}{\norm{x-y}^{n-1}}\dd^{n}y
+\fint_{B_{r}\left(x\right)}\abs{u\left(x\right)-u\left(y\right)}\dd^{n}y & \le C_{1}\left(n\right)\cdot\int_{B_{r}\left(x\right)}\frac{\norm{\DD u\left(y\right)}}{\norm{x-y}^{n-1}}\dd^{n}y
 \end{align*}
 
 \item [{Proof:}] Choose $B_{r}\left(x\right)$, $s\in\left(0,r\right)$
@@ -5063,7 +5063,7 @@ Dividing by $r^{n}$ gives the claim.\qqed[\arabic{enumi}.]
 \item Now estimate $u$ point-wise:
 \begin{align*}
 \abs{u\left(x\right)} & =\abs{u\left(x\right)}\underbrace{\fint_{B_{1}\left(x\right)}\dd^{n}y}_{=1}\le\fint_{B_{1}\left(x\right)}\abs{u\left(x\right)-u\left(y\right)}\dd^{n}y+\fint_{B_{1}\left(x\right)}\abs{u\left(y\right)}\dd^{n}y\le\\
- & \sr{\le}{\text{1.}}{}C_{1}\cdot\int\frac{\norm{\DD u\left(y\right)}}{\norm{x-y}^{n-1}}\dd^{n}y+\frac{1}{\omega_{n}}\int_{B_{1}\left(x\right)}\abs{u\left(y\right)}\dd^{n}y\le\\
+ & \sr{\le}{\text{1.}}{}C_{1}\cdot\int_{B_{1}\left(x\right)}\frac{\norm{\DD u\left(y\right)}}{\norm{x-y}^{n-1}}\dd^{n}y+\frac{1}{\omega_{n}}\int_{B_{1}\left(x\right)}\abs{u\left(y\right)}\dd^{n}y\le\\
  & \sr{\le}{\text{Hölder}}{p^{-1}+q^{-1}=1}C_{1}\norm{\DD u}_{L^{q}\left(B_{1}\left(x\right)\right)}\left(\int_{B_{1}\left(x\right)}\left(\frac{1}{\norm{x-y}^{n-1}}\right)^{q}\dd^{n}y\right)^{\frac{1}{q}}+\\
  & \qquad\qquad\quad+\norm u_{L^{p}\left(B_{1}\left(x\right)\right)}\underbrace{\frac{1}{\omega_{n}}\left(\int_{B_{1}\left(x\right)}1^{q}\dd^{n}y\right)^{\frac{1}{q}}}_{=:C_{2}}\le\\
  & \le C_{1}\norm{\DD u}_{L^{q}\left(\mathbb{R}^{n}\right)}\left(\int_{B_{1}\left(x\right)}\left(\frac{1}{\norm{x-y}^{n-1}}\right)^{q}\dd^{n}y\right)^{\frac{1}{q}}+C_{2}\norm u_{L^{p}\left(\mathbb{R}^{n}\right)}
@@ -5193,7 +5193,7 @@ Hence converges $u_{l}\to u^{*}\in C^{0,\gamma}\left(\overline{\Omega}\right)$.
 \qqed
 
 
-\chapter{Construction of Weak Solutions of Linear Elliptic PDEs}
+\chapter{Construction of Weak Solutions of Linear Elliptic PDEs\label{chap:Solutions-Linear-Elliptic-PDE}}
 
 Let $\Omega\subseteq\mathbb{R}^{n}$ be a open domain with smooth
 boundary and $n\in\mathbb{N}_{>2}$. Consider the linear partial differential
@@ -5291,7 +5291,7 @@ Then holds:
 We always assume that $\Omega$ is bounded. Then $f\in C^{\infty}\left(\overline{\Omega}\right)$
 implies $f\in L^{2}\left(\Omega\right)$.
 
-Furthermore, we know from the Gagliando-Nirenberg estimate
+Furthermore, we know from the Gagliardo-Nirenberg estimate
 \begin{align*}
 H_{0}^{1,2}\left(\Omega\right) & \hookrightarrow L^{p^{*}}\left(\Omega\right)
 \end{align*}
@@ -5572,7 +5572,7 @@ Convexity and coercivity are also essential for proving existence.
 S:H_{0}^{1,2}\left(\Omega\right) & \to\mathbb{R}\cup\left\{ \infty\right\} \\
 u & \mapsto\int_{\Omega}f\left(x,\DD u\right)\dd^{n}x=\underbrace{\int_{\Omega}\underbrace{\left(f\left(x,\DD u\right)+\gamma\right)}_{\ge0}\dd^{n}x}_{\text{could be }\infty}-\int_{\Omega}\underbrace{\gamma}_{\in L^{1}}\dd^{n}x
 \end{align*}
-
+Therefore $S$ is bounded from below.
 
 
 \section{Lemma \textmd{(Lower Semi-Continuous)}\label{sec:Lem-J-low-sem-cont}}
@@ -5858,6 +5858,260 @@ This implies:
 S\left(u_{0}\right) & =\inf_{u\in\mathcal{H}}S\left(u\right)
 \end{align*}
 \qqed[\ref{sec:Thm-S_lambda-minimizer}]
+
+%DATE: Fr 21.6.13
+
+
+\chapter{The Finite Element Method}
+
+We return to the action of Chapter \ref{chap:Solutions-Linear-Elliptic-PDE}.
+\begin{align*}
+S\left(u\right) & =A\left(u,u\right)+l\left(u\right)
+\end{align*}
+
+\begin{itemize}
+\item $\abs{A\left(u,v\right)}\le\opnorm A\cdot\norm u\cdot\norm v$, $A\left(u,u\right)\ge\lambda\norm u^{2}$,
+$\lambda\in\mathbb{R}_{>0}$
+\item $\abs{l\left(u\right)}\le\opnorm l\cdot\norm u$
+\end{itemize}
+We showed that there is a unique minimizer $u\in\mathcal{H}$.
+
+Question: How can we approximate $u$?
+
+To this end, we choose $V\subseteq\mathcal{H}$ finite-dimensional
+(e.g. triangulations, lattice approximations, wavelets). Then we can
+minimize $S\big|_{V}:V\to\mathbb{R}$. The minimizer can be found
+numerically.
+
+Typically, one considers $V_{1}\subseteq V_{2}\subseteq\ldots\subseteq\mathcal{H}$,
+a \emph{filtration} (Ausschöpfung) of $\mathcal{H}$.
+
+
+\section{Lemma}
+
+Let $u$ be the minimizer of $S$ on $\mathcal{H}$ (unknown!) and
+$u_{V}$ the minimizer of $S$ on $V$ (known!). Then holds:
+\begin{align*}
+\norm{u-u_{V}} & \le\frac{\opnorm A}{\lambda}\inf_{v\in V}\norm{u-v}
+\end{align*}
+
+
+
+\subsubsection{Proof}
+
+The Euler-Lagrange equations for $\varphi\in\mathcal{H}$ are:
+\begin{align*}
+2A\left(u,\varphi\right)+l\left(\varphi\right) & =0
+\end{align*}
+If we minimize only on the subspace $V$, we get for $\varphi\in V$.
+\begin{align*}
+2A\left(u_{V},\varphi\right)+l\left(\varphi\right) & =0
+\end{align*}
+(We consider only variations $u_{V}+\tau\varphi$ with $\varphi\in V$.)
+Taking the difference gives for $\varphi\in V$:
+\begin{align*}
+A\left(u-u_{V},\varphi\right) & =0
+\end{align*}
+For $v\in V$ holds:
+\begin{align*}
+\norm{u-u_{V}}^{2} & \sr{\le}{\text{coercive}}{}\frac{1}{\lambda}A\left(u-u_{V},u-u_{V}\right)=\frac{1}{\lambda}A\left(u-u_{V},u-u_{V}-v+v\right)=\\
+ & \sr ={\text{linearity}}{}\frac{1}{\lambda}A\left(u-u_{V},u-v\right)+\frac{1}{\lambda}\underbrace{A(u-u_{V},\underbrace{v-u_{V}}_{=:\varphi\in V})}_{=0}=\frac{1}{\lambda}A\left(u-u_{V},u-v\right)\le\\
+ & \sr{\le}{\text{boundedness}}{}\frac{\opnorm A}{\lambda}\norm{u-u_{V}}\cdot\norm{u-v}
+\end{align*}
+So for all $v\in V$ we get:
+\begin{align*}
+\norm{u-u_{V}} & \le\frac{\opnorm A}{\lambda}\norm{u-v}
+\end{align*}
+Taking the infimum over $v\in V$ gives the result.\qqed
+
+For a filtration converges $\inf_{v\in V_{n}}\norm{u-v}\xrightarrow{n\to\infty}0$
+and thus $u_{V_{n}}\to u$.
+
+
+\chapter{Imbedding Theorems}
+
+Recapitulation: Let $\Omega\subseteq\mathbb{R}^{n}$ be bounded with
+$C^{1}$-boundary.
+\begin{itemize}
+\item Gagliardo-Nirenberg inequality for functions $u\in H_{0}^{1,p}\left(\Omega\right)$
+vanishing on the boundary:
+\begin{align*}
+\norm u_{L^{p^{*}}\left(\Omega\right)} & \le C\left(n\right)\norm{\DD u}_{L^{p}\left(\Omega\right)}\\
+p^{*} & =\frac{np}{n-p}
+\end{align*}
+
+\item On $H^{1,p}\left(\Omega\right)$ without zero boundary conditions
+for $1\le p<n$:
+\begin{align*}
+\norm u_{L^{p^{*}}\left(\Omega\right)} & \le C\left(\Omega\right)\norm u_{H^{1,p}\left(\Omega\right)}
+\end{align*}
+Using Hölder one finds that the inequalities also hold, if the $p^{*}$
+is replaced by $q<p^{*}$.
+\item Morrey inequalities for $n<p<\infty$ and $u\in H^{1,p}\left(\Omega\right)$:
+\begin{align*}
+\norm u_{C^{0,\gamma}\left(\overline{\Omega}\right)} & \le c\norm u_{H^{1,p}\left(\Omega\right)}\\
+\gamma & =1-\frac{n}{p}
+\end{align*}
+
+\end{itemize}
+We have:
+\begin{align*}
+H^{1,p}\left(\Omega\right) & \hookrightarrow\begin{cases}
+L^{p^{*}}\left(\Omega\right) & 1\le p<n\\
+C^{0,\gamma}\left(\overline{\Omega}\right) & n<p\quad\text{(imbedding of equivalence classes)}
+\end{cases}
+\end{align*}
+
+\begin{description}
+\item [{Question:}] Are these imbeddings compact?
+\item [{Definition:}] For Banach spaces $E,F$, a linear map $A:E\to F$
+is called \emph{compact}, if $A$ maps bounded sets to relatively
+compact sets, i.e. sets, whose closure is compact.
+\end{description}
+One can compose the imbeddings:
+\begin{align*}
+H^{2,p}\left(\Omega\right) & \hookrightarrow H^{1,p^{*}}\left(\Omega\right)\hookrightarrow\begin{cases}
+L^{p^{**}}\left(\Omega\right)\\
+C^{0,\tilde{\gamma}}\left(\Omega\right)
+\end{cases}
+\end{align*}
+
+
+
+\section{Theorem \textmd{(Generalized Gagliardo-Nirenberg/Morrey)}}
+
+Let $\Omega\subseteq\mathbb{R}^{n}$ be open and bounded with $C^{k}$-boundary
+and $u\in H^{k,p}\left(\Omega\right)$.
+\begin{enumerate}[label=\roman*)]
+\item For ${\displaystyle k<\frac{n}{p}}$ holds $u\in L^{q}\left(\Omega\right)$
+with ${\displaystyle \frac{1}{q}=\frac{1}{p}-\frac{k}{n}}$ and:
+\begin{align*}
+\norm u_{L^{q}\left(\Omega\right)} & \le C\left(\Omega\right)\norm u_{H^{k,p}\left(\Omega\right)}
+\end{align*}
+
+\item For ${\displaystyle k>\frac{n}{p}}$ holds $u\in C^{k-\left\lfloor \frac{n}{p}\right\rfloor +1,\gamma}\left(\Omega\right)$
+with
+\begin{align*}
+\gamma & \begin{cases}
+=\left\lfloor \frac{n}{p}\right\rfloor +1-\frac{n}{p} & \text{if }\frac{n}{p}\not\in\mathbb{N}\\
+\in\left(0,1\right) & \text{if }\frac{n}{p}\in\mathbb{N}
+\end{cases}
+\end{align*}
+and:
+\begin{align*}
+\norm u_{H^{k-\left\lfloor \frac{n}{p}\right\rfloor -1,\gamma}\left(\Omega\right)} & \le C\left(\Omega\right)\norm u_{H^{k,p}\left(\Omega\right)}
+\end{align*}
+
+\end{enumerate}
+
+\subsubsection{Proof}
+\begin{enumerate}[label=\roman*)]
+\item Consider $u\in H^{k,p}\left(\Omega\right)$ and $k\in\mathbb{N}_{\ge1}$.
+Then for all multi-indices $\alpha$ with $\abs{\alpha}\le k$ holds
+$\DD^{\alpha}u\in L^{p}\left(\Omega\right)$. The Gagliardo-Nirenberg
+inequality gives for all multi-indices $\beta$ with $\abs{\beta}\le k-1$:
+\begin{align*}
+\norm{\DD^{\beta}u}_{L^{p^{*}}\left(\Omega\right)} & \le c\norm u_{H^{1,p}\left(\Omega\right)}
+\end{align*}
+Therefore holds $u\in H^{k-1,p^{*}}\left(\Omega\right)$ and:
+\begin{align*}
+\norm u_{H^{k-1,p^{*}}} & \le C\norm u_{H^{k,p}\left(\Omega\right)}\\
+\frac{1}{p^{*}} & =\frac{1}{p}-\frac{1}{n}
+\end{align*}
+Iterating gives $u\in H^{k-2,p^{**}}\left(\Omega\right)$ and:
+\begin{align*}
+\norm u_{H^{k-2,p^{**}}\left(\Omega\right)} & \le C\norm u_{H^{k,p}\left(\Omega\right)}\\
+\frac{1}{p^{**}} & =\frac{1}{p*}-\frac{1}{n}=\frac{1}{p}-\frac{2}{n}
+\end{align*}
+After $k$ steps we get $u\in H^{0,q}\left(\Omega\right)=L^{q}\left(\Omega\right)$
+and:
+\begin{align*}
+\norm u_{L^{q}\left(\Omega\right)} & \le C\norm u_{H^{k,p}\left(\Omega\right)}\\
+\frac{1}{q} & =\frac{1}{p}-\frac{k}{n}
+\end{align*}
+We always need $p<n$. Due to $p^{*}>p$ this means $\frac{1}{p}-\frac{k-1}{n}>\frac{1}{n}$,
+i.e. $p^{-1}>\frac{k}{n}$, $k<\frac{n}{p}$.
+\item Case $\frac{n}{p}\not\in\mathbb{N}$: Proceed as before
+\begin{align*}
+H^{k,p}\left(\Omega\right) & \hookrightarrow H^{k-1,p^{*}}\left(\Omega\right)\hookrightarrow\ldots\hookrightarrow H^{k-l,r}\left(\Omega\right)
+\end{align*}
+\begin{align*}
+\frac{1}{r} & =\frac{1}{p}-\frac{l}{n}\\
+r & =\frac{pn}{n-pl}
+\end{align*}
+until $r>n$. (If this does not happen, we are in case i).)
+\begin{align*}
+r=\frac{pn}{n-pl} & >n\\
+p & >n-pl\\
+l+1 & >\frac{n}{p}
+\end{align*}
+We have to choose the smallest $l$, since as soon as $r>n$ occurs,
+we cannot continue our iteration. Thus we have:
+\begin{align*}
+l & \le\frac{n}{p}<l+1\\
+\Rightarrow\qquad l & =\left\lfloor\frac{n}{p}\right\rfloor
+\end{align*}
+Morrey's inequality yields for all multi-indices $\alpha$ with $\abs{\alpha}\le k-l-1$:
+\begin{align*}
+\DD^{\alpha}u & \in C^{0,1-\frac{n}{r}}\left(\overline{\Omega}\right)
+\end{align*}
+(For $k-l=1$ we know $u\in H^{1,r}\hookrightarrow C^{0,1-\frac{n}{r}}$
+and for $k-l>1$ holds $\DD^{\alpha}u\in H^{1,r}\hookrightarrow C^{0,1-\frac{n}{r}}$
+for all multi-indices $\alpha$ with $\abs{\alpha}\le k-l-1$.)\\
+We get $u\in C^{q,1-\frac{n}{r}}\left(\overline{\Omega}\right)$ with:
+\begin{align*}
+q & =k-l-1=k-\left\lfloor \frac{n}{p}\right\rfloor -1\\
+1-\frac{n}{r} & =1-\left(\frac{n}{p}-l\right)=1-\frac{n}{p}+\left\lfloor \frac{n}{p}\right\rfloor 
+\end{align*}
+
+\item Case $\frac{n}{p}\in\mathbb{N}$: Proceed as in case ii).
+\begin{align*}
+H^{k,p}\left(\Omega\right)\hookrightarrow\ldots\hookrightarrow H^{k-l,r}\left(\Omega\right)
+\end{align*}
+\begin{align*}
+\frac{1}{r} & =\frac{1}{p}-\frac{l}{n}=\frac{1}{n}\left(\frac{n}{p}-l\right)
+\end{align*}
+We proceed until $\frac{n}{p}-l=1$, i.e. $l=\frac{n}{p}-1$, $\frac{1}{r}=\frac{1}{n}$.
+Thus holds $u\in H^{k-l,n}\left(\Omega\right)$.\\
+Applying the Gagliardo-Nirenberg inequality, we conclude $u\in H^{k-l-1,q}$
+for all $n\le q<\infty$. Thus for all multi-indices $\alpha$ with
+$\abs{\alpha}\le k-l-1=k-\frac{n}{p}$ holds $\DD^{\alpha}u\in L^{q}\left(\Omega\right)$.
+Applying Morrey's inequality yields for all $n<q<\infty$ and $\abs{\alpha}\le k-\frac{n}{p}-1$:
+\begin{align*}
+\DD^{\alpha}u & \in C^{0,1-\frac{n}{q}}\left(\overline{\Omega}\right)
+\end{align*}
+This implies $u\in C^{k-\frac{n}{p}-1,\gamma}\left(\overline{\Omega}\right)$
+with $\gamma\in\left(0,1\right)$.
+\end{enumerate}
+\qqed
+
+
+\section{Definition \textmd{(compact imbedding)}}
+
+Let $X,Y$ be Banach spaces with an imbedding $X\hookrightarrow Y$
+(also written as $X\subseteq Y$). Then the imbedding is called \emph{compact}
+(notation $X\Subset Y$) if holds:
+\begin{enumerate}[label=\roman*)]
+\item For all $u\in X$ holds:
+\begin{align*}
+\norm u_{Y} & \le c\norm u_{X}
+\end{align*}
+
+\item $X$-bounded sequences $\left(u_{n}\right)$ (i.e. for all $n$ holds
+$\norm{u_{n}}_{X}\le C$) have a convergent subsequence in $Y$.
+\end{enumerate}
+
+\section{???}
+
+
+\section{Theorem \textmd{(Rellich-Kondrachov)}}
+
+Let $\Omega\subseteq\mathbb{R}^{n}$ be open and bounded with $C^{1}$-boundary
+and $1\le p<n$. Then the imbedding
+\begin{align*}
+H^{1,p}\left(\Omega\right) & \hookrightarrow L^{q}\left(\Omega\right)
+\end{align*}
+is compact for all $q\in[1,p^{*})$.
 
 
 \part*{Appendix\thispagestyle{empty}}
