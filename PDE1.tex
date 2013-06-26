@@ -6049,7 +6049,7 @@ We have to choose the smallest $l$, since as soon as $r>n$ occurs,
 we cannot continue our iteration. Thus we have:
 \begin{align*}
 l & \le\frac{n}{p}<l+1\\
-\Rightarrow\qquad l & =\left\lfloor\frac{n}{p}\right\rfloor
+\Rightarrow\qquad l & =\left\lfloor \frac{n}{p}\right\rfloor 
 \end{align*}
 Morrey's inequality yields for all multi-indices $\alpha$ with $\abs{\alpha}\le k-l-1$:
 \begin{align*}
@@ -6100,8 +6100,109 @@ Let $X,Y$ be Banach spaces with an imbedding $X\hookrightarrow Y$
 \item $X$-bounded sequences $\left(u_{n}\right)$ (i.e. for all $n$ holds
 $\norm{u_{n}}_{X}\le C$) have a convergent subsequence in $Y$.
 \end{enumerate}
+%DATE: Mi 26.6.13
 
-\section{???}
+
+\section{Theorem\textmd{ (Arzelá-Ascoli)}}
+
+Consider a sequence $\left(f_{k}\right)$ of real-valued functions
+on a compact $K\subseteq\mathbb{R}^{n}$ with the properties.
+\begin{enumerate}
+\item The $\left(f_{k}\right)$ are \emph{uniformly bounded}, i.e. for all
+$k\in\mathbb{N}$ and $x\in K$ holds $\abs{f_{k}\left(x\right)}\le M$.
+\item The $\left(f_{k}\right)$ are \emph{equicontinuous} (\foreignlanguage{ngerman}{gleichgradig
+stetig}), i.e. for all $\varepsilon\in\mathbb{R}_{>0}$ exists a $\delta\in\mathbb{R}_{>0}$
+such that holds:
+\begin{align*}
+\norm{x-y}<\delta & \quad\Rightarrow\quad\fall_{k\in\mathbb{N}}\abs{f_{k}\left(x\right)-f_{k}\left(y\right)}<\varepsilon
+\end{align*}
+Note that $\delta$ is independent of $k$.
+\end{enumerate}
+Then $\left(f_{k}\right)$ has a subsequence which converges uniformly,
+i.e. $f_{k}\rightrightarrows f$ converges uniformly in $K$ or equivalently
+$f_{k}\rightarrow f$ converges in $C^{0}\left(K,\mathbb{R}\right)$.
+
+
+\subsubsection*{Proof}
+
+For $\varepsilon\in\mathbb{R}_{>0}$ choose a $\delta\in\mathbb{R}_{>0}$
+satisfying the equicontinuity condition. Then for every ball $B_{\delta}\left(x\right)$
+the following holds:
+\begin{align*}
+y\in B_{\delta\left(x\right)}\quad & \Rightarrow\quad\fall_{k\in\mathbb{N}}\abs{f_{k}\left(x\right)-f_{k}\left(y\right)}<\varepsilon
+\end{align*}
+Since $K$ is compact, we can cover it by a finite number of such
+balls $B_{\delta}\left(x_{1}\right),B_{\delta}\left(x_{2}\right),\ldots,B_{\delta}\left(x_{L}\right)$.
+The sequence $f_{k}\left(x_{1}\right)$ is bounded by the uniform
+boundedness condition and thus has a convergent subsequence. Iteratively
+choosing subsequences (For simplicity we denote the subsequences again
+by $f_{k}$.) we can arrange that $f_{k}\left(x_{l}\right)\xrightarrow{k\to\infty}f\left(x_{l}\right)$
+converges for all $l\in\left\{ 1,\ldots,L\right\} $. In particular
+there is a $N\in\mathbb{N}$ such that for all $k\in\mathbb{N}_{>N}$
+and all $l\in\left\{ 1,\ldots,L\right\} $ holds:
+\begin{align*}
+\abs{f_{k}\left(x_{l}\right)-f\left(x_{l}\right)} & <\varepsilon
+\end{align*}
+For $y\in K$ holds $y\in B_{\delta}\left(x_{l}\right)$ for some
+$l$, since the balls cover $K$. Therefore holds for $j,k\in\mathbb{N}_{>N}$:
+\begin{align*}
+\abs{f_{j}\left(y\right)-f_{k}\left(y\right)} & \le\underbrace{\abs{f_{j}\left(y\right)-f_{j}\left(x_{l}\right)}}_{<\varepsilon\ \text{(equicontinuity)}}+\underbrace{\abs{f_{j}\left(x_{l}\right)-f\left(x_{l}\right)}}_{<\varepsilon\ \left(f_{j}\to f\right)}+\underbrace{\abs{f\left(x_{l}\right)-f_{k}\left(x_{l}\right)}}_{<\varepsilon\ \left(f_{k}\to f\right)}+\underbrace{\abs{f_{k}\left(x_{l}\right)-f_{k}\left(y\right)}}_{<\varepsilon\ \text{(equicontinuity)}}<4\varepsilon
+\end{align*}
+This allows us to proceed inductively as follows:
+\begin{itemize}
+\item Choosing $\varepsilon=1$, there is a subsequence $f_{k}^{\left(1\right)}$
+such that for all $k,l\in\mathbb{N}$ holds:
+\begin{align*}
+\norm{f_{k}^{\left(1\right)}-f_{l}^{\left(1\right)}}_{C^{0}\left(K\right)} & <4
+\end{align*}
+
+\item Choosing $\varepsilon=\frac{1}{2}$, there is a subsequence $f_{k}^{\left(2\right)}$
+such that for all $k,l\in\mathbb{N}$ holds:
+\begin{align*}
+\norm{f_{k}^{\left(2\right)}-f_{l}^{\left(2\right)}}_{C^{0}\left(K\right)} & <2
+\end{align*}
+
+\item $\ldots$
+\item Choosing $\varepsilon=\frac{1}{n}$, there is a subsequence $f_{k}^{\left(n-1\right)}$
+such that for all $k,l\in\mathbb{N}$ holds:
+\begin{align*}
+\norm{f_{k}^{\left(n\right)}-f_{l}^{\left(n\right)}}_{C^{0}\left(K\right)} & <\frac{4}{n}
+\end{align*}
+
+\end{itemize}
+Then the diagonal sequence $\tilde{f}_{k}:=f_{k}^{\left(k\right)}$
+is a Cauchy sequence in $C^{0}\left(K\right)$.\qqed
+
+\pagebreak
+
+The Arzelá-Ascoli Theorem can immediately be applied to Hölder continuous
+functions in a bounded domain $\Omega\subseteq\mathbb{R}^{n}$. Morrey's
+inequality states:
+\begin{align*}
+\norm u_{C^{0,\gamma}\left(\overline{\Omega}\right)} & \le C\left(\Omega\right)\norm u_{H^{1,p}\left(\Omega\right)}
+\end{align*}
+Let $u_{k}\in H^{1,p}\left(\Omega\right)$ be a bounded sequence,
+i.e. for all $k\in\mathbb{N}$ holds $\norm{u_{k}}_{H^{1,p}\left(\Omega\right)}<c$.
+Then for all $k\in\mathbb{N}$ follows:
+\begin{align*}
+\norm{u_{k}}_{C^{0,\gamma}\left(\overline{\Omega}\right)} & \le C\left(\Omega\right)\cdot c=:\tilde{c}
+\end{align*}
+\begin{align*}
+\norm u_{C^{0,\gamma}\left(\overline{\Omega}\right)} & =\sup_{x\in\overline{\Omega}}\abs{u\left(x\right)}+\sup_{x\not=y\in\overline{\Omega}}\frac{\abs{u\left(x\right)-u\left(y\right)}}{\norm{x-y}^{\gamma}}
+\end{align*}
+\begin{align*}
+\Rightarrow\qquad\abs{u_{k}\left(x\right)} & <\tilde{c}\qquad\fall_{k\in\mathbb{N},x\in\overline{\Omega}}
+\end{align*}
+Moreover the equicontinuity condition is satisfied if we choose $\delta=\left(\frac{\varepsilon}{\tilde{c}}\right)^{\frac{1}{\gamma}}$.
+\begin{align*}
+\abs{u\left(x\right)-u\left(y\right)} & \le\tilde{c}\norm{x-y}^{\gamma}
+\end{align*}
+\begin{align*}
+\norm{x-y}<\delta & \quad\Rightarrow\quad\abs{u\left(x\right)-u\left(y\right)}\le\tilde{c}\delta^{\gamma}=\varepsilon
+\end{align*}
+By the Arzelá-Ascoli Theorem, there is a subsequence $u_{k}\to u$
+converging in $C^{0}\left(\overline{\Omega}\right)$. Moreover $\norm{u_{k}-u}_{C^{0,\gamma}}$
+also converges.
 
 
 \section{Theorem \textmd{(Rellich-Kondrachov)}}
@@ -6111,7 +6212,137 @@ and $1\le p<n$. Then the imbedding
 \begin{align*}
 H^{1,p}\left(\Omega\right) & \hookrightarrow L^{q}\left(\Omega\right)
 \end{align*}
-is compact for all $q\in[1,p^{*})$.
+is compact for all $1\le q<p^{*}=\frac{np}{n-p}$.
+
+
+\subsubsection*{Proof}
+
+The Gagliardo-Nirenberg inequalities imply $H^{1,p}\left(\Omega\right)\subseteq L^{p^{*}}\left(\Omega\right)$
+and by Hölder's theorem holds $L^{p^{*}}\subseteq L^{q}\left(\Omega\right)$:
+\begin{align*}
+\norm u_{L^{q}\left(\Omega\right)} & \sr{\le}{\text{Hölder}}{}c\norm u_{L^{p^{*}}\left(\Omega\right)}\le\tilde{c}\norm u_{H^{1,p}\left(\Omega\right)}
+\end{align*}
+So we have:
+\begin{align*}
+H^{1,p}\left(\Omega\right) & \subseteq L^{p^{*}}\left(\Omega\right)\subseteq L^{q}\left(\Omega\right)
+\end{align*}
+The boundedness of the imbedding is clear. To show compactness, let
+$u_{k}\in H^{1,p}\left(\Omega\right)$ be a bounded sequence in $H^{1,p}\left(\Omega\right)$.
+Due to our extension theorem, we can extend the $u_{k}$ to functions
+in $H_{0}^{1,p}\left(V\right)$ with $\Omega\Subset V\Subset\mathbb{R}^{n}$
+and $\norm{u_{k}}_{H_{0}^{1,p}\left(V\right)}<M$.
+
+We proceed in several steps:
+\begin{enumerate}
+\item Let $\eta_{\varepsilon}=\varepsilon^{-n}\eta\left(\frac{x}{\varepsilon}\right)$
+be a convolution kernel, i.e. $\eta\in C_{0}^{\infty}\left(B_{1}\left(0\right)\right)$,
+$\eta\left(x\right)\ge0$ and:
+\begin{align*}
+\int_{\mathbb{R}^{n}}\eta\left(x\right)\dd^{n}\left(x\right) & =1
+\end{align*}
+Then $\text{supp}\left(\eta_{\varepsilon}\right)\subseteq B_{\varepsilon}\left(0\right)$
+and $\int_{\mathbb{R}^{n}}\eta_{\varepsilon}\left(x\right)\dd^{n}x=1$.
+\begin{align*}
+u_{k}^{\varepsilon}\left(x\right) & :=\left(\eta_{\varepsilon}*u_{k}\right)\left(x\right)=\int_{\mathbb{R}^{n}}\eta_{\varepsilon}\left(x-y\right)u_{k}\left(y\right)\dd^{n}y
+\end{align*}
+
+
+\begin{description}
+\item [{Claim:}] $u_{k}^{\varepsilon}\xrightarrow{\varepsilon\searrow0}u_{k}$
+converges uniformly in $k$ in the space $L^{q}\left(V\right)$.
+\item [{Proof:}] It holds:
+\begin{align*}
+\left(u_{k}^{\varepsilon}-u_{k}\right)\left(x\right) & =\int_{\mathbb{R}^{n}}\eta_{\varepsilon}\left(y\right)\left(u_{k}\left(x-y\right)-u_{k}\left(x\right)\right)\dd^{n}y=\\
+ & =\int_{\mathbb{R}^{n}}\frac{1}{\varepsilon^{n}}\eta\left(\frac{y}{\varepsilon}\right)\left(u_{k}\left(x-y\right)-u_{k}\left(x\right)\right)\dd^{n}y=\\
+ & \sr ={\tilde{y}:=\frac{y}{\varepsilon}}{}\int_{\mathbb{R}^{n}}\frac{1}{\varepsilon^{n}}\eta\left(\tilde{y}\right)\left(u_{k}\left(x-\varepsilon\tilde{y}\right)-u_{k}\left(x\right)\right)\varepsilon^{n}\dd^{n}\tilde{y}=\\
+ & =\int_{B_{1}\left(0\right)}\eta\left(y\right)\left(u_{k}\left(x-\varepsilon y\right)-u_{k}\left(x\right)\right)\dd^{n}y=\\
+ & =\int_{B_{1}\left(0\right)}\eta\left(y\right)\int_{0}^{1}\underbrace{\frac{\dd}{\dd\tau}u_{k}\left(x-\varepsilon\tau y\right)}_{=-\varepsilon\DD u_{k}\left(x-\varepsilon\tau y\right)\cdot y}\dd\tau\dd^{n}y
+\end{align*}
+To be precise, here we need to assume $u_{k}\in C_{0}^{1}\left(V\right)$
+to be able to differentiate. Afterwards one can use an approximation
+argument for $u_{k}\in H_{0}^{1,p}\left(V\right)$. We get:
+\begin{align*}
+\abs{u_{k}^{\varepsilon}-u_{k}}\left(x\right) & \le\int_{B_{1}\left(0\right)}\eta\left(y\right)\int_{0}^{1}\abs{\frac{\dd}{\dd\tau}u_{k}\left(x-\varepsilon\tau y\right)}\dd\tau\dd^{n}y\le\\
+ & \le\int_{B_{1}\left(0\right)}\eta\left(y\right)\int_{0}^{1}\norm{\DD u_{k}\left(x-\varepsilon\tau y\right)}\varepsilon\norm y\dd\tau\dd^{n}y\le\\
+ & \le\varepsilon\int_{B_{1}\left(0\right)}\eta\left(y\right)\int_{0}^{1}\norm{\DD u_{k}\left(x-\varepsilon\tau y\right)}\dd\tau\dd^{n}y
+\end{align*}
+Integrating over $x$ gives:
+\begin{align*}
+\int_{V}\abs{u_{k}^{\varepsilon}-u_{k}}\left(x\right)\dd^{n}x & \le\varepsilon\int_{V}\dd^{n}x\int_{B_{1}\left(0\right)}\dd^{n}y\underbrace{\eta\left(y\right)}_{\le c}\int_{0}^{1}\dd\tau\norm{\DD u_{k}\left(x-\varepsilon\tau y\right)}\le\\
+ & \le\varepsilon c\int_{B_{1}\left(0\right)}\dd^{n}y\int_{0}^{1}\dd\tau\underbrace{\int_{V}\dd^{n}x\norm{\DD u_{k}\left(x-\varepsilon\tau y\right)}}_{\le\int_{V}\dd^{n}x\norm{\DD u_{k}}}\le\\
+ & \le\varepsilon c\underbrace{\int_{B_{1}\left(0\right)}\dd^{n}y}_{=\omega_{n}}\underbrace{\int_{0}^{1}\dd\tau}_{=1}\int_{V}\dd^{n}x\norm{\DD u_{k}}=\varepsilon\underbrace{c\omega_{n}}_{=:\tilde{c}}\int_{V}\dd^{n}x\norm{\DD u_{k}}
+\end{align*}
+This yields:
+\begin{align*}
+\norm{u_{k}^{\varepsilon}-u_{k}}_{L^{1}\left(V\right)} & \le\varepsilon\tilde{c}\norm{\DD u_{k}}_{L^{1}\left(V\right)}\sr{\le}{\text{Hölder}}{}\varepsilon\tilde{c}\norm{\DD u_{k}}_{L^{q}\left(V\right)}\le\varepsilon\tilde{c}\norm{\DD u_{k}}_{H^{1,p}\left(V\right)}
+\end{align*}
+Moreover holds:
+\begin{align*}
+\norm{u_{k}^{\varepsilon}-u_{k}}_{L^{p^{*}}\left(V\right)} & \le\underbrace{\norm{u_{k}^{\varepsilon}}_{L^{p^{*}}\left(V\right)}}_{\le C\norm{u_{k}}_{L^{p^{*}}\left(V\right)}}+\norm{u_{k}}_{L^{p^{*}}\left(V\right)}\sr{\le}{C\ge1}{}2C\norm{u_{k}}_{L^{p^{*}}\left(V\right)}
+\end{align*}
+Now the $L^{q}$-norm of $u_{k}^{\varepsilon}-u_{k}$ can be estimated
+by the \emph{interpolation inequality}:
+\begin{align*}
+\norm{u_{k}^{\varepsilon}-u_{m}}_{L^{q}\left(V\right)} & \le\norm{u_{k}^{\varepsilon}-u_{k}}_{L^{1}\left(V\right)}^{\Theta}\cdot\norm{u_{k}^{\varepsilon}-u_{k}}_{L^{p^{*}}\left(V\right)}^{1-\Theta}
+\end{align*}
+Here we have $\Theta\in\left(0,1\right)$ with:
+\begin{align*}
+\frac{1}{q} & =\Theta+\frac{1-\Theta}{p^{*}}
+\end{align*}
+Idea of proof:
+\begin{align*}
+\int\abs v^{q}\dd^{n}x & =\int\abs v^{\alpha q}\abs v^{\left(1-\alpha\right)q}\dd^{n}x\sr{\le}{\text{Hölder}}{}\norm{v^{\alpha q}}_{L^{r}}\norm{v^{\left(1-\alpha\right)q}}_{L^{\tilde{r}}}
+\end{align*}
+We get:
+\begin{align*}
+\norm{u_{k}^{\varepsilon}-u_{k}}_{L^{q}} & \le c\varepsilon^{\Theta}\norm{u_{k}}_{H^{1,p}\left(V\right)}\xrightarrow{\varepsilon\searrow0}0
+\end{align*}
+\qqed[1. Claim]
+\end{description}
+\item  
+
+\begin{description}
+\item [{Claim:}] For any $\varepsilon\in\mathbb{R}_{>0}$, the $u_{k}^{\varepsilon}$
+are uniformly bounded and equicontinuous in $k$.
+\item [{Proof:}] It holds:
+\begin{align*}
+\abs{u_{k}^{\varepsilon}\left(x\right)} & =\abs{\int_{B_{\varepsilon}\left(x\right)}\eta_{\varepsilon}\left(x-y\right)\abs{u_{k}\left(y\right)}\dd^{n}y}\le\norm{\eta_{\varepsilon}}_{L^{\infty}\left(\mathbb{R}^{n}\right)}\underbrace{\norm{u_{k}}_{L^{1}\left(V\right)}}_{\le C\norm{u_{k}}_{H^{1,p}\left(V\right)}}\le\frac{c}{\varepsilon^{n}}
+\end{align*}
+\begin{align*}
+\norm{\DD u_{k}^{\varepsilon}\left(x\right)} & =\abs{\int_{B_{\varepsilon}\left(x\right)}\DD\eta_{\varepsilon}\left(x-y\right)u_{k}\left(y\right)\dd^{n}y}\le\norm{\DD\eta_{\varepsilon}}_{L^{\infty}\left(\mathbb{R}^{n}\right)}\norm{u_{k}}_{L^{1}\left(V\right)}\le\frac{\tilde{c}}{\varepsilon^{n+1}}
+\end{align*}
+\qqed[2.Claim]
+\end{description}
+\item  
+
+\begin{description}
+\item [{Claim:}] For all $\delta\in\mathbb{R}_{>0}$ there is a subsequence
+$u_{k_{j}}$ such that for all $j,l\in\mathbb{N}$ holds:
+\begin{align*}
+\norm{u_{k_{j}}-u_{k_{l}}}_{L^{q}\left(V\right)} & \le\delta
+\end{align*}
+
+\item [{Proof:}] Choose $\varepsilon\in\mathbb{R}_{>0}$ so small that
+for all $k\in\mathbb{N}$ holds:
+\begin{align*}
+\norm{u_{k}^{\varepsilon}-u_{k}}_{L^{q}\left(V\right)} & <\frac{\delta}{2}
+\end{align*}
+According to 2. and the Arzelà-Ascoli Theorem, a subsequence of $u_{k}^{\varepsilon}$
+converges in $C^{0}$, i.e.:
+\begin{align*}
+\sup_{V}\abs{u_{k}^{\varepsilon}-u_{l}^{\varepsilon}} & \xrightarrow{k,l\to\infty}0
+\end{align*}
+Then follows:
+\begin{align*}
+\norm{u_{k}^{\varepsilon}-u_{l}^{\varepsilon}}_{L^{q}\left(V\right)} & =\int_{V}\abs{u_{k}^{\varepsilon}\left(x\right)-u_{l}^{\varepsilon}\left(x\right)}^{q}\dd^{n}x\le\mu\left(V\right)\left(\sup_{V}\abs{u_{k}^{\varepsilon}-u_{l}^{\varepsilon}}\right)^{q}
+\end{align*}
+
+\end{description}
+\item Now we choose inductively subsequences for $\delta=1,\frac{1}{2},\ldots,\frac{1}{n}$.
+The resulting diagonal sequence $u_{k}^{\left(k\right)}$ is a $L^{q}\left(V\right)$-Cauchy
+sequence (just as in the proof of the Arzelà-Ascoli Theorem).
+\end{enumerate}
+
 
 
 \part*{Appendix\thispagestyle{empty}}
