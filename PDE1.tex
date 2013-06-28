@@ -6311,7 +6311,7 @@ are uniformly bounded and equicontinuous in $k$.
 \begin{align*}
 \norm{\DD u_{k}^{\varepsilon}\left(x\right)} & =\abs{\int_{B_{\varepsilon}\left(x\right)}\DD\eta_{\varepsilon}\left(x-y\right)u_{k}\left(y\right)\dd^{n}y}\le\norm{\DD\eta_{\varepsilon}}_{L^{\infty}\left(\mathbb{R}^{n}\right)}\norm{u_{k}}_{L^{1}\left(V\right)}\le\frac{\tilde{c}}{\varepsilon^{n+1}}
 \end{align*}
-\qqed[2.Claim]
+\qqed[2. Claim]
 \end{description}
 \item  
 
@@ -6319,29 +6319,313 @@ are uniformly bounded and equicontinuous in $k$.
 \item [{Claim:}] For all $\delta\in\mathbb{R}_{>0}$ there is a subsequence
 $u_{k_{j}}$ such that for all $j,l\in\mathbb{N}$ holds:
 \begin{align*}
-\norm{u_{k_{j}}-u_{k_{l}}}_{L^{q}\left(V\right)} & \le\delta
+\norm{u_{k_{j}}-u_{k_{l}}}_{L^{q}\left(V\right)} & <\delta
 \end{align*}
 
 \item [{Proof:}] Choose $\varepsilon\in\mathbb{R}_{>0}$ so small that
 for all $k\in\mathbb{N}$ holds:
 \begin{align*}
-\norm{u_{k}^{\varepsilon}-u_{k}}_{L^{q}\left(V\right)} & <\frac{\delta}{2}
+\norm{u_{k}^{\varepsilon}-u_{k}}_{L^{q}\left(V\right)} & <\frac{\delta}{4}
 \end{align*}
 According to 2. and the Arzelà-Ascoli Theorem, a subsequence of $u_{k}^{\varepsilon}$
 converges in $C^{0}$, i.e.:
 \begin{align*}
-\sup_{V}\abs{u_{k}^{\varepsilon}-u_{l}^{\varepsilon}} & \xrightarrow{k,l\to\infty}0
+\sup_{V}\abs{u_{k_{j}}^{\varepsilon}-u_{k_{l}}^{\varepsilon}} & \xrightarrow{j,l\to\infty}0
 \end{align*}
 Then follows:
 \begin{align*}
-\norm{u_{k}^{\varepsilon}-u_{l}^{\varepsilon}}_{L^{q}\left(V\right)} & =\int_{V}\abs{u_{k}^{\varepsilon}\left(x\right)-u_{l}^{\varepsilon}\left(x\right)}^{q}\dd^{n}x\le\mu\left(V\right)\left(\sup_{V}\abs{u_{k}^{\varepsilon}-u_{l}^{\varepsilon}}\right)^{q}
+\norm{u_{k_{j}}^{\varepsilon}-u_{k_{l}}^{\varepsilon}}_{L^{q}\left(V\right)} & =\int_{V}\abs{u_{k_{j}}^{\varepsilon}\left(x\right)-u_{k_{l}}^{\varepsilon}\left(x\right)}^{q}\dd^{n}x\le\mu\left(V\right)\left(\sup_{V}\abs{u_{k_{j}}^{\varepsilon}-u_{k_{l}}^{\varepsilon}}\right)^{q}\xrightarrow{j,l\to\infty}0
 \end{align*}
-
+Choose $N\in\mathbb{N}$ such that for all $j,l\in\mathbb{N}_{\ge N}$
+holds:
+\begin{align*}
+\norm{u_{k_{j}}^{\varepsilon}-u_{k_{l}}^{\varepsilon}}_{L^{q}\left(V\right)} & <\frac{\delta}{2}
+\end{align*}
+We remove the first $N$ elements from the sequence, so that this
+holds for all $j,l\in\mathbb{N}$.
+\begin{align*}
+\norm{u_{k_{j}}-u_{k_{l}}}_{L^{q}\left(V\right)} & \le\underbrace{\norm{u_{k_{j}}-u_{k_{j}}^{\varepsilon}}_{L^{q}\left(V\right)}}_{<\frac{\delta}{4}}+\underbrace{\norm{u_{k_{j}}^{\varepsilon}-u_{k_{l}}^{\varepsilon}}_{L^{q}\left(V\right)}}_{<\frac{\delta}{2}}+\underbrace{\norm{u_{k_{l}}^{\varepsilon}-u_{k_{l}}}_{L^{q}\left(V\right)}}_{<\frac{\delta}{4}}<\delta
+\end{align*}
+\qqed[3. Claim]
 \end{description}
 \item Now we choose inductively subsequences for $\delta=1,\frac{1}{2},\ldots,\frac{1}{n}$.
 The resulting diagonal sequence $u_{k}^{\left(k\right)}$ is a $L^{q}\left(V\right)$-Cauchy
 sequence (just as in the proof of the Arzelà-Ascoli Theorem).
 \end{enumerate}
+\qqed
+
+%DATE: Fr 28.6.13
+
+
+\chapter{Regularity Theory for linear elliptic equations}
+
+Let $u\in H^{1,2}\left(\Omega\right)$ be a weak solution, i.e. for
+all $\eta\in C_{0}^{\infty}$:
+\begin{align*}
+\int_{\Omega}\left(a^{jk}\left(x\right)\partial_{j}u\left(x\right)\partial_{k}\eta\left(x\right)+c\left(x\right)u\left(x\right)\eta\left(x\right)-f\left(x\right)\eta\left(x\right)\right) & =0
+\end{align*}
+By approximation follows this equation directly for all $\eta\in H_{0}^{1,2}\left(\Omega\right)$.
+
+Goal: Show that $u\in H^{2,2}\left(\Omega\right)$.
+
+Interior regularity: Consider $\Omega'\Subset\Omega$ and show $u\in H^{2,2}\left(\Omega'\right)$.
+
+\begin{figure}[H]
+\noindent \centering{}\begin{tikzpicture} %[scale=1.5]
+  \draw plot[smooth cycle] coordinates {(-1,1) (1,1) (2,0) (1,-2) (-1,-3) (-2,-2)};
+  \node at (0,1.5) {$\partial \Omega$};
+  \draw[scale=0.5] plot[smooth cycle] coordinates {(-1.5,0) (1,0) (1,-2) (-1,-3) (-2,-2)};
+  \node at (0,0.3) {$\Omega '$};
+  \draw (-1.5,0) -- node[above, xshift=4pt]{$>h$} (-0.9,-0.2);
+\end{tikzpicture}\caption{$\Omega'\Subset\Omega$}
+\end{figure}
+
+
+Boundary regularity:
+
+\begin{figure}[H]
+\noindent \centering{}\begin{tikzpicture}
+  \draw plot[smooth cycle] coordinates {(-1,1) (1,1) (2,0) (1,-2) (-1,-3) (-2,-2)};
+  \draw (1,1) arc (-10:-171.5:1);
+  \node at (0,0.7) {$U$};
+\end{tikzpicture}\caption{Boundary Regularity}
+\end{figure}
+
+
+Is $u\in H^{2,2}\left(U\right)$? Here one needs to know about the
+regularity of the boundary and the boundary condition.
+
+We mainly consider the Poisson equation:
+\begin{align*}
+-\upDelta u & =f
+\end{align*}
+For all $\eta\in H_{0}^{1,2}\left(\Omega\right)$ holds:
+\begin{align*}
+\int_{\Omega}\left(\nabla u\right)\left(\nabla\eta\right)+f\eta\dd^{n}x & =0
+\end{align*}
+
+
+
+\section{Interior Regularity}
+
+Fix a $\Omega'\Subset\Omega$ and define the difference quotient with
+the standard basis vectors $e_{i}$ of $\mathbb{R}^{n}$:
+\begin{align*}
+\left(\Delta_{i}^{h}u\right)\left(x\right) & :=\frac{u\left(x+he_{i}\right)-u\left(x\right)}{h}
+\end{align*}
+
+
+
+\subsection{Lemma}
+
+Consider $u\in H^{1,2}\left(\Omega\right)$ and choose $h<\text{dist}\left(\Omega',\partial\Omega\right)$.
+Then holds $\Delta_{i}^{h}u\in L^{2}\left(\Omega'\right)$ and:
+\begin{align*}
+\norm{\Delta_{i}^{h}u}_{L^{2}\left(\Omega'\right)} & \le\norm{\partial_{i}u}_{L^{2}\left(\Omega\right)}
+\end{align*}
+
+
+
+\subsubsection*{Proof}
+
+Since continuously differentiable functions are dense in $H^{1,2}\left(\Omega\right)$,
+it suffices to prove the inequality for $u\in C^{1}\left(\Omega\right)\cap H^{1,2}\left(\Omega\right)$.
+By the fundamental theorem of calculus holds:
+\begin{align*}
+\left(\Delta_{i}^{h}u\right)\left(x\right) & =\frac{1}{h}\int_{0}^{h}\partial_{i}u\left(x^{1},\ldots,x^{i}+\xi,x^{i+1},\ldots,x^{n}\right)\dd\xi
+\end{align*}
+By Hölder's inequality (in the special case of the Schwarz inequality)
+follows:
+\begin{align*}
+\abs{\left(\Delta_{i}^{h}u\right)\left(x\right)}^{2} & \le\frac{1}{h^{2}}\left(\int_{0}^{h}1\dd\xi\right)\left(\int_{0}^{h}\abs{\partial_{i}u\left(x^{1},\ldots,x^{i}+\xi,x^{i+1},\ldots,x^{n}\right)}^{2}\dd\xi\right)\le\\
+ & \le\frac{1}{h}\left(\int_{0}^{h}\abs{\partial_{i}u\left(x^{1},\ldots,x^{i}+\xi,x^{i+1},\ldots,x^{n}\right)}^{2}\dd\xi\right)
+\end{align*}
+\begin{align*}
+\norm{\Delta_{i}^{h}u}_{L^{2}\left(\Omega'\right)}^{2}=\int_{\Omega'}\abs{\left(\Delta_{i}^{h}u\right)\left(x\right)}^{2}\dd^{n}x & \le\frac{1}{h}\int_{0}^{h}\dd\xi\int_{\Omega'}\dd^{n}x\abs{\partial_{i}u\left(x^{1},\ldots,x^{i}+\xi,x^{i+1},\ldots,x^{n}\right)}^{2}
+\end{align*}
+Due to $\Omega+\xi e_{i}\subseteq\Omega$ follows
+\begin{align*}
+\int_{\Omega'}\dd^{n}x\abs{\partial_{i}u\left(x^{1},\ldots,x^{i}+\xi,x^{i+1},\ldots,x^{n}\right)}^{2} & \le\int_{\Omega}\dd^{n}x\abs{\partial_{i}u\left(x^{1},\ldots,x^{n}\right)}^{2}
+\end{align*}
+and thus:
+\begin{align*}
+\norm{\Delta_{i}^{h}u}_{L^{2}\left(\Omega'\right)}^{2} & \le\frac{1}{h}\underbrace{\int_{0}^{h}\dd\xi}_{=h}\int_{\Omega}\dd^{n}x\abs{\partial_{i}u}^{2}=\int_{\Omega}\dd^{n}x\abs{\partial_{i}u}^{2}=\norm{\partial_{i}u}_{L^{2}\left(\Omega\right)}^{2}
+\end{align*}
+\qqed
+
+
+\subsection{Lemma}
+
+Let $u\in L^{2}\left(\Omega\right)$ and assume that there is a $K\in\mathbb{R}$
+such that for all $h\in\mathbb{R}_{>0}$ and all domains $\Omega'\Subset\Omega$
+with $\text{dist}\left(\Omega',\partial\Omega\right)>h$ the following
+inequality holds:
+\begin{align*}
+\norm{\Delta_{i}^{h}u}_{L^{2}\left(\Omega'\right)} & \le K
+\end{align*}
+Then $u$ is weakly differentiable in the coordinate $i$ and $\norm{\partial_{i}u}_{L^{2}\left(\Omega\right)}\le K$.
+
+
+\subsubsection*{Proof}
+
+Let $\eta\in C_{0}^{1}\left(\Omega\right)$ and choose $h$ so small
+that $h<\text{dist}\left(\text{supp}\left(\eta\right),\partial\Omega\right)$.
+Then $\Delta_{i}^{h}u$ is well-defined on $\text{supp}\left(\eta\right)$.
+For the difference quotient one can use \emph{discrete integration
+by parts}:
+\begin{align*}
+\int_{\Omega}\left(\Delta_{i}^{h}u\right)\eta\dd^{n}x & =-\int_{\Omega}u\left(\Delta_{i}^{-h}\eta\right)\dd^{n}x
+\end{align*}
+This is possible due to:
+\begin{align*}
+\int_{\Omega}\left(\Delta_{i}^{h}u\right)\eta\dd^{n}x & =\int_{\Omega}\frac{u\left(x+he_{i}\right)-u\left(x\right)}{h}\eta\left(x\right)\dd^{n}x=\\
+ & =\frac{1}{h}\int_{\Omega}u\left(x+he_{i}\right)\eta\left(x\right)\dd^{n}x-\int_{\Omega}u\left(x\right)\eta\left(x\right)\dd^{n}x=\\
+ & \sr ={\tilde{x}=x+he_{i}}{}\frac{1}{h}\int_{\Omega}u\left(\tilde{x}\right)\eta\left(\tilde{x}-he_{i}\right)\dd^{n}\tilde{x}-\int_{\Omega}u\left(x\right)\eta\left(x\right)\dd^{n}x=\\
+ & =\frac{1}{h}\int_{\Omega}u\left(x\right)\left(\eta\left(x-he_{i}\right)-\eta\left(x\right)\right)\dd^{n}x=\\
+ & =-\int_{\Omega}u\left(x\right)\frac{\eta\left(x\right)-\eta\left(x-he_{i}\right)}{h}\dd^{n}x=-\int_{\Omega}u\left(\Delta_{i}^{-h}\eta\right)\dd^{n}x
+\end{align*}
+In the limit $h\to0$ converges:
+\begin{align*}
+-\int_{\Omega}u\left(\Delta_{i}^{-h}\eta\right)\dd^{n}x & \xrightarrow{h\to0}-\int_{\Omega}u\left(\partial_{i}\eta\right)\dd^{n}x
+\end{align*}
+By assumption, we know:
+\begin{align*}
+\abs{\int_{\Omega}\left(\Delta_{i}^{h}u\right)\eta\dd^{n}x} & \le\underbrace{\norm{\Delta_{i}^{h}u}_{L^{2}\left(\text{supp}\left(\eta\right)\right)}}_{\le K}\norm{\eta}_{L^{2}\left(\Omega\right)}\le K\norm{\eta}_{L^{2}\left(\Omega\right)}
+\end{align*}
+It follows:
+\begin{align*}
+\abs{\int_{\Omega}u\left(\partial_{i}\eta\right)\dd^{n}x} & \le K\norm{\eta}_{L^{2}\left(\Omega\right)}
+\end{align*}
+Thus the functional
+\begin{align*}
+\Phi:C_{0}^{1}\left(\Omega\right)\subseteq L^{2}\left(\Omega\right) & \to\mathbb{R}\\
+\eta & \mapsto-\int_{\Omega}u\left(\partial_{i}\eta\right)\dd^{n}x
+\end{align*}
+is densely defined and bounded:
+\begin{align*}
+\abs{\Phi\left(\eta\right)} & \le K\norm{\eta}_{L^{2}\left(\Omega\right)}
+\end{align*}
+$\Phi$ has a unique extension to $L^{2}\left(\Omega\right)$: For
+$u\in L^{2}\left(\Omega\right)$ there is a sequence $u_{k}\in C_{0}^{1}\left(\Omega\right)$
+with $u_{k}\to u$ in $L^{2}\left(\Omega\right)$ due to the denseness
+of $C_{0}^{1}\left(\Omega\right)$ in $L^{2}\left(\Omega\right)$.
+Then follows:
+\begin{align*}
+\abs{\Phi\left(u_{k}\right)-\Phi\left(u_{l}\right)} & =\abs{\Phi\left(u_{k}-u_{l}\right)}\le K\norm{u_{k}-u_{l}}_{L^{2}\left(\Omega\right)}\xrightarrow{k,l\to\infty}0
+\end{align*}
+Hence the limit $\lim_{k\to\infty}\Phi\left(u_{k}\right)$ exists.
+Since $\Phi\left(u_{k}\right)$ converges for any such sequence $u_{k}$,
+the limit is independent of the choice of $\left(u_{k}\right)$. Define:
+\begin{align*}
+\Phi\left(u\right) & :=\lim_{k\to\infty}\Phi\left(u_{k}\right)
+\end{align*}
+Thus we have a linear bounded functional $\Phi\in L\left(H,\mathbb{R}\right)=H^{*}$.
+The Fréchet-Riesz Theorem yields a $v\in L^{2}\left(\Omega\right)$
+such that holds:
+\begin{align*}
+-\int_{\Omega}u\left(\partial_{i}\eta\right)\dd^{n}x=\Phi\left(\eta\right) & =\left\langle v,\eta\right\rangle =\int_{\Omega}v\eta\dd^{n}x
+\end{align*}
+Thus (by definition) $u$ is weakly differentiable and $\DD_{i}u=v$.\qqed
+
+
+\subsection{Theorem}
+
+Let $u\in H^{1,2}\left(\Omega\right)$ be a weak solution of $-\upDelta u=f$.
+Then for every $\Omega'\Subset\Omega$ holds $u\in H^{2,2}\left(\Omega'\right)$
+and it holds:
+\begin{align*}
+\norm u_{H^{2,2}\left(\Omega'\right)} & \le c\left(\Omega\right)\left(\norm u_{L^{2}\left(\Omega\right)}+\norm f_{L^{2}\left(\Omega\right)}\right)
+\end{align*}
+
+
+
+\subsubsection*{Motivation}
+
+To explain the inequality, we first assume $u\in H^{2,2}\left(\Omega'\right)$.
+A weak solution means that for all $v\in H_{0}^{1,2}\left(\Omega\right)$
+holds:
+\begin{align*}
+\int_{\Omega}\left(\nabla u\right)\left(\nabla v\right)\dd^{n}x & =-\int_{\Omega}fv\dd^{n}x
+\end{align*}
+For $v=u$ would follow 
+\begin{align*}
+\int\left(\nabla u\right)\left(\nabla v\right)\dd^{n}x & =\int\left(\nabla u\right)^{2}\dd^{n}x
+\end{align*}
+and for $v=\upDelta u$:
+\begin{align*}
+\int\left(\nabla u\right)\left(\nabla\left(\upDelta u\right)\right)\dd^{n}x & =\int\left(\partial_{i}u\right)\partial^{i}\partial_{j}\partial^{j}u\dd^{n}x\sr ={\text{integration}}{\text{by parts}}-\int\left(\partial^{j}\partial_{i}u\right)\partial^{i}\partial_{j}u\dd^{n}x=-\int\norm{\DD^{2}u}^{2}\dd^{n}x
+\end{align*}
+Problem: These choices for $v$ are \emph{not} in $H_{0}^{1,2}\left(\Omega\right)$.
+
+Choose $\eta\in C_{0}^{\infty}\left(\Omega\right)$ with $\eta\big|_{\Omega'}=1$
+and $\eta\left(\Omega\right)\subseteq\left[0,1\right]$. Then we have
+$v:=\eta^{2}u\in H_{0}^{1,2}\left(\Omega\right)$ and:
+\begin{align*}
+-\int f\left(\eta^{2}u\right)\dd^{n}x & =\int_{\Omega}\left(\nabla u\right)\nabla\left(\eta^{2}u\right)\dd^{n}x=\int_{\Omega}\eta^{2}\norm{\nabla^{2}u}^{2}\dd^{n}x+2\int_{\Omega}\left(\nabla u\right)\eta\left(\nabla\eta\right)u\dd^{n}x
+\end{align*}
+\begin{align*}
+\int_{\Omega}\eta^{2}\norm{\nabla^{2}u}^{2}\dd^{n}x & =2\int_{\Omega}\eta\left(\nabla u\right)\left(\nabla\eta\right)u\dd^{n}x+\int_{\Omega}\eta^{2}fu\dd^{n}x\le\\
+ & \sr{\le}{\text{Schwarz}}{\text{inequality}}2\underbrace{\norm{\eta\nabla u}_{L^{2}\left(\Omega\right)}}_{=:a}\underbrace{\norm{u\nabla\eta}_{L^{2}\left(\Omega\right)}}_{=:b}+\norm{\eta f}_{L^{2}\left(\Omega\right)}\norm{\eta u}_{L^{2}\left(\Omega\right)}
+\end{align*}
+For $\kappa\in\mathbb{R}_{>0}$ holds:
+\begin{align*}
+2ab & =2\left(\frac{a}{\kappa}\right)\left(\kappa b\right)\le\frac{a^{2}}{\kappa^{2}}+\kappa^{2}b^{2}
+\end{align*}
+\begin{align*}
+\norm{\eta\nabla u}_{L^{2}\left(\Omega\right)}^{2} & \le\frac{1}{\kappa^{2}}\norm{\eta\nabla u}_{L^{2}\left(\Omega\right)}^{2}+\kappa^{2}\norm{u\nabla\eta}_{L^{2}\left(\Omega\right)}^{2}+\norm{\eta f}_{L^{2}\left(\Omega\right)}\norm{\eta u}_{L^{2}\left(\Omega\right)}
+\end{align*}
+Choose $\kappa=\sqrt{2}$ to get:
+\begin{align*}
+\norm{\eta\nabla u}_{L^{2}\left(\Omega\right)}^{2} & \le\frac{1}{2}\norm{\eta\nabla u}_{L^{2}\left(\Omega\right)}^{2}+2\norm{u\nabla\eta}_{L^{2}\left(\Omega\right)}^{2}+\norm{\eta f}_{L^{2}\left(\Omega\right)}\norm{\eta u}_{L^{2}\left(\Omega\right)}\\
+\frac{1}{2}\norm{\eta\nabla u}_{L^{2}\left(\Omega\right)}^{2} & \le2\norm{u\nabla\eta}_{L^{2}\left(\Omega\right)}^{2}+\norm{\eta f}_{L^{2}\left(\Omega\right)}\norm{\eta u}_{L^{2}\left(\Omega\right)}
+\end{align*}
+\begin{align*}
+\norm{\nabla u}_{L^{2}\left(\Omega'\right)} & \le\norm{\eta\nabla u}_{L^{2}\left(\Omega\right)}\\
+\norm{\eta f}_{L^{2}\left(\Omega\right)} & \le\norm f_{L^{2}\left(\Omega\right)}\\
+\norm{\eta u}_{L^{2}\left(\Omega\right)} & \le\norm u_{L^{2}\left(\Omega\right)}
+\end{align*}
+Choose $\eta$ such that for $\delta:=\text{dist}\left(\Omega',\partial\Omega\right)$
+holds:
+\begin{align*}
+\sup_{x\in\Omega}\left(\norm{\nabla\eta\left(x\right)}\right) & \le\frac{2}{\delta}
+\end{align*}
+We thus obtain:
+
+
+\subsection{Lemma}
+
+For $\Omega'\Subset\Omega$ with $\text{dist}\left(\Omega',\Omega\right)>\delta$
+and a weak solution $u\in H^{1,2}\left(\Omega\right)$ of $-\upDelta u=f$
+holds:
+\begin{align*}
+\int_{\Omega'}\norm{\nabla u}^{2}\dd^{n}x & \le\frac{17}{\delta^{2}}\norm u_{L^{2}\left(\Omega\right)}^{2}+\delta^{2}\norm f_{L^{2}\left(\Omega\right)}^{2}
+\end{align*}
+
+
+
+\subsubsection*{Proof}
+
+\begin{align*}
+\norm{\nabla u}_{L^{2}\left(\Omega'\right)}^{2}\le\norm{\eta\nabla u}_{L^{2}\left(\Omega\right)}^{2} & \le4\norm{u\nabla\eta}_{L^{2}\left(\Omega\right)}^{2}+2\norm{\eta f}_{L^{2}\left(\Omega\right)}\norm{\eta u}_{L^{2}\left(\Omega\right)}\le\\
+ & \le\frac{16}{\delta^{2}}\norm u_{L^{2}\left(\Omega\right)}^{2}+\underbrace{2\norm f_{L^{2}\left(\Omega\right)}\norm u_{L^{2}\left(\Omega\right)}}_{\le\frac{1}{\delta^{2}}\norm u_{L^{2}\left(\Omega\right)}^{2}+\delta^{2}\norm f_{L^{2}\left(\Omega\right)}^{2}}\le\\
+ & \le\frac{17}{\delta^{2}}\norm u_{L^{2}\left(\Omega\right)}^{2}+\delta^{2}\norm f_{L^{2}\left(\Omega\right)}^{2}
+\end{align*}
+\qqed
+
+Now explain the method for the second derivatives: Suppose $u\in H^{3,2}\left(\Omega\right)$
+then holds for all $v\in H^{1,2}\left(\Omega\right)$:
+\begin{align*}
+\int_{\Omega}\left(\nabla u\right)\left(\nabla v\right)\dd^{n}x & =-\int_{\Omega}fv\dd^{n}x=-\int\left(\upDelta u\right)v\dd^{n}x
+\end{align*}
+\begin{align*}
+\int_{\Omega'}\norm{\DD^{2}u}^{2}\dd^{n}x & =\int_{\Omega'}\left(\partial_{i}\partial_{j}u\right)\left(\partial_{i}\partial_{j}u\right)\dd^{n}x=\\
+ & =\int_{\Omega'}\left(\upDelta u\right)\left(\upDelta u\right)\dd^{n}x+\text{boundary terms}=\\
+ & \le\norm{\upDelta u}_{L^{2}\left(\Omega\right)}\norm f_{L^{2}\left(\Omega\right)}+\ldots\le\\
+ & \le\frac{1}{C}\norm{\DD^{2}u}_{L^{2}\left(\Omega\right)}^{2}+C\norm f_{L^{2}\left(\Omega\right)}^{2}+\ldots
+\end{align*}
+\begin{align*}
+\Rightarrow\qquad\norm{\DD^{2}u}_{L^{2}\left(\Omega\right)} & \le c\norm f_{L^{2}\left(\Omega\right)}^{2}+\ldots
+\end{align*}
 
 
 
