@@ -45,7 +45,7 @@
 \usetikzlibrary{matrix,arrows,calc,decorations,decorations.markings,intersections,shapes}
 \usetikzlibrary{external}
 \tikzexternalize
-\usepackage{latexsym,stmaryrd,stackrel,braket,bbm,subfig,framed,esvect,scrhack,calc,upgreek}
+\usepackage{latexsym,stmaryrd,stackrel,braket,bbm,subfig,framed,esvect,scrhack,calc,upgreek,xcolor}
 \usepackage [OMLmathrm,OMLmathbf,sfdefault=fav]{isomath}
 \usepackage[explicit]{titlesec}
 \usepackage[activate]{pdfcprot}
@@ -157,6 +157,11 @@
   \advance\dimen0-0.2\ht0
   \setbox2=\hbox{\vrule height\ht0 depth -\dimen0}
   {\box0\lower0.4pt\box2}}
+
+% Farbige Unterstriche
+\newsavebox\MBox
+\newcommand\Cline[2]{{\sbox\MBox{$#2$}%
+  \rlap{\usebox\MBox}\color{#1}\rule[-1.5\dp\MBox]{\wd\MBox}{1.0pt}}}
 
 % Damit nicht immer "Kapitel 1" etc. über der Kapitelüberschrift steht
 \titleformat{\chapter}
@@ -6416,12 +6421,12 @@ the standard basis vectors $e_{i}$ of $\mathbb{R}^{n}$:
 
 
 
-\subsection{Lemma}
+\subsection{Lemma\label{sub:Lemma-discrete-derivative}}
 
-Consider $u\in H^{1,2}\left(\Omega\right)$ and choose $h<\text{dist}\left(\Omega',\partial\Omega\right)$.
+Consider $u\in H^{1,2}\left(\Omega\right)$ and choose $0<\abs h<\text{dist}\left(\Omega',\partial\Omega\right)$.
 Then holds $\Delta_{i}^{h}u\in L^{2}\left(\Omega'\right)$ and:
 \begin{align*}
-\norm{\Delta_{i}^{h}u}_{L^{2}\left(\Omega'\right)} & \le\norm{\partial_{i}u}_{L^{2}\left(\Omega\right)}
+\norm{\Delta_{i}^{h}u}_{L^{2}\left(\Omega'\right)} & \le\norm{\DD_{i}u}_{L^{2}\left(\Omega\right)}
 \end{align*}
 
 
@@ -6449,12 +6454,12 @@ Due to $\Omega+\xi e_{i}\subseteq\Omega$ follows
 \end{align*}
 and thus:
 \begin{align*}
-\norm{\Delta_{i}^{h}u}_{L^{2}\left(\Omega'\right)}^{2} & \le\frac{1}{h}\underbrace{\int_{0}^{h}\dd\xi}_{=h}\int_{\Omega}\dd^{n}x\abs{\partial_{i}u}^{2}=\int_{\Omega}\dd^{n}x\abs{\partial_{i}u}^{2}=\norm{\partial_{i}u}_{L^{2}\left(\Omega\right)}^{2}
+\norm{\Delta_{i}u}_{L^{2}\left(\Omega'\right)}^{2} & \le\frac{1}{h}\underbrace{\int_{0}^{h}\dd\xi}_{=h}\int_{\Omega}\dd^{n}x\abs{\partial_{i}u}^{2}=\int_{\Omega}\dd^{n}x\abs{\partial_{i}u}^{2}=\norm{\partial_{i}u}_{L^{2}\left(\Omega\right)}^{2}
 \end{align*}
 \qqed
 
 
-\subsection{Lemma}
+\subsection{Lemma\label{sub:Lemma-discD-bounded-weak-D}}
 
 Let $u\in L^{2}\left(\Omega\right)$ and assume that there is a $K\in\mathbb{R}$
 such that for all $h\in\mathbb{R}_{>0}$ and all domains $\Omega'\Subset\Omega$
@@ -6463,7 +6468,7 @@ inequality holds:
 \begin{align*}
 \norm{\Delta_{i}^{h}u}_{L^{2}\left(\Omega'\right)} & \le K
 \end{align*}
-Then $u$ is weakly differentiable in the coordinate $i$ and $\norm{\partial_{i}u}_{L^{2}\left(\Omega\right)}\le K$.
+Then $u$ is weakly differentiable in the coordinate $i$ and $\norm{\DD_{i}u}_{L^{2}\left(\Omega\right)}\le K$.
 
 
 \subsubsection*{Proof}
@@ -6528,13 +6533,13 @@ such that holds:
 Thus (by definition) $u$ is weakly differentiable and $\DD_{i}u=v$.\qqed
 
 
-\subsection{Theorem}
+\subsection{Theorem\label{sub:Theorem-H11-H22}}
 
 Let $u\in H^{1,2}\left(\Omega\right)$ be a weak solution of $-\upDelta u=f$.
 Then for every $\Omega'\Subset\Omega$ holds $u\in H^{2,2}\left(\Omega'\right)$
 and it holds:
 \begin{align*}
-\norm u_{H^{2,2}\left(\Omega'\right)} & \le c\left(\Omega\right)\left(\norm u_{L^{2}\left(\Omega\right)}+\norm f_{L^{2}\left(\Omega\right)}\right)
+\norm u_{H^{2,2}\left(\Omega'\right)} & \le c\left(\Omega'\right)\left(\norm u_{L^{2}\left(\Omega\right)}+\norm f_{L^{2}\left(\Omega\right)}\right)
 \end{align*}
 
 
@@ -6553,7 +6558,8 @@ For $v=u$ would follow
 \end{align*}
 and for $v=\upDelta u$:
 \begin{align*}
-\int\left(\nabla u\right)\left(\nabla\left(\upDelta u\right)\right)\dd^{n}x & =\int\left(\partial_{i}u\right)\partial^{i}\partial_{j}\partial^{j}u\dd^{n}x\sr ={\text{integration}}{\text{by parts}}-\int\left(\partial^{j}\partial_{i}u\right)\partial^{i}\partial_{j}u\dd^{n}x=-\int\norm{\DD^{2}u}^{2}\dd^{n}x
+\int\left(\nabla u\right)\left(\nabla\left(\upDelta u\right)\right)\dd^{n}x & =\int\left(\partial_{i}u\right)\partial^{i}\partial_{j}\partial^{j}u\dd^{n}x=\\
+ & \sr ={\text{integration}}{\text{by parts}}-\int\left(\partial^{j}\partial_{i}u\right)\partial^{i}\partial_{j}u\dd^{n}x=-\int\norm{\DD^{2}u}^{2}\dd^{n}x
 \end{align*}
 Problem: These choices for $v$ are \emph{not} in $H_{0}^{1,2}\left(\Omega\right)$.
 
@@ -6592,13 +6598,13 @@ holds:
 We thus obtain:
 
 
-\subsection{Lemma}
+\subsection{Lemma \textmd{(Cacciopoli inequality)}}
 
-For $\Omega'\Subset\Omega$ with $\text{dist}\left(\Omega',\Omega\right)>\delta$
+For $\Omega'\Subset\Omega$ with $\text{dist}\left(\Omega',\Omega\right)>\delta>0$
 and a weak solution $u\in H^{1,2}\left(\Omega\right)$ of $-\upDelta u=f$
 holds:
 \begin{align*}
-\int_{\Omega'}\norm{\nabla u}^{2}\dd^{n}x & \le\frac{17}{\delta^{2}}\norm u_{L^{2}\left(\Omega\right)}^{2}+\delta^{2}\norm f_{L^{2}\left(\Omega\right)}^{2}
+\int_{\Omega'}\norm{\DD u}^{2}\dd^{n}x & \le\frac{17}{\delta^{2}}\norm u_{L^{2}\left(\Omega\right)}^{2}+\delta^{2}\norm f_{L^{2}\left(\Omega\right)}^{2}
 \end{align*}
 
 
@@ -6621,10 +6627,359 @@ then holds for all $v\in H^{1,2}\left(\Omega\right)$:
 \int_{\Omega'}\norm{\DD^{2}u}^{2}\dd^{n}x & =\int_{\Omega'}\left(\partial_{i}\partial_{j}u\right)\left(\partial_{i}\partial_{j}u\right)\dd^{n}x=\\
  & =\int_{\Omega'}\left(\upDelta u\right)\left(\upDelta u\right)\dd^{n}x+\text{boundary terms}=\\
  & \le\norm{\upDelta u}_{L^{2}\left(\Omega\right)}\norm f_{L^{2}\left(\Omega\right)}+\ldots\le\\
- & \le\frac{1}{C}\norm{\DD^{2}u}_{L^{2}\left(\Omega\right)}^{2}+C\norm f_{L^{2}\left(\Omega\right)}^{2}+\ldots
+ & \le\frac{1}{4C}\norm{\DD^{2}u}_{L^{2}\left(\Omega\right)}^{2}+C\norm f_{L^{2}\left(\Omega\right)}^{2}+\ldots
 \end{align*}
 \begin{align*}
 \Rightarrow\qquad\norm{\DD^{2}u}_{L^{2}\left(\Omega\right)} & \le c\norm f_{L^{2}\left(\Omega\right)}^{2}+\ldots
+\end{align*}
+%DATE: Mi 3.7.13
+
+
+\subsubsection*{Proof of \ref{sub:Theorem-H11-H22}}
+
+We know for all $v\in H_{0}^{1,2}\left(\Omega\right)$:
+\begin{align*}
+\int_{\Omega}\left(\DD u\right)\left(\DD v\right) & =-\int_{\Omega}fv
+\end{align*}
+Choose $\Omega''\Subset\Omega'$ with $\text{dist}\left(\Omega'',\partial\Omega'\right)\ge\delta$
+for $\delta=\text{dist}\left(\Omega',\partial\Omega\right)$, $h\in\mathbb{R}_{>0}$
+with $h<\delta$ and $v\in H_{0}^{1,2}\left(\Omega'\right)$.
+
+\begin{figure}[H]
+\noindent \centering{}\begin{tikzpicture}
+  \draw plot[smooth cycle] coordinates {(-2,0) (0,2) (2,2) (4,-1) (4,-3) (2,-5) (-1,-4)};
+  \draw[scale=1.3] plot[smooth cycle] coordinates {(0,1) (1,1) (2,0) (2.7,-2) (1,-3) (-1,0)};
+  \draw plot[smooth cycle] coordinates {(0,0.5) (2,0) (2.5,-2.5) (1.5,-3) (-0.5,0)};
+  \node at (0.5,2.5) {$\Omega $};
+  \node at (2.5,0.7) {$\Omega '$};
+  \node at (2.75,-1) {$\Omega''$};
+\end{tikzpicture}\caption{$\Omega''\Subset\Omega'\Subset\Omega$}
+\end{figure}
+
+
+\begin{align*}
+\int_{\Omega}\left(\DD\Delta_{i}^{h}u\right)\left(\DD v\right) & =-\int_{\Omega}\left(\DD u\right)(\DD\underbrace{\Delta_{i}^{-h}v}_{\in H_{0}^{1,2}\left(\Omega\right)})=-\int_{\Omega}f\Delta_{i}^{-h}v
+\end{align*}
+
+
+\begin{figure}[H]
+\noindent \centering{}\begin{tikzpicture}
+  \draw plot[smooth cycle] coordinates {(-2,0) (0,2) (2,2) (4,-1) (4,-3) (2,-5) (-1,-4)};
+  \draw[->] (5,-1) -- node[above]{$e_i$} (6,-1);
+  \node at (0.5,2.5) {$\Omega $};
+  \node at (2.5,0.5) {$\Omega '$};
+  \node at (0.5,-3.5) {$\Omega ' -h e_i$};
+  \draw plot[smooth cycle,xshift=4mm] coordinates {(0,0.5) (1,1) (2,0) (3,-3) (1,-3) (-1,0)};
+  \draw[dashed, xshift=-5mm] plot[smooth cycle] coordinates {(0,0.5) (1,1) (2,0) (3,-3) (1,-3) (-1,0)};
+\end{tikzpicture}\caption{$\Omega'-he_{i}\subseteq\Omega$}
+\end{figure}
+
+
+Now follows:
+\begin{align*}
+\abs{\int_{\Omega}\left(\DD\Delta_{i}^{h}u\right)\left(\DD v\right)} & \le\norm f_{L^{2}\left(\Omega\right)}\norm{\Delta_{i}^{-h}v}_{L^{2}\left(\Omega'\right)}\sr{\le}{\ref{sub:Lemma-discrete-derivative}}{}\norm f_{L^{2}\left(\Omega\right)}\norm{\DD v}_{L^{2}\left(\Omega'\right)}
+\end{align*}
+We cannot choose $v=\Delta_{i}^{h}u$, because it is not in $H_{0}^{1,2}\left(\Omega\right)$
+in general and thus cannot be used for testing.
+
+Instead we take $v=\eta^{2}\Delta_{i}^{h}u$ where $\eta\in C_{0}^{\infty}\left(\Omega'\right)$
+with $\eta\left(\Omega'\right)\subseteq\left[0,1\right]$, $\eta\big|_{\Omega''}=1$,
+and $\abs{\DD\eta}<\frac{8}{\delta}$. $\text{supp}\left(\eta\right)\subseteq\Omega'$
+is needed for $\eta^{2}\Delta_{i}^{h}u$ to be well-defined.
+\begin{align*}
+\DD v & =\DD\left(\eta^{2}\Delta_{i}^{h}u\right)=\eta^{2}\DD\Delta_{i}^{h}u+2\eta\left(\DD\eta\right)\left(\Delta_{i}^{h}u\right)
+\end{align*}
+\begin{align*}
+\int_{\Omega'}\left(\DD\Delta_{i}^{h}u\right)\left(\DD v\right) & =\int_{\Omega'}\Cline{green}{\eta^{2}\left(\DD\Delta_{i}^{h}u\right)^{2}}+2\int_{\Omega'}\Cline{red}{\left(\eta\DD\Delta_{i}^{h}u\right)}\Cline{yellow}{\left(\DD\eta\right)\left(\Delta_{i}^{h}u\right)}\\
+\int_{\Omega'}\left(\DD\Delta_{i}^{h}u\right)\left(\DD v\right) & \le\norm f_{L^{2}\left(\Omega\right)}\norm{\DD v}_{L^{2}\left(\Omega'\right)}=\\
+ & =\Cline{yellow}{\norm f_{L^{2}\left(\Omega\right)}}\norm{\eta^{2}\Cline{red}{\DD\Delta_{i}^{h}u}+2\eta\Cline{yellow}{\left(\DD\eta\right)\left(\Delta_{i}^{h}u\right)}}_{L^{2}\left(\Omega'\right)}
+\end{align*}
+The green term is the square of the second derivative that we want
+to bound. The red terms are bad, because they contain also second
+derivatives, but luckily only in first order. The yellow terms do
+no harm, since they contain only lower derivatives. We can estimate
+as follows:
+\begin{align*}
+2\abs{\int_{\Omega'}\left(\eta\DD\Delta_{i}^{h}u\right)\left(\DD\eta\right)\left(\Delta_{i}^{h}u\right)} & \le2\norm{\eta\DD\Delta_{i}^{h}u}_{L^{2}\left(\Omega'\right)}\norm{\DD\eta}_{C^{0}\left(\Omega'\right)}\norm{\Delta_{i}^{h}u}_{L^{2}\left(\Omega'\right)}\le\\
+ & \le\frac{16}{\delta}\norm{\eta\DD\Delta_{i}^{h}u}_{L^{2}\left(\Omega'\right)}\norm{\DD u}_{L^{2}\left(\Omega'\right)}\le\\
+ & \sr{\le}{c:=\frac{16}{\delta}}{}c\left(\frac{1}{4c}\norm{\eta\DD\Delta_{i}^{h}u}_{L^{2}\left(\Omega'\right)}^{2}+c\norm{\DD u}_{L^{2}\left(\Omega'\right)}^{2}\right)\le\\
+ & \le\frac{1}{4}\norm{\eta\DD\Delta_{i}^{h}u}_{L^{2}\left(\Omega'\right)}^{2}+c^{2}\norm{\DD u}_{L^{2}\left(\Omega'\right)}^{2}
+\end{align*}
+For the other side holds
+\begin{align*}
+\norm f_{L^{2}\left(\Omega\right)}\norm{\eta^{2}\DD\Delta_{i}^{h}u}_{L^{2}\left(\Omega'\right)} & \le\frac{1}{4}\norm{\eta\DD\Delta_{i}^{h}u}_{L^{2}\left(\Omega'\right)}^{2}+\norm f_{L^{2}\left(\Omega\right)}^{2}
+\end{align*}
+and:
+\begin{align*}
+\norm f_{L^{2}}\norm{2\eta\left(\DD\eta\right)\left(\Delta_{i}^{h}u\right)}_{L^{2}\left(\Omega'\right)} & \le\frac{16}{\delta}\norm f_{L^{2}\left(\Omega\right)}\cdot\norm{\DD u}_{L^{2}\left(\Omega\right)}\le\\
+ & \sr{\le}{c:=\frac{16}{\delta}}{}c\left(\frac{1}{4c}\norm{\DD u}_{L^{2}\left(\Omega\right)}^{2}+c\norm f_{L^{2}\left(\Omega\right)}^{2}\right)=\\
+ & =\frac{1}{4}\norm{\DD u}_{L^{2}\left(\Omega\right)}^{2}+c^{2}\norm f_{L^{2}\left(\Omega\right)}^{2}
+\end{align*}
+We get:
+\begin{align*}
+\norm{\eta\DD\Delta_{i}^{h}u}_{L^{2}\left(\Omega\right)}^{2} & \le\frac{1}{4}\norm{\eta\DD\Delta_{i}^{h}u}_{L^{2}\left(\Omega\right)}^{2}+\frac{1}{4}\norm{\eta\DD\Delta_{i}^{h}u}_{L^{2}\left(\Omega\right)}^{2}+C\left(\norm{\DD u}_{L^{2}\left(\Omega\right)}^{2}+\norm f_{L^{2}\left(\Omega\right)}^{2}\right)
+\end{align*}
+\begin{align*}
+\Rightarrow\qquad\norm{\Delta_{i}^{h}\DD u}_{L^{2}\left(\Omega''\right)}^{2}=\norm{\eta\Delta_{i}^{h}\DD u}_{L^{2}\left(\Omega''\right)}^{2}\le\norm{\eta\Delta_{i}^{h}\DD u}_{L^{2}\left(\Omega\right)}^{2} & \le2C\left(\norm{\DD u}_{L^{2}\left(\Omega\right)}^{2}+\norm f_{L^{2}\left(\Omega\right)}^{2}\right)
+\end{align*}
+This is uniformly in $h$. After Lemma \ref{sub:Lemma-discD-bounded-weak-D}
+the weak derivatives $\partial_{i}\DD u$ exists and it holds:
+\begin{align*}
+\int_{\Omega''}\norm{\DD^{2}u}^{2} & \le2C\left(\norm f_{L^{2}\left(\Omega\right)}^{2}+\norm{\DD u}_{L^{2}\left(\Omega\right)}^{2}\right)\le\\
+ & \sr{\le}{\text{Cacciopoli}}{}K\left(\norm f_{L^{2}\left(\Omega\right)}^{2}+\norm u_{L^{2}\left(\Omega\right)}^{2}\right)
+\end{align*}
+
+
+\qqed[\ref{sub:Theorem-H11-H22}]
+
+Now we move to inner regularity for linear elliptic equations:
+\begin{align*}
+\partial_{i}\left(a^{ij}\partial_{j}u\right)+b^{i}\partial_{i}u+cu & =f
+\end{align*}
+Assumptions:
+\begin{itemize}
+\item Uniform ellipticity: For all $x\in\Omega$ and all $\xi\in\mathbb{R}^{n}$
+holds:
+\begin{align*}
+a^{ij}\left(x\right)\xi_{i}\xi_{j} & \ge\kappa\norm{\xi}^{2}
+\end{align*}
+
+\item Uniform boundedness: For all $x\in\Omega$ holds: 
+\begin{align*}
+\abs{a^{ij}\left(x\right)},\abs{b\left(x\right)},\abs{c\left(x\right)} & \le C
+\end{align*}
+
+\item Regularity: $a^{ij}\in C^{1}\left(\Omega\right)$, $b^{i},c\in L^{\infty}\left(\Omega\right)$,
+$f\in L^{2}\left(\Omega\right)$, $\abs{\partial_{k}a^{ij}}<C$
+\end{itemize}
+Let $u\in H^{1,2}\left(\Omega\right)$ be a weak solution.
+
+First step: We absorb the lower order terms into the inhomogeneity,
+i.e.:
+\begin{align*}
+\partial_{i}\left(a^{ij}\partial_{j}u\right) & =\tilde{f}:=f-b^{i}\partial_{i}u-cu\in L^{2}\left(\Omega\right)
+\end{align*}
+Second step: We apply Cacciopoli's lemma: For $v\in H_{0}^{1,2}\left(\Omega\right)$
+holds:
+\begin{align*}
+\int_{\Omega}a^{ij}\left(\partial_{j}u\right)\partial_{i}v & =-\int_{\Omega}\tilde{f}v
+\end{align*}
+Choose $v=\eta^{2}u$ with $\eta\left(\Omega\right)\in\left[0,1\right]$
+and $\eta\big|_{\Omega'}=1$ for a $\Omega'\Subset\Omega$.
+\begin{align*}
+\partial_{i}v & =\eta^{2}\left(\partial_{i}u\right)+2\eta\left(\partial_{i}\eta\right)u
+\end{align*}
+\begin{align*}
+\int_{\Omega}\eta^{2}a^{ij}\left(\partial_{i}u\right)\left(\partial_{j}u\right) & \le C\norm{\eta\DD u}\norm u+C\norm f\norm u+C\abs{\int b^{i}\left(\partial_{i}u\right)\eta^{2}u}
+\end{align*}
+\begin{align*}
+\abs{\int b^{i}\left(\partial_{i}u\right)\eta^{2}u} & \le C\norm{\eta\DD u}_{L^{2}\left(\Omega\right)}\norm u_{L^{2}\left(\Omega\right)}\le C\left(\frac{1}{4C}\norm{\eta\DD u}_{L^{2}\left(\Omega\right)}^{2}+C\norm u_{L^{2}\left(\Omega\right)}\right)\le\\
+ & \le\frac{1}{4}\norm{\eta\DD u}_{L^{2}\left(\Omega\right)}^{2}+C^{2}\norm u_{L^{2}\left(\Omega\right)}
+\end{align*}
+Due to uniform ellipticity we get:
+\begin{align*}
+\int_{\Omega}\eta^{2}a^{ij}\left(\partial_{i}u\right)\left(\partial_{j}u\right) & \ge\kappa\int_{\Omega}\eta^{2}\norm{\DD u}^{2}
+\end{align*}
+Now we can compensate the bad terms just as before to obtain:
+\begin{align*}
+\norm{\DD u}_{L^{2}\left(\Omega'\right)} & \le c\left(\Omega',\kappa,C\right)\left(\norm u_{L^{2}\left(\Omega\right)}+\norm f_{L^{2}\left(\Omega\right)}\right)
+\end{align*}
+Third step:
+\begin{align*}
+\int_{\Omega''}a^{ij}\left(\partial_{j}\Delta_{l}^{h}u\right)\left(\partial_{i}v\right) & =-\int_{\Omega''}\left(\partial_{j}u\right)\Delta_{l}^{-h}\left(a^{ij}\partial_{i}v\right)
+\end{align*}
+\begin{align*}
+\Delta_{i}^{h}\left(f\cdot g\right) & =\frac{1}{h}\left(f\left(x+he_{i}\right)g\left(x+he_{i}\right)-f\left(x\right)g\left(x\right)-f\left(x\right)g\left(x+e_{i}\right)+f\left(x\right)g\left(x+he_{i}\right)\right)=\\
+ & =g\left(x+he_{i}\right)\frac{1}{h}\left(f\left(x+he_{i}\right)-f\left(x\right)\right)+f\left(x\right)\frac{1}{h}\left(g\left(x+he_{i}\right)-g\left(x\right)\right)=\\
+ & =g\left(x+he_{i}\right)\left(\Delta_{i}^{h}f\right)\left(x\right)+f\left(x\right)\left(\Delta_{i}^{h}g\right)\left(x\right)
+\end{align*}
+We get:
+\begin{align*}
+\int_{\Omega''}a^{ij}\left(\partial_{j}\Delta_{l}^{h}u\right)\left(\partial_{i}v\right) & =-\int_{\Omega''}a^{ij}\left(\partial_{j}u\right)\left(\Delta_{l}^{-h}\partial_{i}v\right)-\int_{\Omega''}\left(\partial_{j}u\right)\underbrace{\left(\Delta_{l}^{-h}a^{ij}\right)}_{<C}\left(\partial_{i}v\right)\left(x-he_{i}\right)
+\end{align*}
+
+
+%DATE: Fr 5.7.13
+
+Now we choose $v=\Delta_{l}^{h}\left(\eta^{2}u\right)$ with $\eta\in C_{0}^{\infty}\left(\Omega''\right)$.
+We thus obtain:
+
+
+\subsection{Theorem\label{sub:Thm-u_in_H2-2}}
+
+For all $\Omega'\Subset\Omega$ holds $u\in H^{2,2}\left(\Omega'\right)$.
+
+
+\subsubsection*{Proof}
+
+Analogous to proof of \ref{sub:Theorem-H11-H22}.\qqed
+
+Starting from here, there is a simple iteration method to show $u\in H^{k,2}\left(\Omega'\right)$,
+provided that the coefficients are sufficiently regular.
+
+For example, assume $f\in H^{1,2}\left(\Omega\right)$, $b_{1},c\in C^{1}\left(\Omega\right)$
+and $a^{ij}\in C^{2}\left(\Omega\right)$. Moreover, we know $u\in H_{\text{loc}}^{2,2}\left(\Omega\right)$.
+\begin{align*}
+\underbrace{\partial_{i}\big(\underbrace{a^{ij}}_{\in C^{2}}\underbrace{\partial_{j}u}_{\in H^{1,2}}\big)}_{\in L^{2}}+\underbrace{\underbrace{b^{i}}_{\in C^{1}}\underbrace{\partial_{i}u}_{\in H^{1,2}}}_{\in H^{1,2}}+\underbrace{\underbrace{c}_{\in C^{1}}\underbrace{u}_{\in H^{1,2}}}_{\in H^{1,2}} & =\underbrace{f}_{\in H^{1,2}}
+\end{align*}
+Since all other terms are in $H^{1,2}$, also $\partial_{i}\left(a^{ij}\partial_{j}u\right)\in H^{1,2}$
+must hold and thus can be differentiated.
+\begin{align*}
+\partial_{i}\left(a^{ij}\partial_{j}\left(\partial_{l}u\right)\right) & =\hat{f}\in L_{\text{loc}}^{2}\left(\Omega\right)
+\end{align*}
+With Theorem \ref{sub:Thm-u_in_H2-2} follows $\partial_{l}u\in H_{\text{loc}}^{2,2}\left(\Omega\right)$
+and thus $u\in H^{3,2}\left(\Omega\right)$.
+
+
+\subsection{Theorem}
+
+For $f\in C^{\infty}\left(\Omega\right)$, $a^{ij},b^{i}\in C^{\infty}\left(\Omega\right)$
+follows $u\in H_{\text{loc}}^{k,2}\left(\Omega\right)$ for all $k\in\mathbb{N}$.
+
+There is a $k_{0}=k_{0}\left(n\right)$ such that for all $\Omega'\Subset\Omega$
+holds:
+\begin{align*}
+H^{k_{0},2}\left(\Omega'\right) & \hookrightarrow C^{0,\gamma}\left(\Omega'\right)\\
+H^{k_{0}+p,2}\left(\Omega'\right) & \hookrightarrow C^{p,\gamma}\left(\Omega'\right)
+\end{align*}
+Since $k_{0}+p$ can be chosen arbitrarily large, we conclude $u\in C^{\infty}\left(\Omega'\right)$.
+
+
+\section{Boundary regularity for linear elliptic equations}
+
+Let $\Omega\subseteq\mathbb{R}^{n}$ be a bounded domain and $\partial\Omega$
+be $C^{k}$ with $k\in\mathbb{N}_{\ge2}$. Consider the same equation
+as before:
+\begin{align*}
+\partial_{i}\left(a^{ij}\partial_{j}u\right)+b^{i}\partial_{i}u+cu & =f
+\end{align*}
+Suppose $u\in H^{1,2}\left(\Omega\right)$ is a weak solution.
+\begin{enumerate}
+\item We need to impose a certain regularity of $u\big|_{\partial\Omega}$.
+To this end assume that there is a $g\in H^{2,2}\left(\Omega\right)$
+such that holds:
+\begin{align*}
+\tilde{u}:=u-g & \in H_{0}^{1,2}\left(\Omega\right)
+\end{align*}
+As an example, one can consider the Dirichlet problem $u\big|_{\partial\Omega}=u_{0}\in C^{2}\left(\partial\Omega\right)$,
+then $u_{0}$ can be extended to a function $g\in C^{2}\left(\Omega\right)$,
+i.e. $g\big|_{\Omega}=u_{0}$. Then holds $g\in H^{2,2}\left(\Omega\right)$.
+For $\tilde{u}\in H_{0}^{1,2}\left(\Omega\right)$ follows:
+\begin{align*}
+\partial_{i}\left(a^{ij}\partial_{j}\tilde{u}\right)+b^{i}\left(\partial_{i}\tilde{u}\right)+c\tilde{u} & =\tilde{f}:=f-\partial_{i}\left(a^{ij}\partial_{j}g\right)-b^{i}\left(\partial_{i}g\right)-cg
+\end{align*}
+
+\item Definition of $C^{k}$ boundary:\\
+\begin{figure}[H]
+\noindent \centering{}\begin{tikzpicture}
+  \draw[scale=0.7] plot[smooth cycle] coordinates {(-2,0) (0,2) (2,2) (4,-1) (4,-3) (2,-5) (-1,-4)};
+  \node at (0.5,1.8) {$\Omega $};
+  \draw (2.7,-0.5) arc (120:221:1.5);
+  \node at (2,-1) {$U$};
+  \draw[decoration={markings,mark=at position 0.999 with {\arrow[scale=2]{>}};},postaction={decorate}] (3,0) .. controls +(1,1) and +(-1,1) .. node[above]{$C^k$-Isomorphism $\phi $} (6,0);
+  \draw[->] (7,-2) -- (10,-2) node[right]{$x^0 $};
+  \draw[->] (7,-2) -- (7,2) node[above]{$x^\alpha $};
+  \node at (9,1.5) {$ \mathbb{R}^n_+$};
+  \draw (7,-1) arc (270:450:1);
+\end{tikzpicture}\caption{Chart maps $C^{k}$-boundary by $C^{k}$-Isomorphism to $\mathbb{R}_{0}^{n}$.}
+\end{figure}
+After the coordinate transformation
+\begin{align*}
+y & =\phi\left(x\right)\\
+\frac{\partial y^{i}}{\partial x^{l}} & =\frac{\partial\phi^{i}}{\partial x^{l}}
+\end{align*}
+the equation is still of the same type.\\
+The discrete derivative $\Delta_{0}^{h}$ causes problems near the
+boundary for $h<0$, but $\Delta_{\alpha}^{h}$ for $\alpha\in\left\{ 1,\ldots,n-1\right\} $
+can be used even near the boundary.\\
+Now we proceed just as for the interior regularity. $\norm{\Delta_{\alpha}^{h}\partial_{i}u}_{L^{2}}$
+is bounded uniformly in $h$ and thus holds $\partial_{\alpha}\partial_{i}u\in L^{2}\left(\Omega\right)$
+for $i\in\left\{ 0,\ldots,n-1\right\} $. Then follows:
+\begin{align*}
+\partial_{0}\partial_{\alpha}u & =\partial_{\alpha}\partial_{0}u\in L^{2}\left(\Omega\right)
+\end{align*}
+In order to estimate $\partial_{0}\partial_{0}u$, we use the equation:
+\begin{align*}
+a^{00}\partial_{00}u+2a^{0\alpha}\partial_{0\alpha}u+a^{\alpha\beta}\partial_{\alpha\beta}u+b^{i}\partial_{i}u+cu+\left(\partial_{i}a^{ij}\right)\partial_{j}u & =\tilde{f}
+\end{align*}
+All the terms, except for the first one, are in $L^{2}\left(\Omega\right)$
+and thus follows $a^{00}\partial_{00}u\in L^{2}\left(\Omega\right)$.
+We know $a^{00}\in C^{2}\left(\Omega\right)$ and $a^{00}\left(x\right)\ge\kappa>0$
+for all $x\in\Omega$.
+\begin{align*}
+\partial_{00}u & =\underbrace{\frac{1}{a^{00}}}_{\in C^{2}}\underbrace{\left(a^{00}\partial_{00}u\right)}_{\in L^{2}}\in L^{2}\left(\Omega\right)
+\end{align*}
+
+\end{enumerate}
+
+\subsection{Theorem}
+
+For $u\in H^{1,2}\left(\Omega\right)$ holds $u\in H^{2,2}\left(U\right)$
+for all $U\Subset\Omega$.
+
+
+\chapter{Regularity for Nonlinear Equations}
+
+Consider the variational principle for the action
+\begin{align*}
+S & =\int\left(\frac{1}{p}\left(\norm{\DD u}^{2}\right)^{\frac{p}{2}}+fu\right)\dd^{n}x
+\end{align*}
+on $H_{0}^{1,p}\left(\Omega\right)$ for $p\in\mathbb{R}_{>2}$ and
+$f\in L^{q}\left(\Omega\right)$ with $q\ge q_{0}$ and $q_{0}^{-1}+\left(p^{*}\right)^{-1}=1$.
+
+Compute the Euler-Lagrange equations with $v\in H_{0}^{1,p}\left(\Omega\right)$:
+\begin{align*}
+u_{\tau} & :=u+\tau v
+\end{align*}
+\begin{align*}
+0 & =\frac{\dd}{\dd\tau}S\left(u+\tau v\right)\bigg|_{v=0}=\int\left(\frac{1}{p}\cdot\frac{p}{2}\norm{\DD u}^{p-2}\cdot2\left(\DD u\right)\left(\DD v\right)+fv\right)\dd^{n}x=\\
+ & =\int\left(\norm{\DD u}^{p-2}\left(\DD u\right)\left(\DD v\right)+fv\right)\dd^{n}x=\int\left(-\partial_{j}\left(\norm{\DD u}^{p-2}\partial^{j}u\right)+f\right)v\dd^{n}x
+\end{align*}
+So the $p$-Laplacian equals $f$:
+\begin{align*}
+\partial_{j}\left(\norm{\DD u}^{p-2}\partial^{j}u\right) & =f\\
+\partial_{i}\left(a^{ij}\partial_{j}u\right) & =f\\
+a^{ij} & =\underbrace{\norm{\DD u}^{p-2}}_{\in L^{\frac{p}{p-2}}}\delta^{ij}
+\end{align*}
+If we already have a solution for the nonlinear equation, we can consider
+$u$ as a solution for the linear equation with the above $a^{ij}$.
+Here the coefficients $a^{ij}$ do not even need to be bounded, which
+makes proving regularity difficult!
+
+A somewhat simpler problem is the action
+\begin{align*}
+S & =\int_{\Omega}\left(g\left(\norm{\nabla u}^{2}\right)+fu\right)\dd^{n}x
+\end{align*}
+with bounded $g'$.
+\begin{align*}
+0 & =\frac{\dd}{\dd\tau}S\left(u+\tau v\right)\big|_{\tau=0}=\int\left(g'\left(\norm{\nabla u}\right)^{2}\right)\cdot2\left(\nabla u\right)\left(\nabla v\right)+fv
+\end{align*}
+\begin{align*}
+2\partial_{i}\left(g'\left(\norm{\nabla u}^{2}\right)\partial^{i}u\right) & =f\\
+\partial_{i}\left(a^{ij}\partial_{j}u\right) & =f\\
+a^{ij} & =2g'\left(\norm{\nabla u}^{2}\right)\delta^{ij}
+\end{align*}
+Choose $g\in C^{\infty}\left(\mathbb{R}\right)$ with $0<\lambda\le g'\le\Lambda<\infty$.
+Then holds $a^{ij}\in L^{\infty}\left(\Omega\right)$ and $a^{ij}\xi_{i}\xi_{j}\ge\lambda\norm{\xi}^{2}$,
+thus the equation is uniformly elliptic.
+
+The goal is to analyze regularity for the linear system. This method
+is called \emph{freezing of coefficients} (\foreignlanguage{ngerman}{\emph{Einfrieren
+der Koeffizienten}}).
+
+Mathematicians involved in solving this problem are:
+\begin{itemize}
+\item De Giorgi (1928-1996) is one of the most known mathematician of the
+20th century.
+\item John Nash (1928-): Nash imbedding theorem (and Nobel Prize in Economic
+Sciences)
+\item Jürgen Moser (1928-1999) worked at the Courant institut, then at the
+ETH Zürich. He is known for the KAM-Theorem (Kolmogoroff, Arnold,
+Moser).
+\end{itemize}
+We follow mainly the ideas of Moser.
+\begin{align*}
+\int a^{ij}\left(\partial_{i}\Delta_{l}^{h}u\right)\left(\partial_{j}v\right) & =-\int a^{ij}\partial_{i}u\left(\Delta_{l}^{-h}\partial_{j}v\right)-\int\underbrace{\left(\Delta_{l}^{-h}a^{ij}\right)}_{\text{cannot be controlled}}\left(\partial_{i}u\right)\left(\partial_{j}v\right)
 \end{align*}
 
 
