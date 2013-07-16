@@ -3664,7 +3664,7 @@ also:
 For $c\left(x\right)\le0$ and $Lu\ge0$ (or $Lu\le0$) holds with
 $u^{+}:=\max\left(u,0\right)$ (and $u^{-}:=\min\left(u,0\right)$):
 \begin{align*}
-\sup_{\Omega}\left(u\right) & \le\sup_{\partial\Omega}\left(u^{+}\right) & \big(\inf_{\Omega}\left(u\right) & \le\inf_{\partial\Omega}\left(u\right)\big)
+\sup_{\Omega}\left(u\right) & \le\sup_{\partial\Omega}\left(u^{+}\right) & \big(\inf_{\Omega}\left(u\right) & \ge\inf_{\partial\Omega}\left(u^{-}\right)\big)
 \end{align*}
 
 
@@ -6980,6 +6980,444 @@ Moser).
 We follow mainly the ideas of Moser.
 \begin{align*}
 \int a^{ij}\left(\partial_{i}\Delta_{l}^{h}u\right)\left(\partial_{j}v\right) & =-\int a^{ij}\partial_{i}u\left(\Delta_{l}^{-h}\partial_{j}v\right)-\int\underbrace{\left(\Delta_{l}^{-h}a^{ij}\right)}_{\text{cannot be controlled}}\left(\partial_{i}u\right)\left(\partial_{j}v\right)
+\end{align*}
+%DATE: Mi 10.7.13
+
+
+\section{Hölder-Continuity for Weak Solutions with Bounded Coefficients}
+
+Let $\Omega\subseteq\mathbb{R}^{n}$ be open.
+\begin{align*}
+Lu & :=\partial_{i}\left(a^{ij}\partial_{j}u\right)
+\end{align*}
+Assume $a^{ij}\in L^{\infty}$, i.e. $\abs{a^{ij}\left(x\right)}\le\Lambda$,
+and uniform ellipticity, i.e. $a^{ij}\left(x\right)\xi_{i}\xi_{j}\ge\lambda\norm{\xi}^{2}$
+for all $x\in\Omega$ and $\xi\in\mathbb{R}^{n}$. Furthermore $a^{ij}\left(x\right)$
+shall be measurable. Consider the homogeneous equation
+\begin{align*}
+Lu & =0
+\end{align*}
+and a weak solution $u\in H^{1,2}\left(\Omega\right)$ of it. We are
+interested in the inner regularity in $\Omega$.
+
+
+\subsection{Theorem \textmd{(De Giorgi-Nash)\label{sub:Thm-De-Giorgi-Nash}}}
+
+For all $\Omega'\Subset\Omega$ holds $u\in C^{0,\alpha}\left(\Omega'\right)$.
+
+
+\subsection{Theorem \textmd{(Moser)\label{sub:Thm-Moser1}}}
+
+Let $u\in H^{1,2}\left(\Omega\right)$ be a weak solution of $Lu=0$,
+then holds $\text{sup}_{B_{R}\left(x_{0}\right)}\left(u\right)<\infty$.
+For $u\ge0$ in $B_{4R}\left(x_{0}\right)$ follows the \emph{Harnack
+inequality}:
+\begin{align*}
+\sup_{B_{R}\left(x_{0}\right)}\left(u\right) & \le C\left(n,\frac{\Lambda}{\lambda}\right)\inf_{B_{R}\left(x_{0}\right)}\left(u\right)
+\end{align*}
+Note that the constant $C$ is independent of $R$.
+
+
+\subsubsection{Proof of \ref{sub:Thm-De-Giorgi-Nash}, assuming Moser's Harnack
+inequality}
+
+Consider $x_{0}\in\Omega$ and $R\in\mathbb{R}_{>0}$ with $B_{4R}\left(x_{0}\right)\subseteq\Omega$.
+\begin{align*}
+M\left(R\right) & :=\sup_{B_{R}\left(x_{0}\right)}\left(u\right)\ge m\left(r\right):=\inf_{B_{R}\left(x_{0}\right)}\left(u\right)
+\end{align*}
+From Theorem \ref{sub:Thm-Moser1} we know $M\left(R\right)<\infty$
+and also $m\left(R\right)>-\infty$, since $-u$ is another solution:
+\begin{align*}
+L\left(-u\right) & =-L\left(u\right)=0
+\end{align*}
+In $B_{R}\left(x_{0}\right)$ holds:
+\begin{align*}
+M\left(R\right)-u\left(x\right) & \ge0 & u\left(x\right)-m\left(R\right) & \ge0
+\end{align*}
+These are non-negative weak solutions.
+
+\begin{figure}[H]
+\noindent \centering{}\begin{tikzpicture}[level/.style={level distance=19mm}]
+  \draw[scale=5] plot[smooth cycle] coordinates {(0,1) (1,1) (2,0) (1,-1) (0,-0.5) (-0.3,-0.5) (-0.3,0.5)};
+  \node at (0,3.3) {$\Omega $};
+  \draw (4,0) node[inner sep=2pt, fill=black, circle]{} circle(0.25) circle (1) circle(4) node[right=4pt]{$x_0$};
+  \draw (4,0) -- (3.75,0) (3.85,0) -- (3.85,-0.3) node[below]{$\frac{R}{4}$};
+  \draw (4,0) -- node[left]{$R$} (3.3,0.7);
+  \draw (4,0) -- node[left]{$4R$} (4,4);
+\end{tikzpicture}\caption{$B_{\frac{R}{4}}\left(x_{0}\right)\subseteq B_{R}\left(x_{0}\right)\subseteq B_{4R}\left(x_{0}\right)\subseteq\Omega$}
+\end{figure}
+
+
+\begin{align*}
+M\left(R\right)-m\left(\frac{R}{4}\right) & =\sup_{B_{\frac{R}{4}}\left(x_{0}\right)}\left(M\left(R\right)-u\left(x\right)\right)\le\\
+ & \le C\inf_{B_{\frac{R}{4}}\left(x_{0}\right)}\left(M\left(R\right)-u\left(x\right)\right)=C\left(M\left(R\right)-M\left(\frac{R}{4}\right)\right)
+\end{align*}
+\begin{align*}
+M\left(\frac{R}{4}\right)-m\left(R\right) & =\sup_{B_{\frac{R}{4}}\left(x_{0}\right)}\left(u\left(x\right)-m\left(R\right)\right)\le\\
+ & \le C\inf_{B_{\frac{R}{4}}\left(x_{0}\right)}\left(u\left(x\right)-m\left(R\right)\right)=C\left(m\left(\frac{R}{4}\right)-m\left(R\right)\right)
+\end{align*}
+Adding the inequalities yields:
+\begin{align*}
+\left(1+C\right)\left(M\left(\frac{R}{4}\right)-m\left(\frac{R}{4}\right)\right) & \le\left(C-1\right)\left(M\left(R\right)-m\left(R\right)\right)\\
+\underbrace{M\left(\frac{R}{4}\right)-m\left(\frac{R}{4}\right)}_{\ge0} & \le\underbrace{\frac{C-1}{C+1}}_{0\le.<1}\underbrace{\left(M\left(R\right)-m\left(R\right)\right)}_{\ge0}
+\end{align*}
+\begin{align*}
+w\left(r\right) & :=M\left(r\right)-m\left(r\right)
+\end{align*}
+is called \emph{oscillation} of $u$ on $B_{r}\left(x_{0}\right)$.
+The second term of the Hölder-Norm is:
+\begin{align*}
+\sup_{x\not=y}\frac{u\left(x\right)-u\left(y\right)}{\abs{x-y}^{\alpha}}
+\end{align*}
+This means that, if $u$ is Hölder-continuous, it holds:
+\begin{align*}
+\omega\left(r\right) & \le cr^{\alpha}
+\end{align*}
+The oscillation gets smaller as the ball gets smaller. With $\vartheta:=\frac{C-1}{C+1}<1$
+(independent of $R$) we know:
+\begin{align*}
+w\left(\frac{R}{4}\right) & \le\vartheta w\left(R\right)\\
+w\left(\frac{R}{16}\right) & \le\vartheta w\left(\frac{R}{4}\right)\\
+w\left(\frac{R}{4^{n}}\right) & \le\vartheta^{n}w\left(R\right)
+\end{align*}
+For $r\in\left(0,R\right)$ choose $n\in\mathbb{N}$ such that holds:
+\begin{align*}
+\frac{R}{4^{n+1}} & \le r<\frac{R}{4^{n}}
+\end{align*}
+Because $w$ is by definition monotonically increasing in $r$ we
+have:
+\begin{align*}
+w\left(r\right) & <w\left(\frac{R}{4^{n}}\right)\le\vartheta^{n}w\left(R\right)=\left(\frac{1}{4^{n}}\right)^{\alpha}w\left(R\right)
+\end{align*}
+\begin{align*}
+\alpha & :=\frac{\ln\left(\vartheta\right)}{\ln\left(\frac{1}{4}\right)}>0
+\end{align*}
+Thus we get:
+\begin{align*}
+w\left(r\right) & <\left(\frac{4}{R}\frac{R}{4^{n+1}}\right)^{\alpha}w\left(R\right)\le4^{\alpha}\left(\frac{r}{R}\right)^{\alpha}w\left(R\right)
+\end{align*}
+So for all $x\in B_{R}\left(x_{0}\right)$ follows with $r=\abs{x-x_{0}}$:
+\begin{align*}
+\abs{u\left(x\right)-u\left(x_{0}\right)}\le w\left(r\right) & \le\left(\frac{4}{R}\right)^{\alpha}w\left(R\right)r^{\alpha}=\left(\frac{4}{R}\right)^{\alpha}w\left(R\right)\abs{x-x_{0}}^{\alpha}
+\end{align*}
+Thus $u$ is Hölder-continuous in $x_{0}$ with exponent $\alpha$.\qqed
+
+
+\section{The Moser Iteration}
+
+Recall for $r''>r'>r$:
+\begin{align*}
+\int_{B_{r}}\norm{\DD u}^{2} & \le C\left(r,r'\right)\int_{B_{r'}}\norm u^{2}\\
+\int_{B_{r}}\norm{\DD^{2}u}^{2} & \le C\left(r,r'\right)\int_{B_{r'}}\norm{\DD u}^{2}\le C\left(r,r'\right)C\left(r',r''\right)\int_{B_{r''}}\norm u^{2}
+\end{align*}
+The idea is to iterate this process controlling the constants and
+the use the imbedding theorems.
+
+In preparation for this we need to introduce weak super- and subsolutions.
+
+
+\subsection{Definition \textmd{(weak super-/subsolution)}}
+
+A function $u\in H^{1,2}\left(\Omega\right)$ is a \emph{weak subsolution},
+$Lu\ge0$ (in the weak sense), in $\Omega$ if for all $\eta\in H_{0}^{1,2}$
+with $\eta\ge0$ holds:
+\begin{align*}
+\int a^{ij}\left(\partial_{i}u\right)\left(\partial_{j}\eta\right) & \le0
+\end{align*}
+$u$ is a supersolution, if $-u$ is a subsolution.
+
+Explanation: For a (strong) solution $u\in C^{2}$ holds:
+\begin{align*}
+\int a^{ij}\left(\partial_{i}u\right)\left(\partial_{i}\eta\right) & =-\int\left(\partial_{j}a^{ij}\left(\partial_{i}u\right)\right)\eta=-\int\underbrace{\left(Lu\right)}_{\ge0}\underbrace{\eta}_{\ge0}\le0
+\end{align*}
+Consider for $f\in C^{2}\left(\mathbb{R}\right)$ the composition
+$\left(f\circ u\right)\left(x\right)$. The weak derivative is:
+\begin{align*}
+\DD\left(f\circ u\right)\left(x\right) & =f'\left(u\right)\cdot\DD u\left(x\right)\\
+\DD^{2}\left(f\circ u\right)\left(x\right) & =f''\left(u\right)\cdot\underbrace{\left(\DD u\left(x\right)\right)^{2}}_{\ge0}+f'\left(u\right)\DD^{2}u\left(x\right)
+\end{align*}
+Assuming $\DD^{2}u\ge0$, $f''\ge0$ and $f'\ge0$ we get $\DD^{2}\left(f\circ u\right)\left(x\right)\ge0$.
+So a subsolution composited with a monotonically increasing function
+is again a subsolution.
+
+Later on we will use $f\left(u\right)=\norm u^{p}$.
+
+
+\subsection{Lemma}
+
+Let $f\in C^{2}\left(\mathbb{R}\right)$ and $\sup\abs{f'},\,\sup\abs{f''}<\infty$.
+\begin{enumerate}[label=\roman*)]
+\item If $u\in H^{1,2}\left(\Omega\right)$ is a subsolution, $f$ is convex
+and $f'\ge0$, then $f\circ u$ is a subsolution.
+\item If $u\in H^{1,2}\left(\Omega\right)$ is a solution and $f$ is convex,
+then $f\circ u$ is a subsolution.
+\end{enumerate}
+
+\subsubsection*{Proof}
+
+Since $f$ is convex, it holds $f''\ge0$. First assume $u\in C^{2}\left(\Omega\right)$
+to get:
+\begin{align*}
+\partial_{j}\left(f\circ u\right) & =f'\left(u\right)\partial_{j}u\\
+L\left(f\circ u\right) & =\partial_{i}\left(a^{ij}\left(f'\left(u\right)\partial_{j}u\right)\right)=\\
+ & =\underbrace{a^{ij}f''\left(u\right)\left(\partial_{i}u\right)\left(\partial_{j}u\right)}_{\ge0}+f'\left(u\right)\underbrace{\partial_{i}\left(a^{ij}\partial_{j}u\right)}_{=Lu}
+\end{align*}
+If $u$ is a subsolution, it holds $Lu\ge0$ and due to $f'\left(u\right)\ge0$
+also $L\left(f\circ u\right)\ge0$. Thus follows i).
+
+If $u$ is a solution, it holds $Lu=0$ and thus follows ii).
+
+For $u\in H^{1,2}\left(\Omega\right)$ we choose $u_{n}\in C^{2}\left(\Omega\right)$
+with $u_{n}\to u$ in $H^{1,2}\left(\Omega\right)$ and $\eta\in C_{0}^{\infty}\left(\Omega\right)$.
+\begin{align*}
+\int_{\Omega}\left(\left(f\circ u_{n}\right)-\left(f\circ u\right)\right) & \xrightarrow{n\to\infty\ \left(?\right)}0
+\end{align*}
+\begin{align}
+\int_{\Omega}\left(f\circ u_{n}\right)\left(-\partial_{j}\eta\right) & =\int f'\left(u_{n}\right)\left(\partial_{j}u_{n}\right)\eta\label{eq:fun}
+\end{align}
+We assumed $\abs{f'},\abs{f''}\le C<\infty$ and thus $f'\left(u_{n}\right)$
+is uniformly bounded by $C$.
+\begin{align*}
+\abs{\left(f\circ u_{n}\right)\left(x\right)-\left(f\circ u\right)\left(x\right)} & \sr{\le}{\text{mean value}}{\text{Theorem}}\sup\left(\abs{f'}\right)\cdot\abs{u_{n}\left(x\right)-u\left(x\right)}
+\end{align*}
+This gives:
+\begin{align*}
+\abs{\int_{\Omega}\left(f\circ u_{n}-f\circ u\right)\left(-\partial_{j}\eta\right)} & \le\sup\left(\abs{f'}\right)\int_{\Omega}\abs{u_{n}-u}\cdot\abs{\partial_{j}\eta}\le\\
+ & \le\norm{u_{n}-u}_{L^{2}}\norm{\partial_{j}\eta}_{L^{2}}\rightarrow0
+\end{align*}
+Thus the left side of (\ref{eq:fun}) converges.
+\begin{align*}
+\abs{f'\left(u_{n}\right)\left(\partial_{j}u_{n}\right)-f'\left(u\right)\left(\partial_{j}u\right)} & \le\abs{f'\left(u_{n}\right)\left(\partial_{j}u_{n}\right)-f'\left(u_{n}\right)\left(\partial_{j}u\right)}+\abs{f'\left(u_{n}\right)\left(\partial_{j}u\right)-f'\left(u\right)\left(\partial_{j}u\right)}=\\
+ & =\underbrace{\abs{f'\left(u_{n}\right)}}_{\le C}\underbrace{\abs{\partial_{j}u_{n}-\partial_{j}u}}_{\to0\text{ in }L^{2}}+\abs{f'\left(u_{n}\right)-f'\left(u\right)}\cdot\underbrace{\abs{\partial_{j}u}}_{\in L^{2}}
+\end{align*}
+\begin{align*}
+\abs{f'\left(u_{n}\right)-f'\left(u\right)} & \le\underbrace{\sup\left(\abs{f''}\right)}_{\le C}\cdot\underbrace{\abs{u-u_{n}}}_{\to0\text{ in }L^{2}}
+\end{align*}
+So we get:
+\begin{align*}
+\int_{\Omega}f'\left(u_{n}\right)\left(\partial_{j}u_{n}\right)\eta & \xrightarrow{n\to\infty}\int_{\Omega}f'\left(u\right)\left(\partial_{j}u\right)\eta
+\end{align*}
+So we can use the chain rule for weak derivatives:
+\begin{align*}
+\partial_{j}\left(f\circ u\right) & =f'\left(u\right)\partial_{j}u
+\end{align*}
+We want to show that $f\circ u$ is a subsolution, i.e. for all $\eta\in C_{0}^{2}\left(\Omega\right)$
+(or $\eta\in H_{0}^{1,2}\left(\Omega\right)$) with $\eta\ge0$ must
+hold:
+\begin{align*}
+0 & \sr{\ge}!{}\int_{\Omega}a^{ij}\partial_{i}\left(f\circ u\right)\left(\partial_{j}\eta\right)=\int_{\Omega}a^{ij}f'\left(u\right)\left(\partial_{i}u\right)\left(\partial_{j}\eta\right)=\\
+ & =\underbrace{\int_{\Omega}a^{ij}\left(\partial_{i}u\right)\left(\partial_{j}f'\left(u\right)\eta\right)}_{\sr{}{\le0\text{ if }u\text{ is subsolution}}{=0\text{ if }u\text{ is solution}}}\underbrace{-\int_{\Omega}a^{ij}\left(\partial_{i}u\right)f''\left(u\right)\left(\partial_{j}u\right)\eta}_{\le0}
+\end{align*}
+\qqed
+
+
+\subsection{Lemma\label{sub:Lem-max-weak-subsolution}}
+
+Let $u\in H^{1,2}\left(\Omega\right)$ be a weak subsolution and $k\in\mathbb{R}$.
+Then $v:=\max\left(u,k\right)$ is also a subsolution.
+
+
+\subsubsection*{Proof}
+
+Approximate $f\left(x\right):=\max\left(x,k\right)$ by convex $f_{n}\in C^{2}$
+with $f_{n}'\ge0$, so that $f_{n}\rightrightarrows f$ converges.
+The previous Lemma applies to $f_{n}\circ u$. We need to arrange:
+\begin{align}
+\int_{\Omega}\abs{f_{n}\circ u-f\circ u} & \to0\label{eq:arr1}\\
+\int_{\Omega}\abs{f_{n}\circ u-f\circ u}\partial_{j}\eta & \to0\label{eq:arr2}\\
+\int_{\Omega}\abs{\left(f_{n}'\left(u\right)-f'\left(u\right)\right)\partial_{i}u}^{2} & \to0\label{eq:arr3}
+\end{align}
+(\ref{eq:arr1}) and (\ref{eq:arr2}) are guaranteed by $f_{n}\rightrightarrows f$.
+
+For (\ref{eq:arr3}) we know that for $x\not=k$ converges
+\begin{align*}
+f_{k}'\left(x\right) & \to f'\left(x\right)
+\end{align*}
+point-wise. Thus follows by dominated convergence:
+\begin{align*}
+\int_{\Omega}\abs{\left(f_{n}'\left(u\right)-f'\left(u\right)\right)\partial_{i}u}^{2} & \le\int_{\Omega}\abs{f_{n}'\left(u\right)-f'\left(u\right)}^{2}\cdot\abs{\partial_{i}u}^{2}\xrightarrow[\text{dom. con.}]{n\to\infty}0
+\end{align*}
+\qqed
+
+
+\subsection{Theorem \textmd{(Moser)\label{sub:Thm-Moser-2}}}
+
+Let $u\in H^{1,2}\left(\Omega\right)$ be a subsolution in $B_{4R}\left(x_{0}\right)$
+and $p\in\mathbb{R}_{>1}$. Then holds
+
+\begin{align*}
+\sup_{B_{R}\left(x_{0}\right)}\left(u\right) & \le C\left(n,\frac{\Lambda}{\lambda}\right)\left(\frac{p}{p-1}\right)^{\frac{2}{p}}\left(\fint_{B_{2R}\left(x_{0}\right)}\left(\max\left(0,u\right)\right)^{p}\right)^{\frac{1}{p}}
+\end{align*}
+\begin{align*}
+\fint_{B_{R}\left(x_{0}\right)}v & :=\frac{1}{\mu\left(B_{R}\left(x_{0}\right)\right)}\int_{B_{R}\left(x_{0}\right)}v\dd^{n}x
+\end{align*}
+
+
+
+\subsection{Theorem}
+
+Let $u\ge0$ be a subsolution in $B_{4R}\left(x_{0}\right)$ and $n\in\mathbb{N}_{\ge3}$.
+\begin{align*}
+\left(\fint_{B_{2R}\left(x_{0}\right)}u^{p}\right)^{\frac{1}{p}} & \le\frac{C_{2}\left(p,n,\frac{\lambda}{\Lambda}\right)}{\left(\frac{n}{n-2}-p\right)^{2}}\inf_{B_{R}\left(x_{0}\right)}\left(u\right)
+\end{align*}
+If $u\ge0$ is a weak solution choose $p>1$ such that $u\in L^{p}$.
+Then holds:
+\begin{align*}
+\sup_{B_{R}\left(x_{0}\right)}\left(u\right) & \le C\left(p,n,\frac{\lambda}{\Lambda}\right)\inf_{B_{R}\left(x_{0}\right)}\left(u\right)
+\end{align*}
+
+
+%DATE: Fr 12.7.13
+
+We now enter the proof of Theorem \ref{sub:Thm-Moser-2}:
+
+Fix $x_{0}$ and let $u\in H^{1,2}\left(\Omega\right)$ be a non-negative
+function. For $p\in\mathbb{R}\setminus\left\{ 0\right\} $ define:
+\begin{align*}
+\phi\left(p,R\right) & :=\left(\fint_{B_{R}\left(x_{0}\right)}u^{p}\right)^{\frac{1}{p}}
+\end{align*}
+
+
+
+\subsection{Lemma}
+
+\begin{align*}
+\lim_{p\to\infty}\phi\left(p,R\right) & =\underset{B_{R}\left(x_{0}\right)}{\text{sup\,\ ess}}\left(u\right)=\norm u_{L^{\infty}\left(B_{R}\left(x_{0}\right)\right)}=:\phi\left(\infty,R\right)\\
+\lim_{p\to-\infty}\phi\left(p,R\right) & =\underset{B_{R}\left(x_{0}\right)}{\text{inf\,\ ess}}\left(u\right)=:\phi\left(-\infty,R\right)
+\end{align*}
+
+
+
+\subsubsection*{Proof}
+
+Hölder's inequality gives:
+\begin{align*}
+\fint_{B_{R}\left(x_{0}\right)}u^{p} & =\frac{1}{\mu\left(B_{R}\left(x_{0}\right)\right)}\int_{B_{R}\left(x_{0}\right)}1\cdot u^{p}\dd^{n}x\le\\
+ & \sr ={\frac{1}{r}+\frac{1}{r'}=1}{}\frac{1}{\mu\left(B_{R}\left(x_{0}\right)\right)}\underbrace{\norm 1_{r}}_{=\left(\mu\left(B_{R}\left(x_{0}\right)\right)\right)^{\frac{1}{r}}}\norm{u^{p}}_{r'}=\\
+ & =\frac{1}{\left(\mu\left(B_{R}\left(x_{0}\right)\right)\right)^{1-\frac{1}{r}}}\left(\int u^{p\cdot r'}\dd^{n}x\right)^{\frac{1}{r'}}=\left(\frac{1}{\mu\left(B_{R}\left(x_{0}\right)\right)}\int u^{p\cdot r'}\dd^{n}x\right)^{\frac{1}{r'}}
+\end{align*}
+Thus follows:
+\begin{align*}
+\left(\fint u^{p}\right)^{\frac{1}{p}} & \le\left(\fint u^{p\cdot r'}\right)^{\frac{1}{p\cdot r'}}
+\end{align*}
+Due to $r'\ge1$ follows, that $\left(\fint u^{p}\right)^{\frac{1}{p}}$
+is monotonically increasing in $p$.
+\begin{align*}
+\left(\fint u^{p}\right)^{\frac{1}{p}} & \le\left(\text{sup\,\ ess}\left(u^{p}\fint1\right)\right)^{\frac{1}{p}}=\text{sup\,\ ess}\left(u\right)\\
+\Rightarrow\qquad\phi\left(p,R\right) & \xrightarrow{p\to\infty}C\le\phi\left(\infty,R\right)
+\end{align*}
+By definition of the essential supremum holds for all $\varepsilon\in\mathbb{R}_{>0}$
+and all $V\subseteq\Omega$ with $\mu\left(V\right)>0$ and $u\big|_{V}\ge\text{sup}\left(u\right)-\varepsilon$:
+\begin{align*}
+\phi\left(p,R\right) & =\left(\frac{1}{\mu\left(B_{R}\left(x_{0}\right)\right)}\int_{B_{R}\left(x_{0}\right)}u^{p}\right)^{\frac{1}{p}}\ge\left(\frac{1}{\mu\left(B_{R}\left(x_{0}\right)\right)}\int_{V}u^{p}\right)^{\frac{1}{p}}\ge\\
+ & \ge\left(\frac{\mu\left(V\right)}{\mu\left(B_{R}\left(x_{0}\right)\right)}\left(\sup\left(u\right)-\varepsilon\right)^{p}\right)^{\frac{1}{p}}=\\
+ & =\underbrace{\left(\frac{\mu\left(V\right)}{\mu\left(B_{R}\left(x_{0}\right)\right)}\right)^{\frac{1}{p}}}_{>0}\left(\sup\left(u\right)-\varepsilon\right)\xrightarrow{p\to\infty}\sup\left(u\right)-\varepsilon
+\end{align*}
+Since $\varepsilon$ is arbitrary, the result follows.
+
+The limit $p\to-\infty$ can be treated as follows: Let $p\in\mathbb{R}_{<0}$.
+\begin{align*}
+\phi\left(p,R\right) & =\left(\fint_{B_{R}\left(x_{0}\right)}u^{p}\right)^{\frac{1}{p}}=\frac{1}{\left(\fint_{B_{R}\left(x_{0}\right)}\left(\frac{1}{u}\right)^{\abs p}\right)^{\frac{1}{\abs p}}}\xrightarrow{\abs p\to\infty}\frac{1}{\text{sup\,\ ess}\left(\frac{1}{u}\right)}=\text{inf\,\ ess}\left(u\right)
+\end{align*}
+\qqed
+
+
+\subsection{Lemma\label{sub:Lem-Estimate-subsol}}
+
+Let $u\in H^{1,2}\left(\Omega\right)$ with $u\ge0$ be a weak subsolution
+and assume
+\begin{align*}
+v & :=u^{q}\in L^{2}\left(\Omega\right)
+\end{align*}
+for some $q>\frac{1}{2}$. Then for all $\eta\in H_{0}^{1,2}\left(\Omega\right)$
+holds:
+\begin{align*}
+\int_{\Omega}\eta^{2}\norm{\DD v}^{2} & \le\frac{\Lambda^{2}}{\lambda^{2}}\left(\frac{2q}{2q-1}\right)^{2}\int_{\Omega}\norm{\DD\eta}^{2}v^{2}
+\end{align*}
+
+
+
+\subsubsection*{Proof}
+
+Consider $f_{\delta}\left(\xi\right):=\xi^{2q}e^{-\delta\xi}$, in
+particular $f\in C^{2}\left(\mathbb{R}_{0}^{+}\right)$. The derivative
+\begin{align*}
+f_{\delta}'\left(\xi\right) & =\left(2q\right)\xi^{2q-1}e^{-\delta\xi}-\delta\xi^{2q}e^{-\delta\xi}
+\end{align*}
+is bounded. Due to $q>\frac{1}{2}$ follows $2q-1>0$. Choose $\varphi=f_{\delta}'\left(u\right)\cdot\eta^{2}$
+with $\eta\in H_{0}^{1,2}$ as the test function, which is possible
+since $f_{\delta}'\left(u\right)$ is bounded. The weak equation is:
+\begin{align*}
+\int a^{ij}\left(\partial_{i}u\right)\left(\partial_{j}\varphi\right) & \le0\qquad\fall_{\varphi\in H_{0}^{1,2}\left(\Omega\right)}
+\end{align*}
+This gives for our test function:
+\begin{align*}
+0 & \ge\int_{\Omega}a^{ij}\left(\partial_{i}u\right)\left(f_{\delta}''\left(u\right)\left(\partial_{j}u\right)\eta^{2}+f_{\delta}'\left(u\right)\cdot2\eta\partial_{j}\eta\right)
+\end{align*}
+\begin{align*}
+f_{\delta}''\left(u\right) & =\left(\left(2q\right)\left(2q-1\right)u^{2q-2}-2\cdot2q\delta u^{2q-1}+\delta^{2}u^{2q}\right)e^{-\delta u}
+\end{align*}
+We use:
+\begin{align*}
+\partial_{j}v & =qu^{q-1}\partial_{j}u
+\end{align*}
+\begin{align*}
+a^{ij}\left(\partial_{i}u\right)\left(\partial_{j}u\right)f_{\delta}''\left(u\right) & =\frac{2q\left(2q-1\right)}{q^{2}}a^{ij}\left(\partial_{i}v\right)\left(\partial_{j}v\right)e^{-\delta u}+\delta\left(\ldots\right)e^{-\delta u}\ge\\
+ & \ge2\lambda\frac{2q-1}{q}\norm{\DD v}^{2}e^{-\delta u}+\delta\left(\ldots\right)e^{-\delta u}
+\end{align*}
+\begin{align*}
+\left(\partial_{i}u\right)f_{\delta}'\left(u\right) & =\left(\partial_{i}u\right)\left(2qu^{2q-1}-\delta u^{2q}\right)e^{-\delta u}=2\left(\partial_{i}v\right)ve^{-\delta u}-\delta\left(\ldots\right)e^{-\delta u}
+\end{align*}
+Leave out the correction terms $\delta\left(\ldots\right)e^{-\delta u}$.
+\begin{align*}
+2\lambda\frac{2q-1}{q}\int_{\Omega}\norm{\DD v}^{2}\eta^{2} & \le\int a^{ij}2\left(\partial_{i}v\right)v\cdot2\eta\partial_{j}\eta\le\\
+ & \le2\Lambda\left(\frac{1}{\kappa}\int\norm{\DD v}^{2}\eta^{2}+\kappa\int v^{2}\norm{\DD\eta}^{2}\right)
+\end{align*}
+Choose:
+\begin{align*}
+\frac{4\Lambda}{\kappa} & :=2\lambda\frac{2q-1}{q}\\
+\kappa & =\frac{\Lambda}{\lambda}\frac{2q}{2q-1}
+\end{align*}
+\begin{align*}
+\lambda\frac{2q-1}{q}\int_{\Omega}\norm{\DD v}^{2}\eta^{2} & \le2\Lambda\kappa\int v^{2}\norm{\DD\eta}^{2}\\
+\int_{\Omega}\norm{\DD v}^{2}\eta^{2} & \le\left(\frac{\Lambda}{\lambda}\frac{2q}{2q-1}\right)^{2}\int v^{2}\norm{\DD\eta}^{2}
+\end{align*}
+\qqed
+
+Proceed with the proof of Theorem \ref{sub:Thm-Moser-2}:
+
+Choose $R=1$ and $x_{0}=0$ without loss of generality, since otherwise
+we can scale by a factor $\frac{1}{R}$ and shift by $-x_{0}$. Moreover,
+we can assume $u>0$, because otherwise we consider $\tilde{u}:=\text{max}\left(u,\varepsilon\right)$
+for a $\varepsilon\in\mathbb{R}_{>0}$. Then $\tilde{u}$ is again
+a subsolution by Lemma \ref{sub:Lem-max-weak-subsolution}. In the
+end we can take the limit $\varepsilon\to0$.
+
+Thus we need to show:
+\begin{align*}
+\sup_{B_{1}\left(0\right)}\left(u\right) & \le C\left(\frac{p}{p-1}\right)^{\frac{2}{p}}\left(\fint_{B_{2}\left(0\right)}u^{p}\right)^{\frac{1}{p}}
+\end{align*}
+Choose $0<r'<r<2r'<2$ and a test function $\eta\in C_{0}^{\infty}\left(B_{2}\left(0\right)\right)$
+such that $\eta\big|_{B_{r'}}=1$, $\sup\left(\eta\right)\subseteq B_{r}$
+and:
+\begin{align*}
+\norm{\DD\eta} & \le\frac{2}{r-r'}
+\end{align*}
+Assume $u\in L^{2q}$. Then holds $v:=u^{q}\in L^{2}$ and Lemma \ref{sub:Lem-Estimate-subsol}
+yields:
+\begin{align*}
+\int_{B_{r'}}\norm{\DD v}^{2}\le\int_{\Omega}\norm{\DD v}^{2}\eta^{2} & \le C\left(\frac{2q}{2q-1}\right)^{2}\int_{\Omega}\norm{\DD\eta}^{2}v^{2}\\
+\int_{B_{r'}}\norm{\DD v}^{2} & \le C\left(\frac{2q}{2q-1}\right)^{2}\frac{4}{\left(r-r'\right)^{2}}\int_{B_{r}}v^{2}
+\end{align*}
+The Sobolev imbedding theorem gives $H^{1,2}\left(B_{r'}\right)\hookrightarrow L^{p^{*}}\left(B_{r'}\right)$
+with $\frac{1}{p^{*}}=\frac{1}{2}-\frac{1}{n}$, i.e. $p^{*}=\frac{2n}{n-2}$.
+\begin{align*}
+\left(\fint_{B_{r'}}v^{\frac{2n}{n-2}}\right)^{\frac{n-2}{2n}\cdot2} & \le\frac{1}{\left(r'\right)^{n}}\norm v_{H^{1,2}\left(B_{r'}\right)}^{2}=\frac{1}{\left(r'\right)^{n}}\int_{B_{r'}}\norm{\DD v}^{2}+\frac{1}{\left(r'\right)^{n}}\int_{B_{r'}}v^{2}\le\\
+ & \le C\left(\frac{2q}{2q-1}\right)^{2}\frac{4}{\left(r-r'\right)^{2}}\frac{1}{\left(r'\right)^{n}}\int_{B_{r}}v^{2}\dd^{n}x+\frac{1}{\left(r'\right)^{n}}\int_{B_{r'}}v^{2}
+\end{align*}
+\begin{align*}
+\left(\fint_{B_{r'}}v^{\frac{2n}{n-2}}\right)^{\frac{n-2}{2n}} & \le\overline{C}\int_{B_{r}}v^{2}\\
+\overline{C} & =C\left(n,\frac{\lambda}{\Lambda}\right)\left(\left(\frac{r'}{r-r'}\right)^{2}\left(\frac{2q}{2q-1}\right)^{2}+1\right)
 \end{align*}
 
 

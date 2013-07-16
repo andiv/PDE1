@@ -14846,7 +14846,7 @@ For
 ):
 \begin_inset Formula 
 \begin{align*}
-\sup_{\Omega}\left(u\right) & \le\sup_{\partial\Omega}\left(u^{+}\right) & \big(\inf_{\Omega}\left(u\right) & \le\inf_{\partial\Omega}\left(u\right)\big)
+\sup_{\Omega}\left(u\right) & \le\sup_{\partial\Omega}\left(u^{+}\right) & \big(\inf_{\Omega}\left(u\right) & \ge\inf_{\partial\Omega}\left(u^{-}\right)\big)
 \end{align*}
 
 \end_inset
@@ -28002,6 +28002,1679 @@ We follow mainly the ideas of Moser.
 \begin_inset Formula 
 \begin{align*}
 \int a^{ij}\left(\partial_{i}\Delta_{l}^{h}u\right)\left(\partial_{j}v\right) & =-\int a^{ij}\partial_{i}u\left(\Delta_{l}^{-h}\partial_{j}v\right)-\int\underbrace{\left(\Delta_{l}^{-h}a^{ij}\right)}_{\text{cannot be controlled}}\left(\partial_{i}u\right)\left(\partial_{j}v\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%DATE: Mi 10.7.13
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Hölder-Continuity for Weak Solutions with Bounded Coefficients
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\Omega\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ be open.
+\begin_inset Formula 
+\begin{align*}
+Lu & :=\partial_{i}\left(a^{ij}\partial_{j}u\right)
+\end{align*}
+
+\end_inset
+
+Assume 
+\begin_inset Formula $a^{ij}\in L^{\infty}$
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $\abs{a^{ij}\left(x\right)}\le\Lambda$
+\end_inset
+
+, and uniform ellipticity, i.e.
+ 
+\begin_inset Formula $a^{ij}\left(x\right)\xi_{i}\xi_{j}\ge\lambda\norm{\xi}^{2}$
+\end_inset
+
+ for all 
+\begin_inset Formula $x\in\Omega$
+\end_inset
+
+ and 
+\begin_inset Formula $\xi\in\mathbb{R}^{n}$
+\end_inset
+
+.
+ Furthermore 
+\begin_inset Formula $a^{ij}\left(x\right)$
+\end_inset
+
+ shall be measurable.
+ Consider the homogeneous equation
+\begin_inset Formula 
+\begin{align*}
+Lu & =0
+\end{align*}
+
+\end_inset
+
+and a weak solution 
+\begin_inset Formula $u\in H^{1,2}\left(\Omega\right)$
+\end_inset
+
+ of it.
+ We are interested in the inner regularity in 
+\begin_inset Formula $\Omega$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Theorem 
+\series medium
+(De Giorgi-Nash)
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Thm-De-Giorgi-Nash"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For all 
+\begin_inset Formula $\Omega'\Subset\Omega$
+\end_inset
+
+ holds 
+\begin_inset Formula $u\in C^{0,\alpha}\left(\Omega'\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Theorem 
+\series medium
+(Moser)
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Thm-Moser1"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $u\in H^{1,2}\left(\Omega\right)$
+\end_inset
+
+ be a weak solution of 
+\begin_inset Formula $Lu=0$
+\end_inset
+
+, then holds 
+\begin_inset Formula $\text{sup}_{B_{R}\left(x_{0}\right)}\left(u\right)<\infty$
+\end_inset
+
+.
+ For 
+\begin_inset Formula $u\ge0$
+\end_inset
+
+ in 
+\begin_inset Formula $B_{4R}\left(x_{0}\right)$
+\end_inset
+
+ follows the 
+\emph on
+Harnack inequality
+\emph default
+:
+\begin_inset Formula 
+\begin{align*}
+\sup_{B_{R}\left(x_{0}\right)}\left(u\right) & \le C\left(n,\frac{\Lambda}{\lambda}\right)\inf_{B_{R}\left(x_{0}\right)}\left(u\right)
+\end{align*}
+
+\end_inset
+
+Note that the constant 
+\begin_inset Formula $C$
+\end_inset
+
+ is independent of 
+\begin_inset Formula $R$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Proof of 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Thm-De-Giorgi-Nash"
+
+\end_inset
+
+, assuming Moser's Harnack inequality
+\end_layout
+
+\begin_layout Standard
+Consider 
+\begin_inset Formula $x_{0}\in\Omega$
+\end_inset
+
+ and 
+\begin_inset Formula $R\in\mathbb{R}_{>0}$
+\end_inset
+
+ with 
+\begin_inset Formula $B_{4R}\left(x_{0}\right)\subseteq\Omega$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+M\left(R\right) & :=\sup_{B_{R}\left(x_{0}\right)}\left(u\right)\ge m\left(r\right):=\inf_{B_{R}\left(x_{0}\right)}\left(u\right)
+\end{align*}
+
+\end_inset
+
+From Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Thm-Moser1"
+
+\end_inset
+
+ we know 
+\begin_inset Formula $M\left(R\right)<\infty$
+\end_inset
+
+ and also 
+\begin_inset Formula $m\left(R\right)>-\infty$
+\end_inset
+
+, since 
+\begin_inset Formula $-u$
+\end_inset
+
+ is another solution:
+\begin_inset Formula 
+\begin{align*}
+L\left(-u\right) & =-L\left(u\right)=0
+\end{align*}
+
+\end_inset
+
+In 
+\begin_inset Formula $B_{R}\left(x_{0}\right)$
+\end_inset
+
+ holds:
+\begin_inset Formula 
+\begin{align*}
+M\left(R\right)-u\left(x\right) & \ge0 & u\left(x\right)-m\left(R\right) & \ge0
+\end{align*}
+
+\end_inset
+
+These are non-negative weak solutions.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[level/.style={level distance=19mm}]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[scale=5] plot[smooth cycle] coordinates {(0,1) (1,1) (2,0) (1,-1) (0,-0.5)
+ (-0.3,-0.5) (-0.3,0.5)};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (0,3.3) {$
+\backslash
+Omega $};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (4,0) node[inner sep=2pt, fill=black, circle]{} circle(0.25) circle
+ (1) circle(4) node[right=4pt]{$x_0$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (4,0) -- (3.75,0) (3.85,0) -- (3.85,-0.3) node[below]{$
+\backslash
+frac{R}{4}$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (4,0) -- node[left]{$R$} (3.3,0.7);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (4,0) -- node[left]{$4R$} (4,4);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset Formula $B_{\frac{R}{4}}\left(x_{0}\right)\subseteq B_{R}\left(x_{0}\right)\subseteq B_{4R}\left(x_{0}\right)\subseteq\Omega$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+M\left(R\right)-m\left(\frac{R}{4}\right) & =\sup_{B_{\frac{R}{4}}\left(x_{0}\right)}\left(M\left(R\right)-u\left(x\right)\right)\le\\
+ & \le C\inf_{B_{\frac{R}{4}}\left(x_{0}\right)}\left(M\left(R\right)-u\left(x\right)\right)=C\left(M\left(R\right)-M\left(\frac{R}{4}\right)\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+M\left(\frac{R}{4}\right)-m\left(R\right) & =\sup_{B_{\frac{R}{4}}\left(x_{0}\right)}\left(u\left(x\right)-m\left(R\right)\right)\le\\
+ & \le C\inf_{B_{\frac{R}{4}}\left(x_{0}\right)}\left(u\left(x\right)-m\left(R\right)\right)=C\left(m\left(\frac{R}{4}\right)-m\left(R\right)\right)
+\end{align*}
+
+\end_inset
+
+Adding the inequalities yields:
+\begin_inset Formula 
+\begin{align*}
+\left(1+C\right)\left(M\left(\frac{R}{4}\right)-m\left(\frac{R}{4}\right)\right) & \le\left(C-1\right)\left(M\left(R\right)-m\left(R\right)\right)\\
+\underbrace{M\left(\frac{R}{4}\right)-m\left(\frac{R}{4}\right)}_{\ge0} & \le\underbrace{\frac{C-1}{C+1}}_{0\le.<1}\underbrace{\left(M\left(R\right)-m\left(R\right)\right)}_{\ge0}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+w\left(r\right) & :=M\left(r\right)-m\left(r\right)
+\end{align*}
+
+\end_inset
+
+is called 
+\emph on
+oscillation
+\emph default
+ of 
+\begin_inset Formula $u$
+\end_inset
+
+ on 
+\begin_inset Formula $B_{r}\left(x_{0}\right)$
+\end_inset
+
+.
+ The second term of the Hölder-Norm is:
+\begin_inset Formula 
+\begin{align*}
+\sup_{x\not=y}\frac{u\left(x\right)-u\left(y\right)}{\abs{x-y}^{\alpha}}
+\end{align*}
+
+\end_inset
+
+This means that, if 
+\begin_inset Formula $u$
+\end_inset
+
+ is Hölder-continuous, it holds:
+\begin_inset Formula 
+\begin{align*}
+\omega\left(r\right) & \le cr^{\alpha}
+\end{align*}
+
+\end_inset
+
+The oscillation gets smaller as the ball gets smaller.
+ With 
+\begin_inset Formula $\vartheta:=\frac{C-1}{C+1}<1$
+\end_inset
+
+ (independent of 
+\begin_inset Formula $R$
+\end_inset
+
+) we know:
+\begin_inset Formula 
+\begin{align*}
+w\left(\frac{R}{4}\right) & \le\vartheta w\left(R\right)\\
+w\left(\frac{R}{16}\right) & \le\vartheta w\left(\frac{R}{4}\right)\\
+w\left(\frac{R}{4^{n}}\right) & \le\vartheta^{n}w\left(R\right)
+\end{align*}
+
+\end_inset
+
+For 
+\begin_inset Formula $r\in\left(0,R\right)$
+\end_inset
+
+ choose 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ such that holds:
+\begin_inset Formula 
+\begin{align*}
+\frac{R}{4^{n+1}} & \le r<\frac{R}{4^{n}}
+\end{align*}
+
+\end_inset
+
+Because 
+\begin_inset Formula $w$
+\end_inset
+
+ is by definition monotonically increasing in 
+\begin_inset Formula $r$
+\end_inset
+
+ we have:
+\begin_inset Formula 
+\begin{align*}
+w\left(r\right) & <w\left(\frac{R}{4^{n}}\right)\le\vartheta^{n}w\left(R\right)=\left(\frac{1}{4^{n}}\right)^{\alpha}w\left(R\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\alpha & :=\frac{\ln\left(\vartheta\right)}{\ln\left(\frac{1}{4}\right)}>0
+\end{align*}
+
+\end_inset
+
+Thus we get:
+\begin_inset Formula 
+\begin{align*}
+w\left(r\right) & <\left(\frac{4}{R}\frac{R}{4^{n+1}}\right)^{\alpha}w\left(R\right)\le4^{\alpha}\left(\frac{r}{R}\right)^{\alpha}w\left(R\right)
+\end{align*}
+
+\end_inset
+
+So for all 
+\begin_inset Formula $x\in B_{R}\left(x_{0}\right)$
+\end_inset
+
+ follows with 
+\begin_inset Formula $r=\abs{x-x_{0}}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\abs{u\left(x\right)-u\left(x_{0}\right)}\le w\left(r\right) & \le\left(\frac{4}{R}\right)^{\alpha}w\left(R\right)r^{\alpha}=\left(\frac{4}{R}\right)^{\alpha}w\left(R\right)\abs{x-x_{0}}^{\alpha}
+\end{align*}
+
+\end_inset
+
+Thus 
+\begin_inset Formula $u$
+\end_inset
+
+ is Hölder-continuous in 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ with exponent 
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+The Moser Iteration
+\end_layout
+
+\begin_layout Standard
+Recall for 
+\begin_inset Formula $r''>r'>r$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\int_{B_{r}}\norm{\DD u}^{2} & \le C\left(r,r'\right)\int_{B_{r'}}\norm u^{2}\\
+\int_{B_{r}}\norm{\DD^{2}u}^{2} & \le C\left(r,r'\right)\int_{B_{r'}}\norm{\DD u}^{2}\le C\left(r,r'\right)C\left(r',r''\right)\int_{B_{r''}}\norm u^{2}
+\end{align*}
+
+\end_inset
+
+The idea is to iterate this process controlling the constants and the use
+ the imbedding theorems.
+\end_layout
+
+\begin_layout Standard
+In preparation for this we need to introduce weak super- and subsolutions.
+\end_layout
+
+\begin_layout Subsection
+Definition 
+\series medium
+(weak super-/subsolution)
+\end_layout
+
+\begin_layout Standard
+A function 
+\begin_inset Formula $u\in H^{1,2}\left(\Omega\right)$
+\end_inset
+
+ is a 
+\emph on
+weak subsolution
+\emph default
+, 
+\begin_inset Formula $Lu\ge0$
+\end_inset
+
+ (in the weak sense), in 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ if for all 
+\begin_inset Formula $\eta\in H_{0}^{1,2}$
+\end_inset
+
+ with 
+\begin_inset Formula $\eta\ge0$
+\end_inset
+
+ holds:
+\begin_inset Formula 
+\begin{align*}
+\int a^{ij}\left(\partial_{i}u\right)\left(\partial_{j}\eta\right) & \le0
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $u$
+\end_inset
+
+ is a supersolution, if 
+\begin_inset Formula $-u$
+\end_inset
+
+ is a subsolution.
+\end_layout
+
+\begin_layout Standard
+Explanation: For a (strong) solution 
+\begin_inset Formula $u\in C^{2}$
+\end_inset
+
+ holds:
+\begin_inset Formula 
+\begin{align*}
+\int a^{ij}\left(\partial_{i}u\right)\left(\partial_{i}\eta\right) & =-\int\left(\partial_{j}a^{ij}\left(\partial_{i}u\right)\right)\eta=-\int\underbrace{\left(Lu\right)}_{\ge0}\underbrace{\eta}_{\ge0}\le0
+\end{align*}
+
+\end_inset
+
+Consider for 
+\begin_inset Formula $f\in C^{2}\left(\mathbb{R}\right)$
+\end_inset
+
+ the composition 
+\begin_inset Formula $\left(f\circ u\right)\left(x\right)$
+\end_inset
+
+.
+ The weak derivative is:
+\begin_inset Formula 
+\begin{align*}
+\DD\left(f\circ u\right)\left(x\right) & =f'\left(u\right)\cdot\DD u\left(x\right)\\
+\DD^{2}\left(f\circ u\right)\left(x\right) & =f''\left(u\right)\cdot\underbrace{\left(\DD u\left(x\right)\right)^{2}}_{\ge0}+f'\left(u\right)\DD^{2}u\left(x\right)
+\end{align*}
+
+\end_inset
+
+Assuming 
+\begin_inset Formula $\DD^{2}u\ge0$
+\end_inset
+
+, 
+\begin_inset Formula $f''\ge0$
+\end_inset
+
+ and 
+\begin_inset Formula $f'\ge0$
+\end_inset
+
+ we get 
+\begin_inset Formula $\DD^{2}\left(f\circ u\right)\left(x\right)\ge0$
+\end_inset
+
+.
+ So a subsolution composited with a monotonically increasing function is
+ again a subsolution.
+\end_layout
+
+\begin_layout Standard
+Later on we will use 
+\begin_inset Formula $f\left(u\right)=\norm u^{p}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Lemma
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $f\in C^{2}\left(\mathbb{R}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\sup\abs{f'},\,\sup\abs{f''}<\infty$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+label=
+\backslash
+roman*)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+If 
+\begin_inset Formula $u\in H^{1,2}\left(\Omega\right)$
+\end_inset
+
+ is a subsolution, 
+\begin_inset Formula $f$
+\end_inset
+
+ is convex and 
+\begin_inset Formula $f'\ge0$
+\end_inset
+
+, then 
+\begin_inset Formula $f\circ u$
+\end_inset
+
+ is a subsolution.
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $u\in H^{1,2}\left(\Omega\right)$
+\end_inset
+
+ is a solution and 
+\begin_inset Formula $f$
+\end_inset
+
+ is convex, then 
+\begin_inset Formula $f\circ u$
+\end_inset
+
+ is a subsolution.
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+Since 
+\begin_inset Formula $f$
+\end_inset
+
+ is convex, it holds 
+\begin_inset Formula $f''\ge0$
+\end_inset
+
+.
+ First assume 
+\begin_inset Formula $u\in C^{2}\left(\Omega\right)$
+\end_inset
+
+ to get:
+\begin_inset Formula 
+\begin{align*}
+\partial_{j}\left(f\circ u\right) & =f'\left(u\right)\partial_{j}u\\
+L\left(f\circ u\right) & =\partial_{i}\left(a^{ij}\left(f'\left(u\right)\partial_{j}u\right)\right)=\\
+ & =\underbrace{a^{ij}f''\left(u\right)\left(\partial_{i}u\right)\left(\partial_{j}u\right)}_{\ge0}+f'\left(u\right)\underbrace{\partial_{i}\left(a^{ij}\partial_{j}u\right)}_{=Lu}
+\end{align*}
+
+\end_inset
+
+If 
+\begin_inset Formula $u$
+\end_inset
+
+ is a subsolution, it holds 
+\begin_inset Formula $Lu\ge0$
+\end_inset
+
+ and due to 
+\begin_inset Formula $f'\left(u\right)\ge0$
+\end_inset
+
+ also 
+\begin_inset Formula $L\left(f\circ u\right)\ge0$
+\end_inset
+
+.
+ Thus follows i).
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $u$
+\end_inset
+
+ is a solution, it holds 
+\begin_inset Formula $Lu=0$
+\end_inset
+
+ and thus follows ii).
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $u\in H^{1,2}\left(\Omega\right)$
+\end_inset
+
+ we choose 
+\begin_inset Formula $u_{n}\in C^{2}\left(\Omega\right)$
+\end_inset
+
+ with 
+\begin_inset Formula $u_{n}\to u$
+\end_inset
+
+ in 
+\begin_inset Formula $H^{1,2}\left(\Omega\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\eta\in C_{0}^{\infty}\left(\Omega\right)$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+\int_{\Omega}\left(\left(f\circ u_{n}\right)-\left(f\circ u\right)\right) & \xrightarrow{n\to\infty\ \left(?\right)}0
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align}
+\int_{\Omega}\left(f\circ u_{n}\right)\left(-\partial_{j}\eta\right) & =\int f'\left(u_{n}\right)\left(\partial_{j}u_{n}\right)\eta\label{eq:fun}
+\end{align}
+
+\end_inset
+
+We assumed 
+\begin_inset Formula $\abs{f'},\abs{f''}\le C<\infty$
+\end_inset
+
+ and thus 
+\begin_inset Formula $f'\left(u_{n}\right)$
+\end_inset
+
+ is uniformly bounded by 
+\begin_inset Formula $C$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+\abs{\left(f\circ u_{n}\right)\left(x\right)-\left(f\circ u\right)\left(x\right)} & \sr{\le}{\text{mean value}}{\text{Theorem}}\sup\left(\abs{f'}\right)\cdot\abs{u_{n}\left(x\right)-u\left(x\right)}
+\end{align*}
+
+\end_inset
+
+This gives:
+\begin_inset Formula 
+\begin{align*}
+\abs{\int_{\Omega}\left(f\circ u_{n}-f\circ u\right)\left(-\partial_{j}\eta\right)} & \le\sup\left(\abs{f'}\right)\int_{\Omega}\abs{u_{n}-u}\cdot\abs{\partial_{j}\eta}\le\\
+ & \le\norm{u_{n}-u}_{L^{2}}\norm{\partial_{j}\eta}_{L^{2}}\rightarrow0
+\end{align*}
+
+\end_inset
+
+Thus the left side of 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:fun"
+
+\end_inset
+
+ converges.
+\begin_inset Formula 
+\begin{align*}
+\abs{f'\left(u_{n}\right)\left(\partial_{j}u_{n}\right)-f'\left(u\right)\left(\partial_{j}u\right)} & \le\abs{f'\left(u_{n}\right)\left(\partial_{j}u_{n}\right)-f'\left(u_{n}\right)\left(\partial_{j}u\right)}+\abs{f'\left(u_{n}\right)\left(\partial_{j}u\right)-f'\left(u\right)\left(\partial_{j}u\right)}=\\
+ & =\underbrace{\abs{f'\left(u_{n}\right)}}_{\le C}\underbrace{\abs{\partial_{j}u_{n}-\partial_{j}u}}_{\to0\text{ in }L^{2}}+\abs{f'\left(u_{n}\right)-f'\left(u\right)}\cdot\underbrace{\abs{\partial_{j}u}}_{\in L^{2}}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\abs{f'\left(u_{n}\right)-f'\left(u\right)} & \le\underbrace{\sup\left(\abs{f''}\right)}_{\le C}\cdot\underbrace{\abs{u-u_{n}}}_{\to0\text{ in }L^{2}}
+\end{align*}
+
+\end_inset
+
+So we get:
+\begin_inset Formula 
+\begin{align*}
+\int_{\Omega}f'\left(u_{n}\right)\left(\partial_{j}u_{n}\right)\eta & \xrightarrow{n\to\infty}\int_{\Omega}f'\left(u\right)\left(\partial_{j}u\right)\eta
+\end{align*}
+
+\end_inset
+
+So we can use the chain rule for weak derivatives:
+\begin_inset Formula 
+\begin{align*}
+\partial_{j}\left(f\circ u\right) & =f'\left(u\right)\partial_{j}u
+\end{align*}
+
+\end_inset
+
+We want to show that 
+\begin_inset Formula $f\circ u$
+\end_inset
+
+ is a subsolution, i.e.
+ for all 
+\begin_inset Formula $\eta\in C_{0}^{2}\left(\Omega\right)$
+\end_inset
+
+ (or 
+\begin_inset Formula $\eta\in H_{0}^{1,2}\left(\Omega\right)$
+\end_inset
+
+) with 
+\begin_inset Formula $\eta\ge0$
+\end_inset
+
+ must hold:
+\begin_inset Formula 
+\begin{align*}
+0 & \sr{\ge}!{}\int_{\Omega}a^{ij}\partial_{i}\left(f\circ u\right)\left(\partial_{j}\eta\right)=\int_{\Omega}a^{ij}f'\left(u\right)\left(\partial_{i}u\right)\left(\partial_{j}\eta\right)=\\
+ & =\underbrace{\int_{\Omega}a^{ij}\left(\partial_{i}u\right)\left(\partial_{j}f'\left(u\right)\eta\right)}_{\sr{}{\le0\text{ if }u\text{ is subsolution}}{=0\text{ if }u\text{ is solution}}}\underbrace{-\int_{\Omega}a^{ij}\left(\partial_{i}u\right)f''\left(u\right)\left(\partial_{j}u\right)\eta}_{\le0}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Lem-max-weak-subsolution"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $u\in H^{1,2}\left(\Omega\right)$
+\end_inset
+
+ be a weak subsolution and 
+\begin_inset Formula $k\in\mathbb{R}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $v:=\max\left(u,k\right)$
+\end_inset
+
+ is also a subsolution.
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+Approximate 
+\begin_inset Formula $f\left(x\right):=\max\left(x,k\right)$
+\end_inset
+
+ by convex 
+\begin_inset Formula $f_{n}\in C^{2}$
+\end_inset
+
+ with 
+\begin_inset Formula $f_{n}'\ge0$
+\end_inset
+
+, so that 
+\begin_inset Formula $f_{n}\rightrightarrows f$
+\end_inset
+
+ converges.
+ The previous Lemma applies to 
+\begin_inset Formula $f_{n}\circ u$
+\end_inset
+
+.
+ We need to arrange:
+\begin_inset Formula 
+\begin{align}
+\int_{\Omega}\abs{f_{n}\circ u-f\circ u} & \to0\label{eq:arr1}\\
+\int_{\Omega}\abs{f_{n}\circ u-f\circ u}\partial_{j}\eta & \to0\label{eq:arr2}\\
+\int_{\Omega}\abs{\left(f_{n}'\left(u\right)-f'\left(u\right)\right)\partial_{i}u}^{2} & \to0\label{eq:arr3}
+\end{align}
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:arr1"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:arr2"
+
+\end_inset
+
+ are guaranteed by 
+\begin_inset Formula $f_{n}\rightrightarrows f$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:arr3"
+
+\end_inset
+
+ we know that for 
+\begin_inset Formula $x\not=k$
+\end_inset
+
+ converges
+\begin_inset Formula 
+\begin{align*}
+f_{k}'\left(x\right) & \to f'\left(x\right)
+\end{align*}
+
+\end_inset
+
+point-wise.
+ Thus follows by dominated convergence:
+\begin_inset Formula 
+\begin{align*}
+\int_{\Omega}\abs{\left(f_{n}'\left(u\right)-f'\left(u\right)\right)\partial_{i}u}^{2} & \le\int_{\Omega}\abs{f_{n}'\left(u\right)-f'\left(u\right)}^{2}\cdot\abs{\partial_{i}u}^{2}\xrightarrow[\text{dom. con.}]{n\to\infty}0
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Theorem 
+\series medium
+(Moser)
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Thm-Moser-2"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $u\in H^{1,2}\left(\Omega\right)$
+\end_inset
+
+ be a subsolution in 
+\begin_inset Formula $B_{4R}\left(x_{0}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $p\in\mathbb{R}_{>1}$
+\end_inset
+
+.
+ Then holds
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\sup_{B_{R}\left(x_{0}\right)}\left(u\right) & \le C\left(n,\frac{\Lambda}{\lambda}\right)\left(\frac{p}{p-1}\right)^{\frac{2}{p}}\left(\fint_{B_{2R}\left(x_{0}\right)}\left(\max\left(0,u\right)\right)^{p}\right)^{\frac{1}{p}}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\fint_{B_{R}\left(x_{0}\right)}v & :=\frac{1}{\mu\left(B_{R}\left(x_{0}\right)\right)}\int_{B_{R}\left(x_{0}\right)}v\dd^{n}x
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Theorem
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $u\ge0$
+\end_inset
+
+ be a subsolution in 
+\begin_inset Formula $B_{4R}\left(x_{0}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $n\in\mathbb{N}_{\ge3}$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+\left(\fint_{B_{2R}\left(x_{0}\right)}u^{p}\right)^{\frac{1}{p}} & \le\frac{C_{2}\left(p,n,\frac{\lambda}{\Lambda}\right)}{\left(\frac{n}{n-2}-p\right)^{2}}\inf_{B_{R}\left(x_{0}\right)}\left(u\right)
+\end{align*}
+
+\end_inset
+
+If 
+\begin_inset Formula $u\ge0$
+\end_inset
+
+ is a weak solution choose 
+\begin_inset Formula $p>1$
+\end_inset
+
+ such that 
+\begin_inset Formula $u\in L^{p}$
+\end_inset
+
+.
+ Then holds:
+\begin_inset Formula 
+\begin{align*}
+\sup_{B_{R}\left(x_{0}\right)}\left(u\right) & \le C\left(p,n,\frac{\lambda}{\Lambda}\right)\inf_{B_{R}\left(x_{0}\right)}\left(u\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%DATE: Fr 12.7.13
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We now enter the proof of Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Thm-Moser-2"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+Fix 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ and let 
+\begin_inset Formula $u\in H^{1,2}\left(\Omega\right)$
+\end_inset
+
+ be a non-negative function.
+ For 
+\begin_inset Formula $p\in\mathbb{R}\setminus\left\{ 0\right\} $
+\end_inset
+
+ define:
+\begin_inset Formula 
+\begin{align*}
+\phi\left(p,R\right) & :=\left(\fint_{B_{R}\left(x_{0}\right)}u^{p}\right)^{\frac{1}{p}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Lemma
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\lim_{p\to\infty}\phi\left(p,R\right) & =\underset{B_{R}\left(x_{0}\right)}{\text{sup\,\ ess}}\left(u\right)=\norm u_{L^{\infty}\left(B_{R}\left(x_{0}\right)\right)}=:\phi\left(\infty,R\right)\\
+\lim_{p\to-\infty}\phi\left(p,R\right) & =\underset{B_{R}\left(x_{0}\right)}{\text{inf\,\ ess}}\left(u\right)=:\phi\left(-\infty,R\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+Hölder's inequality gives:
+\begin_inset Formula 
+\begin{align*}
+\fint_{B_{R}\left(x_{0}\right)}u^{p} & =\frac{1}{\mu\left(B_{R}\left(x_{0}\right)\right)}\int_{B_{R}\left(x_{0}\right)}1\cdot u^{p}\dd^{n}x\le\\
+ & \sr ={\frac{1}{r}+\frac{1}{r'}=1}{}\frac{1}{\mu\left(B_{R}\left(x_{0}\right)\right)}\underbrace{\norm 1_{r}}_{=\left(\mu\left(B_{R}\left(x_{0}\right)\right)\right)^{\frac{1}{r}}}\norm{u^{p}}_{r'}=\\
+ & =\frac{1}{\left(\mu\left(B_{R}\left(x_{0}\right)\right)\right)^{1-\frac{1}{r}}}\left(\int u^{p\cdot r'}\dd^{n}x\right)^{\frac{1}{r'}}=\left(\frac{1}{\mu\left(B_{R}\left(x_{0}\right)\right)}\int u^{p\cdot r'}\dd^{n}x\right)^{\frac{1}{r'}}
+\end{align*}
+
+\end_inset
+
+Thus follows:
+\begin_inset Formula 
+\begin{align*}
+\left(\fint u^{p}\right)^{\frac{1}{p}} & \le\left(\fint u^{p\cdot r'}\right)^{\frac{1}{p\cdot r'}}
+\end{align*}
+
+\end_inset
+
+Due to 
+\begin_inset Formula $r'\ge1$
+\end_inset
+
+ follows, that 
+\begin_inset Formula $\left(\fint u^{p}\right)^{\frac{1}{p}}$
+\end_inset
+
+ is monotonically increasing in 
+\begin_inset Formula $p$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+\left(\fint u^{p}\right)^{\frac{1}{p}} & \le\left(\text{sup\,\ ess}\left(u^{p}\fint1\right)\right)^{\frac{1}{p}}=\text{sup\,\ ess}\left(u\right)\\
+\Rightarrow\qquad\phi\left(p,R\right) & \xrightarrow{p\to\infty}C\le\phi\left(\infty,R\right)
+\end{align*}
+
+\end_inset
+
+By definition of the essential supremum holds for all 
+\begin_inset Formula $\varepsilon\in\mathbb{R}_{>0}$
+\end_inset
+
+ and all 
+\begin_inset Formula $V\subseteq\Omega$
+\end_inset
+
+ with 
+\begin_inset Formula $\mu\left(V\right)>0$
+\end_inset
+
+ and 
+\begin_inset Formula $u\big|_{V}\ge\text{sup}\left(u\right)-\varepsilon$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\phi\left(p,R\right) & =\left(\frac{1}{\mu\left(B_{R}\left(x_{0}\right)\right)}\int_{B_{R}\left(x_{0}\right)}u^{p}\right)^{\frac{1}{p}}\ge\left(\frac{1}{\mu\left(B_{R}\left(x_{0}\right)\right)}\int_{V}u^{p}\right)^{\frac{1}{p}}\ge\\
+ & \ge\left(\frac{\mu\left(V\right)}{\mu\left(B_{R}\left(x_{0}\right)\right)}\left(\sup\left(u\right)-\varepsilon\right)^{p}\right)^{\frac{1}{p}}=\\
+ & =\underbrace{\left(\frac{\mu\left(V\right)}{\mu\left(B_{R}\left(x_{0}\right)\right)}\right)^{\frac{1}{p}}}_{>0}\left(\sup\left(u\right)-\varepsilon\right)\xrightarrow{p\to\infty}\sup\left(u\right)-\varepsilon
+\end{align*}
+
+\end_inset
+
+Since 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ is arbitrary, the result follows.
+\end_layout
+
+\begin_layout Standard
+The limit 
+\begin_inset Formula $p\to-\infty$
+\end_inset
+
+ can be treated as follows: Let 
+\begin_inset Formula $p\in\mathbb{R}_{<0}$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+\phi\left(p,R\right) & =\left(\fint_{B_{R}\left(x_{0}\right)}u^{p}\right)^{\frac{1}{p}}=\frac{1}{\left(\fint_{B_{R}\left(x_{0}\right)}\left(\frac{1}{u}\right)^{\abs p}\right)^{\frac{1}{\abs p}}}\xrightarrow{\abs p\to\infty}\frac{1}{\text{sup\,\ ess}\left(\frac{1}{u}\right)}=\text{inf\,\ ess}\left(u\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Lem-Estimate-subsol"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $u\in H^{1,2}\left(\Omega\right)$
+\end_inset
+
+ with 
+\begin_inset Formula $u\ge0$
+\end_inset
+
+ be a weak subsolution and assume
+\begin_inset Formula 
+\begin{align*}
+v & :=u^{q}\in L^{2}\left(\Omega\right)
+\end{align*}
+
+\end_inset
+
+for some 
+\begin_inset Formula $q>\frac{1}{2}$
+\end_inset
+
+.
+ Then for all 
+\begin_inset Formula $\eta\in H_{0}^{1,2}\left(\Omega\right)$
+\end_inset
+
+ holds:
+\begin_inset Formula 
+\begin{align*}
+\int_{\Omega}\eta^{2}\norm{\DD v}^{2} & \le\frac{\Lambda^{2}}{\lambda^{2}}\left(\frac{2q}{2q-1}\right)^{2}\int_{\Omega}\norm{\DD\eta}^{2}v^{2}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Proof
+\end_layout
+
+\begin_layout Standard
+Consider 
+\begin_inset Formula $f_{\delta}\left(\xi\right):=\xi^{2q}e^{-\delta\xi}$
+\end_inset
+
+, in particular 
+\begin_inset Formula $f\in C^{2}\left(\mathbb{R}_{0}^{+}\right)$
+\end_inset
+
+.
+ The derivative
+\begin_inset Formula 
+\begin{align*}
+f_{\delta}'\left(\xi\right) & =\left(2q\right)\xi^{2q-1}e^{-\delta\xi}-\delta\xi^{2q}e^{-\delta\xi}
+\end{align*}
+
+\end_inset
+
+is bounded.
+ Due to 
+\begin_inset Formula $q>\frac{1}{2}$
+\end_inset
+
+ follows 
+\begin_inset Formula $2q-1>0$
+\end_inset
+
+.
+ Choose 
+\begin_inset Formula $\varphi=f_{\delta}'\left(u\right)\cdot\eta^{2}$
+\end_inset
+
+ with 
+\begin_inset Formula $\eta\in H_{0}^{1,2}$
+\end_inset
+
+ as the test function, which is possible since 
+\begin_inset Formula $f_{\delta}'\left(u\right)$
+\end_inset
+
+ is bounded.
+ The weak equation is:
+\begin_inset Formula 
+\begin{align*}
+\int a^{ij}\left(\partial_{i}u\right)\left(\partial_{j}\varphi\right) & \le0\qquad\fall_{\varphi\in H_{0}^{1,2}\left(\Omega\right)}
+\end{align*}
+
+\end_inset
+
+This gives for our test function:
+\begin_inset Formula 
+\begin{align*}
+0 & \ge\int_{\Omega}a^{ij}\left(\partial_{i}u\right)\left(f_{\delta}''\left(u\right)\left(\partial_{j}u\right)\eta^{2}+f_{\delta}'\left(u\right)\cdot2\eta\partial_{j}\eta\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+f_{\delta}''\left(u\right) & =\left(\left(2q\right)\left(2q-1\right)u^{2q-2}-2\cdot2q\delta u^{2q-1}+\delta^{2}u^{2q}\right)e^{-\delta u}
+\end{align*}
+
+\end_inset
+
+We use:
+\begin_inset Formula 
+\begin{align*}
+\partial_{j}v & =qu^{q-1}\partial_{j}u
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+a^{ij}\left(\partial_{i}u\right)\left(\partial_{j}u\right)f_{\delta}''\left(u\right) & =\frac{2q\left(2q-1\right)}{q^{2}}a^{ij}\left(\partial_{i}v\right)\left(\partial_{j}v\right)e^{-\delta u}+\delta\left(\ldots\right)e^{-\delta u}\ge\\
+ & \ge2\lambda\frac{2q-1}{q}\norm{\DD v}^{2}e^{-\delta u}+\delta\left(\ldots\right)e^{-\delta u}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\left(\partial_{i}u\right)f_{\delta}'\left(u\right) & =\left(\partial_{i}u\right)\left(2qu^{2q-1}-\delta u^{2q}\right)e^{-\delta u}=2\left(\partial_{i}v\right)ve^{-\delta u}-\delta\left(\ldots\right)e^{-\delta u}
+\end{align*}
+
+\end_inset
+
+Leave out the correction terms 
+\begin_inset Formula $\delta\left(\ldots\right)e^{-\delta u}$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+2\lambda\frac{2q-1}{q}\int_{\Omega}\norm{\DD v}^{2}\eta^{2} & \le\int a^{ij}2\left(\partial_{i}v\right)v\cdot2\eta\partial_{j}\eta\le\\
+ & \le2\Lambda\left(\frac{1}{\kappa}\int\norm{\DD v}^{2}\eta^{2}+\kappa\int v^{2}\norm{\DD\eta}^{2}\right)
+\end{align*}
+
+\end_inset
+
+Choose:
+\begin_inset Formula 
+\begin{align*}
+\frac{4\Lambda}{\kappa} & :=2\lambda\frac{2q-1}{q}\\
+\kappa & =\frac{\Lambda}{\lambda}\frac{2q}{2q-1}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\lambda\frac{2q-1}{q}\int_{\Omega}\norm{\DD v}^{2}\eta^{2} & \le2\Lambda\kappa\int v^{2}\norm{\DD\eta}^{2}\\
+\int_{\Omega}\norm{\DD v}^{2}\eta^{2} & \le\left(\frac{\Lambda}{\lambda}\frac{2q}{2q-1}\right)^{2}\int v^{2}\norm{\DD\eta}^{2}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Proceed with the proof of Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Thm-Moser-2"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+Choose 
+\begin_inset Formula $R=1$
+\end_inset
+
+ and 
+\begin_inset Formula $x_{0}=0$
+\end_inset
+
+ without loss of generality, since otherwise we can scale by a factor 
+\begin_inset Formula $\frac{1}{R}$
+\end_inset
+
+ and shift by 
+\begin_inset Formula $-x_{0}$
+\end_inset
+
+.
+ Moreover, we can assume 
+\begin_inset Formula $u>0$
+\end_inset
+
+, because otherwise we consider 
+\begin_inset Formula $\tilde{u}:=\text{max}\left(u,\varepsilon\right)$
+\end_inset
+
+ for a 
+\begin_inset Formula $\varepsilon\in\mathbb{R}_{>0}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\tilde{u}$
+\end_inset
+
+ is again a subsolution by Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Lem-max-weak-subsolution"
+
+\end_inset
+
+.
+ In the end we can take the limit 
+\begin_inset Formula $\varepsilon\to0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Thus we need to show:
+\begin_inset Formula 
+\begin{align*}
+\sup_{B_{1}\left(0\right)}\left(u\right) & \le C\left(\frac{p}{p-1}\right)^{\frac{2}{p}}\left(\fint_{B_{2}\left(0\right)}u^{p}\right)^{\frac{1}{p}}
+\end{align*}
+
+\end_inset
+
+Choose 
+\begin_inset Formula $0<r'<r<2r'<2$
+\end_inset
+
+ and a test function 
+\begin_inset Formula $\eta\in C_{0}^{\infty}\left(B_{2}\left(0\right)\right)$
+\end_inset
+
+ such that 
+\begin_inset Formula $\eta\big|_{B_{r'}}=1$
+\end_inset
+
+, 
+\begin_inset Formula $\sup\left(\eta\right)\subseteq B_{r}$
+\end_inset
+
+ and:
+\begin_inset Formula 
+\begin{align*}
+\norm{\DD\eta} & \le\frac{2}{r-r'}
+\end{align*}
+
+\end_inset
+
+Assume 
+\begin_inset Formula $u\in L^{2q}$
+\end_inset
+
+.
+ Then holds 
+\begin_inset Formula $v:=u^{q}\in L^{2}$
+\end_inset
+
+ and Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Lem-Estimate-subsol"
+
+\end_inset
+
+ yields:
+\begin_inset Formula 
+\begin{align*}
+\int_{B_{r'}}\norm{\DD v}^{2}\le\int_{\Omega}\norm{\DD v}^{2}\eta^{2} & \le C\left(\frac{2q}{2q-1}\right)^{2}\int_{\Omega}\norm{\DD\eta}^{2}v^{2}\\
+\int_{B_{r'}}\norm{\DD v}^{2} & \le C\left(\frac{2q}{2q-1}\right)^{2}\frac{4}{\left(r-r'\right)^{2}}\int_{B_{r}}v^{2}
+\end{align*}
+
+\end_inset
+
+The Sobolev imbedding theorem gives 
+\begin_inset Formula $H^{1,2}\left(B_{r'}\right)\hookrightarrow L^{p^{*}}\left(B_{r'}\right)$
+\end_inset
+
+ with 
+\begin_inset Formula $\frac{1}{p^{*}}=\frac{1}{2}-\frac{1}{n}$
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $p^{*}=\frac{2n}{n-2}$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+\left(\fint_{B_{r'}}v^{\frac{2n}{n-2}}\right)^{\frac{n-2}{2n}\cdot2} & \le\frac{1}{\left(r'\right)^{n}}\norm v_{H^{1,2}\left(B_{r'}\right)}^{2}=\frac{1}{\left(r'\right)^{n}}\int_{B_{r'}}\norm{\DD v}^{2}+\frac{1}{\left(r'\right)^{n}}\int_{B_{r'}}v^{2}\le\\
+ & \le C\left(\frac{2q}{2q-1}\right)^{2}\frac{4}{\left(r-r'\right)^{2}}\frac{1}{\left(r'\right)^{n}}\int_{B_{r}}v^{2}\dd^{n}x+\frac{1}{\left(r'\right)^{n}}\int_{B_{r'}}v^{2}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\left(\fint_{B_{r'}}v^{\frac{2n}{n-2}}\right)^{\frac{n-2}{2n}} & \le\overline{C}\int_{B_{r}}v^{2}\\
+\overline{C} & =C\left(n,\frac{\lambda}{\Lambda}\right)\left(\left(\frac{r'}{r-r'}\right)^{2}\left(\frac{2q}{2q-1}\right)^{2}+1\right)
 \end{align*}
 
 \end_inset
