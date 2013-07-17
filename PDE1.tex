@@ -1056,7 +1056,7 @@ is injective.
 
 \subsubsection*{Proof}
 
-If $T$ was injective, there were $f_{1},f_{2}\in\mathcal{S}\left(\mathbb{R}^{n}\right)$
+If $T$ was not injective, there were $f_{1},f_{2}\in\mathcal{S}\left(\mathbb{R}^{n}\right)$
 with $T_{f_{1}}=T_{f_{2}}$ and $f_{1}\not=f_{2}$. By linearity this
 would imply $T_{g}=0$ with $g=f_{1}-f_{2}\not=0$ and we could choose
 a $y\in\mathbb{R}^{n}$ with $g\left(y\right)\not=0$. By continuity
@@ -7254,7 +7254,7 @@ and $p\in\mathbb{R}_{>1}$. Then holds
 
 
 
-\subsection{Theorem}
+\subsection{Theorem\label{sub:Thm-inf-estimate}}
 
 Let $u\ge0$ be a subsolution in $B_{4R}\left(x_{0}\right)$ and $n\in\mathbb{N}_{\ge3}$.
 \begin{align*}
@@ -7282,8 +7282,8 @@ function. For $p\in\mathbb{R}\setminus\left\{ 0\right\} $ define:
 \subsection{Lemma}
 
 \begin{align*}
-\lim_{p\to\infty}\phi\left(p,R\right) & =\underset{B_{R}\left(x_{0}\right)}{\text{sup\,\ ess}}\left(u\right)=\norm u_{L^{\infty}\left(B_{R}\left(x_{0}\right)\right)}=:\phi\left(\infty,R\right)\\
-\lim_{p\to-\infty}\phi\left(p,R\right) & =\underset{B_{R}\left(x_{0}\right)}{\text{inf\,\ ess}}\left(u\right)=:\phi\left(-\infty,R\right)
+\lim_{p\to\infty}\phi\left(p,R\right) & =\underset{B_{R}\left(x_{0}\right)}{\text{sup ess}}\left(u\right)=\norm u_{L^{\infty}\left(B_{R}\left(x_{0}\right)\right)}=:\phi\left(\infty,R\right)\\
+\lim_{p\to-\infty}\phi\left(p,R\right) & =\underset{B_{R}\left(x_{0}\right)}{\text{inf ess}}\left(u\right)=:\phi\left(-\infty,R\right)
 \end{align*}
 
 
@@ -7303,7 +7303,7 @@ Thus follows:
 Due to $r'\ge1$ follows, that $\left(\fint u^{p}\right)^{\frac{1}{p}}$
 is monotonically increasing in $p$.
 \begin{align*}
-\left(\fint u^{p}\right)^{\frac{1}{p}} & \le\left(\text{sup\,\ ess}\left(u^{p}\fint1\right)\right)^{\frac{1}{p}}=\text{sup\,\ ess}\left(u\right)\\
+\left(\fint u^{p}\right)^{\frac{1}{p}} & \le\left(\text{sup ess}\left(u^{p}\fint1\right)\right)^{\frac{1}{p}}=\text{sup ess}\left(u\right)\\
 \Rightarrow\qquad\phi\left(p,R\right) & \xrightarrow{p\to\infty}C\le\phi\left(\infty,R\right)
 \end{align*}
 By definition of the essential supremum holds for all $\varepsilon\in\mathbb{R}_{>0}$
@@ -7317,7 +7317,7 @@ Since $\varepsilon$ is arbitrary, the result follows.
 
 The limit $p\to-\infty$ can be treated as follows: Let $p\in\mathbb{R}_{<0}$.
 \begin{align*}
-\phi\left(p,R\right) & =\left(\fint_{B_{R}\left(x_{0}\right)}u^{p}\right)^{\frac{1}{p}}=\frac{1}{\left(\fint_{B_{R}\left(x_{0}\right)}\left(\frac{1}{u}\right)^{\abs p}\right)^{\frac{1}{\abs p}}}\xrightarrow{\abs p\to\infty}\frac{1}{\text{sup\,\ ess}\left(\frac{1}{u}\right)}=\text{inf\,\ ess}\left(u\right)
+\phi\left(p,R\right) & =\left(\fint_{B_{R}\left(x_{0}\right)}u^{p}\right)^{\frac{1}{p}}=\frac{1}{\left(\fint_{B_{R}\left(x_{0}\right)}\left(\frac{1}{u}\right)^{\abs p}\right)^{\frac{1}{\abs p}}}\xrightarrow{\abs p\to\infty}\frac{1}{\text{sup ess}\left(\frac{1}{u}\right)}=\text{inf ess}\left(u\right)
 \end{align*}
 \qqed
 
@@ -7339,52 +7339,57 @@ holds:
 
 \subsubsection*{Proof}
 
-Consider $f_{\delta}\left(\xi\right):=\xi^{2q}e^{-\delta\xi}$, in
-particular $f\in C^{2}\left(\mathbb{R}_{0}^{+}\right)$. The derivative
+Choose $\varphi=f'\left(u\right)\eta^{2}$ with $f'\ge0$ and $\abs{f'}\le C$
+with $f\in C^{2}\left(\mathbb{R}_{0}^{+}\right)$.
 \begin{align*}
-f_{\delta}'\left(\xi\right) & =\left(2q\right)\xi^{2q-1}e^{-\delta\xi}-\delta\xi^{2q}e^{-\delta\xi}
+\partial_{j}\varphi & =f''\left(u\right)\cdot\left(\partial_{j}u\right)\eta^{2}+f'\left(u\right)2\eta\left(\partial_{j}\eta\right)
 \end{align*}
-is bounded. Due to $q>\frac{1}{2}$ follows $2q-1>0$. Choose $\varphi=f_{\delta}'\left(u\right)\cdot\eta^{2}$
-with $\eta\in H_{0}^{1,2}$ as the test function, which is possible
-since $f_{\delta}'\left(u\right)$ is bounded. The weak equation is:
+Since $u$ is a weak subsolution, it follows:
 \begin{align*}
-\int a^{ij}\left(\partial_{i}u\right)\left(\partial_{j}\varphi\right) & \le0\qquad\fall_{\varphi\in H_{0}^{1,2}\left(\Omega\right)}
+\int_{\Omega}a^{ij}\left(\partial_{i}u\right)\left(\partial_{j}\varphi\right) & \le0\\
+\int_{\Omega}a^{ij}\left(\partial_{i}u\right)\left(\partial_{j}u\right)f''\left(u\right)\eta^{2} & \le-\int_{\Omega}a^{ij}\left(\partial_{i}u\right)f'\left(u\right)2\eta\left(\partial_{j}\eta\right)\le\\
+ & \le\int_{\Omega}\abs{a^{ij}\left(\sqrt{\abs{f''\left(u\right)}}\left(\partial_{i}u\right)\right)\frac{f'\left(u\right)}{\sqrt{\abs{f''\left(u\right)}}}2\eta\left(\partial_{j}\eta\right)}
 \end{align*}
-This gives for our test function:
+With
 \begin{align*}
-0 & \ge\int_{\Omega}a^{ij}\left(\partial_{i}u\right)\left(f_{\delta}''\left(u\right)\left(\partial_{j}u\right)\eta^{2}+f_{\delta}'\left(u\right)\cdot2\eta\partial_{j}\eta\right)
+a^{ij}\left(\partial_{i}u\right)\left(\partial_{j}u\right) & \ge\lambda\norm{\DD u}^{2}\\
+\abs{a^{ij}} & \le\Lambda
 \end{align*}
+follows:
 \begin{align*}
-f_{\delta}''\left(u\right) & =\left(\left(2q\right)\left(2q-1\right)u^{2q-2}-2\cdot2q\delta u^{2q-1}+\delta^{2}u^{2q}\right)e^{-\delta u}
+\lambda\int_{\Omega}\norm{\DD u}^{2}f''\left(u\right)\eta^{2} & \le\Lambda\int_{\Omega}2\left(\sqrt{\abs{f''\left(u\right)}}\abs{\eta\partial_{i}u}\right)\frac{\abs{f'\left(u\right)}}{\sqrt{\abs{f''\left(u\right)}}}\abs{\partial_{j}\eta}\le\\
+ & \sr{\le}{\text{Young}}{\text{inequality}}\Lambda\int_{\Omega}\left(\frac{1}{\kappa}\abs{f''\left(u\right)}\left(\partial_{i}u\right)^{2}\eta^{2}+\kappa\frac{\abs{f'\left(u\right)}^{2}}{\abs{f''\left(u\right)}}\abs{\partial_{j}\eta}^{2}\right)\\
+\int_{\Omega}\norm{\DD u}^{2}f''\left(u\right)\eta^{2} & \le\frac{\Lambda}{\lambda}\int_{\Omega}\left(\frac{1}{\kappa}\abs{f''\left(u\right)}\norm{\DD u}^{2}\eta^{2}+\kappa\frac{\abs{f'\left(u\right)}^{2}}{\abs{f''\left(u\right)}}\norm{\DD\eta}^{2}\right)
 \end{align*}
-We use:
+Choosing $\kappa=\frac{2\Lambda}{\lambda}$ gives:
 \begin{align*}
-\partial_{j}v & =qu^{q-1}\partial_{j}u
+\int_{\Omega}\norm{\DD u}^{2}f''\left(u\right)\eta^{2} & \le\int_{\Omega}\left(\frac{1}{2}\abs{f''\left(u\right)}\norm{\DD u}^{2}\eta^{2}+2\left(\frac{\Lambda}{\lambda}\right)^{2}\frac{\abs{f'\left(u\right)}^{2}}{\abs{f''\left(u\right)}}\norm{\DD\eta}^{2}\right)\\
+\int_{\Omega}\norm{\DD u}^{2}f''\left(u\right)\eta^{2} & \le4\left(\frac{\Lambda}{\lambda}\right)^{2}\int_{\Omega}\frac{\left(f'\left(u\right)\right)^{2}}{\abs{f''\left(u\right)}}\norm{\DD\eta}^{2}
 \end{align*}
+\begin{figure}[H]
+\noindent \centering{}\begin{tikzpicture}
+ \begin{axis}[width=10cm, axis x line=middle, axis y line=middle, xtick={0}, ytick={0}, xlabel=$u$, ylabel=$f(u)$ ,domain=0:4,samples=100]
+  \addplot[mark=none] {x^2*(1-exp(-1/x^2))};
+ \end{axis}
+\end{tikzpicture} \caption{Choose special $f\left(u\right)$}
+\end{figure}
+
+
+$f\left(u\right)=u^{2q}$ up to $x=L$ and then the growing decreases
+exponentially. Now we consider the limit $L\to\infty$. On the left
+side we can use monotone convergence and on the right dominated convergence.
+We get:
 \begin{align*}
-a^{ij}\left(\partial_{i}u\right)\left(\partial_{j}u\right)f_{\delta}''\left(u\right) & =\frac{2q\left(2q-1\right)}{q^{2}}a^{ij}\left(\partial_{i}v\right)\left(\partial_{j}v\right)e^{-\delta u}+\delta\left(\ldots\right)e^{-\delta u}\ge\\
- & \ge2\lambda\frac{2q-1}{q}\norm{\DD v}^{2}e^{-\delta u}+\delta\left(\ldots\right)e^{-\delta u}
+\int\eta^{2}\norm{\DD u}^{2}\left(2q\right)\left(2q-1\right)u^{2q-2} & \le4\left(\frac{\Lambda}{\lambda}\right)^{2}\int\frac{\left(2qu^{2q-1}\right)^{2}}{2q\left(2q-1\right)u^{2q-2}}\norm{\DD\eta}^{2}
 \end{align*}
+Inserting $v=u^{q}$ and $\DD v=qu^{q-1}\DD u$ gives:
 \begin{align*}
-\left(\partial_{i}u\right)f_{\delta}'\left(u\right) & =\left(\partial_{i}u\right)\left(2qu^{2q-1}-\delta u^{2q}\right)e^{-\delta u}=2\left(\partial_{i}v\right)ve^{-\delta u}-\delta\left(\ldots\right)e^{-\delta u}
-\end{align*}
-Leave out the correction terms $\delta\left(\ldots\right)e^{-\delta u}$.
-\begin{align*}
-2\lambda\frac{2q-1}{q}\int_{\Omega}\norm{\DD v}^{2}\eta^{2} & \le\int a^{ij}2\left(\partial_{i}v\right)v\cdot2\eta\partial_{j}\eta\le\\
- & \le2\Lambda\left(\frac{1}{\kappa}\int\norm{\DD v}^{2}\eta^{2}+\kappa\int v^{2}\norm{\DD\eta}^{2}\right)
-\end{align*}
-Choose:
-\begin{align*}
-\frac{4\Lambda}{\kappa} & :=2\lambda\frac{2q-1}{q}\\
-\kappa & =\frac{\Lambda}{\lambda}\frac{2q}{2q-1}
-\end{align*}
-\begin{align*}
-\lambda\frac{2q-1}{q}\int_{\Omega}\norm{\DD v}^{2}\eta^{2} & \le2\Lambda\kappa\int v^{2}\norm{\DD\eta}^{2}\\
-\int_{\Omega}\norm{\DD v}^{2}\eta^{2} & \le\left(\frac{\Lambda}{\lambda}\frac{2q}{2q-1}\right)^{2}\int v^{2}\norm{\DD\eta}^{2}
+\int\eta^{2}\norm{\DD v}^{2} & \le\left(\frac{\Lambda}{\lambda}\right)^{2}\left(\frac{2q}{2q-1}\right)^{2}\int\norm{\DD\eta}^{2}v^{2}
 \end{align*}
 \qqed
 
-Proceed with the proof of Theorem \ref{sub:Thm-Moser-2}:
+
+\subsubsection*{Proof of Theorem \ref{sub:Thm-Moser-2}}
 
 Choose $R=1$ and $x_{0}=0$ without loss of generality, since otherwise
 we can scale by a factor $\frac{1}{R}$ and shift by $-x_{0}$. Moreover,
@@ -7397,7 +7402,7 @@ Thus we need to show:
 \begin{align*}
 \sup_{B_{1}\left(0\right)}\left(u\right) & \le C\left(\frac{p}{p-1}\right)^{\frac{2}{p}}\left(\fint_{B_{2}\left(0\right)}u^{p}\right)^{\frac{1}{p}}
 \end{align*}
-Choose $0<r'<r<2r'<2$ and a test function $\eta\in C_{0}^{\infty}\left(B_{2}\left(0\right)\right)$
+Choose radii $0<r'<r<2r'<2$ and a test function $\eta\in C_{0}^{\infty}\left(B_{2}\left(0\right)\right)$
 such that $\eta\big|_{B_{r'}}=1$, $\sup\left(\eta\right)\subseteq B_{r}$
 and:
 \begin{align*}
@@ -7406,20 +7411,165 @@ and:
 Assume $u\in L^{2q}$. Then holds $v:=u^{q}\in L^{2}$ and Lemma \ref{sub:Lem-Estimate-subsol}
 yields:
 \begin{align*}
-\int_{B_{r'}}\norm{\DD v}^{2}\le\int_{\Omega}\norm{\DD v}^{2}\eta^{2} & \le C\left(\frac{2q}{2q-1}\right)^{2}\int_{\Omega}\norm{\DD\eta}^{2}v^{2}\\
-\int_{B_{r'}}\norm{\DD v}^{2} & \le C\left(\frac{2q}{2q-1}\right)^{2}\frac{4}{\left(r-r'\right)^{2}}\int_{B_{r}}v^{2}
+\int_{B_{r'}}\norm{\DD v}^{2}\le\int_{B_{r}}\norm{\DD v}^{2}\eta^{2} & \le c\left(\frac{2q}{2q-1}\right)^{2}\int_{B_{r}}\norm{\DD\eta}^{2}v^{2}\le c\left(\frac{2q}{2q-1}\right)^{2}\frac{4}{\left(r-r'\right)^{2}}\int_{B_{r}}v^{2}
+\end{align*}
+\begin{align*}
+\Rightarrow\qquad\fint_{B_{r'}}\norm{\DD v}^{2} & \le c'\left(\frac{2q}{2q-1}\right)^{2}\frac{4}{\left(r-r'\right)^{2}}\fint_{B_{r}}v^{2}
 \end{align*}
 The Sobolev imbedding theorem gives $H^{1,2}\left(B_{r'}\right)\hookrightarrow L^{p^{*}}\left(B_{r'}\right)$
 with $\frac{1}{p^{*}}=\frac{1}{2}-\frac{1}{n}$, i.e. $p^{*}=\frac{2n}{n-2}$.
 \begin{align*}
-\left(\fint_{B_{r'}}v^{\frac{2n}{n-2}}\right)^{\frac{n-2}{2n}\cdot2} & \le\frac{1}{\left(r'\right)^{n}}\norm v_{H^{1,2}\left(B_{r'}\right)}^{2}=\frac{1}{\left(r'\right)^{n}}\int_{B_{r'}}\norm{\DD v}^{2}+\frac{1}{\left(r'\right)^{n}}\int_{B_{r'}}v^{2}\le\\
- & \le C\left(\frac{2q}{2q-1}\right)^{2}\frac{4}{\left(r-r'\right)^{2}}\frac{1}{\left(r'\right)^{n}}\int_{B_{r}}v^{2}\dd^{n}x+\frac{1}{\left(r'\right)^{n}}\int_{B_{r'}}v^{2}
+\left(\fint_{B_{r'}}v^{p^{*}}\right)^{\frac{2}{p^{*}}}=\left(\fint_{B_{r'}}v^{\frac{2n}{n-2}}\right)^{\frac{n-2}{n}} & \le c\left(\left(r'\right)^{2}\fint_{B_{r'}}\norm{\DD v}^{2}+\fint_{B_{r'}}v^{2}\right)
+\end{align*}
+%DATE: Mi 17.7.13
+
+The additional factor $\left(r'\right)^{2}$ can be understood from
+a scaling argument, since $\fint$ is invariant under scaling, but
+the derivative $\DD v$ scales as $\left(r'\right)^{-1}$. So we get
+for $v=u^{q}$:
+\begin{align*}
+\left(\fint_{B_{r'}}v^{\frac{2n}{n-2}}\right)^{\frac{n-2}{n}} & \le\underbrace{\left(c'\left(\frac{r'}{r-r'}\right)^{2}\left(\frac{2q}{2q-1}\right)^{2}+1\right)}_{=:\overline{c}}\fint_{B_{r}}v^{2}\\
+\left(\phi\left(2q\frac{n}{n-2},r'\right)\right)^{2q} & \le\overline{c}\left(\phi\left(2q,r\right)\right)^{2q}\\
+\phi\left(\frac{n}{n-2}s,r'\right) & \sr{\le}{s:=2q}{}c_{1}\left(\frac{r'}{r-r'}\right)^{\frac{2}{s}}\left(\frac{s}{s-1}\right)^{\frac{2}{s}}\phi\left(s,r\right)
+\end{align*}
+The term $+1$ in $\overline{c}$ can be compensated by making $c_{1}$
+larger, because $r'<r<2r'$ holds, i.e. $r-r'<r'$, and thus:
+\begin{align*}
+\frac{r'}{r-r'} & >\frac{r'}{r'}=1
+\end{align*}
+Now for $p\in\mathbb{R}_{>1}$ define:
+\begin{align*}
+s_{k} & =\left(\frac{n}{n-2}\right)^{k}p\\
+r_{k} & =1+2^{-k}\\
+r_{k'} & =r_{k+1}>\frac{r_{k}}{2}
 \end{align*}
 \begin{align*}
-\left(\fint_{B_{r'}}v^{\frac{2n}{n-2}}\right)^{\frac{n-2}{2n}} & \le\overline{C}\int_{B_{r}}v^{2}\\
-\overline{C} & =C\left(n,\frac{\lambda}{\Lambda}\right)\left(\left(\frac{r'}{r-r'}\right)^{2}\left(\frac{2q}{2q-1}\right)^{2}+1\right)
+\phi\left(s_{k+1},r_{k+1}\right) & \le c_{1}\left(\frac{1-2^{-k-1}}{2^{-k-1}}\frac{\left(\frac{n}{n-2}\right)^{k}p}{\left(\frac{n}{n-2}\right)^{k}p-1}\right)^{\frac{2}{\left(\frac{n}{n-2}\right)^{k}p}}\phi\left(s_{k},r_{k}\right)
+\end{align*}
+In the limit $k\to\infty$ we can neglect $-2^{-k-1}\ll1$ and $1\ll\left(\frac{n}{n-2}\right)^{k}p$.
+Therefore holds:
+\begin{align*}
+\phi\left(s_{k+1},r_{k+1}\right) & \le\left(c_{2}\left(p\right)\right)^{k\left(\frac{n}{n-2}\right)^{-k}}\phi\left(s_{k},r_{k}\right)\le\left(c_{2}\left(p\right)\right)^{\sum_{l=1}^{k}l\left(\frac{n}{n-2}\right)^{-l}}\phi\left(s_{0},r_{0}\right)\le\\
+ & \le c_{3}\left(\frac{p}{p-1}\right)^{\frac{2}{p}}\phi\left(p,2\right)
+\end{align*}
+It follows:
+\begin{align*}
+\sup\left(u\right)=\phi\left(\infty,1\right) & <c\left(\frac{p}{p-1}\right)^{\frac{2}{p}}\phi\left(p,2\right)
+\end{align*}
+\qqed[\ref{sub:Thm-Moser-2}]
+
+
+\subsubsection*{Proof of Theorem \ref{sub:Thm-inf-estimate}}
+
+Consider $\phi\left(s_{n},r_{n}\right)$ in the limes $s_{n}\to-\infty$.
+This works analogously with $u$ replaced by $u^{-1}$. One gets for
+a suitable $\mu\in\mathbb{R}_{>0}$:
+\begin{align*}
+\phi\left(-\mu,3\right) & \le c\phi\left(-\infty,2\right)
+\end{align*}
+\qqed[\ref{sub:Thm-inf-estimate}]
+
+Fritz John and Nirenberg proved the following theorem. It gives a
+connection between $\phi\left(\mu,2\right)$ and $\phi\left(-\mu,2\right)$.
+
+
+\subsection{Theorem \textmd{(John-Nirenberg)}}
+
+Consider $B_{R_{0}}\left(y_{0}\right)\subseteq\mathbb{R}^{n}$ and
+$u\in H^{1,1}\left(B_{R_{0}}\left(y_{0}\right)\right)$ and assume
+that for all $B_{R}\left(y\right)\subseteq\mathbb{R}^{n}$ holds:
+\begin{align*}
+\int_{B_{R_{0}}\left(y_{0}\right)\cap B_{R}\left(y\right)}\norm{\DD u} & \le R^{n-1}
+\end{align*}
+Then there are constants $\alpha,\beta\in\mathbb{R}_{>0}$ such that
+holds:
+\begin{align*}
+\int_{B_{R_{0}}\left(y_{0}\right)}e^{\alpha\abs{u-u_{0}}} & \le\beta_{0}R_{0}^{n}\\
+u_{0} & :=\fint B_{R_{0}\left(y_{0}\right)}u
+\end{align*}
+\begin{align*}
+\left(\int_{B_{R_{0}\left(y_{0}\right)}}e^{\alpha v}\right)\left(\int_{B_{R_{0}\left(y_{0}\right)}}e^{-\alpha v}\right) & =\left(\int_{B_{R_{0}\left(y_{0}\right)}}e^{\alpha\left(v-v_{0}\right)}\right)\left(\int_{B_{R_{0}\left(y_{0}\right)}}e^{-\alpha\left(v-v_{0}\right)}\right)\le\\
+ & \le\left(\int_{B_{R_{0}\left(y_{0}\right)}}e^{\alpha\abs{v-v_{0}}}\right)^{2}\le\beta_{0}^{2}R_{0}^{2n}
+\end{align*}
+Our application of this is choosing $v=\ln\left(u\right)$. Then follows:
+\begin{align*}
+e^{\alpha v} & =u^{\alpha} & e^{-\alpha v} & =u^{-\alpha}
+\end{align*}
+This gives the desired result. We only have to show:
+\begin{align*}
+\int_{B_{R_{0}\left(y_{0}\right)}\cap B_{R}\left(y\right)}\norm{\frac{\DD u}{u}} & \le R^{n-1}
+\end{align*}
+For this consider that $u$ is a solution:
+\begin{align*}
+\int_{\Omega}a^{ij}\left(\partial_{i}u\right)\left(\partial_{j}\varphi\right) & =0\qquad\fall_{\varphi\in H_{0}^{1,2}}
+\end{align*}
+Then we can choose $\varphi=\frac{1}{u}\eta^{2}$:
+\begin{align*}
+\partial_{j}\varphi & =-\frac{1}{u^{2}}\left(\partial_{j}u\right)\eta^{2}+\frac{1}{u}2\eta\left(\partial_{j}\eta\right)
+\end{align*}
+From here it goes on with the standard methods we used already, most
+importantly:
+\begin{align*}
+\int_{B_{R}\left(y\right)}1\cdot\norm{\frac{\DD u}{u}} & \le\left(\int\norm{\frac{\DD u}{u}}^{2}\right)^{\frac{1}{2}}R^{\frac{n}{2}}
 \end{align*}
 
+
+For the proof of the John-Nirenberg Theorem we define:
+\begin{align*}
+\left(V_{\mu}f\right)\left(x\right) & :=\int\abs{x-y}^{n\left(\mu-1\right)}f\left(y\right)\dd^{n}y
+\end{align*}
+
+
+
+\subsection{Lemma}
+
+Let $u\in H^{1,1}\left(\Omega\right)$ and $B\Subset\Omega$.
+\begin{align*}
+u_{B} & :=\fint_{B}u
+\end{align*}
+Then holds:
+\begin{align*}
+\abs{u\left(x\right)-u_{B}} & \le\frac{\left(\text{diam}\left(\Omega\right)\right)^{n}}{n\abs B}\int_{\Omega}\abs{x-z}^{1-n}\norm{\DD u}\dd^{n}z
+\end{align*}
+
+
+
+\subsubsection*{(Proof omitted)}
+
+The proof is analogous to the proof of the Morrey inequality.
+
+$\int_{\Omega}\abs{x-z}^{1-n}\norm{\DD u}\dd^{n}z$ is connected to
+$V_{\mu}\left(\abs{\DD u}\right)$.
+
+
+\subsection{Lemma}
+
+If for all $R\in\mathbb{R}$ with $B_{R}\left(x_{0}\right)\Subset\Omega$
+already
+\begin{align*}
+\int_{\Omega\cap B_{R}\left(x_{0}\right)}\abs f & \le K\cdot R^{n\left(1-\frac{n}{p}\right)}
+\end{align*}
+holds, then follows for $p>1$ and $\mu>\frac{1}{p}$:
+\begin{align*}
+\abs{V_{\mu}\left(f\right)} & \le\frac{p-1}{\mu p-1}\left(\text{diam}\left(\Omega\right)\right)^{n\left(\mu-\frac{1}{p}\right)}\cdot K
+\end{align*}
+
+
+
+\subsubsection*{(Proof omitted)}
+
+Putting these Lemmata together we get:
+\begin{align*}
+\text{“}\abs{u\left(x\right)-u_{B}} & \le\sup_{B_{R}\left(y\right)}R^{\gamma}\int_{B_{R}}\norm{\DD u}\text{”}
+\end{align*}
+\begin{align*}
+\int_{B_{R}}e^{\frac{V_{\mu}\left(f\right)}{\gamma}} & =\int_{B_{R}}\sum_{n}\frac{\left(V_{\mu}\left(f\right)\right)^{n}}{\gamma n!}=\sum_{n}\frac{1}{\gamma n!}\int_{B_{R}}\left(V_{\mu}\left(f\right)\right)^{n}
+\end{align*}
+Then follows for large enough $\gamma$:
+\begin{align*}
+\int_{B_{R}}e^{\frac{V_{n^{-1}}\left(u\right)}{\gamma}} & \le cR_{0}^{n}
+\end{align*}
+This is further explained in the book of Jost.
 
 
 \part*{Appendix\thispagestyle{empty}}

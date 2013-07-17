@@ -4293,7 +4293,7 @@ If
 \begin_inset Formula $T$
 \end_inset
 
- was injective, there were 
+ was not injective, there were 
 \begin_inset Formula $f_{1},f_{2}\in\mathcal{S}\left(\mathbb{R}^{n}\right)$
 \end_inset
 
@@ -8604,16 +8604,6 @@ This can be shown using Green's representation, computing the boundary values
 \end_inset
 
 -derivative may be taken inside the integral.
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-TODO: Beweis ergänzen
-\end_layout
-
-\end_inset
-
-
 \begin_inset ERT
 status open
 
@@ -11747,15 +11737,6 @@ Proof
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status collapsed
-
-\begin_layout Plain Layout
-TODO: Beweis ergänzen
-\end_layout
-
-\end_inset
-
 This is proven in the exercises.
 \begin_inset ERT
 status open
@@ -29117,6 +29098,13 @@ Let
 
 \begin_layout Subsection
 Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Thm-inf-estimate"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -29221,8 +29209,8 @@ Lemma
 \begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
-\lim_{p\to\infty}\phi\left(p,R\right) & =\underset{B_{R}\left(x_{0}\right)}{\text{sup\,\ ess}}\left(u\right)=\norm u_{L^{\infty}\left(B_{R}\left(x_{0}\right)\right)}=:\phi\left(\infty,R\right)\\
-\lim_{p\to-\infty}\phi\left(p,R\right) & =\underset{B_{R}\left(x_{0}\right)}{\text{inf\,\ ess}}\left(u\right)=:\phi\left(-\infty,R\right)
+\lim_{p\to\infty}\phi\left(p,R\right) & =\underset{B_{R}\left(x_{0}\right)}{\text{sup ess}}\left(u\right)=\norm u_{L^{\infty}\left(B_{R}\left(x_{0}\right)\right)}=:\phi\left(\infty,R\right)\\
+\lim_{p\to-\infty}\phi\left(p,R\right) & =\underset{B_{R}\left(x_{0}\right)}{\text{inf ess}}\left(u\right)=:\phi\left(-\infty,R\right)
 \end{align*}
 
 \end_inset
@@ -29268,7 +29256,7 @@ Due to
 .
 \begin_inset Formula 
 \begin{align*}
-\left(\fint u^{p}\right)^{\frac{1}{p}} & \le\left(\text{sup\,\ ess}\left(u^{p}\fint1\right)\right)^{\frac{1}{p}}=\text{sup\,\ ess}\left(u\right)\\
+\left(\fint u^{p}\right)^{\frac{1}{p}} & \le\left(\text{sup ess}\left(u^{p}\fint1\right)\right)^{\frac{1}{p}}=\text{sup ess}\left(u\right)\\
 \Rightarrow\qquad\phi\left(p,R\right) & \xrightarrow{p\to\infty}C\le\phi\left(\infty,R\right)
 \end{align*}
 
@@ -29319,7 +29307,7 @@ The limit
 .
 \begin_inset Formula 
 \begin{align*}
-\phi\left(p,R\right) & =\left(\fint_{B_{R}\left(x_{0}\right)}u^{p}\right)^{\frac{1}{p}}=\frac{1}{\left(\fint_{B_{R}\left(x_{0}\right)}\left(\frac{1}{u}\right)^{\abs p}\right)^{\frac{1}{\abs p}}}\xrightarrow{\abs p\to\infty}\frac{1}{\text{sup\,\ ess}\left(\frac{1}{u}\right)}=\text{inf\,\ ess}\left(u\right)
+\phi\left(p,R\right) & =\left(\fint_{B_{R}\left(x_{0}\right)}u^{p}\right)^{\frac{1}{p}}=\frac{1}{\left(\fint_{B_{R}\left(x_{0}\right)}\left(\frac{1}{u}\right)^{\abs p}\right)^{\frac{1}{\abs p}}}\xrightarrow{\abs p\to\infty}\frac{1}{\text{sup ess}\left(\frac{1}{u}\right)}=\text{inf ess}\left(u\right)
 \end{align*}
 
 \end_inset
@@ -29393,122 +29381,184 @@ Proof
 \end_layout
 
 \begin_layout Standard
-Consider 
-\begin_inset Formula $f_{\delta}\left(\xi\right):=\xi^{2q}e^{-\delta\xi}$
+Choose 
+\begin_inset Formula $\varphi=f'\left(u\right)\eta^{2}$
 \end_inset
 
-, in particular 
+ with 
+\begin_inset Formula $f'\ge0$
+\end_inset
+
+ and 
+\begin_inset Formula $\abs{f'}\le C$
+\end_inset
+
+ with 
 \begin_inset Formula $f\in C^{2}\left(\mathbb{R}_{0}^{+}\right)$
 \end_inset
 
 .
- The derivative
 \begin_inset Formula 
 \begin{align*}
-f_{\delta}'\left(\xi\right) & =\left(2q\right)\xi^{2q-1}e^{-\delta\xi}-\delta\xi^{2q}e^{-\delta\xi}
+\partial_{j}\varphi & =f''\left(u\right)\cdot\left(\partial_{j}u\right)\eta^{2}+f'\left(u\right)2\eta\left(\partial_{j}\eta\right)
 \end{align*}
 
 \end_inset
 
-is bounded.
- Due to 
-\begin_inset Formula $q>\frac{1}{2}$
+Since 
+\begin_inset Formula $u$
 \end_inset
 
- follows 
-\begin_inset Formula $2q-1>0$
+ is a weak subsolution, it follows:
+\begin_inset Formula 
+\begin{align*}
+\int_{\Omega}a^{ij}\left(\partial_{i}u\right)\left(\partial_{j}\varphi\right) & \le0\\
+\int_{\Omega}a^{ij}\left(\partial_{i}u\right)\left(\partial_{j}u\right)f''\left(u\right)\eta^{2} & \le-\int_{\Omega}a^{ij}\left(\partial_{i}u\right)f'\left(u\right)2\eta\left(\partial_{j}\eta\right)\le\\
+ & \le\int_{\Omega}\abs{a^{ij}\left(\sqrt{\abs{f''\left(u\right)}}\left(\partial_{i}u\right)\right)\frac{f'\left(u\right)}{\sqrt{\abs{f''\left(u\right)}}}2\eta\left(\partial_{j}\eta\right)}
+\end{align*}
+
+\end_inset
+
+With
+\begin_inset Formula 
+\begin{align*}
+a^{ij}\left(\partial_{i}u\right)\left(\partial_{j}u\right) & \ge\lambda\norm{\DD u}^{2}\\
+\abs{a^{ij}} & \le\Lambda
+\end{align*}
+
+\end_inset
+
+follows:
+\begin_inset Formula 
+\begin{align*}
+\lambda\int_{\Omega}\norm{\DD u}^{2}f''\left(u\right)\eta^{2} & \le\Lambda\int_{\Omega}2\left(\sqrt{\abs{f''\left(u\right)}}\abs{\eta\partial_{i}u}\right)\frac{\abs{f'\left(u\right)}}{\sqrt{\abs{f''\left(u\right)}}}\abs{\partial_{j}\eta}\le\\
+ & \sr{\le}{\text{Young}}{\text{inequality}}\Lambda\int_{\Omega}\left(\frac{1}{\kappa}\abs{f''\left(u\right)}\left(\partial_{i}u\right)^{2}\eta^{2}+\kappa\frac{\abs{f'\left(u\right)}^{2}}{\abs{f''\left(u\right)}}\abs{\partial_{j}\eta}^{2}\right)\\
+\int_{\Omega}\norm{\DD u}^{2}f''\left(u\right)\eta^{2} & \le\frac{\Lambda}{\lambda}\int_{\Omega}\left(\frac{1}{\kappa}\abs{f''\left(u\right)}\norm{\DD u}^{2}\eta^{2}+\kappa\frac{\abs{f'\left(u\right)}^{2}}{\abs{f''\left(u\right)}}\norm{\DD\eta}^{2}\right)
+\end{align*}
+
+\end_inset
+
+Choosing 
+\begin_inset Formula $\kappa=\frac{2\Lambda}{\lambda}$
+\end_inset
+
+ gives:
+\begin_inset Formula 
+\begin{align*}
+\int_{\Omega}\norm{\DD u}^{2}f''\left(u\right)\eta^{2} & \le\int_{\Omega}\left(\frac{1}{2}\abs{f''\left(u\right)}\norm{\DD u}^{2}\eta^{2}+2\left(\frac{\Lambda}{\lambda}\right)^{2}\frac{\abs{f'\left(u\right)}^{2}}{\abs{f''\left(u\right)}}\norm{\DD\eta}^{2}\right)\\
+\int_{\Omega}\norm{\DD u}^{2}f''\left(u\right)\eta^{2} & \le4\left(\frac{\Lambda}{\lambda}\right)^{2}\int_{\Omega}\frac{\left(f'\left(u\right)\right)^{2}}{\abs{f''\left(u\right)}}\norm{\DD\eta}^{2}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+begin{axis}[width=10cm, axis x line=middle, axis y line=middle, xtick={0},
+ ytick={0}, xlabel=$u$, ylabel=$f(u)$ ,domain=0:4,samples=100]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+addplot[mark=none] {x^2*(1-exp(-1/x^2))};
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+end{axis}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture} 
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Choose special 
+\begin_inset Formula $f\left(u\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f\left(u\right)=u^{2q}$
+\end_inset
+
+ up to 
+\begin_inset Formula $x=L$
+\end_inset
+
+ and then the growing decreases exponentially.
+ Now we consider the limit 
+\begin_inset Formula $L\to\infty$
 \end_inset
 
 .
- Choose 
-\begin_inset Formula $\varphi=f_{\delta}'\left(u\right)\cdot\eta^{2}$
-\end_inset
-
- with 
-\begin_inset Formula $\eta\in H_{0}^{1,2}$
-\end_inset
-
- as the test function, which is possible since 
-\begin_inset Formula $f_{\delta}'\left(u\right)$
-\end_inset
-
- is bounded.
- The weak equation is:
+ On the left side we can use monotone convergence and on the right dominated
+ convergence.
+ We get:
 \begin_inset Formula 
 \begin{align*}
-\int a^{ij}\left(\partial_{i}u\right)\left(\partial_{j}\varphi\right) & \le0\qquad\fall_{\varphi\in H_{0}^{1,2}\left(\Omega\right)}
+\int\eta^{2}\norm{\DD u}^{2}\left(2q\right)\left(2q-1\right)u^{2q-2} & \le4\left(\frac{\Lambda}{\lambda}\right)^{2}\int\frac{\left(2qu^{2q-1}\right)^{2}}{2q\left(2q-1\right)u^{2q-2}}\norm{\DD\eta}^{2}
 \end{align*}
 
 \end_inset
 
-This gives for our test function:
-\begin_inset Formula 
-\begin{align*}
-0 & \ge\int_{\Omega}a^{ij}\left(\partial_{i}u\right)\left(f_{\delta}''\left(u\right)\left(\partial_{j}u\right)\eta^{2}+f_{\delta}'\left(u\right)\cdot2\eta\partial_{j}\eta\right)
-\end{align*}
-
+Inserting 
+\begin_inset Formula $v=u^{q}$
 \end_inset
 
-
-\begin_inset Formula 
-\begin{align*}
-f_{\delta}''\left(u\right) & =\left(\left(2q\right)\left(2q-1\right)u^{2q-2}-2\cdot2q\delta u^{2q-1}+\delta^{2}u^{2q}\right)e^{-\delta u}
-\end{align*}
-
+ and 
+\begin_inset Formula $\DD v=qu^{q-1}\DD u$
 \end_inset
 
-We use:
+ gives:
 \begin_inset Formula 
 \begin{align*}
-\partial_{j}v & =qu^{q-1}\partial_{j}u
-\end{align*}
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{align*}
-a^{ij}\left(\partial_{i}u\right)\left(\partial_{j}u\right)f_{\delta}''\left(u\right) & =\frac{2q\left(2q-1\right)}{q^{2}}a^{ij}\left(\partial_{i}v\right)\left(\partial_{j}v\right)e^{-\delta u}+\delta\left(\ldots\right)e^{-\delta u}\ge\\
- & \ge2\lambda\frac{2q-1}{q}\norm{\DD v}^{2}e^{-\delta u}+\delta\left(\ldots\right)e^{-\delta u}
-\end{align*}
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{align*}
-\left(\partial_{i}u\right)f_{\delta}'\left(u\right) & =\left(\partial_{i}u\right)\left(2qu^{2q-1}-\delta u^{2q}\right)e^{-\delta u}=2\left(\partial_{i}v\right)ve^{-\delta u}-\delta\left(\ldots\right)e^{-\delta u}
-\end{align*}
-
-\end_inset
-
-Leave out the correction terms 
-\begin_inset Formula $\delta\left(\ldots\right)e^{-\delta u}$
-\end_inset
-
-.
-\begin_inset Formula 
-\begin{align*}
-2\lambda\frac{2q-1}{q}\int_{\Omega}\norm{\DD v}^{2}\eta^{2} & \le\int a^{ij}2\left(\partial_{i}v\right)v\cdot2\eta\partial_{j}\eta\le\\
- & \le2\Lambda\left(\frac{1}{\kappa}\int\norm{\DD v}^{2}\eta^{2}+\kappa\int v^{2}\norm{\DD\eta}^{2}\right)
-\end{align*}
-
-\end_inset
-
-Choose:
-\begin_inset Formula 
-\begin{align*}
-\frac{4\Lambda}{\kappa} & :=2\lambda\frac{2q-1}{q}\\
-\kappa & =\frac{\Lambda}{\lambda}\frac{2q}{2q-1}
-\end{align*}
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{align*}
-\lambda\frac{2q-1}{q}\int_{\Omega}\norm{\DD v}^{2}\eta^{2} & \le2\Lambda\kappa\int v^{2}\norm{\DD\eta}^{2}\\
-\int_{\Omega}\norm{\DD v}^{2}\eta^{2} & \le\left(\frac{\Lambda}{\lambda}\frac{2q}{2q-1}\right)^{2}\int v^{2}\norm{\DD\eta}^{2}
+\int\eta^{2}\norm{\DD v}^{2} & \le\left(\frac{\Lambda}{\lambda}\right)^{2}\left(\frac{2q}{2q-1}\right)^{2}\int\norm{\DD\eta}^{2}v^{2}
 \end{align*}
 
 \end_inset
@@ -29529,15 +29579,15 @@ qqed
 
 \end_layout
 
-\begin_layout Standard
-Proceed with the proof of Theorem 
+\begin_layout Subsubsection*
+Proof of Theorem 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sub:Thm-Moser-2"
 
 \end_inset
 
-:
+
 \end_layout
 
 \begin_layout Standard
@@ -29599,7 +29649,7 @@ Thus we need to show:
 
 \end_inset
 
-Choose 
+Choose radii 
 \begin_inset Formula $0<r'<r<2r'<2$
 \end_inset
 
@@ -29642,8 +29692,15 @@ reference "sub:Lem-Estimate-subsol"
  yields:
 \begin_inset Formula 
 \begin{align*}
-\int_{B_{r'}}\norm{\DD v}^{2}\le\int_{\Omega}\norm{\DD v}^{2}\eta^{2} & \le C\left(\frac{2q}{2q-1}\right)^{2}\int_{\Omega}\norm{\DD\eta}^{2}v^{2}\\
-\int_{B_{r'}}\norm{\DD v}^{2} & \le C\left(\frac{2q}{2q-1}\right)^{2}\frac{4}{\left(r-r'\right)^{2}}\int_{B_{r}}v^{2}
+\int_{B_{r'}}\norm{\DD v}^{2}\le\int_{B_{r}}\norm{\DD v}^{2}\eta^{2} & \le c\left(\frac{2q}{2q-1}\right)^{2}\int_{B_{r}}\norm{\DD\eta}^{2}v^{2}\le c\left(\frac{2q}{2q-1}\right)^{2}\frac{4}{\left(r-r'\right)^{2}}\int_{B_{r}}v^{2}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\Rightarrow\qquad\fint_{B_{r'}}\norm{\DD v}^{2} & \le c'\left(\frac{2q}{2q-1}\right)^{2}\frac{4}{\left(r-r'\right)^{2}}\fint_{B_{r}}v^{2}
 \end{align*}
 
 \end_inset
@@ -29664,6 +29721,18 @@ The Sobolev imbedding theorem gives
 .
 \begin_inset Formula 
 \begin{align*}
+\left(\fint_{B_{r'}}v^{p^{*}}\right)^{\frac{2}{p^{*}}}=\left(\fint_{B_{r'}}v^{\frac{2n}{n-2}}\right)^{\frac{n-2}{n}} & \le c\left(\left(r'\right)^{2}\fint_{B_{r'}}\norm{\DD v}^{2}+\fint_{B_{r'}}v^{2}\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\begin{align*}
 \left(\fint_{B_{r'}}v^{\frac{2n}{n-2}}\right)^{\frac{n-2}{2n}\cdot2} & \le\frac{1}{\left(r'\right)^{n}}\norm v_{H^{1,2}\left(B_{r'}\right)}^{2}=\frac{1}{\left(r'\right)^{n}}\int_{B_{r'}}\norm{\DD v}^{2}+\frac{1}{\left(r'\right)^{n}}\int_{B_{r'}}v^{2}\le\\
  & \le C\left(\frac{2q}{2q-1}\right)^{2}\frac{4}{\left(r-r'\right)^{2}}\frac{1}{\left(r'\right)^{n}}\int_{B_{r}}v^{2}\dd^{n}x+\frac{1}{\left(r'\right)^{n}}\int_{B_{r'}}v^{2}
 \end{align*}
@@ -29680,6 +29749,504 @@ The Sobolev imbedding theorem gives
 \end_inset
 
 
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%DATE: Mi 17.7.13
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The additional factor 
+\begin_inset Formula $\left(r'\right)^{2}$
+\end_inset
+
+ can be understood from a scaling argument, since 
+\begin_inset Formula $\fint$
+\end_inset
+
+ is invariant under scaling, but the derivative 
+\begin_inset Formula $\DD v$
+\end_inset
+
+ scales as 
+\begin_inset Formula $\left(r'\right)^{-1}$
+\end_inset
+
+.
+ So we get for 
+\begin_inset Formula $v=u^{q}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\left(\fint_{B_{r'}}v^{\frac{2n}{n-2}}\right)^{\frac{n-2}{n}} & \le\underbrace{\left(c'\left(\frac{r'}{r-r'}\right)^{2}\left(\frac{2q}{2q-1}\right)^{2}+1\right)}_{=:\overline{c}}\fint_{B_{r}}v^{2}\\
+\left(\phi\left(2q\frac{n}{n-2},r'\right)\right)^{2q} & \le\overline{c}\left(\phi\left(2q,r\right)\right)^{2q}\\
+\phi\left(\frac{n}{n-2}s,r'\right) & \sr{\le}{s:=2q}{}c_{1}\left(\frac{r'}{r-r'}\right)^{\frac{2}{s}}\left(\frac{s}{s-1}\right)^{\frac{2}{s}}\phi\left(s,r\right)
+\end{align*}
+
+\end_inset
+
+The term 
+\begin_inset Formula $+1$
+\end_inset
+
+ in 
+\begin_inset Formula $\overline{c}$
+\end_inset
+
+ can be compensated by making 
+\begin_inset Formula $c_{1}$
+\end_inset
+
+ larger, because 
+\begin_inset Formula $r'<r<2r'$
+\end_inset
+
+ holds, i.e.
+ 
+\begin_inset Formula $r-r'<r'$
+\end_inset
+
+, and thus:
+\begin_inset Formula 
+\begin{align*}
+\frac{r'}{r-r'} & >\frac{r'}{r'}=1
+\end{align*}
+
+\end_inset
+
+Now for 
+\begin_inset Formula $p\in\mathbb{R}_{>1}$
+\end_inset
+
+ define:
+\begin_inset Formula 
+\begin{align*}
+s_{k} & =\left(\frac{n}{n-2}\right)^{k}p\\
+r_{k} & =1+2^{-k}\\
+r_{k'} & =r_{k+1}>\frac{r_{k}}{2}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\phi\left(s_{k+1},r_{k+1}\right) & \le c_{1}\left(\frac{1-2^{-k-1}}{2^{-k-1}}\frac{\left(\frac{n}{n-2}\right)^{k}p}{\left(\frac{n}{n-2}\right)^{k}p-1}\right)^{\frac{2}{\left(\frac{n}{n-2}\right)^{k}p}}\phi\left(s_{k},r_{k}\right)
+\end{align*}
+
+\end_inset
+
+In the limit 
+\begin_inset Formula $k\to\infty$
+\end_inset
+
+ we can neglect 
+\begin_inset Formula $-2^{-k-1}\ll1$
+\end_inset
+
+ and 
+\begin_inset Formula $1\ll\left(\frac{n}{n-2}\right)^{k}p$
+\end_inset
+
+.
+ Therefore holds:
+\begin_inset Formula 
+\begin{align*}
+\phi\left(s_{k+1},r_{k+1}\right) & \le\left(c_{2}\left(p\right)\right)^{k\left(\frac{n}{n-2}\right)^{-k}}\phi\left(s_{k},r_{k}\right)\le\left(c_{2}\left(p\right)\right)^{\sum_{l=1}^{k}l\left(\frac{n}{n-2}\right)^{-l}}\phi\left(s_{0},r_{0}\right)\le\\
+ & \le c_{3}\left(\frac{p}{p-1}\right)^{\frac{2}{p}}\phi\left(p,2\right)
+\end{align*}
+
+\end_inset
+
+It follows:
+\begin_inset Formula 
+\begin{align*}
+\sup\left(u\right)=\phi\left(\infty,1\right) & <c\left(\frac{p}{p-1}\right)^{\frac{2}{p}}\phi\left(p,2\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Thm-Moser-2"
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Proof of Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Thm-inf-estimate"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Consider 
+\begin_inset Formula $\phi\left(s_{n},r_{n}\right)$
+\end_inset
+
+ in the limes 
+\begin_inset Formula $s_{n}\to-\infty$
+\end_inset
+
+.
+ This works analogously with 
+\begin_inset Formula $u$
+\end_inset
+
+ replaced by 
+\begin_inset Formula $u^{-1}$
+\end_inset
+
+.
+ One gets for a suitable 
+\begin_inset Formula $\mu\in\mathbb{R}_{>0}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\phi\left(-\mu,3\right) & \le c\phi\left(-\infty,2\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:Thm-inf-estimate"
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Fritz John and Nirenberg proved the following theorem.
+ It gives a connection between 
+\begin_inset Formula $\phi\left(\mu,2\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\phi\left(-\mu,2\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Theorem 
+\series medium
+(John-Nirenberg)
+\end_layout
+
+\begin_layout Standard
+Consider 
+\begin_inset Formula $B_{R_{0}}\left(y_{0}\right)\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ and 
+\begin_inset Formula $u\in H^{1,1}\left(B_{R_{0}}\left(y_{0}\right)\right)$
+\end_inset
+
+ and assume that for all 
+\begin_inset Formula $B_{R}\left(y\right)\subseteq\mathbb{R}^{n}$
+\end_inset
+
+ holds:
+\begin_inset Formula 
+\begin{align*}
+\int_{B_{R_{0}}\left(y_{0}\right)\cap B_{R}\left(y\right)}\norm{\DD u} & \le R^{n-1}
+\end{align*}
+
+\end_inset
+
+Then there are constants 
+\begin_inset Formula $\alpha,\beta\in\mathbb{R}_{>0}$
+\end_inset
+
+ such that holds:
+\begin_inset Formula 
+\begin{align*}
+\int_{B_{R_{0}}\left(y_{0}\right)}e^{\alpha\abs{u-u_{0}}} & \le\beta_{0}R_{0}^{n}\\
+u_{0} & :=\fint B_{R_{0}\left(y_{0}\right)}u
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\left(\int_{B_{R_{0}\left(y_{0}\right)}}e^{\alpha v}\right)\left(\int_{B_{R_{0}\left(y_{0}\right)}}e^{-\alpha v}\right) & =\left(\int_{B_{R_{0}\left(y_{0}\right)}}e^{\alpha\left(v-v_{0}\right)}\right)\left(\int_{B_{R_{0}\left(y_{0}\right)}}e^{-\alpha\left(v-v_{0}\right)}\right)\le\\
+ & \le\left(\int_{B_{R_{0}\left(y_{0}\right)}}e^{\alpha\abs{v-v_{0}}}\right)^{2}\le\beta_{0}^{2}R_{0}^{2n}
+\end{align*}
+
+\end_inset
+
+Our application of this is choosing 
+\begin_inset Formula $v=\ln\left(u\right)$
+\end_inset
+
+.
+ Then follows:
+\begin_inset Formula 
+\begin{align*}
+e^{\alpha v} & =u^{\alpha} & e^{-\alpha v} & =u^{-\alpha}
+\end{align*}
+
+\end_inset
+
+This gives the desired result.
+ We only have to show:
+\begin_inset Formula 
+\begin{align*}
+\int_{B_{R_{0}\left(y_{0}\right)}\cap B_{R}\left(y\right)}\norm{\frac{\DD u}{u}} & \le R^{n-1}
+\end{align*}
+
+\end_inset
+
+For this consider that 
+\begin_inset Formula $u$
+\end_inset
+
+ is a solution:
+\begin_inset Formula 
+\begin{align*}
+\int_{\Omega}a^{ij}\left(\partial_{i}u\right)\left(\partial_{j}\varphi\right) & =0\qquad\fall_{\varphi\in H_{0}^{1,2}}
+\end{align*}
+
+\end_inset
+
+Then we can choose 
+\begin_inset Formula $\varphi=\frac{1}{u}\eta^{2}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\partial_{j}\varphi & =-\frac{1}{u^{2}}\left(\partial_{j}u\right)\eta^{2}+\frac{1}{u}2\eta\left(\partial_{j}\eta\right)
+\end{align*}
+
+\end_inset
+
+From here it goes on with the standard methods we used already, most importantly
+:
+\begin_inset Formula 
+\begin{align*}
+\int_{B_{R}\left(y\right)}1\cdot\norm{\frac{\DD u}{u}} & \le\left(\int\norm{\frac{\DD u}{u}}^{2}\right)^{\frac{1}{2}}R^{\frac{n}{2}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For the proof of the John-Nirenberg Theorem we define:
+\begin_inset Formula 
+\begin{align*}
+\left(V_{\mu}f\right)\left(x\right) & :=\int\abs{x-y}^{n\left(\mu-1\right)}f\left(y\right)\dd^{n}y
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Lemma
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $u\in H^{1,1}\left(\Omega\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $B\Subset\Omega$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+u_{B} & :=\fint_{B}u
+\end{align*}
+
+\end_inset
+
+Then holds:
+\begin_inset Formula 
+\begin{align*}
+\abs{u\left(x\right)-u_{B}} & \le\frac{\left(\text{diam}\left(\Omega\right)\right)^{n}}{n\abs B}\int_{\Omega}\abs{x-z}^{1-n}\norm{\DD u}\dd^{n}z
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+(Proof omitted)
+\end_layout
+
+\begin_layout Standard
+The proof is analogous to the proof of the Morrey inequality.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\int_{\Omega}\abs{x-z}^{1-n}\norm{\DD u}\dd^{n}z$
+\end_inset
+
+ is connected to 
+\begin_inset Formula $V_{\mu}\left(\abs{\DD u}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Lemma
+\end_layout
+
+\begin_layout Standard
+If for all 
+\begin_inset Formula $R\in\mathbb{R}$
+\end_inset
+
+ with 
+\begin_inset Formula $B_{R}\left(x_{0}\right)\Subset\Omega$
+\end_inset
+
+ already
+\begin_inset Formula 
+\begin{align*}
+\int_{\Omega\cap B_{R}\left(x_{0}\right)}\abs f & \le K\cdot R^{n\left(1-\frac{n}{p}\right)}
+\end{align*}
+
+\end_inset
+
+holds, then follows for 
+\begin_inset Formula $p>1$
+\end_inset
+
+ and 
+\begin_inset Formula $\mu>\frac{1}{p}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\abs{V_{\mu}\left(f\right)} & \le\frac{p-1}{\mu p-1}\left(\text{diam}\left(\Omega\right)\right)^{n\left(\mu-\frac{1}{p}\right)}\cdot K
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+(Proof omitted)
+\end_layout
+
+\begin_layout Standard
+Putting these Lemmata together we get:
+\begin_inset Formula 
+\begin{align*}
+\text{“}\abs{u\left(x\right)-u_{B}} & \le\sup_{B_{R}\left(y\right)}R^{\gamma}\int_{B_{R}}\norm{\DD u}\text{”}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\int_{B_{R}}e^{\frac{V_{\mu}\left(f\right)}{\gamma}} & =\int_{B_{R}}\sum_{n}\frac{\left(V_{\mu}\left(f\right)\right)^{n}}{\gamma n!}=\sum_{n}\frac{1}{\gamma n!}\int_{B_{R}}\left(V_{\mu}\left(f\right)\right)^{n}
+\end{align*}
+
+\end_inset
+
+Then follows for large enough 
+\begin_inset Formula $\gamma$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\int_{B_{R}}e^{\frac{V_{n^{-1}}\left(u\right)}{\gamma}} & \le cR_{0}^{n}
+\end{align*}
+
+\end_inset
+
+This is further explained in the book of Jost.
 \end_layout
 
 \begin_layout Part*
